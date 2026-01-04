@@ -1,0 +1,12 @@
+package com.huawei.openalliance.p169ad.inter.listeners;
+
+import com.huawei.openalliance.p169ad.annotations.OuterVisible;
+import com.huawei.openalliance.p169ad.inter.data.LinkedSplashAd;
+
+@OuterVisible
+/* loaded from: classes2.dex */
+public interface LinkedAdListener extends AdListener {
+    void onAdDetailClosed(LinkedSplashAd linkedSplashAd);
+
+    void onLinkedAdLoaded(LinkedSplashAd linkedSplashAd);
+}

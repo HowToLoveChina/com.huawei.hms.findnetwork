@@ -1,0 +1,13 @@
+package p454lj;
+
+/* renamed from: lj.f */
+/* loaded from: classes5.dex */
+public enum EnumC11283f {
+    NEED_BIND_EMAIL,
+    BIND_EMAIL_FAILED_REBIND,
+    ACTIVATION_SUCCEEDED_TIP_BIND_EMAIL,
+    ACTIVATION_FAILED,
+    BIND_EMAIL_FAILED_TIP,
+    ACTIVATION_SUCCESS,
+    ACTIVATION_SUCCESSES_AFTER_BIND_EMAIL
+}

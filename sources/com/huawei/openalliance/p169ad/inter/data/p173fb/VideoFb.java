@@ -1,0 +1,224 @@
+package com.huawei.openalliance.p169ad.inter.data.p173fb;
+
+import com.google.flatbuffers.BaseVector;
+import com.google.flatbuffers.Constants;
+import com.google.flatbuffers.FlatBufferBuilder;
+import com.google.flatbuffers.Table;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+
+/* loaded from: classes2.dex */
+public final class VideoFb extends Table {
+
+    public static final class Vector extends BaseVector {
+        public Vector __assign(int i10, int i11, ByteBuffer byteBuffer) {
+            __reset(i10, i11, byteBuffer);
+            return this;
+        }
+
+        public VideoFb get(int i10) {
+            return get(new VideoFb(), i10);
+        }
+
+        public VideoFb get(VideoFb videoFb, int i10) {
+            return videoFb.__assign(Table.__indirect(__element(i10), this.f9443bb), this.f9443bb);
+        }
+    }
+
+    public static void ValidateVersion() {
+        Constants.FLATBUFFERS_23_5_26();
+    }
+
+    public static void addCheckSha256Flag(FlatBufferBuilder flatBufferBuilder, int i10) {
+        flatBufferBuilder.addInt(7, i10, 0);
+    }
+
+    public static void addDuration(FlatBufferBuilder flatBufferBuilder, long j10) {
+        flatBufferBuilder.addLong(3, j10, 0L);
+    }
+
+    public static void addFormat(FlatBufferBuilder flatBufferBuilder, int i10) {
+        flatBufferBuilder.addOffset(6, i10, 0);
+    }
+
+    public static void addHeight(FlatBufferBuilder flatBufferBuilder, int i10) {
+        flatBufferBuilder.addInt(2, i10, 0);
+    }
+
+    public static void addLocalPath(FlatBufferBuilder flatBufferBuilder, int i10) {
+        flatBufferBuilder.addOffset(8, i10, 0);
+    }
+
+    public static void addSha256(FlatBufferBuilder flatBufferBuilder, int i10) {
+        flatBufferBuilder.addOffset(5, i10, 0);
+    }
+
+    public static void addSize(FlatBufferBuilder flatBufferBuilder, long j10) {
+        flatBufferBuilder.addLong(4, j10, 0L);
+    }
+
+    public static void addType(FlatBufferBuilder flatBufferBuilder, int i10) {
+        flatBufferBuilder.addInt(9, i10, 0);
+    }
+
+    public static void addUrl(FlatBufferBuilder flatBufferBuilder, int i10) {
+        flatBufferBuilder.addOffset(0, i10, 0);
+    }
+
+    public static void addWidth(FlatBufferBuilder flatBufferBuilder, int i10) {
+        flatBufferBuilder.addInt(1, i10, 0);
+    }
+
+    public static int createVideoFb(FlatBufferBuilder flatBufferBuilder, int i10, int i11, int i12, long j10, long j11, int i13, int i14, int i15, int i16, int i17) {
+        flatBufferBuilder.startTable(10);
+        addSize(flatBufferBuilder, j11);
+        addDuration(flatBufferBuilder, j10);
+        addType(flatBufferBuilder, i17);
+        addLocalPath(flatBufferBuilder, i16);
+        addCheckSha256Flag(flatBufferBuilder, i15);
+        addFormat(flatBufferBuilder, i14);
+        addSha256(flatBufferBuilder, i13);
+        addHeight(flatBufferBuilder, i12);
+        addWidth(flatBufferBuilder, i11);
+        addUrl(flatBufferBuilder, i10);
+        return endVideoFb(flatBufferBuilder);
+    }
+
+    public static int endVideoFb(FlatBufferBuilder flatBufferBuilder) {
+        return flatBufferBuilder.endTable();
+    }
+
+    public static VideoFb getRootAsVideoFb(ByteBuffer byteBuffer) {
+        return getRootAsVideoFb(byteBuffer, new VideoFb());
+    }
+
+    public static void startVideoFb(FlatBufferBuilder flatBufferBuilder) {
+        flatBufferBuilder.startTable(10);
+    }
+
+    public VideoFb __assign(int i10, ByteBuffer byteBuffer) {
+        __init(i10, byteBuffer);
+        return this;
+    }
+
+    public void __init(int i10, ByteBuffer byteBuffer) {
+        __reset(i10, byteBuffer);
+    }
+
+    public int checkSha256Flag() {
+        int i__offset = __offset(18);
+        if (i__offset != 0) {
+            return this.f9449bb.getInt(i__offset + this.bb_pos);
+        }
+        return 0;
+    }
+
+    public long duration() {
+        int i__offset = __offset(10);
+        if (i__offset != 0) {
+            return this.f9449bb.getLong(i__offset + this.bb_pos);
+        }
+        return 0L;
+    }
+
+    public String format() {
+        int i__offset = __offset(16);
+        if (i__offset != 0) {
+            return __string(i__offset + this.bb_pos);
+        }
+        return null;
+    }
+
+    public ByteBuffer formatAsByteBuffer() {
+        return __vector_as_bytebuffer(16, 1);
+    }
+
+    public ByteBuffer formatInByteBuffer(ByteBuffer byteBuffer) {
+        return __vector_in_bytebuffer(byteBuffer, 16, 1);
+    }
+
+    public int height() {
+        int i__offset = __offset(8);
+        if (i__offset != 0) {
+            return this.f9449bb.getInt(i__offset + this.bb_pos);
+        }
+        return 0;
+    }
+
+    public String localPath() {
+        int i__offset = __offset(20);
+        if (i__offset != 0) {
+            return __string(i__offset + this.bb_pos);
+        }
+        return null;
+    }
+
+    public ByteBuffer localPathAsByteBuffer() {
+        return __vector_as_bytebuffer(20, 1);
+    }
+
+    public ByteBuffer localPathInByteBuffer(ByteBuffer byteBuffer) {
+        return __vector_in_bytebuffer(byteBuffer, 20, 1);
+    }
+
+    public String sha256() {
+        int i__offset = __offset(14);
+        if (i__offset != 0) {
+            return __string(i__offset + this.bb_pos);
+        }
+        return null;
+    }
+
+    public ByteBuffer sha256AsByteBuffer() {
+        return __vector_as_bytebuffer(14, 1);
+    }
+
+    public ByteBuffer sha256InByteBuffer(ByteBuffer byteBuffer) {
+        return __vector_in_bytebuffer(byteBuffer, 14, 1);
+    }
+
+    public long size() {
+        int i__offset = __offset(12);
+        if (i__offset != 0) {
+            return this.f9449bb.getLong(i__offset + this.bb_pos);
+        }
+        return 0L;
+    }
+
+    public int type() {
+        int i__offset = __offset(22);
+        if (i__offset != 0) {
+            return this.f9449bb.getInt(i__offset + this.bb_pos);
+        }
+        return 0;
+    }
+
+    public String url() {
+        int i__offset = __offset(4);
+        if (i__offset != 0) {
+            return __string(i__offset + this.bb_pos);
+        }
+        return null;
+    }
+
+    public ByteBuffer urlAsByteBuffer() {
+        return __vector_as_bytebuffer(4, 1);
+    }
+
+    public ByteBuffer urlInByteBuffer(ByteBuffer byteBuffer) {
+        return __vector_in_bytebuffer(byteBuffer, 4, 1);
+    }
+
+    public int width() {
+        int i__offset = __offset(6);
+        if (i__offset != 0) {
+            return this.f9449bb.getInt(i__offset + this.bb_pos);
+        }
+        return 0;
+    }
+
+    public static VideoFb getRootAsVideoFb(ByteBuffer byteBuffer, VideoFb videoFb) {
+        byteBuffer.order(ByteOrder.LITTLE_ENDIAN);
+        return videoFb.__assign(byteBuffer.getInt(byteBuffer.position()) + byteBuffer.position(), byteBuffer);
+    }
+}

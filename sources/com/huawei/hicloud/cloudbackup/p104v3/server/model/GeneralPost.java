@@ -1,0 +1,21 @@
+package com.huawei.hicloud.cloudbackup.p104v3.server.model;
+
+import com.huawei.cloud.base.util.C4644l;
+import com.huawei.cloud.base.util.InterfaceC4648p;
+import ni.C11707b;
+
+/* loaded from: classes6.dex */
+public class GeneralPost extends C11707b {
+
+    @InterfaceC4648p
+    private C4644l createTime;
+
+    public C4644l getCreateTime() {
+        return this.createTime;
+    }
+
+    public GeneralPost setCreateTime(C4644l c4644l) {
+        this.createTime = c4644l;
+        return this;
+    }
+}

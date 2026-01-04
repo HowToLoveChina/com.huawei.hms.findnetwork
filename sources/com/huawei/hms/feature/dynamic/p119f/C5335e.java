@@ -1,0 +1,212 @@
+package com.huawei.hms.feature.dynamic.p119f;
+
+import android.text.TextUtils;
+import android.util.Base64;
+import android.util.Log;
+import java.io.ByteArrayInputStream;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import java.security.PublicKey;
+import java.security.Signature;
+import java.security.SignatureException;
+import java.security.cert.Certificate;
+import java.security.cert.CertificateException;
+import java.security.cert.CertificateExpiredException;
+import java.security.cert.CertificateFactory;
+import java.security.cert.CertificateNotYetValidException;
+import java.security.cert.X509Certificate;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
+import org.json.JSONArray;
+import org.json.JSONException;
+
+/* renamed from: com.huawei.hms.feature.dynamic.f.e */
+/* loaded from: classes8.dex */
+public class C5335e {
+
+    /* renamed from: a */
+    public static final String f24725a = "X509CertUtil";
+
+    /* renamed from: b */
+    public static final String f24726b = "X.509";
+
+    /* renamed from: c */
+    public static final int f24727c = 5;
+
+    /* renamed from: d */
+    public static final String f24728d = "OU";
+
+    /* renamed from: e */
+    public static final String f24729e = "CN";
+
+    /* renamed from: f */
+    public static final String f24730f = "MIIFZDCCA0ygAwIBAgIIYsLLTehAXpYwDQYJKoZIhvcNAQELBQAwUDELMAkGA1UEBhMCQ04xDzANBgNVBAoMBkh1YXdlaTETMBEGA1UECwwKSHVhd2VpIENCRzEbMBkGA1UEAwwSSHVhd2VpIENCRyBSb290IENBMB4XDTE3MDgyMTEwNTYyN1oXDTQyMDgxNTEwNTYyN1owUDELMAkGA1UEBhMCQ04xDzANBgNVBAoMBkh1YXdlaTETMBEGA1UECwwKSHVhd2VpIENCRzEbMBkGA1UEAwwSSHVhd2VpIENCRyBSb290IENBMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA1OyKm3Ig/6eibB7Uz2o93UqGk2M784WdfF8mvffvu218d61G5M3Px54E3kefUTk5Ky1ywHvw7Rp9KDuYv7ktaHkk+yr59Ihseu3a7iM/C6SnMSGt+LfB/Bcob9Abw95EigXQ4yQddX9hbNrin3AwZw8wMjEISYYDo5GuYDL0NbAiYg2Y5GpfYIqRzoi6GqDz+evLrsl20kJeCEPgJZN4Jg00Iq9k++EKOZ5Jc/Zx22ZUgKpdwKABkvzshEgG6WWUPB+gosOiLv++inu/9blDpEzQZhjZ9WVHpURHDK1YlCvubVAMhDpnbqNHZ0AxlPletdoyugrH/OLKl5inhMXNj3Re7Hl8WsBWLUKp6sXFf0dvSFzqnr2jkhicS+K2IYZnjghC9cOBRO8fnkonh0EBt0evjUIKr5ClbCKioBX8JU+d4ldtWOpp2FlxeFTLreDJ5ZBU4//bQpTwYMt7gwMK+MO5WtokUx3UF98Z6GdUgbl6nBjBe82c7oIQXhHGHPnURQO7DDPgyVnNOnTPIkmiHJh/e3vkVhiZNHFCCLTip6GoJVrLxwb9i4q+d0thw4doxVJ5NB9OfDMV64/ybJgpf7m3Ld2yE0gsf1prrRlDFDXjlYyqqpf1l9Y0u3ctXo7UpXMgbyDEpUQhq3a7txZQO/17luTDoA6Tz1ADavvBwHkCAwEAAaNCMEAwDgYDVR0PAQH/BAQDAgEGMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFKrE03lH6G4ja+/wqWwicz16GWmhMA0GCSqGSIb3DQEBCwUAA4ICAQC1d3TMB+VHZdGrWJbfaBShFNiCTN/MceSHOpzBn6JumQP4N7mxCOwdRSsGKQxV2NPH7LTXWNhUvUw5Sek96FWx/+Oa7jsj3WNAVtmS3zKpCQ5iGb08WIROcFnx3oUQ5rcO8r/lUk7Q2cN0E+rF4xsdQrH9k2cd3kAXZXBjfxfKPJTdPy1XnZR/h8H5EwEK5DWjSzK1wKd3G/Fxdm3E23pcr4FZgdYdOlFSiqW2TJ3Qe6lF4GOKOOydWHkpu54ieTsqoYcuMKnKMjT2SLNNgv9Gu5ipaG8Olz6g9C7Htp943lmK/1VtnhggpL3rDTsFX/+ehk7OtxuNzRMD9lXUtEfok7f8XB0dcL4ZjnEhDmp5QZqC1kMubHQtQnTauEiv0YkSGOwJAUZpK1PIff5GgxXYfaHfBC6Op4q02ppl5Q3URl7XIjYLjvs9t4S9xPe8tb6416V2fe1dZ62vOXMMKHkZjVihh+IceYpJYHuyfKoYJyahLOQXZykGK5iPAEEtq3HPfMVF43RKHOwfhrAH5KwelUA/0EkcR4Gzth1MKEqojdnYNemkkSy7aNPPT4LEm5R7sV6vG1CjwbgvQrWCgc4nMb8ngdfnVF7Ydqjqi9SAqUzIk4+Uf0ZY+6RY5IcHdCaiPaWIE1xURQ8B0DRUURsQwXdjZhgLN/DKJpCl5aCCxg==";
+
+    /* renamed from: a */
+    public static String m31902a(String str, String str2) {
+        int iIndexOf = str.toUpperCase(Locale.getDefault()).indexOf(str2 + "=");
+        if (iIndexOf == -1) {
+            return null;
+        }
+        int iIndexOf2 = str.indexOf(",", iIndexOf);
+        int length = iIndexOf + str2.length() + 1;
+        return iIndexOf2 != -1 ? str.substring(length, iIndexOf2) : str.substring(length);
+    }
+
+    /* renamed from: b */
+    public static List<X509Certificate> m31912b(String str) {
+        return m31913b(m31915c(str));
+    }
+
+    /* renamed from: c */
+    public static List<String> m31915c(String str) {
+        try {
+            JSONArray jSONArray = new JSONArray(str);
+            if (jSONArray.length() <= 1) {
+                return Collections.emptyList();
+            }
+            ArrayList arrayList = new ArrayList(jSONArray.length());
+            for (int i10 = 0; i10 < jSONArray.length(); i10++) {
+                arrayList.add(jSONArray.getString(i10));
+            }
+            return arrayList;
+        } catch (JSONException e10) {
+            Log.e(f24725a, "Failed to getCertChain,JSONException:", e10);
+            return Collections.emptyList();
+        }
+    }
+
+    /* renamed from: a */
+    public static X509Certificate m31903a() {
+        return m31905a(Base64.decode(f24730f, 2));
+    }
+
+    /* renamed from: b */
+    public static List<X509Certificate> m31913b(List<String> list) {
+        if (list == null) {
+            Log.w(f24725a, "base64 CertChain is null.");
+            return new ArrayList();
+        }
+        ArrayList arrayList = new ArrayList(list.size());
+        Iterator<String> it = list.iterator();
+        while (it.hasNext()) {
+            X509Certificate x509CertificateM31904a = m31904a(it.next());
+            if (x509CertificateM31904a == null) {
+                Log.e(f24725a, "Failed to get cert from CertChain");
+            } else {
+                arrayList.add(x509CertificateM31904a);
+            }
+        }
+        return arrayList;
+    }
+
+    /* renamed from: a */
+    public static X509Certificate m31904a(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        return m31905a(AbstractC5331a.m31887a(str));
+    }
+
+    /* renamed from: b */
+    public static boolean m31914b(X509Certificate x509Certificate, String str) {
+        return m31908a(x509Certificate, f24728d, str);
+    }
+
+    /* renamed from: a */
+    public static X509Certificate m31905a(byte[] bArr) throws CertificateException {
+        if (bArr == null) {
+            return null;
+        }
+        try {
+            Certificate certificateGenerateCertificate = CertificateFactory.getInstance(f24726b).generateCertificate(new ByteArrayInputStream(bArr));
+            if (certificateGenerateCertificate instanceof X509Certificate) {
+                return (X509Certificate) certificateGenerateCertificate;
+            }
+        } catch (CertificateException e10) {
+            Log.e(f24725a, "Failed to get cert,CertificateException:", e10);
+        }
+        return null;
+    }
+
+    /* renamed from: a */
+    public static boolean m31906a(X509Certificate x509Certificate) {
+        if (x509Certificate == null || x509Certificate.getBasicConstraints() == -1) {
+            return false;
+        }
+        return x509Certificate.getKeyUsage()[5];
+    }
+
+    /* renamed from: a */
+    public static boolean m31907a(X509Certificate x509Certificate, String str) {
+        return m31908a(x509Certificate, "CN", str);
+    }
+
+    /* renamed from: a */
+    public static boolean m31908a(X509Certificate x509Certificate, String str, String str2) {
+        if (x509Certificate == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+            return false;
+        }
+        return str2.equals(m31902a(x509Certificate.getSubjectDN().getName(), str));
+    }
+
+    /* renamed from: a */
+    public static boolean m31909a(X509Certificate x509Certificate, List<X509Certificate> list) throws NoSuchAlgorithmException, SignatureException, InvalidKeyException, CertificateException, NoSuchProviderException {
+        String str;
+        if (list.size() == 0 || x509Certificate == null) {
+            return false;
+        }
+        try {
+            x509Certificate.checkValidity();
+            PublicKey publicKey = x509Certificate.getPublicKey();
+            for (int size = list.size() - 1; size >= 0; size--) {
+                try {
+                    X509Certificate x509Certificate2 = list.get(size);
+                    x509Certificate2.verify(publicKey);
+                    x509Certificate2.checkValidity();
+                    publicKey = x509Certificate2.getPublicKey();
+                } catch (InvalidKeyException | NoSuchAlgorithmException | NoSuchProviderException | SignatureException | CertificateException e10) {
+                    e = e10;
+                    str = "verify failed,Exception:";
+                    Log.e(f24725a, str, e);
+                    return false;
+                }
+            }
+            return m31911a(list);
+        } catch (CertificateExpiredException | CertificateNotYetValidException e11) {
+            e = e11;
+            str = "verifyCertChain Exception:";
+        }
+    }
+
+    /* renamed from: a */
+    public static boolean m31910a(X509Certificate x509Certificate, byte[] bArr, byte[] bArr2) throws NoSuchAlgorithmException, SignatureException, InvalidKeyException {
+        if (x509Certificate == null || bArr == null || bArr2 == null) {
+            Log.w(f24725a, "checkSignature parameter is null");
+            return false;
+        }
+        try {
+            Signature signature = Signature.getInstance(x509Certificate.getSigAlgName());
+            signature.initVerify(x509Certificate.getPublicKey());
+            signature.update(bArr);
+            return signature.verify(bArr2);
+        } catch (InvalidKeyException | NoSuchAlgorithmException | SignatureException e10) {
+            Log.e(f24725a, "failed checkSignature,Exception:", e10);
+            return false;
+        }
+    }
+
+    /* renamed from: a */
+    public static boolean m31911a(List<X509Certificate> list) {
+        for (int i10 = 1; i10 < list.size(); i10++) {
+            if (!m31906a(list.get(i10))) {
+                return false;
+            }
+        }
+        return true;
+    }
+}

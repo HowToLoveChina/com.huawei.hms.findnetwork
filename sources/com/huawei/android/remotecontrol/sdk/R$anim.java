@@ -1,0 +1,82 @@
+package com.huawei.android.remotecontrol.sdk;
+
+/* loaded from: classes4.dex */
+public final class R$anim {
+    public static final int abc_fade_in = 2130771968;
+    public static final int abc_fade_out = 2130771969;
+    public static final int abc_grow_fade_in_from_bottom = 2130771970;
+    public static final int abc_popup_enter = 2130771971;
+    public static final int abc_popup_exit = 2130771972;
+    public static final int abc_shrink_fade_out_from_bottom = 2130771973;
+    public static final int abc_slide_in_bottom = 2130771974;
+    public static final int abc_slide_in_top = 2130771975;
+    public static final int abc_slide_out_bottom = 2130771976;
+    public static final int abc_slide_out_top = 2130771977;
+    public static final int abc_tooltip_enter = 2130771978;
+    public static final int abc_tooltip_exit = 2130771979;
+    public static final int activity_close = 2130771980;
+    public static final int activity_fade_in = 2130771981;
+    public static final int activity_fade_out = 2130771982;
+    public static final int activity_fade_out_zero = 2130771983;
+    public static final int anim_bottom_in = 2130771984;
+    public static final int anim_bottom_out = 2130771985;
+    public static final int anim_left_in = 2130771986;
+    public static final int anim_left_out = 2130771987;
+    public static final int anim_right_in = 2130771988;
+    public static final int anim_right_out = 2130771989;
+    public static final int anim_top_in = 2130771990;
+    public static final int anim_top_out = 2130771991;
+    public static final int btn_checkbox_to_checked_box_inner_merged_animation = 2130771992;
+    public static final int btn_checkbox_to_checked_box_outer_merged_animation = 2130771993;
+    public static final int btn_checkbox_to_checked_icon_null_animation = 2130771994;
+    public static final int btn_checkbox_to_unchecked_box_inner_merged_animation = 2130771995;
+    public static final int btn_checkbox_to_unchecked_check_path_merged_animation = 2130771996;
+    public static final int btn_checkbox_to_unchecked_icon_null_animation = 2130771997;
+    public static final int btn_radio_to_off_mtrl_dot_group_animation = 2130771998;
+    public static final int btn_radio_to_off_mtrl_ring_outer_animation = 2130771999;
+    public static final int btn_radio_to_off_mtrl_ring_outer_path_animation = 2130772000;
+    public static final int btn_radio_to_on_mtrl_dot_group_animation = 2130772001;
+    public static final int btn_radio_to_on_mtrl_ring_outer_animation = 2130772002;
+    public static final int btn_radio_to_on_mtrl_ring_outer_path_animation = 2130772003;
+    public static final int coupon_in_bottom = 2130772004;
+    public static final int coupon_out_bottom = 2130772005;
+    public static final int design_bottom_sheet_slide_in = 2130772006;
+    public static final int design_bottom_sheet_slide_out = 2130772007;
+    public static final int design_snackbar_in = 2130772008;
+    public static final int design_snackbar_out = 2130772009;
+    public static final int fragment_fast_out_extra_slow_in = 2130772010;
+    public static final int haid_masking_arc_zoom_in = 2130772011;
+    public static final int haid_masking_fade_out = 2130772012;
+    public static final int heart_beat_anim = 2130772013;
+    public static final int hiad_anim_stub_fade_in = 2130772014;
+    public static final int hiad_anim_stub_fade_out = 2130772015;
+    public static final int hiad_close = 2130772016;
+    public static final int hiad_masking_hand_zoom_in = 2130772017;
+    public static final int hiad_masking_hand_zoom_out = 2130772018;
+    public static final int hiad_open = 2130772019;
+    public static final int hwalphaindexerlistview_popup_window_hide = 2130772020;
+    public static final int hwalphaindexerlistview_popup_window_show = 2130772021;
+    public static final int hwalphaindexerlistview_translate_bottom2top = 2130772022;
+    public static final int hwalphaindexerlistview_translate_top2bottom = 2130772023;
+    public static final int hwcheckbox_fast_out_slow_in = 2130772024;
+    public static final int hwdatepicker_decelerate_cubic = 2130772025;
+    public static final int hwdatepicker_decelerate_quint = 2130772026;
+    public static final int hwdatepicker_dialog_enter = 2130772027;
+    public static final int hwdatepicker_dialog_exit = 2130772028;
+    public static final int hwedittext_cycle_7 = 2130772029;
+    public static final int hwedittext_shake = 2130772030;
+    public static final int hwtimepicker_decelerate_cubic = 2130772031;
+    public static final int hwtimepicker_decelerate_quint = 2130772032;
+    public static final int hwtimepicker_dialog_enter = 2130772033;
+    public static final int hwtimepicker_dialog_exit = 2130772034;
+    public static final int mtrl_bottom_sheet_slide_in = 2130772035;
+    public static final int mtrl_bottom_sheet_slide_out = 2130772036;
+    public static final int mtrl_card_lowers_interpolator = 2130772037;
+    public static final int push_bottom_in = 2130772038;
+    public static final int push_bottom_out = 2130772039;
+    public static final int search_fade_in = 2130772040;
+    public static final int search_fade_out = 2130772041;
+
+    private R$anim() {
+    }
+}

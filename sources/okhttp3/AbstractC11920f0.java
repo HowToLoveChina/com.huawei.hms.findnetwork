@@ -1,0 +1,181 @@
+package okhttp3;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import p022ay.C1057g;
+import p022ay.C1064n;
+import p022ay.InterfaceC1055e;
+import p022ay.InterfaceC1076z;
+import sx.C12875e;
+
+/* renamed from: okhttp3.f0 */
+/* loaded from: classes9.dex */
+public abstract class AbstractC11920f0 {
+
+    /* renamed from: okhttp3.f0$a */
+    public class a extends AbstractC11920f0 {
+
+        /* renamed from: a */
+        public final /* synthetic */ C11910a0 f55284a;
+
+        /* renamed from: b */
+        public final /* synthetic */ C1057g f55285b;
+
+        public a(C11910a0 c11910a0, C1057g c1057g) {
+            this.f55284a = c11910a0;
+            this.f55285b = c1057g;
+        }
+
+        @Override // okhttp3.AbstractC11920f0
+        public long contentLength() throws IOException {
+            return this.f55285b.m6370E();
+        }
+
+        @Override // okhttp3.AbstractC11920f0
+        public C11910a0 contentType() {
+            return this.f55284a;
+        }
+
+        @Override // okhttp3.AbstractC11920f0
+        public void writeTo(InterfaceC1055e interfaceC1055e) throws IOException {
+            interfaceC1055e.mo6337a(this.f55285b);
+        }
+    }
+
+    /* renamed from: okhttp3.f0$b */
+    public class b extends AbstractC11920f0 {
+
+        /* renamed from: a */
+        public final /* synthetic */ C11910a0 f55286a;
+
+        /* renamed from: b */
+        public final /* synthetic */ int f55287b;
+
+        /* renamed from: c */
+        public final /* synthetic */ byte[] f55288c;
+
+        /* renamed from: d */
+        public final /* synthetic */ int f55289d;
+
+        public b(C11910a0 c11910a0, int i10, byte[] bArr, int i11) {
+            this.f55286a = c11910a0;
+            this.f55287b = i10;
+            this.f55288c = bArr;
+            this.f55289d = i11;
+        }
+
+        @Override // okhttp3.AbstractC11920f0
+        public long contentLength() {
+            return this.f55287b;
+        }
+
+        @Override // okhttp3.AbstractC11920f0
+        public C11910a0 contentType() {
+            return this.f55286a;
+        }
+
+        @Override // okhttp3.AbstractC11920f0
+        public void writeTo(InterfaceC1055e interfaceC1055e) throws IOException {
+            interfaceC1055e.write(this.f55288c, this.f55289d, this.f55287b);
+        }
+    }
+
+    /* renamed from: okhttp3.f0$c */
+    public class c extends AbstractC11920f0 {
+
+        /* renamed from: a */
+        public final /* synthetic */ C11910a0 f55290a;
+
+        /* renamed from: b */
+        public final /* synthetic */ File f55291b;
+
+        public c(C11910a0 c11910a0, File file) {
+            this.f55290a = c11910a0;
+            this.f55291b = file;
+        }
+
+        @Override // okhttp3.AbstractC11920f0
+        public long contentLength() {
+            return this.f55291b.length();
+        }
+
+        @Override // okhttp3.AbstractC11920f0
+        public C11910a0 contentType() {
+            return this.f55290a;
+        }
+
+        @Override // okhttp3.AbstractC11920f0
+        public void writeTo(InterfaceC1055e interfaceC1055e) throws IOException {
+            InterfaceC1076z interfaceC1076zM6406e = C1064n.m6406e(this.f55291b);
+            try {
+                interfaceC1055e.mo6328P(interfaceC1076zM6406e);
+                if (interfaceC1076zM6406e != null) {
+                    interfaceC1076zM6406e.close();
+                }
+            } catch (Throwable th2) {
+                if (interfaceC1076zM6406e != null) {
+                    try {
+                        interfaceC1076zM6406e.close();
+                    } catch (Throwable th3) {
+                        th2.addSuppressed(th3);
+                    }
+                }
+                throw th2;
+            }
+        }
+    }
+
+    public static AbstractC11920f0 create(C11910a0 c11910a0, String str) {
+        Charset charset = StandardCharsets.UTF_8;
+        if (c11910a0 != null) {
+            Charset charsetM71446a = c11910a0.m71446a();
+            if (charsetM71446a == null) {
+                c11910a0 = C11910a0.m71445d(c11910a0 + "; charset=utf-8");
+            } else {
+                charset = charsetM71446a;
+            }
+        }
+        return create(c11910a0, str.getBytes(charset));
+    }
+
+    public long contentLength() throws IOException {
+        return -1L;
+    }
+
+    public abstract C11910a0 contentType();
+
+    public boolean isDuplex() {
+        return false;
+    }
+
+    public boolean isOneShot() {
+        return false;
+    }
+
+    public abstract void writeTo(InterfaceC1055e interfaceC1055e) throws IOException;
+
+    public static AbstractC11920f0 create(C11910a0 c11910a0, C1057g c1057g) {
+        return new a(c11910a0, c1057g);
+    }
+
+    public static AbstractC11920f0 create(C11910a0 c11910a0, byte[] bArr) {
+        return create(c11910a0, bArr, 0, bArr.length);
+    }
+
+    public static AbstractC11920f0 create(C11910a0 c11910a0, byte[] bArr, int i10, int i11) {
+        if (bArr != null) {
+            C12875e.m77249f(bArr.length, i10, i11);
+            return new b(c11910a0, i11, bArr, i10);
+        }
+        throw new NullPointerException("content == null");
+    }
+
+    public static AbstractC11920f0 create(C11910a0 c11910a0, File file) {
+        if (file != null) {
+            return new c(c11910a0, file);
+        }
+        throw new NullPointerException("file == null");
+    }
+}

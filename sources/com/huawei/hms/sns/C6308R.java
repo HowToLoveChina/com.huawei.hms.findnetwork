@@ -1,0 +1,56 @@
+package com.huawei.hms.sns;
+
+/* renamed from: com.huawei.hms.sns.R */
+/* loaded from: classes8.dex */
+public final class C6308R {
+
+    /* renamed from: com.huawei.hms.sns.R$color */
+    public static final class color {
+        public static final int emui_color_gray_1 = 2131100450;
+        public static final int emui_color_gray_10 = 2131100451;
+        public static final int emui_color_gray_7 = 2131100457;
+
+        private color() {
+        }
+    }
+
+    /* renamed from: com.huawei.hms.sns.R$id */
+    public static final class id {
+        public static final int enable_service_text = 2131363252;
+
+        private id() {
+        }
+    }
+
+    /* renamed from: com.huawei.hms.sns.R$layout */
+    public static final class layout {
+        public static final int activity_endisable_service = 2131624034;
+
+        private layout() {
+        }
+    }
+
+    /* renamed from: com.huawei.hms.sns.R$string */
+    public static final class string {
+        public static final int hms_apk_not_installed_hints = 2131429923;
+        public static final int hms_bindfaildlg_message = 2131429924;
+        public static final int hms_bindfaildlg_title = 2131429925;
+        public static final int hms_confirm = 2131429926;
+        public static final int hms_is_spoof = 2131429927;
+        public static final int hms_spoof_hints = 2131429929;
+
+        private string() {
+        }
+    }
+
+    /* renamed from: com.huawei.hms.sns.R$style */
+    public static final class style {
+        public static final int Base_Translucent = 2131951894;
+
+        private style() {
+        }
+    }
+
+    private C6308R() {
+    }
+}

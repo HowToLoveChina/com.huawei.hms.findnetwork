@@ -1,0 +1,19 @@
+package com.huawei.openalliance.p169ad.inter.listeners;
+
+import com.huawei.openalliance.p169ad.annotations.OuterVisible;
+
+@OuterVisible
+/* loaded from: classes2.dex */
+public interface IRewardAdStatusListener {
+    void onAdClicked();
+
+    void onAdClosed();
+
+    void onAdCompleted();
+
+    void onAdError(int i10, int i11);
+
+    void onAdShown();
+
+    void onRewarded();
+}

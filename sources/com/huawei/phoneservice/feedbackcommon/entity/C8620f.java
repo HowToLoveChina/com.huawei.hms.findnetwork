@@ -1,0 +1,45 @@
+package com.huawei.phoneservice.feedbackcommon.entity;
+
+import com.google.gson.annotations.SerializedName;
+import com.huawei.phoneservice.faq.base.constants.FaqConstants;
+import com.huawei.phoneservice.faq.base.util.FaqSdk;
+import java.io.Serializable;
+
+/* renamed from: com.huawei.phoneservice.feedbackcommon.entity.f */
+/* loaded from: classes5.dex */
+public class C8620f implements Serializable {
+    private static final long serialVersionUID = 735508157925975893L;
+
+    /* renamed from: b */
+    @SerializedName(FaqConstants.FAQ_SHASN)
+    private String f40125b;
+
+    /* renamed from: g */
+    @SerializedName("countryCode")
+    private String f40130g;
+
+    /* renamed from: a */
+    @SerializedName("appID")
+    private String f40124a = FaqSdk.getSdk().getSdk(FaqConstants.FAQ_LOG_SERVER_APPID);
+
+    /* renamed from: c */
+    @SerializedName(FaqConstants.FAQ_MODEL)
+    private String f40126c = FaqSdk.getSdk().getSdk(FaqConstants.FAQ_MODEL);
+
+    /* renamed from: d */
+    @SerializedName(FaqConstants.FAQ_ROMVERSION)
+    private String f40127d = FaqSdk.getSdk().getSdk(FaqConstants.FAQ_ROMVERSION);
+
+    /* renamed from: e */
+    @SerializedName(FaqConstants.FAQ_EMUIVERSION)
+    private String f40128e = FaqSdk.getSdk().getSdk(FaqConstants.FAQ_EMUIVERSION);
+
+    /* renamed from: f */
+    @SerializedName(FaqConstants.FAQ_OSVERSION)
+    private String f40129f = FaqSdk.getSdk().getSdk(FaqConstants.FAQ_OSVERSION);
+
+    public C8620f(String str, String str2) {
+        this.f40125b = str;
+        this.f40130g = str2;
+    }
+}

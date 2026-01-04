@@ -1,0 +1,70 @@
+package com.huawei.hms.support.api.sns.json;
+
+import android.content.Intent;
+import android.os.Parcelable;
+import com.huawei.android.backup.service.logic.C2126b;
+import com.huawei.hms.common.ApiException;
+import com.huawei.hms.common.ResolvableApiException;
+import com.huawei.hms.common.internal.ResponseErrorCode;
+import com.huawei.hms.common.internal.TaskApiCall;
+import com.huawei.hms.support.api.client.Status;
+import com.huawei.hms.support.api.entity.sns.json.SnsOutIntent;
+import com.huawei.hms.support.api.sns.json.SnsClient;
+import p208cq.C8941i;
+
+/* loaded from: classes8.dex */
+public class SnsSendMsgTaskApiCall extends TaskApiCall<SnsHmsClient, SnsOutIntent> {
+
+    /* renamed from: a */
+    SnsClient.Callback f29951a;
+
+    /* renamed from: b */
+    private String f29952b;
+
+    /* renamed from: c */
+    private SnsClientImpl f29953c;
+
+    public SnsSendMsgTaskApiCall(String str, String str2) {
+        super(str, str2);
+    }
+
+    public SnsSendMsgTaskApiCall(String str, String str2, SnsClient.Callback callback, SnsClientImpl snsClientImpl) {
+        super(str, str2);
+        this.f29951a = callback;
+        this.f29953c = snsClientImpl;
+        this.f29952b = str;
+    }
+
+    @Override // com.huawei.hms.common.internal.TaskApiCall
+    public void doExecute(SnsHmsClient snsHmsClient, ResponseErrorCode responseErrorCode, String str, C8941i<SnsOutIntent> c8941i) {
+        String transactionId = getTransactionId();
+        int statusCode = responseErrorCode.getStatusCode();
+        String errorReason = responseErrorCode.getErrorReason();
+        this.f29953c.biReportExit(this.f29952b, transactionId, statusCode, responseErrorCode.getErrorCode());
+        SnsOutIntent snsOutIntent = new SnsOutIntent(str);
+        if (responseErrorCode.getErrorCode() != 0) {
+            if (responseErrorCode.hasResolution()) {
+                c8941i.m56657c(new ResolvableApiException(responseErrorCode));
+                return;
+            }
+            c8941i.m56657c(new ApiException(new Status(responseErrorCode.getErrorCode(), errorReason)));
+            SnsClient.Callback callback = this.f29951a;
+            if (callback != null) {
+                callback.notify("errorReason: " + errorReason);
+                return;
+            }
+            return;
+        }
+        Parcelable parcelable = responseErrorCode.getParcelable();
+        if (parcelable instanceof Intent) {
+            Intent intent = (Intent) parcelable;
+            str = str + C2126b.MODULE_INFO_URI + intent.toUri(0);
+            snsOutIntent.setIntent(intent);
+        }
+        c8941i.m56658d(snsOutIntent);
+        SnsClient.Callback callback2 = this.f29951a;
+        if (callback2 != null) {
+            callback2.notify(str);
+        }
+    }
+}

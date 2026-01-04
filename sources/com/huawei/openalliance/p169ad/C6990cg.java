@@ -1,0 +1,111 @@
+package com.huawei.openalliance.p169ad;
+
+import android.content.Context;
+import android.view.View;
+import com.hihonor.android.util.HwNotchSizeUtil;
+import com.huawei.openalliance.p169ad.beans.inner.CountryCodeBean;
+import com.huawei.openalliance.p169ad.utils.AbstractC7811dd;
+import com.huawei.openalliance.p169ad.utils.C7745as;
+import com.huawei.phoneservice.faq.base.constants.FaqConstants;
+
+/* renamed from: com.huawei.openalliance.ad.cg */
+/* loaded from: classes8.dex */
+public class C6990cg extends AbstractC6987cd {
+
+    /* renamed from: c */
+    private static InterfaceC6998co f32119c;
+
+    /* renamed from: d */
+    private static final byte[] f32120d = new byte[0];
+
+    private C6990cg(Context context) {
+        super(context);
+    }
+
+    /* renamed from: b */
+    public static InterfaceC6998co m41213b(Context context) {
+        return m41214c(context);
+    }
+
+    /* renamed from: c */
+    private static InterfaceC6998co m41214c(Context context) {
+        InterfaceC6998co interfaceC6998co;
+        synchronized (f32120d) {
+            try {
+                if (f32119c == null) {
+                    f32119c = new C6990cg(context);
+                }
+                interfaceC6998co = f32119c;
+            } catch (Throwable th2) {
+                throw th2;
+            }
+        }
+        return interfaceC6998co;
+    }
+
+    @Override // com.huawei.openalliance.p169ad.C6986cc, com.huawei.openalliance.p169ad.InterfaceC6998co
+    /* renamed from: a */
+    public int mo41169a(View view) {
+        StringBuilder sb2;
+        try {
+            if (!HwNotchSizeUtil.hasNotchInScreen()) {
+                return 0;
+            }
+            int[] notchSize = HwNotchSizeUtil.getNotchSize();
+            if (notchSize.length >= 2) {
+                return notchSize[1];
+            }
+            return 0;
+        } catch (Exception e10) {
+            e = e10;
+            sb2 = new StringBuilder();
+            sb2.append("getNotchHeight error:");
+            sb2.append(e.getClass().getSimpleName());
+            AbstractC7185ho.m43823c("HnDeviceImpl", sb2.toString());
+            return 0;
+        } catch (Throwable th2) {
+            e = th2;
+            sb2 = new StringBuilder();
+            sb2.append("getNotchHeight error:");
+            sb2.append(e.getClass().getSimpleName());
+            AbstractC7185ho.m43823c("HnDeviceImpl", sb2.toString());
+            return 0;
+        }
+    }
+
+    @Override // com.huawei.openalliance.p169ad.C6986cc, com.huawei.openalliance.p169ad.InterfaceC6998co
+    /* renamed from: h */
+    public Integer mo41179h() {
+        return Integer.valueOf(C7745as.a.f35840b);
+    }
+
+    @Override // com.huawei.openalliance.p169ad.C6986cc, com.huawei.openalliance.p169ad.InterfaceC6998co
+    /* renamed from: p */
+    public String mo41187p() {
+        return AbstractC7811dd.m48289a(CountryCodeBean.VENDOR_SYSTEMPROP_HN);
+    }
+
+    @Override // com.huawei.openalliance.p169ad.C6986cc, com.huawei.openalliance.p169ad.InterfaceC6998co
+    /* renamed from: q */
+    public String mo41188q() {
+        return AbstractC7811dd.m48289a(CountryCodeBean.VENDORCOUNTRY_SYSTEMPROP_HN);
+    }
+
+    @Override // com.huawei.openalliance.p169ad.C6986cc, com.huawei.openalliance.p169ad.InterfaceC6998co
+    /* renamed from: r */
+    public boolean mo41189r() {
+        return FaqConstants.DISABLE_HA_REPORT.equalsIgnoreCase(AbstractC7811dd.m48289a("msc.pure_mode.enable"));
+    }
+
+    @Override // com.huawei.openalliance.p169ad.AbstractC6987cd
+    /* renamed from: s */
+    public String mo41197s() {
+        return "msc.build.platform.version";
+    }
+
+    @Override // com.huawei.openalliance.p169ad.C6986cc, com.huawei.openalliance.p169ad.InterfaceC6998co
+    /* renamed from: a */
+    public boolean mo41170a() {
+        return "156".equals(AbstractC7811dd.m48289a("msc.config.optb"));
+    }
+}
