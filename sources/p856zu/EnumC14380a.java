@@ -9,7 +9,7 @@ import java.util.Map;
 
 /* renamed from: zu.a */
 /* loaded from: classes9.dex */
-public enum EnumC14380a {
+public enum enumEncryptAlgorithm {
     UNKNOWN((byte) -1, "unknown", 0),
     AES_CBC((byte) 0, "AES/CBC/PKCS5Padding", 16),
     KEY_STORE_AES_CBC((byte) 0, "AES/CBC/PKCS7Padding", 16),
@@ -20,51 +20,51 @@ public enum EnumC14380a {
 
 
     /* renamed from: k */
-    public static final Map<Byte, EnumC14380a> f63746k = new HashMap();
+    public static final Map<Byte, enumEncryptAlgorithm> f63746k = new HashMap();
 
     /* renamed from: l */
-    public static final Map<String, EnumC14380a> f63747l = new HashMap();
+    public static final Map<String, enumEncryptAlgorithm> f63747l = new HashMap();
 
     /* renamed from: a */
-    public final byte f63749a;
+    public final byte m_key;
 
     /* renamed from: b */
-    public final String f63750b;
+    public final String m_name;
 
     /* renamed from: c */
-    public final int f63751c;
+    public final int m_seed;
 
     static {
-        Iterator it = EnumSet.allOf(EnumC14380a.class).iterator();
+        Iterator it = EnumSet.allOf(enumEncryptAlgorithm.class).iterator();
         while (it.hasNext()) {
-            EnumC14380a enumC14380a = (EnumC14380a) it.next();
-            f63746k.put(Byte.valueOf(enumC14380a.f63749a), enumC14380a);
+            enumEncryptAlgorithm enumEncryptAlgorithm = (enumEncryptAlgorithm) it.next();
+            f63746k.put(Byte.valueOf(enumEncryptAlgorithm.m_key), enumEncryptAlgorithm);
         }
-        Map<String, EnumC14380a> map = f63747l;
+        Map<String, enumEncryptAlgorithm> map = f63747l;
         map.put("EC", ECIES);
         map.put("RSA", RSA_OAEP);
         map.put("AES", AES_GCM);
     }
 
-    EnumC14380a(byte b10, String str, int i10) {
-        this.f63749a = b10;
-        this.f63750b = str;
-        this.f63751c = i10;
+    enumEncryptAlgorithm(byte b10, String str, int i10) {
+        this.m_key = b10;
+        this.m_name = str;
+        this.m_seed = i10;
     }
 
     /* renamed from: e */
-    public static EnumC14380a m85605e(String str) {
+    public static enumEncryptAlgorithm getAlgorithm(String str) {
         return f63747l.get(str);
     }
 
     /* renamed from: b */
-    public int m85606b() {
-        return this.f63751c;
+    public int getAlgorithmSeed() {
+        return this.m_seed;
     }
 
     /* renamed from: f */
-    public String m85607f() {
-        return this.f63750b;
+    public String getAlgorithmName() {
+        return this.m_name;
     }
 
     @Override // java.lang.Enum

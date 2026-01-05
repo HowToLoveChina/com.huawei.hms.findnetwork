@@ -10,8 +10,8 @@ import p688ur.C13245e;
 import p785xr.C13851a;
 import p820yr.C14038b;
 import p853zr.C14371a;
-import p857zv.C14387a;
-import p857zv.C14389c;
+import p857zv.Exception_C14387a;
+import p857zv.Exception_C14389c;
 import tr.C13065i;
 import tr.InterfaceC13062f;
 
@@ -36,16 +36,16 @@ public class C13485f extends AbstractC13481b {
             C1016d.m6181a("UcsAuthInterceptor", "X_REQUEST_ID:" + c13851a.m83125e().m83150c("X-Request-ID"));
             C1016d.m6181a("UcsAuthInterceptor", "auth:" + strM85566h);
             return c13851a.m83129i().m83139i("authorization", strM85566h).m83141k();
-        } catch (C14387a e10) {
+        } catch (Exception_C14387a e10) {
             C1016d.m6183c("UcsAuthInterceptor", "UcsCryptoException:" + e10.getMessage());
-            if (this.m81171d(e10.m85618b())) {
+            if (this.m81171d(e10.getErrorCode())) {
                 return this.mo81165c(c13851a, c14038b);
             }
             C1016d.m6183c("UcsAuthInterceptor", "AuthException:10550");
             throw new C13241a(C13243c.m79629a(10550));
-        } catch (C14389c e11) {
-            C1016d.m6183c("UcsAuthInterceptor", "UcsException:errorCode:" + e11.m85620b() + ",message:" + e11.getMessage());
-            if (this.m81171d(e11.m85620b())) {
+        } catch (Exception_C14389c e11) {
+            C1016d.m6183c("UcsAuthInterceptor", "UcsException:errorCode:" + e11.getErrorCode() + ",message:" + e11.getMessage());
+            if (this.m81171d(e11.getErrorCode())) {
                 return this.mo81165c(c13851a, c14038b);
             }
             C1016d.m6183c("UcsAuthInterceptor", "AuthException:10550");

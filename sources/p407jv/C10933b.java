@@ -6,7 +6,7 @@ import com.huawei.hianalytics.process.HiAnalyticsConfig;
 import com.huawei.hianalytics.process.HiAnalyticsInstance;
 import lv.InterfaceC11350a;
 import p374iv.C10627f;
-import p436kv.InterfaceC11162b;
+import p436kv.interfaceLinkHashMap;
 
 /* renamed from: jv.b */
 /* loaded from: classes9.dex */
@@ -44,12 +44,12 @@ public class C10933b {
     }
 
     /* renamed from: b */
-    public void m66058b(Context context, InterfaceC11162b interfaceC11162b) {
-        m66059c(context, interfaceC11162b, EnumC10934c.HIANALYTICS_MAINTENANCE);
+    public void m66058b(Context context, interfaceLinkHashMap interfaceLinkHashMap) {
+        m66059c(context, interfaceLinkHashMap, EnumC10934c.HIANALYTICS_MAINTENANCE);
     }
 
     /* renamed from: c */
-    public void m66059c(Context context, InterfaceC11162b interfaceC11162b, EnumC10934c enumC10934c) {
+    public void m66059c(Context context, interfaceLinkHashMap interfaceLinkHashMap, EnumC10934c enumC10934c) {
         if (this.f51844a == null) {
             this.f51846c.mo7652i("HaReporter", "onEvent null == analyticsInstance");
             return;
@@ -59,7 +59,7 @@ public class C10933b {
             return;
         }
         try {
-            this.f51844a.onEvent(enumC10934c.m66061b(), interfaceC11162b.mo58649a(), interfaceC11162b.build());
+            this.f51844a.onEvent(enumC10934c.m66061b(), interfaceLinkHashMap.getName(), interfaceLinkHashMap.build());
             this.f51846c.mo7652i("HaReporter", "onEvent success");
         } catch (Exception e10) {
             this.f51846c.mo7653w("HaReporter", "onEvent fail : " + e10.getMessage());

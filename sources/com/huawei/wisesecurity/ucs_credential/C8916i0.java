@@ -20,7 +20,7 @@ import p239dw.C9344n;
 import p239dw.C9346o;
 import p239dw.InterfaceC9350r;
 import p373iu.C10618f;
-import p857zv.C14389c;
+import p857zv.Exception_C14389c;
 
 /* renamed from: com.huawei.wisesecurity.ucs_credential.i0 */
 /* loaded from: classes9.dex */
@@ -62,7 +62,7 @@ public class C8916i0 implements NetworkCapability {
     }
 
     @Override // com.huawei.wisesecurity.ucs.credential.outer.NetworkCapability
-    public void initConfig(int i10, int i11) throws C14389c {
+    public void initConfig(int i10, int i11) throws Exception_C14389c {
         Context context = this.f45396b;
         try {
             NetworkKit.init(context, new C9346o(this));

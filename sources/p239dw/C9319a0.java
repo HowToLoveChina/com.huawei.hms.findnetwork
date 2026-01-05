@@ -1,19 +1,19 @@
 package p239dw;
 
-import p436kv.AbstractC11161a;
+import p436kv.AbstractLinkHashMap;
 
 /* renamed from: dw.a0 */
 /* loaded from: classes9.dex */
-public class C9319a0 extends AbstractC11161a {
-    @Override // p436kv.InterfaceC11162b
+public class CryptoHashMap extends AbstractLinkHashMap {
+    @Override // p436kv.interfaceLinkHashMap
     /* renamed from: a */
-    public String mo58649a() {
+    public String getName() {
         return "crypto";
     }
 
     /* renamed from: k */
-    public C9319a0 m58650k() {
-        this.f52504d.put("flavor", "product");
+    public CryptoHashMap m58650k() {
+        this.hashmap.put("flavor", "product");
         return this;
     }
 }

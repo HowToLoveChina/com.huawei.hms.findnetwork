@@ -18,37 +18,37 @@ import java.security.cert.Certificate;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-import p857zv.C14389c;
+import p857zv.Exception_C14389c;
 
 /* renamed from: dw.n0 */
 /* loaded from: classes9.dex */
 public class C9345n0 extends AbstractC9328f {
-    public C9345n0(CredentialClient credentialClient, Context context, NetworkCapability networkCapability) throws C14389c {
+    public C9345n0(CredentialClient credentialClient, Context context, NetworkCapability networkCapability) throws Exception_C14389c {
         super(credentialClient, context, networkCapability);
     }
 
     @Override // p239dw.AbstractC9328f
     /* renamed from: a */
-    public Credential mo58666a(String str) throws C14389c {
+    public Credential mo58666a(String str) throws Exception_C14389c {
         try {
             if (Integer.parseInt(new JSONObject(str).getString("expire")) == 0) {
                 return this.f46708g.genCredentialFromString(str);
             }
-            throw new C14389c(1017L, "unenable expire.");
+            throw new Exception_C14389c(1017L, "unenable expire.");
         } catch (NumberFormatException e10) {
             StringBuilder sbM58651a = C9320b.m58651a("parse TSMS resp expire error : ");
             sbM58651a.append(e10.getMessage());
-            throw new C14389c(2001L, sbM58651a.toString());
+            throw new Exception_C14389c(2001L, sbM58651a.toString());
         } catch (JSONException e11) {
             StringBuilder sbM58651a2 = C9320b.m58651a("parse TSMS resp get json error : ");
             sbM58651a2.append(e11.getMessage());
-            throw new C14389c(1002L, sbM58651a2.toString());
+            throw new Exception_C14389c(1002L, sbM58651a2.toString());
         }
     }
 
     @Override // p239dw.AbstractC9328f
     /* renamed from: c */
-    public Credential mo58667c(String str, String str2, String str3, String str4, C9334i c9334i) throws C14389c {
+    public Credential mo58667c(String str, String str2, String str3, String str4, C9334i c9334i) throws Exception_C14389c {
         try {
             C1029b.m6234e("UcsECKeyStoreHandler", "applyCredential use KeyStoreEcHandler.", new Object[0]);
             return m58672b(str, str2, str3, str4);
@@ -62,7 +62,7 @@ public class C9345n0 extends AbstractC9328f {
 
     @Override // p239dw.AbstractC9328f
     /* renamed from: d */
-    public String mo58668d(NetworkResponse networkResponse) throws C14389c {
+    public String mo58668d(NetworkResponse networkResponse) throws Exception_C14389c {
         if (networkResponse.isSuccessful()) {
             return networkResponse.getBody();
         }
@@ -77,12 +77,12 @@ public class C9345n0 extends AbstractC9328f {
             C9326e.m58663a(this.f46703b);
             C1029b.m6234e("UcsECKeyStoreHandler", "turn off android keystore EC CertificateChain", new Object[0]);
         }
-        throw new C14389c(ConstantsAPI.AppSupportContentFlag.MMAPP_SUPPORT_XLS, string);
+        throw new Exception_C14389c(ConstantsAPI.AppSupportContentFlag.MMAPP_SUPPORT_XLS, string);
     }
 
     @Override // p239dw.AbstractC9328f
     /* renamed from: e */
-    public void mo58669e() throws C14389c {
+    public void mo58669e() throws Exception_C14389c {
         Context context = this.f46703b;
         if (!C9326e.m58664b() || C8957b.m56703b("ucs_ec_keystore_sp_key_t", -1, context) == 0) {
             throw C9344n.m58700a("UcsECKeyStoreHandler", "keyStoreCertificateChain is off. not support android keyStore EC.", new Object[0], 1022L, "keyStoreCertificateChain is off. not support android keyStore EC.");
@@ -91,7 +91,7 @@ public class C9345n0 extends AbstractC9328f {
 
     @Override // p239dw.AbstractC9328f
     /* renamed from: f */
-    public String mo58670f() throws C14389c, KeyStoreException {
+    public String mo58670f() throws Exception_C14389c, KeyStoreException {
         C9356x.m58717a(UcsKeyStoreProvider.ANDROID_KEYSTORE);
         InterfaceC9358z interfaceC9358z = C9356x.f46764b;
         C9356x c9356x = (C9356x) interfaceC9358z;
@@ -99,7 +99,7 @@ public class C9345n0 extends AbstractC9328f {
         Certificate[] certificateArrM58720d = c9356x.m58720d("ucs_ec_alias_rootKey");
         if (C9322c.m58657a(certificateArrM58720d)) {
             C9326e.m58663a(this.f46703b);
-            throw new C14389c(2001L, "android keystore EC no support software attestation root.");
+            throw new Exception_C14389c(2001L, "android keystore EC no support software attestation root.");
         }
         C9333h0 c9333h0 = new C9333h0();
         c9333h0.f46720i = "ucs_ec_alias_rootKey";

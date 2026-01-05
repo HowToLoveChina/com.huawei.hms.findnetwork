@@ -1,7 +1,7 @@
 package com.huawei.wisesecurity.ucs.credential.crypto.signer;
 
-import mv.C11528a;
-import p857zv.C14389c;
+import mv.SafeBytes;
+import p857zv.Exception_C14389c;
 import p857zv.C14391e;
 
 /* loaded from: classes9.dex */
@@ -10,7 +10,7 @@ public class CredentialSignText {
     private byte[] dataBytes;
     private byte[] signature;
 
-    public void checkParam(boolean z10) throws C14389c {
+    public void checkParam(boolean z10) throws Exception_C14389c {
         byte[] bArr = this.dataBytes;
         if (bArr == null || bArr.length == 0) {
             throw new C14391e("dataBytes data can not be empty..");
@@ -29,11 +29,11 @@ public class CredentialSignText {
     }
 
     public byte[] getDataBytes() {
-        return C11528a.m68812a(this.dataBytes);
+        return SafeBytes.doClone(this.dataBytes);
     }
 
     public byte[] getSignature() {
-        return C11528a.m68812a(this.signature);
+        return SafeBytes.doClone(this.signature);
     }
 
     public void setAlgId(CredentialSignAlg credentialSignAlg) {
@@ -41,10 +41,10 @@ public class CredentialSignText {
     }
 
     public void setDataBytes(byte[] bArr) {
-        this.dataBytes = C11528a.m68812a(bArr);
+        this.dataBytes = SafeBytes.doClone(bArr);
     }
 
     public void setSignature(byte[] bArr) {
-        this.signature = C11528a.m68812a(bArr);
+        this.signature = SafeBytes.doClone(bArr);
     }
 }

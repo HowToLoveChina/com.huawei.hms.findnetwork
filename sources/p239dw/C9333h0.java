@@ -9,7 +9,7 @@ import java.security.cert.CertificateEncodingException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import p857zv.C14389c;
+import p857zv.Exception_C14389c;
 
 /* renamed from: dw.h0 */
 /* loaded from: classes9.dex */
@@ -37,7 +37,7 @@ public class C9333h0 extends AbstractC9331g0 {
     public String f46726o;
 
     /* renamed from: a */
-    public String m58677a() throws JSONException, C14389c {
+    public String m58677a() throws JSONException, Exception_C14389c {
         try {
             this.f46713b.put("alg", this.f46725n);
             this.f46713b.put("pbk", this.f46726o);
@@ -65,14 +65,14 @@ public class C9333h0 extends AbstractC9331g0 {
                 String str = C8958c.m56711c(this.f46712a.toString().getBytes(charset), 10) + "." + C8958c.m56711c(this.f46713b.toString().getBytes(charset), 10);
                 InterfaceC9358z interfaceC9358z = this.f46721j;
                 if (interfaceC9358z == null) {
-                    throw new C14389c(1022L, "UcsKeyStore must no null");
+                    throw new Exception_C14389c(1022L, "UcsKeyStore must no null");
                 }
                 return str + "." + C8958c.m56711c(interfaceC9358z.mo58653a(this.f46720i, str), 10);
             } catch (JSONException e10) {
                 C1029b.m6231b("JwsKeystoreCredentialReqGenerator", "generate payload exception: {0}", e10.getMessage());
                 StringBuilder sbM58651a = C9320b.m58651a("build payload json error: ");
                 sbM58651a.append(e10.getMessage());
-                throw new C14389c(1002L, sbM58651a.toString());
+                throw new Exception_C14389c(1002L, sbM58651a.toString());
             }
         } catch (CertificateEncodingException | JSONException e11) {
             StringBuilder sbM58651a2 = C9320b.m58651a("put json error: ");
@@ -80,7 +80,7 @@ public class C9333h0 extends AbstractC9331g0 {
             C1029b.m6231b("JwsKeystoreECCredentialReqGenerator", sbM58651a2.toString(), new Object[0]);
             StringBuilder sbM58651a3 = C9320b.m58651a("put json error: ");
             sbM58651a3.append(e11.getMessage());
-            throw new C14389c(1002L, sbM58651a3.toString());
+            throw new Exception_C14389c(1002L, sbM58651a3.toString());
         }
     }
 }

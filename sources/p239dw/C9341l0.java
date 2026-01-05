@@ -14,7 +14,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import p857zv.C14389c;
+import p857zv.Exception_C14389c;
 
 /* renamed from: dw.l0 */
 /* loaded from: classes9.dex */
@@ -36,7 +36,7 @@ public class C9341l0 {
     }
 
     /* renamed from: a */
-    public final void m58697a(NetworkResponse networkResponse, C9338k c9338k) throws C14389c, IOException {
+    public final void m58697a(NetworkResponse networkResponse, C9338k c9338k) throws Exception_C14389c, IOException {
         if (!networkResponse.isSuccessful()) {
             if (networkResponse.getCode() != 304) {
                 C1029b.m6234e("KeyComponentManger", "file data update failed And statusCode = {0}", Integer.valueOf(networkResponse.getCode()));
@@ -76,12 +76,12 @@ public class C9341l0 {
             C1029b.m6231b("KeyComponentLocalHandler", sbM58651a.toString(), new Object[0]);
             StringBuilder sbM58651a2 = C9320b.m58651a("Write file data failed : ");
             sbM58651a2.append(e10.getMessage());
-            throw new C14389c(1011L, sbM58651a2.toString());
+            throw new Exception_C14389c(1011L, sbM58651a2.toString());
         }
     }
 
     /* renamed from: b */
-    public synchronized void m58698b(boolean z10, C9338k c9338k) throws C14389c {
+    public synchronized void m58698b(boolean z10, C9338k c9338k) throws Exception_C14389c {
         try {
             C1029b.m6234e("KeyComponentManger", "start download C1 file from Service", new Object[0]);
             try {

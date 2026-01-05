@@ -5,7 +5,7 @@ import bw.AbstractC1291a;
 import bw.EnumC1292b;
 import com.huawei.wisesecurity.ucs.credential.outer.HACapability;
 import p407jv.C10933b;
-import p436kv.InterfaceC11162b;
+import p436kv.interfaceLinkHashMap;
 
 /* renamed from: dw.d0 */
 /* loaded from: classes9.dex */
@@ -19,7 +19,7 @@ public class C9325d0 extends AbstractC1291a implements HACapability {
     }
 
     @Override // com.huawei.wisesecurity.ucs.credential.outer.HACapability
-    public void onEvent(Context context, String str, InterfaceC11162b interfaceC11162b) {
+    public void onEvent(Context context, String str, interfaceLinkHashMap interfaceLinkHashMap) {
         synchronized (C9325d0.class) {
             try {
                 if (f46701c == null) {
@@ -28,7 +28,7 @@ public class C9325d0 extends AbstractC1291a implements HACapability {
                 C10933b c10933b = f46701c;
                 if (c10933b != null) {
                     m7650b(c10933b);
-                    f46701c.m66058b(context, interfaceC11162b);
+                    f46701c.m66058b(context, interfaceLinkHashMap);
                 }
             } catch (Throwable th2) {
                 throw th2;

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import p239dw.C9320b;
 import p239dw.C9344n;
-import p857zv.C14389c;
+import p857zv.Exception_C14389c;
 
 /* loaded from: classes9.dex */
 public class UcsLib {
@@ -28,7 +28,7 @@ public class UcsLib {
         public byte[] thirdBytes = null;
     }
 
-    public static void checkNativeLibrary() throws C14389c {
+    public static void checkNativeLibrary() throws Exception_C14389c {
         if (flag) {
             return;
         }
@@ -36,7 +36,7 @@ public class UcsLib {
         if (flag) {
             return;
         }
-        throw new C14389c(1004L, "UCS load library error : " + strLoadLibrary);
+        throw new Exception_C14389c(1004L, "UCS load library error : " + strLoadLibrary);
     }
 
     public static boolean checkPkgNameCertFP(Context context, String str, String str2, StringBuilder sb2) {
@@ -59,7 +59,7 @@ public class UcsLib {
         return false;
     }
 
-    public static byte[] decryptKek(byte[] bArr, int i10) throws C14389c {
+    public static byte[] decryptKek(byte[] bArr, int i10) throws Exception_C14389c {
         OutputParam outputParamNewOutputParam = newOutputParam();
         long jNativeDecryptKek = nativeDecryptKek(bArr, i10, outputParamNewOutputParam);
         if (jNativeDecryptKek == 0) {
@@ -69,7 +69,7 @@ public class UcsLib {
         throw C9344n.m58700a(TAG, errorMessage, new Object[0], jNativeDecryptKek, errorMessage);
     }
 
-    public static byte[] decryptKekWithEc(byte[] bArr, int i10, byte[] bArr2, byte[] bArr3, byte[] bArr4) throws C14389c {
+    public static byte[] decryptKekWithEc(byte[] bArr, int i10, byte[] bArr2, byte[] bArr3, byte[] bArr4) throws Exception_C14389c {
         OutputParam outputParamNewOutputParam = newOutputParam();
         long jNativeDecryptKekWithEc = nativeDecryptKekWithEc(bArr, i10, bArr2, bArr3, bArr4, outputParamNewOutputParam);
         if (jNativeDecryptKekWithEc == 0) {
@@ -79,13 +79,13 @@ public class UcsLib {
         throw C9344n.m58700a(TAG, errorMessage, new Object[0], jNativeDecryptKekWithEc, errorMessage);
     }
 
-    public static byte[] genReqJws(Context context, String str, String str2, int i10, int i11) throws C14389c {
+    public static byte[] genReqJws(Context context, String str, String str2, int i10, int i11) throws Exception_C14389c {
         String str3 = str == null ? "" : str;
         if (context == null) {
-            throw new C14389c(1001L, "context cannot empty..");
+            throw new Exception_C14389c(1001L, "context cannot empty..");
         }
         if (TextUtils.isEmpty(str2)) {
-            throw new C14389c(1001L, "packageName cannot empty..");
+            throw new Exception_C14389c(1001L, "packageName cannot empty..");
         }
         String strValueOf = String.valueOf(i11);
         OutputParam outputParamNewOutputParam = newOutputParam();
@@ -98,7 +98,7 @@ public class UcsLib {
         throw C9344n.m58700a(TAG, errorMessage, new Object[0], jNativeGenReqJws, errorMessage);
     }
 
-    public static EcKeyPair generateEcKeyPair(Context context) throws C14389c {
+    public static EcKeyPair generateEcKeyPair(Context context) throws Exception_C14389c {
         OutputParam outputParamNewOutputParam = newOutputParam();
         long jNativeGenerateEcKeyPair = nativeGenerateEcKeyPair(context, outputParamNewOutputParam);
         if (jNativeGenerateEcKeyPair == 0) {
@@ -117,7 +117,7 @@ public class UcsLib {
         return sb2.toString();
     }
 
-    public static List<String> getPkgNameCertFP(Context context) throws C14389c {
+    public static List<String> getPkgNameCertFP(Context context) throws Exception_C14389c {
         ArrayList arrayList = new ArrayList();
         OutputParam outputParamNewOutputParam = newOutputParam();
         long jNativeGetPkgNameCertFP = nativeGetPkgNameCertFP(context, outputParamNewOutputParam);
@@ -176,7 +176,7 @@ public class UcsLib {
         return getSoVersion();
     }
 
-    public static void ucsUpdateRootKey(byte[] bArr, int i10) throws C14389c {
+    public static void ucsUpdateRootKey(byte[] bArr, int i10) throws Exception_C14389c {
         synchronized (CA_LOCK) {
             try {
                 OutputParam outputParamNewOutputParam = newOutputParam();
@@ -185,7 +185,7 @@ public class UcsLib {
                 if (jUpdateRootKey != 0) {
                     String errorMessage = getErrorMessage(outputParamNewOutputParam, "Fail to updateRootKey");
                     C1029b.m6231b(TAG, errorMessage, new Object[0]);
-                    throw new C14389c(1009L, errorMessage);
+                    throw new Exception_C14389c(1009L, errorMessage);
                 }
             } catch (Throwable th2) {
                 throw th2;

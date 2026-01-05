@@ -1,6 +1,6 @@
 package com.huawei.wisesecurity.ucs.credential.crypto.cipher;
 
-import mv.C11528a;
+import mv.SafeBytes;
 import p857zv.C14391e;
 
 /* loaded from: classes9.dex */
@@ -35,15 +35,15 @@ public class CredentialCipherText {
     }
 
     public byte[] getCipherBytes() {
-        return C11528a.m68812a(this.cipherBytes);
+        return SafeBytes.doClone(this.cipherBytes);
     }
 
     public byte[] getIv() {
-        return C11528a.m68812a(this.f45390iv);
+        return SafeBytes.doClone(this.f45390iv);
     }
 
     public byte[] getPlainBytes() {
-        return C11528a.m68812a(this.plainBytes);
+        return SafeBytes.doClone(this.plainBytes);
     }
 
     public void setAlgId(CredentialCipherAlg credentialCipherAlg) {
@@ -51,14 +51,14 @@ public class CredentialCipherText {
     }
 
     public void setCipherBytes(byte[] bArr) {
-        this.cipherBytes = C11528a.m68812a(bArr);
+        this.cipherBytes = SafeBytes.doClone(bArr);
     }
 
     public void setIv(byte[] bArr) {
-        this.f45390iv = C11528a.m68812a(bArr);
+        this.f45390iv = SafeBytes.doClone(bArr);
     }
 
     public void setPlainBytes(byte[] bArr) {
-        this.plainBytes = C11528a.m68812a(bArr);
+        this.plainBytes = SafeBytes.doClone(bArr);
     }
 }

@@ -12,7 +12,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-import p239dw.AbstractC9353u;
+import p239dw.KekStore;
 import p239dw.C9320b;
 import p239dw.C9324d;
 import p267ev.EnumC9566e;
@@ -20,8 +20,8 @@ import p318gv.C10054a;
 import p374iv.C10626e;
 import p500nv.C11756a;
 import p535ov.InterfaceC12042i;
-import p857zv.C14387a;
-import p857zv.C14389c;
+import p857zv.Exception_C14387a;
+import p857zv.Exception_C14389c;
 import p857zv.C14391e;
 
 @Deprecated
@@ -50,7 +50,7 @@ public class AppAuthticationClient {
             return this;
         }
 
-        public AppAuthticationClient build() throws C14389c {
+        public AppAuthticationClient build() throws Exception_C14389c {
             try {
                 C11756a.m70079b(this);
                 return new AppAuthticationClient(this.context, this.credential, this.extra, this.alg);
@@ -85,7 +85,7 @@ public class AppAuthticationClient {
     }
 
     @Deprecated
-    public String getAppAuthtication() throws JSONException, C14389c {
+    public String getAppAuthtication() throws JSONException, Exception_C14389c {
         String strM56711c;
         String str;
         String str2;
@@ -96,7 +96,7 @@ public class AppAuthticationClient {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("alg", "HS256");
                 strM56711c = C8958c.m56711c(jSONObject.toString().getBytes(StandardCharsets.UTF_8), 10);
-            } catch (JSONException | C14389c e10) {
+            } catch (JSONException | Exception_C14389c e10) {
                 C1029b.m6231b("AppAuthticationJws", "generate Header exception: {0}", e10.getMessage());
                 strM56711c = "";
             }
@@ -118,20 +118,20 @@ public class AppAuthticationClient {
                     jSONObject2.put("extra", str3);
                 }
                 strM56711c2 = C8958c.m56711c(jSONObject2.toString().getBytes(StandardCharsets.UTF_8), 10);
-            } catch (JSONException | C14389c e11) {
+            } catch (JSONException | Exception_C14389c e11) {
                 C1029b.m6231b("AppAuthticationJws", "generate PayLoad exception: {0}", e11.getMessage());
             }
             c9324d.f46699b = strM56711c2;
-            c9324d.f46700c = C8958c.m56711c(new C10054a.b().m62495c(SkDkEntity.from(this.credential.getSecretKeyBytes()).decryptSkDk(AbstractC9353u.m58709a(this.credential))).m62494b(EnumC9566e.HMAC_SHA256).m62493a().getSignHandler().from(c9324d.m58662b()).sign(), 10);
+            c9324d.f46700c = C8958c.m56711c(new C10054a.b().m62495c(SkDkEntity.from(this.credential.getSecretKeyBytes()).decryptSkDk(KekStore.getKekParam(this.credential))).m62494b(EnumC9566e.HMAC_SHA256).m62493a().getSignHandler().from(c9324d.m58662b()).sign(), 10);
             return c9324d.m58661a();
         } catch (UnsupportedOperationException unused) {
-            throw new C14389c(2001L, "new String UnsupportedOperationException..");
-        } catch (C14387a e12) {
-            throw new C14389c(1022L, e12.getMessage());
+            throw new Exception_C14389c(2001L, "new String UnsupportedOperationException..");
+        } catch (Exception_C14387a e12) {
+            throw new Exception_C14389c(1022L, e12.getMessage());
         } catch (Exception e13) {
             StringBuilder sbM58651a = C9320b.m58651a("app info auth Exception : ");
             sbM58651a.append(e13.getMessage());
-            throw new C14389c(2001L, sbM58651a.toString());
+            throw new Exception_C14389c(2001L, sbM58651a.toString());
         }
     }
 }

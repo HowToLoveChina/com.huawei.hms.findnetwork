@@ -10,8 +10,8 @@ import java.security.Signature;
 import java.security.SignatureException;
 import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.Mac;
-import p238dv.EnumC9315e;
-import p374iv.C10623b;
+import p238dv.enumKeyStore;
+import p374iv.Exception_C10623b;
 
 /* renamed from: ev.c */
 /* loaded from: classes9.dex */
@@ -27,7 +27,7 @@ public class C9564c implements InterfaceC9569h {
     public final C9568g f47484c;
 
     /* renamed from: d */
-    public final EnumC9315e f47485d;
+    public final enumKeyStore f47485d;
 
     /* renamed from: ev.c$a */
     public static /* synthetic */ class a {
@@ -57,8 +57,8 @@ public class C9564c implements InterfaceC9569h {
         }
     }
 
-    public C9564c(EnumC9315e enumC9315e, Key key, C9568g c9568g, AlgorithmParameterSpec algorithmParameterSpec) {
-        this.f47485d = enumC9315e;
+    public C9564c(enumKeyStore enumKeyStore, Key key, C9568g c9568g, AlgorithmParameterSpec algorithmParameterSpec) {
+        this.f47485d = enumKeyStore;
         this.f47482a = key;
         this.f47483b = algorithmParameterSpec;
         this.f47484c = c9568g;
@@ -78,43 +78,43 @@ public class C9564c implements InterfaceC9569h {
     }
 
     /* renamed from: b */
-    public final boolean m59690b() throws C10623b, SignatureException, InvalidKeyException, InvalidAlgorithmParameterException {
+    public final boolean m59690b() throws Exception_C10623b, SignatureException, InvalidKeyException, InvalidAlgorithmParameterException {
         try {
             String strM59695e = this.f47484c.m59696a().m59695e();
-            EnumC9315e enumC9315e = this.f47485d;
-            Signature signature = enumC9315e == EnumC9315e.ANDROID_KEYSTORE ? Signature.getInstance(strM59695e) : Signature.getInstance(strM59695e, enumC9315e.m58644e());
+            enumKeyStore enumKeyStore = this.f47485d;
+            Signature signature = enumKeyStore == enumKeyStore.ANDROID_KEYSTORE ? Signature.getInstance(strM59695e) : Signature.getInstance(strM59695e, enumKeyStore.m58644e());
             AlgorithmParameterSpec algorithmParameterSpec = this.f47483b;
             if (algorithmParameterSpec != null) {
                 signature.setParameter(algorithmParameterSpec);
             }
             Key key = this.f47482a;
             if (!(key instanceof PublicKey)) {
-                throw new C10623b("verify key not public key");
+                throw new Exception_C10623b("verify key not public key");
             }
             signature.initVerify((PublicKey) key);
             signature.update(this.f47484c.m59697b());
             return signature.verify(this.f47484c.m59698c());
         } catch (InvalidAlgorithmParameterException | InvalidKeyException | NoSuchAlgorithmException | NoSuchProviderException | SignatureException e10) {
-            throw new C10623b("Fail to decrypt: " + e10.getMessage());
+            throw new Exception_C10623b("Fail to decrypt: " + e10.getMessage());
         }
     }
 
     /* renamed from: c */
-    public final boolean m59691c() throws C10623b, IllegalStateException, InvalidKeyException {
+    public final boolean m59691c() throws Exception_C10623b, IllegalStateException, InvalidKeyException {
         try {
             String strM59695e = this.f47484c.m59696a().m59695e();
-            EnumC9315e enumC9315e = this.f47485d;
-            Mac mac = enumC9315e == EnumC9315e.ANDROID_KEYSTORE ? Mac.getInstance(strM59695e) : Mac.getInstance(strM59695e, enumC9315e.m58644e());
+            enumKeyStore enumKeyStore = this.f47485d;
+            Mac mac = enumKeyStore == enumKeyStore.ANDROID_KEYSTORE ? Mac.getInstance(strM59695e) : Mac.getInstance(strM59695e, enumKeyStore.m58644e());
             mac.init(this.f47482a);
             mac.update(this.f47484c.m59697b());
             return m59689a(this.f47484c.m59698c(), mac.doFinal());
         } catch (InvalidKeyException | NoSuchAlgorithmException | NoSuchProviderException e10) {
-            throw new C10623b("Fail to sign : " + e10.getMessage());
+            throw new Exception_C10623b("Fail to sign : " + e10.getMessage());
         }
     }
 
     /* renamed from: d */
-    public final boolean m59692d() throws C10623b {
+    public final boolean m59692d() throws Exception_C10623b {
         int i10 = a.f47486a[this.f47484c.m59696a().ordinal()];
         if (i10 == 1 || i10 == 2 || i10 == 3) {
             return m59690b();
@@ -122,18 +122,18 @@ public class C9564c implements InterfaceC9569h {
         if (i10 == 4) {
             return m59691c();
         }
-        throw new C10623b("unsupported sign alg : " + this.f47484c.m59696a().m59695e());
+        throw new Exception_C10623b("unsupported sign alg : " + this.f47484c.m59696a().m59695e());
     }
 
     @Override // p267ev.InterfaceC9569h
     /* renamed from: e, reason: merged with bridge method [inline-methods] */
-    public C9564c fromData(byte[] bArr) throws C10623b {
+    public C9564c fromData(byte[] bArr) throws Exception_C10623b {
         this.f47484c.m59700e(bArr);
         return this;
     }
 
     @Override // p267ev.InterfaceC9569h
-    public boolean verify(byte[] bArr) throws C10623b {
+    public boolean verify(byte[] bArr) throws Exception_C10623b {
         this.f47484c.m59701f(bArr);
         return m59692d();
     }

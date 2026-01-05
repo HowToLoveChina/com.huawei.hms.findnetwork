@@ -8,13 +8,13 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-import p857zv.C14389c;
+import p857zv.Exception_C14389c;
 
 /* renamed from: dw.w */
 /* loaded from: classes9.dex */
 public class C9355w {
     /* renamed from: a */
-    public static String m58715a(String str) throws JSONException, C14389c {
+    public static String m58715a(String str) throws JSONException, Exception_C14389c {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put(TrackConstants$Opers.REQUEST, str);
@@ -22,7 +22,7 @@ public class C9355w {
         } catch (JSONException e10) {
             StringBuilder sbM58651a = C9320b.m58651a("getReqBody error : ");
             sbM58651a.append(e10.getMessage());
-            throw new C14389c(1002L, sbM58651a.toString());
+            throw new Exception_C14389c(1002L, sbM58651a.toString());
         }
     }
 

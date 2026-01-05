@@ -1,31 +1,31 @@
 package p239dw;
 
-import p436kv.AbstractC11161a;
+import p436kv.AbstractLinkHashMap;
 
 /* renamed from: dw.h */
 /* loaded from: classes9.dex */
-public class C9332h extends AbstractC11161a {
-    @Override // p436kv.InterfaceC11162b
+public class C9332h extends AbstractLinkHashMap {
+    @Override // p436kv.interfaceLinkHashMap
     /* renamed from: a */
-    public String mo58649a() {
+    public String getName() {
         return "applyCredential";
     }
 
     /* renamed from: k */
     public C9332h m58674k() {
-        this.f52504d.put("flavor", "product");
+        this.hashmap.put("flavor", "product");
         return this;
     }
 
     /* renamed from: l */
     public C9332h m58675l(String str) {
-        this.f52504d.put("credentialPackageName", str);
+        this.hashmap.put("credentialPackageName", str);
         return this;
     }
 
     /* renamed from: m */
     public C9332h m58676m(String str) {
-        this.f52504d.put("cty", str);
+        this.hashmap.put("cty", str);
         return this;
     }
 }

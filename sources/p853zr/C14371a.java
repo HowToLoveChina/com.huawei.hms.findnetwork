@@ -28,13 +28,13 @@ import okhttp3.C11912b0;
 import okhttp3.C11918e0;
 import okhttp3.C11922g0;
 import okhttp3.C11955v;
-import p436kv.InterfaceC11162b;
+import p436kv.interfaceLinkHashMap;
 import p531or.C11991a;
 import p688ur.C13241a;
 import p688ur.C13243c;
 import p820yr.C14038b;
-import p857zv.C14387a;
-import p857zv.C14389c;
+import p857zv.Exception_C14387a;
+import p857zv.Exception_C14389c;
 import sr.C12847b;
 
 /* renamed from: zr.a */
@@ -65,8 +65,8 @@ public class C14371a {
         }
 
         @Override // com.huawei.wisesecurity.ucs.credential.outer.HACapability
-        public void onEvent(Context context, String str, InterfaceC11162b interfaceC11162b) {
-            C6791a.m38458h().m38466k(1, str, interfaceC11162b.build());
+        public void onEvent(Context context, String str, interfaceLinkHashMap interfaceLinkHashMap) {
+            C6791a.m38458h().m38466k(1, str, interfaceLinkHashMap.build());
         }
     }
 
@@ -188,8 +188,8 @@ public class C14371a {
         try {
             credentialClientBuild = new CredentialClient.Builder().context(context).serCountry(C10043a.m62448a()).networkRetryTime(1).networkTimeOut(10000).appId(C11506a.m68682e().m68686d()).grsCapability(new b()).haCapability(new c()).networkCapability(new e()).logInstance(new d()).build();
             this.f63735b = credentialClientBuild;
-        } catch (C14389c e10) {
-            C1016d.m6183c("UCSSignHelper", "init credential form network failed :" + e10.m85620b());
+        } catch (Exception_C14389c e10) {
+            C1016d.m6183c("UCSSignHelper", "init credential form network failed :" + e10.getErrorCode());
             return null;
         }
         return credentialClientBuild.applyCredential(BuildConfig.LIBRARY_PACKAGE_NAME);
@@ -210,8 +210,8 @@ public class C14371a {
                     CredentialClient credentialClientBuild = new CredentialClient.Builder().context(context).build();
                     this.f63735b = credentialClientBuild;
                     return credentialClientBuild.genCredentialFromString(strM59624b);
-                } catch (C14389c e10) {
-                    str = "init credential form sp failed :" + e10.m85620b();
+                } catch (Exception_C14389c e10) {
+                    str = "init credential form sp failed :" + e10.getErrorCode();
                 }
             }
         }
@@ -235,7 +235,7 @@ public class C14371a {
     }
 
     /* renamed from: g */
-    public final String m85565g(C14038b c14038b) throws C14387a, C14389c {
+    public final String m85565g(C14038b c14038b) throws Exception_C14387a, Exception_C14389c {
         Credential credential = this.f63734a;
         if (credential == null || m85563e(Long.valueOf(credential.getExpireTime()))) {
             C1016d.m6183c("UCSSignHelper", "credential is not ready");
@@ -259,7 +259,7 @@ public class C14371a {
     }
 
     /* renamed from: h */
-    public String m85566h(Context context, C14038b c14038b) throws C14387a, C13241a, C14389c {
+    public String m85566h(Context context, C14038b c14038b) throws Exception_C14387a, C13241a, Exception_C14389c {
         C1016d.m6181a("UCSSignHelper", "begin to sign");
         if (m85560a(context)) {
             return m85565g(c14038b);

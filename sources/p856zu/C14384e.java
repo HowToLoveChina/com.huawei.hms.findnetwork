@@ -10,58 +10,58 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-import mv.C11528a;
-import p238dv.EnumC9315e;
-import p374iv.C10623b;
+import mv.SafeBytes;
+import p238dv.enumKeyStore;
+import p374iv.Exception_C10623b;
 
 /* renamed from: zu.e */
 /* loaded from: classes9.dex */
-public class C14384e implements InterfaceC14385f {
+public class EnDecryptAlgorithm implements interfaceEnDecryptKey {
 
     /* renamed from: a */
-    public final Key f63759a;
+    public final Key m_key;
 
     /* renamed from: b */
-    public final AlgorithmParameterSpec f63760b;
+    public final AlgorithmParameterSpec m_parameterspec;
 
     /* renamed from: c */
     public final C14381b f63761c;
 
     /* renamed from: d */
-    public final EnumC9315e f63762d;
+    public final enumKeyStore m_keystore;
 
-    public C14384e(EnumC9315e enumC9315e, Key key, C14381b c14381b, AlgorithmParameterSpec algorithmParameterSpec) {
-        this.f63762d = enumC9315e;
-        this.f63759a = key;
-        this.f63760b = algorithmParameterSpec;
+    public EnDecryptAlgorithm(enumKeyStore enumKeyStore, Key key, C14381b c14381b, AlgorithmParameterSpec algorithmParameterSpec) {
+        this.m_keystore = enumKeyStore;
+        this.m_key = key;
+        this.m_parameterspec = algorithmParameterSpec;
         this.f63761c = c14381b;
     }
 
     /* renamed from: a */
-    public final void m85616a() throws C10623b, InvalidKeyException, InvalidAlgorithmParameterException {
+    public final void doEncrypt() throws Exception_C10623b, InvalidKeyException, InvalidAlgorithmParameterException {
         try {
-            String strM85607f = this.f63761c.m85608a().m85607f();
-            EnumC9315e enumC9315e = this.f63762d;
-            Cipher cipher = enumC9315e == EnumC9315e.ANDROID_KEYSTORE ? Cipher.getInstance(strM85607f) : Cipher.getInstance(strM85607f, enumC9315e.m58644e());
-            cipher.init(1, this.f63759a, this.f63760b);
+            String strM85607f = this.f63761c.getAlgorithm().getAlgorithmName();
+            enumKeyStore enumKeyStore = this.m_keystore;
+            Cipher cipher = enumKeyStore == enumKeyStore.ANDROID_KEYSTORE ? Cipher.getInstance(strM85607f) : Cipher.getInstance(strM85607f, enumKeyStore.m58644e());
+            cipher.init(1, this.m_key, this.m_parameterspec);
             C14381b c14381b = this.f63761c;
-            c14381b.m85612e(cipher.doFinal(c14381b.m85610c()));
+            c14381b.setKey(cipher.doFinal(c14381b.m85610c()));
         } catch (InvalidAlgorithmParameterException | InvalidKeyException | NoSuchAlgorithmException | NoSuchProviderException | BadPaddingException | IllegalBlockSizeException | NoSuchPaddingException e10) {
-            throw new C10623b("Fail to encrypt: " + e10.getMessage());
+            throw new Exception_C10623b("Fail to encrypt: " + e10.getMessage());
         }
     }
 
-    @Override // p856zu.InterfaceC14385f
+    @Override // p856zu.interfaceEnDecryptKey
     /* renamed from: b, reason: merged with bridge method [inline-methods] */
-    public C14384e from(byte[] bArr) throws C10623b {
-        this.f63761c.m85613f(C11528a.m68812a(bArr));
+    public EnDecryptAlgorithm from(byte[] bArr) throws Exception_C10623b {
+        this.f63761c.m85613f(SafeBytes.doClone(bArr));
         return this;
     }
 
-    @Override // p856zu.InterfaceC14385f
+    @Override // p856zu.interfaceEnDecryptKey
     /* renamed from: to */
-    public byte[] mo56622to() throws C10623b, InvalidKeyException, InvalidAlgorithmParameterException {
-        m85616a();
+    public byte[] toEnDecryptKeyBytes() throws Exception_C10623b, InvalidKeyException, InvalidAlgorithmParameterException {
+        doEncrypt();
         return this.f63761c.m85609b();
     }
 }

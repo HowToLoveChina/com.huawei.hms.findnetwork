@@ -10,33 +10,33 @@ import java.security.cert.CertificateException;
 import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.spec.GCMParameterSpec;
 import javax.crypto.spec.IvParameterSpec;
-import mv.C11528a;
-import p238dv.EnumC9315e;
-import p374iv.C10623b;
-import p374iv.C10624c;
+import mv.SafeBytes;
+import p238dv.enumKeyStore;
+import p374iv.Exception_C10623b;
+import p374iv.Exception_C10624c;
 import p856zu.C14381b;
 import p856zu.C14383d;
-import p856zu.C14384e;
-import p856zu.EnumC14380a;
+import p856zu.EnDecryptAlgorithm;
+import p856zu.enumEncryptAlgorithm;
 import p856zu.InterfaceC14382c;
-import p856zu.InterfaceC14385f;
-import p856zu.InterfaceC14386g;
+import p856zu.interfaceEnDecryptKey;
+import p856zu.interfaceEnDecrypt;
 
 /* renamed from: av.a */
 /* loaded from: classes9.dex */
-public class C1027a implements InterfaceC14386g {
+public class C1027a implements interfaceEnDecrypt {
 
     /* renamed from: a */
-    public final EnumC14380a f5088a;
+    public final enumEncryptAlgorithm m_algorithm;
 
     /* renamed from: b */
-    public final EnumC9315e f5089b;
+    public final enumKeyStore m_keystore;
 
     /* renamed from: c */
-    public final Key f5090c;
+    public final Key m_key;
 
     /* renamed from: d */
-    public final AlgorithmParameterSpec f5091d;
+    public final AlgorithmParameterSpec m_algorithm_parameterspec;
 
     /* renamed from: av.a$a */
     public static /* synthetic */ class a {
@@ -45,119 +45,119 @@ public class C1027a implements InterfaceC14386g {
         public static final /* synthetic */ int[] f5092a;
 
         static {
-            int[] iArr = new int[EnumC14380a.values().length];
+            int[] iArr = new int[enumEncryptAlgorithm.values().length];
             f5092a = iArr;
             try {
-                iArr[EnumC14380a.AES_GCM.ordinal()] = 1;
+                iArr[enumEncryptAlgorithm.AES_GCM.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f5092a[EnumC14380a.AES_CBC.ordinal()] = 2;
+                f5092a[enumEncryptAlgorithm.AES_CBC.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f5092a[EnumC14380a.KEY_STORE_AES_CBC.ordinal()] = 3;
+                f5092a[enumEncryptAlgorithm.KEY_STORE_AES_CBC.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
     }
 
-    public /* synthetic */ C1027a(EnumC9315e enumC9315e, EnumC14380a enumC14380a, Key key, AlgorithmParameterSpec algorithmParameterSpec, a aVar) {
-        this(enumC9315e, enumC14380a, key, algorithmParameterSpec);
+    public /* synthetic */ C1027a(enumKeyStore enumKeyStore, enumEncryptAlgorithm enumEncryptAlgorithm, Key key, AlgorithmParameterSpec algorithmParameterSpec, a aVar) {
+        this(enumKeyStore, enumEncryptAlgorithm, key, algorithmParameterSpec);
     }
 
-    @Override // p856zu.InterfaceC14386g
-    public InterfaceC14382c getDecryptHandler() throws C10623b {
+    @Override // p856zu.interfaceEnDecrypt
+    public InterfaceC14382c getDecryptHandler() throws Exception_C10623b {
         C14381b c14381b = new C14381b();
-        c14381b.m85611d(this.f5088a);
-        return new C14383d(this.f5089b, this.f5090c, c14381b, this.f5091d);
+        c14381b.setAlgorithm(this.m_algorithm);
+        return new C14383d(this.m_keystore, this.m_key, c14381b, this.m_algorithm_parameterspec);
     }
 
-    @Override // p856zu.InterfaceC14386g
-    public InterfaceC14385f getEncryptHandler() throws C10623b {
+    @Override // p856zu.interfaceEnDecrypt
+    public interfaceEnDecryptKey getEncryptHandler() throws Exception_C10623b {
         C14381b c14381b = new C14381b();
-        c14381b.m85611d(this.f5088a);
-        return new C14384e(this.f5089b, this.f5090c, c14381b, this.f5091d);
+        c14381b.setAlgorithm(this.m_algorithm);
+        return new EnDecryptAlgorithm(this.m_keystore, this.m_key, c14381b, this.m_algorithm_parameterspec);
     }
 
-    public C1027a(EnumC9315e enumC9315e, EnumC14380a enumC14380a, Key key, AlgorithmParameterSpec algorithmParameterSpec) {
-        this.f5089b = enumC9315e;
-        this.f5088a = enumC14380a;
-        this.f5090c = key;
-        this.f5091d = algorithmParameterSpec;
+    public C1027a(enumKeyStore enumKeyStore, enumEncryptAlgorithm enumEncryptAlgorithm, Key key, AlgorithmParameterSpec algorithmParameterSpec) {
+        this.m_keystore = enumKeyStore;
+        this.m_algorithm = enumEncryptAlgorithm;
+        this.m_key = key;
+        this.m_algorithm_parameterspec = algorithmParameterSpec;
     }
 
     /* renamed from: av.a$b */
     public static class b {
 
         /* renamed from: a */
-        public EnumC14380a f5093a;
+        public enumEncryptAlgorithm f5093a;
 
         /* renamed from: b */
-        public Key f5094b;
+        public Key m_key;
 
         /* renamed from: c */
         public AlgorithmParameterSpec f5095c;
 
         /* renamed from: d */
-        public final EnumC9315e f5096d;
+        public final enumKeyStore f5096d;
 
         public b() {
-            this.f5093a = EnumC14380a.m85605e("AES");
-            this.f5096d = EnumC9315e.ANDROID_KEYSTORE;
+            this.f5093a = enumEncryptAlgorithm.getAlgorithm("AES");
+            this.f5096d = enumKeyStore.ANDROID_KEYSTORE;
         }
 
         /* renamed from: a */
-        public C1027a m6221a() throws C10623b {
+        public C1027a m6221a() throws Exception_C10623b {
             AlgorithmParameterSpec algorithmParameterSpec;
-            Key key = this.f5094b;
+            Key key = this.m_key;
             if (key == null || (algorithmParameterSpec = this.f5095c) == null) {
-                throw new C10623b("key | parameterSpec cannot be null");
+                throw new Exception_C10623b("key | parameterSpec cannot be null");
             }
             return new C1027a(this.f5096d, this.f5093a, key, algorithmParameterSpec, null);
         }
 
         /* renamed from: b */
-        public b m6222b(EnumC14380a enumC14380a) {
-            this.f5093a = enumC14380a;
+        public b m6222b(enumEncryptAlgorithm enumEncryptAlgorithm) {
+            this.f5093a = enumEncryptAlgorithm;
             return this;
         }
 
         /* renamed from: c */
-        public b m6223c(byte[] bArr) throws C10623b {
+        public b m6223c(byte[] bArr) throws Exception_C10623b {
             int i10 = a.f5092a[this.f5093a.ordinal()];
             if (i10 == 1) {
-                this.f5095c = new GCMParameterSpec(128, C11528a.m68812a(bArr));
+                this.f5095c = new GCMParameterSpec(128, SafeBytes.doClone(bArr));
             } else {
                 if (i10 != 2 && i10 != 3) {
-                    throw new C10623b("unsupported cipher alg");
+                    throw new Exception_C10623b("unsupported cipher alg");
                 }
-                this.f5095c = new IvParameterSpec(C11528a.m68812a(bArr));
+                this.f5095c = new IvParameterSpec(SafeBytes.doClone(bArr));
             }
             return this;
         }
 
         /* renamed from: d */
-        public b m6224d(Key key) {
-            this.f5094b = key;
+        public b setKey(Key key) {
+            this.m_key = key;
             return this;
         }
 
         /* renamed from: e */
-        public b m6225e(String str) throws C10624c, NoSuchAlgorithmException, IOException, KeyStoreException, CertificateException {
+        public b getKey(String str) throws Exception_C10624c, NoSuchAlgorithmException, IOException, KeyStoreException, CertificateException {
             try {
                 KeyStore keyStore = KeyStore.getInstance(this.f5096d.m58643b());
                 keyStore.load(null);
-                this.f5094b = keyStore.getKey(str, null);
+                this.m_key = keyStore.getKey(str, null);
                 return this;
             } catch (IOException | KeyStoreException | NoSuchAlgorithmException | UnrecoverableKeyException | CertificateException e10) {
-                throw new C10624c("keystore get key with alias failed, " + e10.getMessage());
+                throw new Exception_C10624c("keystore get key with alias failed, " + e10.getMessage());
             }
         }
 
-        public b(EnumC9315e enumC9315e) {
-            this.f5093a = EnumC14380a.m85605e("AES");
-            this.f5096d = enumC9315e;
+        public b(enumKeyStore enumKeyStore) {
+            this.f5093a = enumEncryptAlgorithm.getAlgorithm("AES");
+            this.f5096d = enumKeyStore;
         }
     }
 }

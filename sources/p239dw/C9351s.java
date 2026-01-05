@@ -5,7 +5,7 @@ import com.huawei.wisesecurity.ucs.credential.Credential;
 import com.huawei.wisesecurity.ucs.credential.CredentialClient;
 import com.huawei.wisesecurity.ucs.credential.outer.NetworkCapability;
 import p239dw.C9334i;
-import p857zv.C14389c;
+import p857zv.Exception_C14389c;
 
 /* renamed from: dw.s */
 /* loaded from: classes9.dex */
@@ -42,7 +42,7 @@ public class C9351s {
     }
 
     /* renamed from: a */
-    public final Credential m58707a(int i10, String str, String str2) throws C14389c {
+    public final Credential m58707a(int i10, String str, String str2) throws Exception_C14389c {
         C9334i.a aVar = new C9334i.a();
         aVar.f46733a = this.f46757f;
         aVar.f46734b = this.f46752a;

@@ -9,7 +9,7 @@ import java.security.cert.CertificateEncodingException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import p857zv.C14389c;
+import p857zv.Exception_C14389c;
 
 /* renamed from: dw.q */
 /* loaded from: classes9.dex */
@@ -43,7 +43,7 @@ public class C9349q {
             Charset charset = StandardCharsets.UTF_8;
             jSONObject.put("kid", C8958c.m56711c(string.getBytes(charset), 10));
             return C8958c.m56711c(jSONObject.toString().getBytes(charset), 10);
-        } catch (CertificateEncodingException | JSONException | C14389c e10) {
+        } catch (CertificateEncodingException | JSONException | Exception_C14389c e10) {
             C1029b.m6231b("CredentialJws", "generate TAHeader exception: {0}", e10.getMessage());
             return "";
         }

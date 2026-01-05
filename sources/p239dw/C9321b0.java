@@ -10,8 +10,8 @@ import p238dv.C9317g;
 import p238dv.EnumC9316f;
 import p267ev.EnumC9566e;
 import p347hv.C10345a;
-import p374iv.C10624c;
-import p856zu.EnumC14380a;
+import p374iv.Exception_C10624c;
+import p856zu.enumEncryptAlgorithm;
 import p857zv.C14390d;
 
 /* renamed from: dw.b0 */
@@ -43,11 +43,11 @@ public class C9321b0 implements InterfaceC9358z {
             try {
                 f46695a.m58635b(new C9313c.a().m58630a(str).m58633d(EnumC9316f.PURPOSE_ALL).m58632c(3072).m58631b());
                 C1029b.m6234e("KeyStoreManager", "generateKeyPair OK", new Object[0]);
-            } catch (C10624c e10) {
+            } catch (Exception_C10624c e10) {
                 C1029b.m6231b("KeyStoreManager", C9352t.m58708a(e10, C9320b.m58651a("generateKeyPair failed, ")), new Object[0]);
                 throw new C14390d(C9352t.m58708a(e10, C9320b.m58651a("generateKeyPair failed , exception ")));
             }
-        } catch (C10624c e11) {
+        } catch (Exception_C10624c e11) {
             C1029b.m6231b("KeyStoreManager", C9352t.m58708a(e11, C9320b.m58651a("containsAlias failed, ")), new Object[0]);
             throw new C14390d(C9352t.m58708a(e11, C9320b.m58651a("containsAlias failed , exception ")));
         }
@@ -59,8 +59,8 @@ public class C9321b0 implements InterfaceC9358z {
         synchronized (f46697c) {
             try {
                 try {
-                    bArrMo56620to = new C1290a.b(f46695a.m58638f()).m7648d(EnumC14380a.RSA_OAEP).m84251b(str).mo7646a().getDecryptHandler().from(bArr).mo56620to();
-                } catch (C10624c e10) {
+                    bArrMo56620to = new C1290a.b(f46695a.m58638f()).m7648d(enumEncryptAlgorithm.RSA_OAEP).m84251b(str).mo7646a().getDecryptHandler().from(bArr).mo56620to();
+                } catch (Exception_C10624c e10) {
                     C1029b.m6231b("KeyStoreManager", "doDecrypt failed, " + e10.getMessage(), new Object[0]);
                     throw new C14390d("doDecrypt failed , exception " + e10.getMessage());
                 }
@@ -75,7 +75,7 @@ public class C9321b0 implements InterfaceC9358z {
     public Certificate[] m58656d(String str) throws C14390d {
         try {
             return f46695a.m58636d(str);
-        } catch (C10624c e10) {
+        } catch (Exception_C10624c e10) {
             C1029b.m6231b("KeyStoreManager", C9352t.m58708a(e10, C9320b.m58651a("getCertificateChain failed, ")), new Object[0]);
             throw new C14390d(C9352t.m58708a(e10, C9320b.m58651a("getCertificateChain failed , exception ")));
         }
@@ -89,7 +89,7 @@ public class C9321b0 implements InterfaceC9358z {
             try {
                 try {
                     bArrSign = new C10345a.b(f46695a.m58638f()).m59683c(EnumC9566e.RSA_SHA256_PSS).m84251b(str).mo7646a().getSignHandler().from(str2).sign();
-                } catch (C10624c e10) {
+                } catch (Exception_C10624c e10) {
                     C1029b.m6231b("KeyStoreManager", "doSign failed, " + e10.getMessage(), new Object[0]);
                     throw new C14390d("doSign failed , exception " + e10.getMessage());
                 }

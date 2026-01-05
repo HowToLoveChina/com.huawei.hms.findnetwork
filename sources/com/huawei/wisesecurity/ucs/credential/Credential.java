@@ -8,7 +8,7 @@ import com.huawei.wisesecurity.ucs.credential.nativelib.UcsLib;
 import cv.InterfaceC8954a;
 import org.json.JSONException;
 import org.json.JSONObject;
-import p239dw.AbstractC9353u;
+import p239dw.KekStore;
 import p239dw.C9320b;
 import p239dw.C9344n;
 import p239dw.C9348p;
@@ -17,7 +17,7 @@ import p374iv.C10626e;
 import p500nv.C11756a;
 import p535ov.InterfaceC12037d;
 import p535ov.InterfaceC12044k;
-import p857zv.C14389c;
+import p857zv.Exception_C14389c;
 import p857zv.C14391e;
 
 /* loaded from: classes9.dex */
@@ -66,7 +66,7 @@ public class Credential {
         }
     }
 
-    public static Credential fromString(Context context, String str, C9348p c9348p) throws C14389c {
+    public static Credential fromString(Context context, String str, C9348p c9348p) throws Exception_C14389c {
         try {
             Credential credential = new Credential();
             JSONObject jSONObject = new JSONObject(str);
@@ -85,18 +85,18 @@ public class Credential {
                 if (!UcsLib.checkPkgNameCertFP(context, credential.f45387ak.getAppPkgName(), credential.f45387ak.getAppCertFP(), sb2)) {
                     String str2 = "check AppPkgName appCertFP fail " + sb2.toString();
                     C1029b.m6231b(TAG, str2, new Object[0]);
-                    throw new C14389c(1023L, str2);
+                    throw new Exception_C14389c(1023L, str2);
                 }
             }
-            AbstractC9353u.m58710c(credential).m58711d(credential, context);
+            KekStore.m58710c(credential).putKeyParam(credential, context);
             return credential;
         } catch (JSONException e10) {
             C1029b.m6231b(TAG, "parse credentialStr get json exception : {0}", e10.getMessage());
             StringBuilder sbM58651a = C9320b.m58651a("parse credentialStr get json exception : ");
             sbM58651a.append(e10.getMessage());
-            throw new C14389c(1002L, sbM58651a.toString());
-        } catch (C14389c e11) {
-            C1029b.m6231b(TAG, "parse credentialStr get UCS exception : errorCode : {0} errorMsg : {1}", Long.valueOf(e11.m85620b()), e11.getMessage());
+            throw new Exception_C14389c(1002L, sbM58651a.toString());
+        } catch (Exception_C14389c e11) {
+            C1029b.m6231b(TAG, "parse credentialStr get UCS exception : errorCode : {0} errorMsg : {1}", Long.valueOf(e11.getErrorCode()), e11.getMessage());
             throw e11;
         } catch (Exception e12) {
             StringBuilder sbM58651a2 = C9320b.m58651a("parse credentialStr get exception : ");
@@ -110,7 +110,7 @@ public class Credential {
         return i10 != 0 ? i10 != 3 ? i10 != 6 ? i10 != 7 ? "" : "Huks_EC" : "AndroidKS_EC" : "AndroidKS" : "Kid";
     }
 
-    public void checkParam() throws C14389c {
+    public void checkParam() throws Exception_C14389c {
         try {
             C11756a.m70079b(this);
         } catch (C10626e e10) {

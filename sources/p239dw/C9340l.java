@@ -17,7 +17,7 @@ import java.security.SignatureException;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
-import p857zv.C14389c;
+import p857zv.Exception_C14389c;
 
 /* renamed from: dw.l */
 /* loaded from: classes9.dex */
@@ -27,7 +27,7 @@ public class C9340l {
     public static volatile X509Certificate f46746a;
 
     /* renamed from: a */
-    public static X509Certificate m58694a(Context context, String str) throws C14389c, IOException {
+    public static X509Certificate m58694a(Context context, String str) throws Exception_C14389c, IOException {
         try {
             InputStream inputStreamOpen = context.getAssets().open(str);
             try {
@@ -55,7 +55,7 @@ public class C9340l {
     }
 
     /* renamed from: b */
-    public static X509Certificate m58695b(String str) throws C14389c, IOException {
+    public static X509Certificate m58695b(String str) throws Exception_C14389c, IOException {
         try {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(C8958c.m56709a(str, 0));
             try {
@@ -71,12 +71,12 @@ public class C9340l {
                 throw th2;
             }
         } catch (IOException | CertificateException e10) {
-            throw new C14389c(1012L, e10.getMessage());
+            throw new Exception_C14389c(1012L, e10.getMessage());
         }
     }
 
     /* renamed from: c */
-    public static void m58696c(Context context, C9337j0 c9337j0) throws NoSuchAlgorithmException, SignatureException, C14389c, InvalidKeyException, CertificateException, NoSuchProviderException {
+    public static void m58696c(Context context, C9337j0 c9337j0) throws NoSuchAlgorithmException, SignatureException, Exception_C14389c, InvalidKeyException, CertificateException, NoSuchProviderException {
         int i10;
         if (f46746a == null) {
             synchronized (C9340l.class) {
@@ -90,7 +90,7 @@ public class C9340l {
         }
         String[] strArr = c9337j0.f46738a.f46743b;
         if (strArr == null || strArr.length == 0) {
-            throw new C14389c(1012L, "verify cert chain failed , certs is empty..");
+            throw new Exception_C14389c(1012L, "verify cert chain failed , certs is empty..");
         }
         int length = strArr.length;
         X509Certificate[] x509CertificateArr = new X509Certificate[length];
@@ -138,7 +138,7 @@ public class C9340l {
                     if (signature.verify(c9337j0.f46740c)) {
                         return;
                     } else {
-                        throw new C14389c(1012L, "signature not verify");
+                        throw new Exception_C14389c(1012L, "signature not verify");
                     }
                 } catch (RuntimeException | InvalidKeyException | NoSuchAlgorithmException | SignatureException e11) {
                     StringBuilder sbM58651a3 = C9320b.m58651a("verify signature of c1 failed, exception ");
@@ -148,6 +148,6 @@ public class C9340l {
                 }
             }
         }
-        throw new C14389c(1012L, "Subject OU not verify");
+        throw new Exception_C14389c(1012L, "Subject OU not verify");
     }
 }

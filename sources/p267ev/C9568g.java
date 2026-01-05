@@ -1,6 +1,6 @@
 package p267ev;
 
-import mv.C11528a;
+import mv.SafeBytes;
 
 /* renamed from: ev.g */
 /* loaded from: classes9.dex */
@@ -22,12 +22,12 @@ public class C9568g {
 
     /* renamed from: b */
     public byte[] m59697b() {
-        return C11528a.m68812a(this.f47497a);
+        return SafeBytes.doClone(this.f47497a);
     }
 
     /* renamed from: c */
     public byte[] m59698c() {
-        return C11528a.m68812a(this.f47498b);
+        return SafeBytes.doClone(this.f47498b);
     }
 
     /* renamed from: d */
@@ -37,11 +37,11 @@ public class C9568g {
 
     /* renamed from: e */
     public void m59700e(byte[] bArr) {
-        this.f47497a = C11528a.m68812a(bArr);
+        this.f47497a = SafeBytes.doClone(bArr);
     }
 
     /* renamed from: f */
     public void m59701f(byte[] bArr) {
-        this.f47498b = C11528a.m68812a(bArr);
+        this.f47498b = SafeBytes.doClone(bArr);
     }
 }

@@ -1,6 +1,6 @@
 package p267ev;
 
-import p238dv.EnumC9315e;
+import p238dv.enumKeyStore;
 import p267ev.InterfaceC9565d;
 import p822yu.AbstractC14045a;
 
@@ -11,8 +11,8 @@ public abstract class AbstractC9562a<T extends InterfaceC9565d> extends Abstract
     /* renamed from: e */
     public EnumC9566e f47476e;
 
-    public AbstractC9562a(EnumC9315e enumC9315e) {
-        super(enumC9315e);
+    public AbstractC9562a(enumKeyStore enumKeyStore) {
+        super(enumKeyStore);
     }
 
     /* renamed from: c */

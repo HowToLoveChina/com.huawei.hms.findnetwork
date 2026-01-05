@@ -6,7 +6,7 @@ import java.util.LinkedHashMap;
 
 /* renamed from: kv.a */
 /* loaded from: classes9.dex */
-public abstract class AbstractC11161a implements InterfaceC11162b {
+public abstract class AbstractLinkHashMap implements interfaceLinkHashMap {
 
     /* renamed from: a */
     public long f52501a;
@@ -18,67 +18,67 @@ public abstract class AbstractC11161a implements InterfaceC11162b {
     public int f52503c = 6;
 
     /* renamed from: d */
-    public LinkedHashMap<String, String> f52504d = new LinkedHashMap<>();
+    public LinkedHashMap<String, String> hashmap = new LinkedHashMap<>();
 
     /* renamed from: b */
-    public AbstractC11161a m67097b(String str) {
-        this.f52504d.put("apiName", str);
+    public AbstractLinkHashMap putApiName(String str) {
+        this.hashmap.put("apiName", str);
         return this;
     }
 
-    @Override // p436kv.InterfaceC11162b
+    @Override // p436kv.interfaceLinkHashMap
     public LinkedHashMap<String, String> build() {
-        return this.f52504d;
+        return this.hashmap;
     }
 
     /* renamed from: c */
-    public AbstractC11161a m67098c(String str) {
-        this.f52504d.put("appId", str);
+    public AbstractLinkHashMap putAppId(String str) {
+        this.hashmap.put("appId", str);
         return this;
     }
 
     /* renamed from: d */
-    public AbstractC11161a m67099d() {
+    public AbstractLinkHashMap putCallTime() {
         long jNanoTime = System.nanoTime();
         this.f52501a = jNanoTime;
         this.f52502b = jNanoTime;
-        this.f52504d.put("callTime", String.valueOf(System.currentTimeMillis()));
+        this.hashmap.put("callTime", String.valueOf(System.currentTimeMillis()));
         return this;
     }
 
     /* renamed from: e */
-    public AbstractC11161a m67100e() {
-        this.f52504d.put(WiseOpenHianalyticsData.UNION_COSTTIME, String.valueOf((System.nanoTime() - this.f52501a) / 1000000));
+    public AbstractLinkHashMap putUnionCostTime() {
+        this.hashmap.put(WiseOpenHianalyticsData.UNION_COSTTIME, String.valueOf((System.nanoTime() - this.f52501a) / 1000000));
         return this;
     }
 
     /* renamed from: f */
-    public AbstractC11161a m67101f(String str) {
-        this.f52504d.put(C2126b.ERROR_MESSAGE_INFO, str);
+    public AbstractLinkHashMap putErrorMessageInfo(String str) {
+        this.hashmap.put(C2126b.ERROR_MESSAGE_INFO, str);
         return this;
     }
 
     /* renamed from: g */
-    public AbstractC11161a m67102g(String str) {
-        this.f52504d.put("packageName", str);
+    public AbstractLinkHashMap putPackageName(String str) {
+        this.hashmap.put("packageName", str);
         return this;
     }
 
     /* renamed from: h */
-    public AbstractC11161a m67103h(int i10) {
-        this.f52504d.put("statusCode", String.valueOf(i10));
+    public AbstractLinkHashMap putStatusCode(int i10) {
+        this.hashmap.put("statusCode", String.valueOf(i10));
         return this;
     }
 
     /* renamed from: i */
-    public AbstractC11161a m67104i(String str) {
-        this.f52504d.put("transId", str);
+    public AbstractLinkHashMap putTransId(String str) {
+        this.hashmap.put("transId", str);
         return this;
     }
 
     /* renamed from: j */
-    public AbstractC11161a m67105j(String str) {
-        this.f52504d.put("version", str);
+    public AbstractLinkHashMap putVersion(String str) {
+        this.hashmap.put("version", str);
         return this;
     }
 }

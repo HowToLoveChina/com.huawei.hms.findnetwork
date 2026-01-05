@@ -9,9 +9,9 @@ import java.security.NoSuchProviderException;
 import javax.crypto.KeyGenerator;
 import mv.C11532e;
 import p021av.C1027a;
-import p374iv.C10624c;
+import p374iv.Exception_C10624c;
 import p374iv.C10626e;
-import p856zu.EnumC14380a;
+import p856zu.enumEncryptAlgorithm;
 
 /* renamed from: dv.a */
 /* loaded from: classes9.dex */
@@ -19,24 +19,24 @@ public class C9311a extends AbstractC9314d {
     @Override // p238dv.AbstractC9314d
     @SuppressLint({"WrongConstant"})
     /* renamed from: c */
-    public void mo58622c(C9313c c9313c) throws C10624c, NoSuchAlgorithmException, NoSuchProviderException, InvalidAlgorithmParameterException {
+    public void mo58622c(C9313c c9313c) throws Exception_C10624c, NoSuchAlgorithmException, NoSuchProviderException, InvalidAlgorithmParameterException {
         try {
             KeyGenerator keyGenerator = KeyGenerator.getInstance("AES", m58638f().m58644e());
             keyGenerator.init(new KeyGenParameterSpec.Builder(c9313c.m58626a(), c9313c.m58628c().m58646e()).setKeySize(c9313c.m58627b()).setAttestationChallenge(m58638f().m58643b().getBytes(StandardCharsets.UTF_8)).setRandomizedEncryptionRequired(false).setBlockModes("GCM", "CBC").setEncryptionPaddings("NoPadding", "PKCS7Padding").build());
             if (keyGenerator.generateKey() != null) {
             } else {
-                throw new C10624c("generate aes key failed with bad key");
+                throw new Exception_C10624c("generate aes key failed with bad key");
             }
         } catch (InvalidAlgorithmParameterException | NoSuchAlgorithmException | NoSuchProviderException e10) {
-            throw new C10624c("generate aes key failed, " + e10.getMessage());
+            throw new Exception_C10624c("generate aes key failed, " + e10.getMessage());
         }
     }
 
     @Override // p238dv.AbstractC9314d
     /* renamed from: j */
-    public void mo58623j(C9313c c9313c) throws C10624c {
-        EnumC14380a enumC14380a = EnumC14380a.AES_GCM;
-        m58641i(new C1027a.b(m58638f()).m6222b(enumC14380a).m6225e(c9313c.m58626a()).m6223c(C11532e.m68822b(enumC14380a.m85606b())).m6221a());
+    public void mo58623j(C9313c c9313c) throws Exception_C10624c {
+        enumEncryptAlgorithm enumEncryptAlgorithm = enumEncryptAlgorithm.AES_GCM;
+        m58641i(new C1027a.b(m58638f()).m6222b(enumEncryptAlgorithm).getKey(c9313c.m58626a()).m6223c(C11532e.m68822b(enumEncryptAlgorithm.getAlgorithmSeed())).m6221a());
     }
 
     @Override // p238dv.AbstractC9314d

@@ -7,19 +7,19 @@ import com.huawei.wisesecurity.ucs.credential.entity.EcKeyPair;
 import com.huawei.wisesecurity.ucs.credential.nativelib.UcsLib;
 import cw.C8957b;
 import cw.C8958c;
-import p857zv.C14389c;
+import p857zv.Exception_C14389c;
 
 /* renamed from: dw.m0 */
 /* loaded from: classes9.dex */
-public class C9343m0 extends AbstractC9353u {
-    @Override // p239dw.AbstractC9353u
+public class KeyStoreECIESParseHandler extends KekStore {
+    @Override // p239dw.KekStore
     /* renamed from: b */
-    public byte[] mo58648b(Credential credential, Context context) throws C14389c {
+    public byte[] doDecrypt(Credential credential, Context context) throws Exception_C14389c {
         try {
             String[] strArrSplit = credential.getKekString().split(":");
             if (strArrSplit.length < 3) {
                 C1029b.m6231b("KeyStoreECIESParseHandler", "EC kek doDecrypt failure. kek string invalid", new Object[0]);
-                throw new C14389c(1020L, "EC kek doDecrypt failure. kek string invalid");
+                throw new Exception_C14389c(1020L, "EC kek doDecrypt failure. kek string invalid");
             }
             byte[] bArrM56709a = C8958c.m56709a(strArrSplit[0], 0);
             byte[] bArrM56709a2 = C8958c.m56709a(strArrSplit[1], 0);
@@ -28,11 +28,11 @@ public class C9343m0 extends AbstractC9353u {
             byte[] bArrDecryptKekWithEc = UcsLib.decryptKekWithEc(bArrM56709a3, 1, bArrM56709a, bArrM56709a2, ecKeyPairM58723c.getPrivateKey());
             if (bArrDecryptKekWithEc == null || bArrDecryptKekWithEc.length == 0) {
                 C1029b.m6231b("KeyStoreECIESParseHandler", "KeyStore doDecrypt failure.", new Object[0]);
-                throw new C14389c(1020L, "KeyStore doDecrypt failure.");
+                throw new Exception_C14389c(1020L, "KeyStore doDecrypt failure.");
             }
             C9357y.m58722b(ecKeyPairM58723c);
             return bArrDecryptKekWithEc;
-        } catch (C14389c e10) {
+        } catch (Exception_C14389c e10) {
             if (credential.getKekVersion() == 6) {
                 C9326e.m58663a(context);
             } else {

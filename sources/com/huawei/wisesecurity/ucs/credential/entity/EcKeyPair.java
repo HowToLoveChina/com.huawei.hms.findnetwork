@@ -4,7 +4,7 @@ import p239dw.C9320b;
 import p374iv.C10626e;
 import p500nv.C11756a;
 import p535ov.InterfaceC12042i;
-import p857zv.C14389c;
+import p857zv.Exception_C14389c;
 import p857zv.C14391e;
 
 /* loaded from: classes9.dex */
@@ -23,14 +23,14 @@ public class EcKeyPair {
         private Builder() {
         }
 
-        public EcKeyPair build() throws C14389c {
+        public EcKeyPair build() throws Exception_C14389c {
             try {
                 C11756a.m70079b(this);
                 return new EcKeyPair(this);
             } catch (C10626e e10) {
-                StringBuilder sbM58651a = C9320b.m58651a("EcKeyPair build check param error : ");
-                sbM58651a.append(e10.getMessage());
-                throw new C14391e(sbM58651a.toString());
+                StringBuilder errmsg = C9320b.m58651a("EcKeyPair build check param error : ");
+                errmsg.append(e10.getMessage());
+                throw new C14391e(errmsg.toString());
             }
         }
 

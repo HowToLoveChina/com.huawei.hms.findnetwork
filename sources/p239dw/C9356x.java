@@ -8,11 +8,11 @@ import java.security.cert.Certificate;
 import p238dv.AbstractC9314d;
 import p238dv.C9312b;
 import p238dv.C9313c;
-import p238dv.EnumC9315e;
+import p238dv.enumKeyStore;
 import p238dv.EnumC9316f;
 import p267ev.EnumC9566e;
 import p298fv.C9774a;
-import p374iv.C10624c;
+import p374iv.Exception_C10624c;
 import p857zv.C14390d;
 
 /* renamed from: dw.x */
@@ -40,13 +40,13 @@ public class C9356x implements InterfaceC9358z {
             if (r0 == 0) goto L1d
             dv.e r0 = r0.m58638f()
             java.lang.String r1 = r4.getName()
-            dv.e r2 = p238dv.EnumC9315e.ANDROID_KEYSTORE
+            dv.e r2 = p238dv.enumKeyStore.ANDROID_KEYSTORE
             java.lang.String r3 = r2.m58643b()
             boolean r1 = android.text.TextUtils.equals(r1, r3)
             if (r1 == 0) goto L19
             goto L1b
         L19:
-            dv.e r2 = p238dv.EnumC9315e.HUAWEI_KEYSTORE
+            dv.e r2 = p238dv.enumKeyStore.HUAWEI_KEYSTORE
         L1b:
             if (r0 == r2) goto L24
         L1d:
@@ -70,11 +70,11 @@ public class C9356x implements InterfaceC9358z {
             }
             try {
                 f46763a.m58635b(new C9313c.a().m58630a(str).m58633d(EnumC9316f.PURPOSE_SIGN).m58632c(256).m58631b());
-            } catch (C10624c e10) {
+            } catch (Exception_C10624c e10) {
                 C1029b.m6231b("KeyStoreManager", C9352t.m58708a(e10, C9320b.m58651a("generateKeyPair failed, ")), new Object[0]);
                 throw new C14390d(C9352t.m58708a(e10, C9320b.m58651a("generateKeyPair failed , exception ")));
             }
-        } catch (C10624c e11) {
+        } catch (Exception_C10624c e11) {
             C1029b.m6231b("KeyStoreManager", C9352t.m58708a(e11, C9320b.m58651a("containsAlias failed, ")), new Object[0]);
             throw new C14390d(C9352t.m58708a(e11, C9320b.m58651a("containsAlias failed , exception ")));
         }
@@ -83,18 +83,18 @@ public class C9356x implements InterfaceC9358z {
     /* renamed from: c */
     public void m58719c(UcsKeyStoreProvider ucsKeyStoreProvider) throws C14390d {
         String name = ucsKeyStoreProvider.getName();
-        EnumC9315e enumC9315e = EnumC9315e.ANDROID_KEYSTORE;
-        if (!TextUtils.equals(name, enumC9315e.m58643b())) {
-            enumC9315e = EnumC9315e.HUAWEI_KEYSTORE;
+        enumKeyStore enumKeyStore = enumKeyStore.ANDROID_KEYSTORE;
+        if (!TextUtils.equals(name, enumKeyStore.m58643b())) {
+            enumKeyStore = enumKeyStore.HUAWEI_KEYSTORE;
         }
-        f46763a = new C9312b(enumC9315e);
+        f46763a = new C9312b(enumKeyStore);
     }
 
     /* renamed from: d */
     public Certificate[] m58720d(String str) throws C14390d {
         try {
             return f46763a.m58636d(str);
-        } catch (C10624c e10) {
+        } catch (Exception_C10624c e10) {
             C1029b.m6231b("KeyStoreManager", C9352t.m58708a(e10, C9320b.m58651a("getCertificateChain failed, ")), new Object[0]);
             throw new C14390d(C9352t.m58708a(e10, C9320b.m58651a("getCertificateChain failed , exception ")));
         }
@@ -108,7 +108,7 @@ public class C9356x implements InterfaceC9358z {
             try {
                 try {
                     bArrSign = new C9774a.b(f46763a.m58638f()).m59683c(EnumC9566e.ECDSA).m84251b(str).mo7646a().getSignHandler().from(str2).sign();
-                } catch (C10624c e10) {
+                } catch (Exception_C10624c e10) {
                     C1029b.m6231b("KeyStoreManager", "doSign failed, " + e10.getMessage(), new Object[0]);
                     throw new C14390d("doSign failed , exception " + e10.getMessage());
                 }

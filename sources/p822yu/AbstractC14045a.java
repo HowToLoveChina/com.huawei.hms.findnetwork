@@ -10,9 +10,9 @@ import java.security.PublicKey;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
 import java.security.spec.AlgorithmParameterSpec;
-import p238dv.EnumC9315e;
-import p374iv.C10623b;
-import p374iv.C10624c;
+import p238dv.enumKeyStore;
+import p374iv.Exception_C10623b;
+import p374iv.Exception_C10624c;
 
 /* renamed from: yu.a */
 /* loaded from: classes9.dex */
@@ -28,29 +28,29 @@ public abstract class AbstractC14045a<T> {
     public AlgorithmParameterSpec f62832c;
 
     /* renamed from: d */
-    public final EnumC9315e f62833d;
+    public final enumKeyStore f62833d;
 
-    public AbstractC14045a(EnumC9315e enumC9315e) {
-        this.f62833d = enumC9315e;
+    public AbstractC14045a(enumKeyStore enumKeyStore) {
+        this.f62833d = enumKeyStore;
     }
 
     /* renamed from: a */
-    public abstract T mo7646a() throws C10623b;
+    public abstract T mo7646a() throws Exception_C10623b;
 
     /* renamed from: b */
-    public AbstractC14045a<T> m84251b(String str) throws C10624c, NoSuchAlgorithmException, UnrecoverableKeyException, IOException, KeyStoreException, CertificateException {
+    public AbstractC14045a<T> m84251b(String str) throws Exception_C10624c, NoSuchAlgorithmException, UnrecoverableKeyException, IOException, KeyStoreException, CertificateException {
         try {
             KeyStore keyStore = KeyStore.getInstance(this.f62833d.m58643b());
             keyStore.load(null);
             Key key = keyStore.getKey(str, null);
             if (!(key instanceof PrivateKey)) {
-                throw new C10624c("bad private key type");
+                throw new Exception_C10624c("bad private key type");
             }
             this.f62830a = (PrivateKey) key;
             this.f62831b = keyStore.getCertificate(str).getPublicKey();
             return this;
         } catch (IOException | KeyStoreException | NoSuchAlgorithmException | UnrecoverableKeyException | CertificateException e10) {
-            throw new C10624c("keystore get key with alias failed, " + e10.getMessage());
+            throw new Exception_C10624c("keystore get key with alias failed, " + e10.getMessage());
         }
     }
 }

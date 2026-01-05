@@ -7,7 +7,7 @@ import p267ev.InterfaceC9565d;
 import p374iv.C10626e;
 import p500nv.C11756a;
 import p535ov.InterfaceC12042i;
-import p857zv.C14389c;
+import p857zv.Exception_C14389c;
 import p857zv.C14391e;
 
 /* loaded from: classes9.dex */
@@ -27,7 +27,7 @@ public class CredentialSigner implements InterfaceC9565d {
         @InterfaceC12042i
         private CredentialSignAlg signAlg = CredentialSignAlg.HMAC_SHA256;
 
-        public CredentialSigner build() throws C14389c {
+        public CredentialSigner build() throws Exception_C14389c {
             try {
                 C11756a.m70079b(this);
                 return new CredentialSigner(this.signAlg, this.credential, this.credentialClient);

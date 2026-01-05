@@ -7,7 +7,7 @@ import p239dw.C9320b;
 import p374iv.C10626e;
 import p500nv.C11756a;
 import p535ov.InterfaceC12044k;
-import p857zv.C14389c;
+import p857zv.Exception_C14389c;
 
 /* loaded from: classes9.dex */
 public class AccessKey {
@@ -22,7 +22,7 @@ public class AccessKey {
     @InterfaceC12044k
     private String appPkgName;
 
-    public static AccessKey fromString(String str) throws C14389c {
+    public static AccessKey fromString(String str) throws Exception_C14389c {
         try {
             AccessKey accessKey = new AccessKey();
             JSONObject jSONObject = new JSONObject(C8958c.m56710b(str, 0));
@@ -36,11 +36,11 @@ public class AccessKey {
         } catch (C10626e e10) {
             StringBuilder sbM58651a = C9320b.m58651a("accessKey param invalid : ");
             sbM58651a.append(e10.getMessage());
-            throw new C14389c(1001L, sbM58651a.toString());
+            throw new Exception_C14389c(1001L, sbM58651a.toString());
         } catch (JSONException e11) {
             StringBuilder sbM58651a2 = C9320b.m58651a("accessKey param is not a valid json string : ");
             sbM58651a2.append(e11.getMessage());
-            throw new C14389c(1001L, sbM58651a2.toString());
+            throw new Exception_C14389c(1001L, sbM58651a2.toString());
         }
     }
 

@@ -46,8 +46,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-import p857zv.C14387a;
-import p857zv.C14389c;
+import p857zv.Exception_C14387a;
+import p857zv.Exception_C14389c;
 
 /* renamed from: com.huawei.phoneservice.feedbackcommon.utils.m */
 /* loaded from: classes5.dex */
@@ -148,7 +148,7 @@ public final class C8673m extends AbstractC8662d {
                 } else {
                     C8673m.this.m53515V();
                 }
-            } catch (C14389c e10) {
+            } catch (Exception_C14389c e10) {
                 C8673m.this.m53538K(false);
                 FaqLogger.m51840e("UploadZipTask", e10.getMessage());
             }
@@ -618,7 +618,7 @@ public final class C8673m extends AbstractC8662d {
                     m53515V();
                     return;
                 }
-            } catch (C14389c unused) {
+            } catch (Exception_C14389c unused) {
             }
         }
         m53550j(1, null, 0);
@@ -772,7 +772,7 @@ public final class C8673m extends AbstractC8662d {
                 if (sdkVersion != null) {
                     map.put(ParamConstants.Param.SDK_VERSION, sdkVersion);
                 }
-            } catch (C14387a | C14389c e10) {
+            } catch (Exception_C14387a | Exception_C14389c e10) {
                 FaqLogger.m51840e("UploadZipTask", e10.getMessage());
             }
         }

@@ -3,14 +3,14 @@ package p239dw;
 import android.content.Context;
 import aw.C1029b;
 import com.huawei.wisesecurity.ucs.credential.Credential;
-import p857zv.C14389c;
+import p857zv.Exception_C14389c;
 
 /* renamed from: dw.a */
 /* loaded from: classes9.dex */
-public class C9318a extends AbstractC9353u {
-    @Override // p239dw.AbstractC9353u
+public class C9318a extends KekStore {
+    @Override // p239dw.KekStore
     /* renamed from: b */
-    public byte[] mo58648b(Credential credential, Context context) throws C14389c {
+    public byte[] doDecrypt(Credential credential, Context context) throws Exception_C14389c {
         try {
             if (C9321b0.f46695a == null) {
                 C9321b0.f46696b.m58652a(null);
@@ -21,7 +21,7 @@ public class C9318a extends AbstractC9353u {
             }
             C9326e.m58665c(context);
             C1029b.m6231b("KeyStoreParseHandler", "KeyStore doDecrypt failure.", new Object[0]);
-            throw new C14389c(1020L, "KeyStore doDecrypt failure.");
+            throw new Exception_C14389c(1020L, "KeyStore doDecrypt failure.");
         } catch (Throwable th2) {
             C9326e.m58665c(context);
             String str = "decrypt kek get exception : " + th2.getMessage();

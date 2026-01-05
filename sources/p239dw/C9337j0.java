@@ -6,7 +6,7 @@ import java.nio.charset.StandardCharsets;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import p857zv.C14389c;
+import p857zv.Exception_C14389c;
 
 /* renamed from: dw.j0 */
 /* loaded from: classes9.dex */
@@ -44,7 +44,7 @@ public class C9337j0 {
         public String f46745b;
     }
 
-    public C9337j0(String str) throws C14389c {
+    public C9337j0(String str) throws Exception_C14389c {
         m58685a(str);
         String[] strArrSplit = str.split("\\.");
         m58687c(strArrSplit);
@@ -53,26 +53,26 @@ public class C9337j0 {
     }
 
     /* renamed from: a */
-    public final void m58685a(String str) throws C14389c {
+    public final void m58685a(String str) throws Exception_C14389c {
         if (TextUtils.isEmpty(str)) {
-            throw new C14389c(1012L, "ComponentJws is empty.");
+            throw new Exception_C14389c(1012L, "ComponentJws is empty.");
         }
     }
 
     /* renamed from: b */
-    public void m58686b(String str, String[] strArr) throws C14389c {
+    public void m58686b(String str, String[] strArr) throws Exception_C14389c {
         try {
             this.f46740c = C8958c.m56709a(strArr[2], 8);
             this.f46741d = str.substring(0, str.lastIndexOf("."));
-        } catch (C14389c e10) {
+        } catch (Exception_C14389c e10) {
             StringBuilder sbM58651a = C9320b.m58651a("Fail to convert jws string to Content, ");
             sbM58651a.append(e10.getMessage());
-            throw new C14389c(1012L, sbM58651a.toString());
+            throw new Exception_C14389c(1012L, sbM58651a.toString());
         }
     }
 
     /* renamed from: c */
-    public void m58687c(String[] strArr) throws C14389c {
+    public void m58687c(String[] strArr) throws Exception_C14389c {
         try {
             JSONObject jSONObject = new JSONObject(new String(C8958c.m56709a(strArr[0], 8), StandardCharsets.UTF_8));
             JSONArray jSONArrayOptJSONArray = jSONObject.optJSONArray("x5c");
@@ -84,12 +84,12 @@ public class C9337j0 {
         } catch (RuntimeException | JSONException e10) {
             StringBuilder sbM58651a = C9320b.m58651a("Fail to convert jws string to header, ");
             sbM58651a.append(e10.getMessage());
-            throw new C14389c(1012L, sbM58651a.toString());
+            throw new Exception_C14389c(1012L, sbM58651a.toString());
         }
     }
 
     /* renamed from: d */
-    public void m58688d(String[] strArr) throws C14389c {
+    public void m58688d(String[] strArr) throws Exception_C14389c {
         try {
             JSONObject jSONObject = new JSONObject(new String(C8958c.m56709a(strArr[1], 8), StandardCharsets.UTF_8));
             b bVar = new b();
@@ -99,7 +99,7 @@ public class C9337j0 {
         } catch (RuntimeException | JSONException e10) {
             StringBuilder sbM58651a = C9320b.m58651a("Fail to convert jws string to payload, ");
             sbM58651a.append(e10.getMessage());
-            throw new C14389c(1012L, sbM58651a.toString());
+            throw new Exception_C14389c(1012L, sbM58651a.toString());
         }
     }
 }

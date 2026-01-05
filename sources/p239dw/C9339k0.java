@@ -11,16 +11,16 @@ import cw.C8958c;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import p857zv.C14389c;
+import p857zv.Exception_C14389c;
 
 /* renamed from: dw.k0 */
 /* loaded from: classes9.dex */
 public class C9339k0 {
     /* renamed from: a */
-    public static void m58692a(Context context, C9338k c9338k) throws C14389c, IOException {
+    public static void m58692a(Context context, C9338k c9338k) throws Exception_C14389c, IOException {
         String strM56705d = C8957b.m56705d("ucscomponent.jws", null, context);
         if (strM56705d == null || !new File(strM56705d).exists()) {
-            throw new C14389c(1009L, "Init component from local failed, file error");
+            throw new Exception_C14389c(1009L, "Init component from local failed, file error");
         }
         C1029b.m6234e("KeyComponentLocalHandler", "Start init data =  component through local file", new Object[0]);
         try {
@@ -39,7 +39,7 @@ public class C9339k0 {
     }
 
     /* renamed from: b */
-    public static void m58693b(Context context, String str) throws C14389c {
+    public static void m58693b(Context context, String str) throws Exception_C14389c {
         try {
             C9337j0 c9337j0 = new C9337j0(str);
             C9340l.m58696c(context, c9337j0);
