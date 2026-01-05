@@ -42,7 +42,7 @@ import java.util.stream.Collectors;
 import java.util.stream.LongStream;
 import mp.C11503a;
 import no.C11739b;
-import okhttp3.C11918e0;
+import okhttp3.HttpRequestBuilder;
 import org.json.JSONException;
 import p015ak.C0209d;
 import p015ak.C0213f;
@@ -106,7 +106,7 @@ public class C9465f {
         }
 
         @Override // no.C11739b, com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-        public void prepare(C11918e0.a aVar) throws UnsupportedEncodingException {
+        public void prepare(HttpRequestBuilder.a aVar) throws UnsupportedEncodingException {
             String strEncode;
             try {
                 strEncode = URLEncoder.encode(C13195l.m79272J().m79344y("PhoneFinder", ""), Constants.UTF_8);
@@ -114,7 +114,7 @@ public class C9465f {
                 C11839m.m70687e("ShareReceivingManage", "MapSnapshotCallback Exception");
                 strEncode = null;
             }
-            aVar.m71574a("authType", "0").m71574a("authValue", strEncode).m71574a(HwPayConstant.KEY_SITE_ID, String.valueOf(C13452e.m80781L().m80947n0()));
+            aVar.addHeader("authType", "0").addHeader("authValue", strEncode).addHeader(HwPayConstant.KEY_SITE_ID, String.valueOf(C13452e.m80781L().m80947n0()));
             super.prepare(aVar);
         }
 
@@ -124,7 +124,7 @@ public class C9465f {
             Code decompiled incorrectly, please refer to instructions dump.
             To view partially-correct code enable 'Show inconsistent code' option in preferences
         */
-        public java.lang.Void onResponse(okhttp3.C11922g0 r10) throws java.lang.Throwable {
+        public java.lang.Void onResponse(okhttp3.HttpResponseBuilder r10) throws java.lang.Throwable {
             /*
                 r9 = this;
                 java.lang.String r0 = "ShareReceivingManage"

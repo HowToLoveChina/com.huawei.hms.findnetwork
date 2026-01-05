@@ -18,13 +18,13 @@ public abstract class AbstractC11920f0 {
     public class a extends AbstractC11920f0 {
 
         /* renamed from: a */
-        public final /* synthetic */ C11910a0 f55284a;
+        public final /* synthetic */ MimeClass f55284a;
 
         /* renamed from: b */
         public final /* synthetic */ C1057g f55285b;
 
-        public a(C11910a0 c11910a0, C1057g c1057g) {
-            this.f55284a = c11910a0;
+        public a(MimeClass MimeClass, C1057g c1057g) {
+            this.f55284a = MimeClass;
             this.f55285b = c1057g;
         }
 
@@ -34,7 +34,7 @@ public abstract class AbstractC11920f0 {
         }
 
         @Override // okhttp3.AbstractC11920f0
-        public C11910a0 contentType() {
+        public MimeClass contentType() {
             return this.f55284a;
         }
 
@@ -48,7 +48,7 @@ public abstract class AbstractC11920f0 {
     public class b extends AbstractC11920f0 {
 
         /* renamed from: a */
-        public final /* synthetic */ C11910a0 f55286a;
+        public final /* synthetic */ MimeClass f55286a;
 
         /* renamed from: b */
         public final /* synthetic */ int f55287b;
@@ -59,8 +59,8 @@ public abstract class AbstractC11920f0 {
         /* renamed from: d */
         public final /* synthetic */ int f55289d;
 
-        public b(C11910a0 c11910a0, int i10, byte[] bArr, int i11) {
-            this.f55286a = c11910a0;
+        public b(MimeClass MimeClass, int i10, byte[] bArr, int i11) {
+            this.f55286a = MimeClass;
             this.f55287b = i10;
             this.f55288c = bArr;
             this.f55289d = i11;
@@ -72,7 +72,7 @@ public abstract class AbstractC11920f0 {
         }
 
         @Override // okhttp3.AbstractC11920f0
-        public C11910a0 contentType() {
+        public MimeClass contentType() {
             return this.f55286a;
         }
 
@@ -86,13 +86,13 @@ public abstract class AbstractC11920f0 {
     public class c extends AbstractC11920f0 {
 
         /* renamed from: a */
-        public final /* synthetic */ C11910a0 f55290a;
+        public final /* synthetic */ MimeClass f55290a;
 
         /* renamed from: b */
         public final /* synthetic */ File f55291b;
 
-        public c(C11910a0 c11910a0, File file) {
-            this.f55290a = c11910a0;
+        public c(MimeClass MimeClass, File file) {
+            this.f55290a = MimeClass;
             this.f55291b = file;
         }
 
@@ -102,7 +102,7 @@ public abstract class AbstractC11920f0 {
         }
 
         @Override // okhttp3.AbstractC11920f0
-        public C11910a0 contentType() {
+        public MimeClass contentType() {
             return this.f55290a;
         }
 
@@ -127,24 +127,24 @@ public abstract class AbstractC11920f0 {
         }
     }
 
-    public static AbstractC11920f0 create(C11910a0 c11910a0, String str) {
+    public static AbstractC11920f0 create(MimeClass MimeClass, String str) {
         Charset charset = StandardCharsets.UTF_8;
-        if (c11910a0 != null) {
-            Charset charsetM71446a = c11910a0.m71446a();
+        if (MimeClass != null) {
+            Charset charsetM71446a = MimeClass.m71446a();
             if (charsetM71446a == null) {
-                c11910a0 = C11910a0.m71445d(c11910a0 + "; charset=utf-8");
+                MimeClass = MimeClass.m71445d(MimeClass + "; charset=utf-8");
             } else {
                 charset = charsetM71446a;
             }
         }
-        return create(c11910a0, str.getBytes(charset));
+        return create(MimeClass, str.getBytes(charset));
     }
 
     public long contentLength() throws IOException {
         return -1L;
     }
 
-    public abstract C11910a0 contentType();
+    public abstract MimeClass contentType();
 
     public boolean isDuplex() {
         return false;
@@ -156,25 +156,25 @@ public abstract class AbstractC11920f0 {
 
     public abstract void writeTo(InterfaceC1055e interfaceC1055e) throws IOException;
 
-    public static AbstractC11920f0 create(C11910a0 c11910a0, C1057g c1057g) {
-        return new a(c11910a0, c1057g);
+    public static AbstractC11920f0 create(MimeClass MimeClass, C1057g c1057g) {
+        return new a(MimeClass, c1057g);
     }
 
-    public static AbstractC11920f0 create(C11910a0 c11910a0, byte[] bArr) {
-        return create(c11910a0, bArr, 0, bArr.length);
+    public static AbstractC11920f0 create(MimeClass MimeClass, byte[] bArr) {
+        return create(MimeClass, bArr, 0, bArr.length);
     }
 
-    public static AbstractC11920f0 create(C11910a0 c11910a0, byte[] bArr, int i10, int i11) {
+    public static AbstractC11920f0 create(MimeClass MimeClass, byte[] bArr, int i10, int i11) {
         if (bArr != null) {
             C12875e.m77249f(bArr.length, i10, i11);
-            return new b(c11910a0, i11, bArr, i10);
+            return new b(MimeClass, i11, bArr, i10);
         }
         throw new NullPointerException("content == null");
     }
 
-    public static AbstractC11920f0 create(C11910a0 c11910a0, File file) {
+    public static AbstractC11920f0 create(MimeClass MimeClass, File file) {
         if (file != null) {
-            return new c(c11910a0, file);
+            return new c(MimeClass, file);
         }
         throw new NullPointerException("file == null");
     }

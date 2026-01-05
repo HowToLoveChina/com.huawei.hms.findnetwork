@@ -24,7 +24,7 @@ public final class C11916d0 implements InterfaceC11919f {
     public C11941o f55238b;
 
     /* renamed from: c */
-    public final C11918e0 f55239c;
+    public final HttpRequestBuilder f55239c;
 
     /* renamed from: d */
     public final boolean f55240d;
@@ -136,7 +136,7 @@ public final class C11916d0 implements InterfaceC11919f {
         }
 
         /* renamed from: s */
-        public C11918e0 m71543s() {
+        public HttpRequestBuilder m71543s() {
             return C11916d0.this.f55239c;
         }
 
@@ -151,15 +151,15 @@ public final class C11916d0 implements InterfaceC11919f {
         }
     }
 
-    public C11916d0(C11912b0 c11912b0, C11918e0 c11918e0, boolean z10) {
+    public C11916d0(C11912b0 c11912b0, HttpRequestBuilder HttpRequestBuilder, boolean z10) {
         this.f55237a = c11912b0;
-        this.f55239c = c11918e0;
+        this.f55239c = HttpRequestBuilder;
         this.f55240d = z10;
     }
 
     /* renamed from: g */
-    public static C11916d0 m71529g(C11912b0 c11912b0, C11918e0 c11918e0, boolean z10) {
-        C11916d0 c11916d0 = new C11916d0(c11912b0, c11918e0, z10);
+    public static C11916d0 m71529g(C11912b0 c11912b0, HttpRequestBuilder HttpRequestBuilder, boolean z10) {
+        C11916d0 c11916d0 = new C11916d0(c11912b0, HttpRequestBuilder, z10);
         c11916d0.f55238b = new C11941o(c11912b0, c11916d0);
         return c11916d0;
     }
@@ -175,7 +175,7 @@ public final class C11916d0 implements InterfaceC11919f {
     }
 
     /* renamed from: d */
-    public C11922g0 m71531d() throws IOException {
+    public HttpResponseBuilder m71531d() throws IOException {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new C13285j(this.f55237a));
         arrayList.add(new C11934h(this.f55237a));
@@ -196,7 +196,7 @@ public final class C11916d0 implements InterfaceC11919f {
     }
 
     @Override // okhttp3.InterfaceC11919f
-    public C11922g0 execute() throws IOException {
+    public HttpResponseBuilder execute() throws IOException {
         synchronized (this) {
             if (this.f55241e) {
                 throw new IllegalStateException("Already Executed");
@@ -219,7 +219,7 @@ public final class C11916d0 implements InterfaceC11919f {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public okhttp3.C11922g0 m71533f() throws java.lang.Throwable {
+    public okhttp3.HttpResponseBuilder m71533f() throws java.lang.Throwable {
         /*
             r13 = this;
             java.util.ArrayList r1 = new java.util.ArrayList
@@ -329,7 +329,7 @@ public final class C11916d0 implements InterfaceC11919f {
     }
 
     @Override // okhttp3.InterfaceC11919f
-    public C11918e0 request() {
+    public HttpRequestBuilder request() {
         return this.f55239c;
     }
 }

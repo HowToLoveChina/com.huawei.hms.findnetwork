@@ -31,7 +31,7 @@ import java.net.UnknownHostException;
 import java.util.HashMap;
 import java.util.concurrent.TimeoutException;
 import javax.net.ssl.SSLException;
-import okhttp3.C11922g0;
+import okhttp3.HttpResponseBuilder;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -157,9 +157,9 @@ public abstract class DownloadTaskBaseCallable extends AbstractC2328i {
         }
     }
 
-    private void closeResponse(C11922g0 c11922g0) {
-        if (c11922g0 != null) {
-            c11922g0.close();
+    private void closeResponse(HttpResponseBuilder HttpResponseBuilder) {
+        if (HttpResponseBuilder != null) {
+            HttpResponseBuilder.close();
         }
     }
 
@@ -273,10 +273,10 @@ public abstract class DownloadTaskBaseCallable extends AbstractC2328i {
         return j11;
     }
 
-    private String getNewTempFilePath(C11922g0 c11922g0) {
+    private String getNewTempFilePath(HttpResponseBuilder HttpResponseBuilder) {
         this.saveCachePath = C1124e.m6866j() + "/Pictures/hiddenAlbum/.tmp/" + this.fileInfo.getAlbumId() + "/" + C0227m.m1592e(this.fileInfo.getFileName());
         C1120a.m6678w(TAG, "tempFilePath length too long update tempFilePath" + this.saveCachePath);
-        String str = this.saveCachePath + ".tmp_h." + c11922g0.m71595s().mo71634u();
+        String str = this.saveCachePath + ".tmp_h." + HttpResponseBuilder.m71595s().mo71634u();
         this.tempFilePath = str;
         return str;
     }
@@ -703,11 +703,11 @@ public abstract class DownloadTaskBaseCallable extends AbstractC2328i {
         return length;
     }
 
-    public long getDownloadResponseSize(C11922g0 c11922g0, long j10, long j11, boolean z10) {
-        if (c11922g0 == null) {
+    public long getDownloadResponseSize(HttpResponseBuilder HttpResponseBuilder, long j10, long j11, boolean z10) {
+        if (HttpResponseBuilder == null) {
             return j11;
         }
-        long jMo71634u = c11922g0.m71595s().mo71634u();
+        long jMo71634u = HttpResponseBuilder.m71595s().mo71634u();
         this.contentLength = jMo71634u;
         return (jMo71634u > 0 || getNeedAT()) ? z10 ? j11 > 0 ? j11 : jMo71634u : getFileSize(j10, j11, jMo71634u) : j11;
     }

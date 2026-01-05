@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import okhttp3.AbstractC11920f0;
-import okhttp3.C11910a0;
-import okhttp3.C11918e0;
+import okhttp3.MimeClass;
+import okhttp3.HttpRequestBuilder;
 import p022ay.InterfaceC1055e;
 import p514o9.C11829c;
 import p514o9.C11839m;
@@ -46,8 +46,8 @@ public class UploadCallback extends AbstractC4994a {
             }
 
             @Override // okhttp3.AbstractC11920f0
-            public C11910a0 contentType() {
-                return C11910a0.m71445d("application/x-www-form-urlencoded; charset=utf-8");
+            public MimeClass contentType() {
+                return MimeClass.m71445d("application/x-www-form-urlencoded; charset=utf-8");
             }
 
             @Override // okhttp3.AbstractC11920f0
@@ -101,16 +101,16 @@ public class UploadCallback extends AbstractC4994a {
     }
 
     @Override // com.huawei.hicloud.request.okhttp.request.AbstractC4994a, com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-    public void prepare(C11918e0.a aVar) throws C9721b, IOException {
+    public void prepare(HttpRequestBuilder.a aVar) throws C9721b, IOException {
         super.prepare(aVar);
         if (C10028c.m62182c0().m62420y1()) {
-            aVar.m71574a("User-Agent", "com.huawei.hidisk/16.0.0.300 (Linux; HarmonyOS " + Build.VERSION.RELEASE + "; " + Build.MODEL + "; " + C11829c.f54755a + ") HMS/2.6.3.306 (10055832)");
-            aVar.m71574a("Expect", "100-continue");
+            aVar.addHeader("User-Agent", "com.huawei.hidisk/16.0.0.300 (Linux; HarmonyOS " + Build.VERSION.RELEASE + "; " + Build.MODEL + "; " + C11829c.f54755a + ") HMS/2.6.3.306 (10055832)");
+            aVar.addHeader("Expect", "100-continue");
         }
         Map<String, String> map = this.headers;
         if (map != null) {
             for (Map.Entry<String, String> entry : map.entrySet()) {
-                aVar.m71574a(entry.getKey(), entry.getValue());
+                aVar.addHeader(entry.getKey(), entry.getValue());
             }
         }
     }

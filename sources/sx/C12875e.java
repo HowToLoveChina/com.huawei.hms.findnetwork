@@ -34,7 +34,7 @@ import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 import okhttp3.AbstractC11920f0;
 import okhttp3.AbstractC11924h0;
-import okhttp3.C11910a0;
+import okhttp3.MimeClass;
 import okhttp3.C11955v;
 import okhttp3.C11958y;
 import p022ay.C1054d;
@@ -90,7 +90,7 @@ public final class C12875e {
         f58640a = bArr;
         Method declaredMethod = null;
         f58643d = AbstractC11924h0.m71631x(null, bArr);
-        f58644e = AbstractC11920f0.create((C11910a0) null, bArr);
+        f58644e = AbstractC11920f0.create((MimeClass) null, bArr);
         try {
             declaredMethod = Throwable.class.getDeclaredMethod("addSuppressed", Throwable.class);
         } catch (Exception unused) {

@@ -10,7 +10,7 @@ public interface InterfaceC11919f extends Cloneable {
     /* renamed from: e */
     void mo71532e(InterfaceC11921g interfaceC11921g);
 
-    C11922g0 execute() throws IOException;
+    HttpResponseBuilder execute() throws IOException;
 
-    C11918e0 request();
+    HttpRequestBuilder request();
 }

@@ -23,10 +23,10 @@ import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 import mr.C11506a;
 import okhttp3.AbstractC11920f0;
-import okhttp3.C11910a0;
+import okhttp3.MimeClass;
 import okhttp3.C11912b0;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import okhttp3.C11955v;
 import p436kv.interfaceLinkHashMap;
 import p531or.C11991a;
@@ -106,16 +106,16 @@ public class C14371a {
         }
 
         /* renamed from: a */
-        public final NetworkResponse m85567a(C11918e0 c11918e0) throws IOException {
+        public final NetworkResponse m85567a(HttpRequestBuilder HttpRequestBuilder) throws IOException {
             C11912b0.c cVar = new C11912b0.c();
             TimeUnit timeUnit = TimeUnit.MILLISECONDS;
             try {
-                C11922g0 c11922g0Execute = cVar.m71506c(10000L, timeUnit).m71507d(10000L, timeUnit).m71520q(false).m71505b().m71495z(c11918e0).execute();
+                HttpResponseBuilder HttpResponseBuilderExecute = cVar.m71506c(10000L, timeUnit).m71507d(10000L, timeUnit).m71520q(false).m71505b().m71495z(HttpRequestBuilder).execute();
                 NetworkResponse networkResponse = new NetworkResponse();
-                networkResponse.setCode(c11922g0Execute.m71597u());
-                networkResponse.setHeaders(c11922g0Execute.m71601y().m71858k());
-                if (c11922g0Execute.m71595s() != null) {
-                    networkResponse.setBody(c11922g0Execute.m71595s().m71637z());
+                networkResponse.setCode(HttpResponseBuilderExecute.m71597u());
+                networkResponse.setHeaders(HttpResponseBuilderExecute.m71601y().m71858k());
+                if (HttpResponseBuilderExecute.m71595s() != null) {
+                    networkResponse.setBody(HttpResponseBuilderExecute.m71595s().m71637z());
                 }
                 return networkResponse;
             } catch (IOException e10) {
@@ -127,7 +127,7 @@ public class C14371a {
         @Override // com.huawei.wisesecurity.ucs.credential.outer.NetworkCapability
         public NetworkResponse get(NetworkRequest networkRequest) throws IOException {
             C1016d.m6181a("UCSSignHelper", "NetworkCapabilityImpl ucs http getUrl：" + networkRequest.getUrl());
-            return m85567a(new C11918e0.a().m71586m(networkRequest.getUrl()).m71579f(C11955v.m71851h(networkRequest.getHeaders())).m71575b());
+            return m85567a(new HttpRequestBuilder.a().m71586m(networkRequest.getUrl()).m71579f(C11955v.m71851h(networkRequest.getHeaders())).m71575b());
         }
 
         @Override // com.huawei.wisesecurity.ucs.credential.outer.NetworkCapability
@@ -137,7 +137,7 @@ public class C14371a {
         @Override // com.huawei.wisesecurity.ucs.credential.outer.NetworkCapability
         public NetworkResponse post(NetworkRequest networkRequest) throws IOException {
             C1016d.m6181a("UCSSignHelper", "NetworkCapabilityImpl ucs http postUrl：" + networkRequest.getUrl());
-            return m85567a(new C11918e0.a().m71586m(networkRequest.getUrl()).m71579f(C11955v.m71851h(networkRequest.getHeaders())).m71581h(AbstractC11920f0.create(C11910a0.m71445d("application/json; charset=utf-8"), networkRequest.getBody())).m71575b());
+            return m85567a(new HttpRequestBuilder.a().m71586m(networkRequest.getUrl()).m71579f(C11955v.m71851h(networkRequest.getHeaders())).m71581h(AbstractC11920f0.create(MimeClass.m71445d("application/json; charset=utf-8"), networkRequest.getBody())).m71575b());
         }
     }
 

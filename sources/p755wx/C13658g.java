@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 import okhttp3.C11912b0;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import okhttp3.C11955v;
 import okhttp3.EnumC11914c0;
 import okhttp3.InterfaceC11959z;
@@ -64,16 +64,16 @@ public final class C13658g implements InterfaceC13278c {
     }
 
     /* renamed from: i */
-    public static List<C13654c> m82123i(C11918e0 c11918e0) {
-        C11955v c11955vM71566f = c11918e0.m71566f();
+    public static List<C13654c> m82123i(HttpRequestBuilder HttpRequestBuilder) {
+        C11955v c11955vM71566f = HttpRequestBuilder.m71566f();
         ArrayList arrayList = new ArrayList(c11955vM71566f.m71857j() + 4);
-        arrayList.add(new C13654c(C13654c.f61379f, c11918e0.m71569i()));
-        arrayList.add(new C13654c(C13654c.f61380g, C13284i.m79729c(c11918e0.m71573m())));
-        String strM71565e = c11918e0.m71565e(FeedbackWebConstants.HOST);
+        arrayList.add(new C13654c(C13654c.f61379f, HttpRequestBuilder.m71569i()));
+        arrayList.add(new C13654c(C13654c.f61380g, C13284i.m79729c(HttpRequestBuilder.m71573m())));
+        String strM71565e = HttpRequestBuilder.m71565e(FeedbackWebConstants.HOST);
         if (strM71565e != null) {
             arrayList.add(new C13654c(C13654c.f61382i, strM71565e));
         }
-        arrayList.add(new C13654c(C13654c.f61381h, c11918e0.m71573m().m71896B()));
+        arrayList.add(new C13654c(C13654c.f61381h, HttpRequestBuilder.m71573m().m71896B()));
         int iM71857j = c11955vM71566f.m71857j();
         for (int i10 = 0; i10 < iM71857j; i10++) {
             String lowerCase = c11955vM71566f.m71854e(i10).toLowerCase(Locale.US);
@@ -85,7 +85,7 @@ public final class C13658g implements InterfaceC13278c {
     }
 
     /* renamed from: j */
-    public static C11922g0.a m82124j(C11955v c11955v, EnumC11914c0 enumC11914c0) throws NumberFormatException, IOException {
+    public static HttpResponseBuilder.a m82124j(C11955v c11955v, EnumC11914c0 enumC11914c0) throws NumberFormatException, IOException {
         C11955v.a aVar = new C11955v.a();
         int iM71857j = c11955v.m71857j();
         C13286k c13286kM79735a = null;
@@ -99,7 +99,7 @@ public final class C13658g implements InterfaceC13278c {
             }
         }
         if (c13286kM79735a != null) {
-            return new C11922g0.a().m71617o(enumC11914c0).m71609g(c13286kM79735a.f60003b).m71614l(c13286kM79735a.f60004c).m71612j(aVar.m71864d());
+            return new HttpResponseBuilder.a().m71617o(enumC11914c0).m71609g(c13286kM79735a.f60003b).m71614l(c13286kM79735a.f60004c).m71612j(aVar.m71864d());
         }
         throw new ProtocolException("Expected ':status' header not present");
     }
@@ -112,11 +112,11 @@ public final class C13658g implements InterfaceC13278c {
 
     @Override // p693ux.InterfaceC13278c
     /* renamed from: b */
-    public void mo79702b(C11918e0 c11918e0) throws IOException {
+    public void mo79702b(HttpRequestBuilder HttpRequestBuilder) throws IOException {
         if (this.f61485d != null) {
             return;
         }
-        this.f61485d = this.f61484c.m82085C(m82123i(c11918e0), c11918e0.m71562b() != null);
+        this.f61485d = this.f61484c.m82085C(m82123i(HttpRequestBuilder), HttpRequestBuilder.m71562b() != null);
         if (this.f61487f) {
             this.f61485d.m82146f(EnumC13653b.CANCEL);
             throw new IOException("Canceled");
@@ -130,7 +130,7 @@ public final class C13658g implements InterfaceC13278c {
 
     @Override // p693ux.InterfaceC13278c
     /* renamed from: c */
-    public InterfaceC1076z mo79703c(C11922g0 c11922g0) {
+    public InterfaceC1076z mo79703c(HttpResponseBuilder HttpResponseBuilder) {
         return this.f61485d.m82149i();
     }
 
@@ -144,8 +144,8 @@ public final class C13658g implements InterfaceC13278c {
 
     @Override // p693ux.InterfaceC13278c
     /* renamed from: d */
-    public C11922g0.a mo79704d(boolean z10) throws NumberFormatException, IOException {
-        C11922g0.a aVarM82124j = m82124j(this.f61485d.m82156p(), this.f61486e);
+    public HttpResponseBuilder.a mo79704d(boolean z10) throws NumberFormatException, IOException {
+        HttpResponseBuilder.a aVarM82124j = m82124j(this.f61485d.m82156p(), this.f61486e);
         if (z10 && AbstractC12871a.f58633a.mo71499d(aVarM82124j) == 100) {
             return null;
         }
@@ -166,13 +166,13 @@ public final class C13658g implements InterfaceC13278c {
 
     @Override // p693ux.InterfaceC13278c
     /* renamed from: g */
-    public long mo79707g(C11922g0 c11922g0) {
-        return C13280e.m79713b(c11922g0);
+    public long mo79707g(HttpResponseBuilder HttpResponseBuilder) {
+        return C13280e.m79713b(HttpResponseBuilder);
     }
 
     @Override // p693ux.InterfaceC13278c
     /* renamed from: h */
-    public InterfaceC1074x mo79708h(C11918e0 c11918e0, long j10) {
+    public InterfaceC1074x mo79708h(HttpRequestBuilder HttpRequestBuilder, long j10) {
         return this.f61485d.m82148h();
     }
 }

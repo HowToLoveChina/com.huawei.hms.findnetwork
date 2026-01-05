@@ -15,8 +15,8 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import okhttp3.AbstractC11920f0;
-import okhttp3.C11910a0;
-import okhttp3.C11918e0;
+import okhttp3.MimeClass;
+import okhttp3.HttpRequestBuilder;
 import org.json.JSONException;
 import org.json.JSONObject;
 import p336he.C10156g;
@@ -59,7 +59,7 @@ public class C13231a extends AbstractC4994a {
 
     @Override // com.huawei.hicloud.request.okhttp.callback.AbstractC4993b
     public AbstractC11920f0 create() throws IOException {
-        C11910a0 c11910a0M71445d = C11910a0.m71445d(RequestBody.HEAD_VALUE_CONTENT_TYPE_URLENCODED);
+        MimeClass MimeClassM71445d = MimeClass.m71445d(RequestBody.HEAD_VALUE_CONTENT_TYPE_URLENCODED);
         HashMap map = new HashMap();
         map.put("nsp_fmt", "JSON");
         map.put("nsp_ver", "1.0");
@@ -79,23 +79,23 @@ public class C13231a extends AbstractC4994a {
             sb2.append('&');
         }
         sb2.deleteCharAt(sb2.length() - 1);
-        return AbstractC11920f0.create(c11910a0M71445d, sb2.toString().getBytes(Constants.UTF_8));
+        return AbstractC11920f0.create(MimeClassM71445d, sb2.toString().getBytes(Constants.UTF_8));
     }
 
     @Override // com.huawei.hicloud.request.okhttp.request.AbstractC4994a, com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-    public void prepare(C11918e0.a aVar) throws C9721b, IOException {
+    public void prepare(HttpRequestBuilder.a aVar) throws C9721b, IOException {
         super.prepare(aVar);
-        aVar.m71574a(FeedbackWebConstants.AUTHORIZATION, "Bearer " + this.f59901a);
+        aVar.addHeader(FeedbackWebConstants.AUTHORIZATION, "Bearer " + this.f59901a);
         String str = Build.MODEL;
-        aVar.m71574a("x-hw-terminal", str);
-        aVar.m71574a("User-Agent", "com.huawei.hidisk/16.0.0.300 (Linux; HarmonyOS " + Build.VERSION.RELEASE + "; " + str + "; HUAWEI" + str + ") HMS/2.6.3.306 (10055832)");
+        aVar.addHeader("x-hw-terminal", str);
+        aVar.addHeader("User-Agent", "com.huawei.hidisk/16.0.0.300 (Linux; HarmonyOS " + Build.VERSION.RELEASE + "; " + str + "; HUAWEI" + str + ") HMS/2.6.3.306 (10055832)");
         if (this.f59906f != null) {
             BaseLogger.m28729d("OpenGWCallback", "prepare omExpandHeader is :" + this.f59906f);
             try {
                 Map map = (Map) new Gson().fromJson(this.f59906f, Map.class);
                 if (map != null) {
                     for (Map.Entry entry : map.entrySet()) {
-                        aVar.m71574a(entry.getKey().toString(), new JSONObject(entry.getValue().toString()).toString());
+                        aVar.addHeader(entry.getKey().toString(), new JSONObject(entry.getValue().toString()).toString());
                     }
                 }
             } catch (JsonSyntaxException | JSONException e10) {
@@ -106,7 +106,7 @@ public class C13231a extends AbstractC4994a {
             C10156g.m63308e(aVar, this.f59905e);
         }
         if (this.f59903c) {
-            aVar.m71574a("x-hw-client-mode", "frontend");
+            aVar.addHeader("x-hw-client-mode", "frontend");
         }
     }
 }

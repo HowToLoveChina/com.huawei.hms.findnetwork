@@ -6,7 +6,7 @@ import java.util.List;
 import okhttp3.AbstractC11953t;
 import okhttp3.C11911b;
 import okhttp3.C11912b0;
-import okhttp3.C11918e0;
+import okhttp3.HttpRequestBuilder;
 import okhttp3.C11926i0;
 import okhttp3.C11958y;
 import okhttp3.InterfaceC11919f;
@@ -272,7 +272,7 @@ public final class C11933g {
     }
 
     /* renamed from: h */
-    public void m71706h(C11912b0 c11912b0, C11918e0 c11918e0) throws IOException {
+    public void m71706h(C11912b0 c11912b0, HttpRequestBuilder HttpRequestBuilder) throws IOException {
         C11935i c11935i;
         C11940n.a aVar;
         int iM71477g = c11912b0.m71477g();
@@ -281,10 +281,10 @@ public final class C11933g {
         int iM71463B = c11912b0.m71463B();
         int iM71487r = c11912b0.m71487r();
         boolean zM71469H = c11912b0.m71469H();
-        if (!c11918e0.m71567g()) {
+        if (!HttpRequestBuilder.m71567g()) {
             throw new IllegalArgumentException("a normal Request without http2ConnectionIndex");
         }
-        if (Integer.parseInt(c11918e0.m71565e("Http2ConnectionIndex")) > this.f55397c.m71744j(this.f55396b)) {
+        if (Integer.parseInt(HttpRequestBuilder.m71565e("Http2ConnectionIndex")) > this.f55397c.m71744j(this.f55396b)) {
             if (this.f55405k == null && ((aVar = this.f55400f) == null || !aVar.m71772f())) {
                 this.f55400f = this.f55402h.m71761d();
             }

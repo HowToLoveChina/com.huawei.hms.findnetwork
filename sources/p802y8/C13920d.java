@@ -9,8 +9,8 @@ import com.huawei.phoneservice.feedbackcommon.network.FeedbackWebConstants;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import okhttp3.AbstractC11920f0;
-import okhttp3.C11910a0;
-import okhttp3.C11918e0;
+import okhttp3.MimeClass;
+import okhttp3.HttpRequestBuilder;
 import p015ak.C0209d;
 import p015ak.C0213f;
 import p015ak.C0228m0;
@@ -58,33 +58,33 @@ public class C13920d extends AbstractC4994a {
 
     @Override // com.huawei.hicloud.request.okhttp.callback.AbstractC4993b
     public AbstractC11920f0 create() throws IOException {
-        return "POST".equals(this.method) ? AbstractC11920f0.create(C11910a0.m71445d("application/json; charset=utf-8"), this.f62312a.getBytes(StandardCharsets.UTF_8)) : "DELETE".equals(this.method) ? C12875e.f58644e : C12875e.f58644e;
+        return "POST".equals(this.method) ? AbstractC11920f0.create(MimeClass.m71445d("application/json; charset=utf-8"), this.f62312a.getBytes(StandardCharsets.UTF_8)) : "DELETE".equals(this.method) ? C12875e.f58644e : C12875e.f58644e;
     }
 
     @Override // com.huawei.hicloud.request.okhttp.request.AbstractC4994a, com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-    public void prepare(C11918e0.a aVar) {
+    public void prepare(HttpRequestBuilder.a aVar) {
         String strM80971t0 = C13452e.m80781L().m80971t0();
         String strM80970t = C13452e.m80781L().m80970t();
         String strM80954p = C13452e.m80781L().m80954p();
         String str = C11842p.m70762R0() ? "pad" : "phone";
         int iM1225Y = C0209d.m1225Y(C0213f.m1377a());
-        aVar.m71574a(FeedbackWebConstants.AUTHORIZATION, "Bearer " + m83457a());
-        aVar.m71574a(JsbMapKeyNames.H5_USER_ID, m83458b(strM80971t0));
-        aVar.m71574a("User-Agent", m83459c());
-        aVar.m71574a("x-hw-trace-id", this.traceID);
-        aVar.m71574a("x-hw-terminal", Build.MODEL);
-        aVar.m71574a("x-hw-os", C0209d.m1315v());
-        aVar.m71574a("x-hw-os-brand", C0209d.m1276l0());
-        aVar.m71574a("x-hw-device-category", str);
-        aVar.m71574a("x-hw-device-name", C11829c.f54755a);
-        aVar.m71574a("x-hw-device-type", m83458b(strM80970t));
-        aVar.m71574a("x-hw-device-id", m83458b(strM80954p));
-        aVar.m71574a("x-hw-deviceUUID", C0209d.m1209S1(C0228m0.m1597b().m1599c()));
-        aVar.m71574a("x-hw-app-package-name", "com.huawei.hidisk");
-        aVar.m71574a("x-hw-app-version", C1443a.f6213a);
-        aVar.m71574a("x-hw-app-id", "10055832");
-        aVar.m71574a("x-hw-network", C0209d.m1228Z(iM1225Y));
-        aVar.m71574a("x-hw-client-mode", "frontend");
+        aVar.addHeader(FeedbackWebConstants.AUTHORIZATION, "Bearer " + m83457a());
+        aVar.addHeader(JsbMapKeyNames.H5_USER_ID, m83458b(strM80971t0));
+        aVar.addHeader("User-Agent", m83459c());
+        aVar.addHeader("x-hw-trace-id", this.traceID);
+        aVar.addHeader("x-hw-terminal", Build.MODEL);
+        aVar.addHeader("x-hw-os", C0209d.m1315v());
+        aVar.addHeader("x-hw-os-brand", C0209d.m1276l0());
+        aVar.addHeader("x-hw-device-category", str);
+        aVar.addHeader("x-hw-device-name", C11829c.f54755a);
+        aVar.addHeader("x-hw-device-type", m83458b(strM80970t));
+        aVar.addHeader("x-hw-device-id", m83458b(strM80954p));
+        aVar.addHeader("x-hw-deviceUUID", C0209d.m1209S1(C0228m0.m1597b().m1599c()));
+        aVar.addHeader("x-hw-app-package-name", "com.huawei.hidisk");
+        aVar.addHeader("x-hw-app-version", C1443a.f6213a);
+        aVar.addHeader("x-hw-app-id", "10055832");
+        aVar.addHeader("x-hw-network", C0209d.m1228Z(iM1225Y));
+        aVar.addHeader("x-hw-client-mode", "frontend");
         C14306d.m85213n(aVar);
     }
 }

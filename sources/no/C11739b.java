@@ -9,8 +9,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.RandomAccessFile;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import p514o9.C11839m;
 import p813yk.C13994a;
 
@@ -49,17 +49,17 @@ public class C11739b extends AbstractC4992a<Void> {
     }
 
     @Override // com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-    public void prepare(C11918e0.a aVar) {
+    public void prepare(HttpRequestBuilder.a aVar) {
         String str = C1443a.f6213a;
-        aVar.m71574a("version", str);
-        aVar.m71574a("ip", str);
-        aVar.m71574a("Range", "bytes=" + this.f54295b + "-");
-        aVar.m71574a("x-hw-app-version", str);
+        aVar.addHeader("version", str);
+        aVar.addHeader("ip", str);
+        aVar.addHeader("Range", "bytes=" + this.f54295b + "-");
+        aVar.addHeader("x-hw-app-version", str);
     }
 
     @Override // com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-    public Void onResponse(C11922g0 c11922g0) throws Throwable {
-        InputStream inputStreamM71632s = c11922g0.m71595s().m71632s();
+    public Void onResponse(HttpResponseBuilder HttpResponseBuilder) throws Throwable {
+        InputStream inputStreamM71632s = HttpResponseBuilder.m71595s().m71632s();
         Closeable closeable = null;
         try {
             try {
@@ -80,7 +80,7 @@ public class C11739b extends AbstractC4992a<Void> {
                         if (i10 == -1) {
                             m70043a(inputStreamM71632s);
                             m70043a(randomAccessFile);
-                            m70043a(c11922g0);
+                            m70043a(HttpResponseBuilder);
                             return null;
                         }
                         randomAccessFile.write(bArr, 0, i10);
@@ -95,7 +95,7 @@ public class C11739b extends AbstractC4992a<Void> {
                     closeable = randomAccessFile;
                     m70043a(inputStreamM71632s);
                     m70043a(closeable);
-                    m70043a(c11922g0);
+                    m70043a(HttpResponseBuilder);
                     throw th;
                 }
             } catch (Throwable th3) {

@@ -4,8 +4,8 @@ import com.huawei.hicloud.request.cbs.bean.CBSLockAndFlowControlReq;
 import com.huawei.hicloud.request.cbs.bean.CBSbkFlowHead;
 import fk.C9721b;
 import java.io.IOException;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 
 /* renamed from: mo.b */
 /* loaded from: classes6.dex */
@@ -21,7 +21,7 @@ public class C11502b extends C11501a {
     }
 
     @Override // mo.C11501a, com.huawei.hicloud.request.okhttp.request.AbstractC4994a, com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-    public void prepare(C11918e0.a aVar) throws C9721b, IOException {
+    public void prepare(HttpRequestBuilder.a aVar) throws C9721b, IOException {
         if (this.f53402c == null) {
             throw new C9721b(4002, "mCbSvkFlowHead is null");
         }
@@ -40,7 +40,7 @@ public class C11502b extends C11501a {
     }
 
     @Override // com.huawei.hicloud.request.okhttp.request.AbstractC4994a, com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-    public String onResponse(C11922g0 c11922g0) throws C9721b, IOException {
-        return c11922g0.m71595s().m71637z();
+    public String onResponse(HttpResponseBuilder HttpResponseBuilder) throws C9721b, IOException {
+        return HttpResponseBuilder.m71595s().m71637z();
     }
 }

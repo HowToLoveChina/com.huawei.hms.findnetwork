@@ -13,9 +13,9 @@ import fk.C9721b;
 import java.io.IOException;
 import java.util.Map;
 import okhttp3.AbstractC11920f0;
-import okhttp3.C11910a0;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.MimeClass;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import org.json.JSONException;
 import org.json.JSONObject;
 import p015ak.C0209d;
@@ -52,13 +52,13 @@ public class C9497b extends AbstractC4994a {
 
     @Override // com.huawei.hicloud.request.okhttp.callback.AbstractC4993b
     public AbstractC11920f0 create() throws IOException {
-        return AbstractC11920f0.create(C11910a0.m71445d("application/json; charset=utf-8"), this.f47312a.getBytes(Constants.UTF_8));
+        return AbstractC11920f0.create(MimeClass.m71445d("application/json; charset=utf-8"), this.f47312a.getBytes(Constants.UTF_8));
     }
 
     @Override // com.huawei.hicloud.request.okhttp.request.AbstractC4994a, com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-    public void prepare(C11918e0.a aVar) throws C9721b, NoSuchMethodException, IOException, SecurityException {
+    public void prepare(HttpRequestBuilder.a aVar) throws C9721b, NoSuchMethodException, IOException, SecurityException {
         super.prepare(aVar);
-        aVar.m71574a("x-hw-app-id", "10055832");
+        aVar.addHeader("x-hw-app-id", "10055832");
         StringBuilder sb2 = new StringBuilder("com.huawei.hidisk/");
         sb2.append("16.0.0.300");
         sb2.append(" (Linux; HarmonyOS ");
@@ -71,29 +71,29 @@ public class C9497b extends AbstractC4994a {
         sb2.append(") HMS/");
         sb2.append("2.6.3.306 (");
         sb2.append("10055832)");
-        aVar.m71574a("User-Agent", sb2.toString());
-        aVar.m71574a(FeedbackWebConstants.AUTHORIZATION, "Bearer " + this.f47313b);
-        aVar.m71574a("x-hw-device-category", C11842p.m70762R0() ? "pad" : "phone");
-        aVar.m71574a("x-hw-device-name", str);
-        aVar.m71574a("x-hw-app-package-name", "com.huawei.hidisk");
-        aVar.m71574a("x-hw-network", C0209d.m1228Z(C0209d.m1225Y(C0213f.m1377a())));
+        aVar.addHeader("User-Agent", sb2.toString());
+        aVar.addHeader(FeedbackWebConstants.AUTHORIZATION, "Bearer " + this.f47313b);
+        aVar.addHeader("x-hw-device-category", C11842p.m70762R0() ? "pad" : "phone");
+        aVar.addHeader("x-hw-device-name", str);
+        aVar.addHeader("x-hw-app-package-name", "com.huawei.hidisk");
+        aVar.addHeader("x-hw-network", C0209d.m1228Z(C0209d.m1225Y(C0213f.m1377a())));
         String strM1324x0 = C0209d.m1324x0();
         if (TextUtils.isEmpty(strM1324x0)) {
             strM1324x0 = "";
         }
-        aVar.m71574a("x-hw-deviceUDID", strM1324x0);
-        aVar.m71574a("x-hw-app-version", C1443a.f6213a);
-        aVar.m71574a("x-hw-callmode", "auto");
-        aVar.m71574a("x-hw-risktoken", this.f47314c);
-        aVar.m71574a("Accept-Language", C0234s.m1631i());
-        aVar.m71574a("x-hw-service-country", C13452e.m80781L().m80921h0());
+        aVar.addHeader("x-hw-deviceUDID", strM1324x0);
+        aVar.addHeader("x-hw-app-version", C1443a.f6213a);
+        aVar.addHeader("x-hw-callmode", "auto");
+        aVar.addHeader("x-hw-risktoken", this.f47314c);
+        aVar.addHeader("Accept-Language", C0234s.m1631i());
+        aVar.addHeader("x-hw-service-country", C13452e.m80781L().m80921h0());
         if (this.f47315d != null) {
             C1442a.m8288d("CampaignCallback", "prepare omExpandHeader is :" + this.f47315d);
             try {
                 Map map = (Map) new Gson().fromJson(this.f47315d, Map.class);
                 if (map != null) {
                     for (Map.Entry entry : map.entrySet()) {
-                        aVar.m71574a(entry.getKey().toString(), new JSONObject(entry.getValue().toString()).toString());
+                        aVar.addHeader(entry.getKey().toString(), new JSONObject(entry.getValue().toString()).toString());
                     }
                 }
             } catch (JsonSyntaxException | JSONException e10) {
@@ -104,9 +104,9 @@ public class C9497b extends AbstractC4994a {
     }
 
     @Override // com.huawei.hicloud.request.okhttp.request.AbstractC4994a, com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-    public String onResponse(C11922g0 c11922g0) throws C9721b, IOException, NumberFormatException {
-        String strM71637z = c11922g0.m71595s().m71637z();
-        String strM71599w = c11922g0.m71599w("NSP_STATUS");
+    public String onResponse(HttpResponseBuilder HttpResponseBuilder) throws C9721b, IOException, NumberFormatException {
+        String strM71637z = HttpResponseBuilder.m71595s().m71637z();
+        String strM71599w = HttpResponseBuilder.m71599w("NSP_STATUS");
         if (strM71599w != null && !strM71599w.isEmpty()) {
             StringBuilder sb2 = new StringBuilder(this.svc);
             sb2.append(" nsp status = ");

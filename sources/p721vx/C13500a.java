@@ -5,8 +5,8 @@ import java.io.IOException;
 import java.net.ProtocolException;
 import java.util.concurrent.TimeUnit;
 import okhttp3.C11912b0;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import okhttp3.C11955v;
 import okhttp3.C11958y;
 import okhttp3.internal.connection.C11935i;
@@ -378,8 +378,8 @@ public final class C13500a implements InterfaceC13278c {
     }
 
     /* renamed from: A */
-    public void m81203A(C11922g0 c11922g0) throws IOException {
-        long jM79713b = C13280e.m79713b(c11922g0);
+    public void m81203A(HttpResponseBuilder HttpResponseBuilder) throws IOException {
+        long jM79713b = C13280e.m79713b(HttpResponseBuilder);
         if (jM79713b == -1) {
             return;
         }
@@ -410,20 +410,20 @@ public final class C13500a implements InterfaceC13278c {
 
     @Override // p693ux.InterfaceC13278c
     /* renamed from: b */
-    public void mo79702b(C11918e0 c11918e0) throws IOException {
-        m81204B(c11918e0.m71566f(), C13284i.m79727a(c11918e0, this.f60741b.mo71709a().m71639b().type()));
+    public void mo79702b(HttpRequestBuilder HttpRequestBuilder) throws IOException {
+        m81204B(HttpRequestBuilder.m71566f(), C13284i.m79727a(HttpRequestBuilder, this.f60741b.mo71709a().m71639b().type()));
     }
 
     @Override // p693ux.InterfaceC13278c
     /* renamed from: c */
-    public InterfaceC1076z mo79703c(C11922g0 c11922g0) {
-        if (!C13280e.m79714c(c11922g0)) {
+    public InterfaceC1076z mo79703c(HttpResponseBuilder HttpResponseBuilder) {
+        if (!C13280e.m79714c(HttpResponseBuilder)) {
             return m81208v(0L);
         }
-        if ("chunked".equalsIgnoreCase(c11922g0.m71599w("Transfer-Encoding"))) {
-            return m81207u(c11922g0.m71593E().m71573m());
+        if ("chunked".equalsIgnoreCase(HttpResponseBuilder.m71599w("Transfer-Encoding"))) {
+            return m81207u(HttpResponseBuilder.m71593E().m71573m());
         }
-        long jM79713b = C13280e.m79713b(c11922g0);
+        long jM79713b = C13280e.m79713b(HttpResponseBuilder);
         return jM79713b != -1 ? m81208v(jM79713b) : m81210x();
     }
 
@@ -437,14 +437,14 @@ public final class C13500a implements InterfaceC13278c {
 
     @Override // p693ux.InterfaceC13278c
     /* renamed from: d */
-    public C11922g0.a mo79704d(boolean z10) throws NumberFormatException, IOException {
+    public HttpResponseBuilder.a mo79704d(boolean z10) throws NumberFormatException, IOException {
         int i10 = this.f60744e;
         if (i10 != 1 && i10 != 3) {
             throw new IllegalStateException("state: " + this.f60744e);
         }
         try {
             C13286k c13286kM79735a = C13286k.m79735a(m81211y());
-            C11922g0.a aVarM71612j = new C11922g0.a().m71617o(c13286kM79735a.f60002a).m71609g(c13286kM79735a.f60003b).m71614l(c13286kM79735a.f60004c).m71612j(m81212z());
+            HttpResponseBuilder.a aVarM71612j = new HttpResponseBuilder.a().m71617o(c13286kM79735a.f60002a).m71609g(c13286kM79735a.f60003b).m71614l(c13286kM79735a.f60004c).m71612j(m81212z());
             if (z10 && c13286kM79735a.f60003b == 100) {
                 return null;
             }
@@ -474,23 +474,23 @@ public final class C13500a implements InterfaceC13278c {
 
     @Override // p693ux.InterfaceC13278c
     /* renamed from: g */
-    public long mo79707g(C11922g0 c11922g0) {
-        if (!C13280e.m79714c(c11922g0)) {
+    public long mo79707g(HttpResponseBuilder HttpResponseBuilder) {
+        if (!C13280e.m79714c(HttpResponseBuilder)) {
             return 0L;
         }
-        if ("chunked".equalsIgnoreCase(c11922g0.m71599w("Transfer-Encoding"))) {
+        if ("chunked".equalsIgnoreCase(HttpResponseBuilder.m71599w("Transfer-Encoding"))) {
             return -1L;
         }
-        return C13280e.m79713b(c11922g0);
+        return C13280e.m79713b(HttpResponseBuilder);
     }
 
     @Override // p693ux.InterfaceC13278c
     /* renamed from: h */
-    public InterfaceC1074x mo79708h(C11918e0 c11918e0, long j10) throws IOException {
-        if (c11918e0.m71562b() != null && c11918e0.m71562b().isDuplex()) {
+    public InterfaceC1074x mo79708h(HttpRequestBuilder HttpRequestBuilder, long j10) throws IOException {
+        if (HttpRequestBuilder.m71562b() != null && HttpRequestBuilder.m71562b().isDuplex()) {
             throw new ProtocolException("Duplex connections are not supported for HTTP/1");
         }
-        if ("chunked".equalsIgnoreCase(c11918e0.m71565e("Transfer-Encoding"))) {
+        if ("chunked".equalsIgnoreCase(HttpRequestBuilder.m71565e("Transfer-Encoding"))) {
             return m81206t();
         }
         if (j10 != -1) {

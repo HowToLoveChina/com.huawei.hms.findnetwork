@@ -13,9 +13,9 @@ import java.io.InterruptedIOException;
 import java.io.RandomAccessFile;
 import java.util.Map;
 import okhttp3.AbstractC11920f0;
-import okhttp3.C11910a0;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.MimeClass;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import p022ay.InterfaceC1055e;
 import p514o9.C11839m;
 import p549p9.C12122a;
@@ -61,12 +61,12 @@ public class UploadCallback extends AbstractC4993b<BaseSliceStatus> {
             }
 
             @Override // okhttp3.AbstractC11920f0
-            public C11910a0 contentType() {
+            public MimeClass contentType() {
                 String str;
                 if (UploadCallback.this.headers == null || UploadCallback.this.headers.isEmpty() || (str = (String) UploadCallback.this.headers.get("Content-Type")) == null || str.isEmpty()) {
                     str = FileBinary.HEAD_VALUE_CONTENT_TYPE_OCTET_STREAM;
                 }
-                return C11910a0.m71445d(str);
+                return MimeClass.m71445d(str);
             }
 
             @Override // okhttp3.AbstractC11920f0
@@ -103,7 +103,7 @@ public class UploadCallback extends AbstractC4993b<BaseSliceStatus> {
     }
 
     @Override // com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-    public void prepare(C11918e0.a aVar) throws C9721b, IOException {
+    public void prepare(HttpRequestBuilder.a aVar) throws C9721b, IOException {
         Map<String, String> map = this.headers;
         if (map != null) {
             for (Map.Entry<String, String> entry : map.entrySet()) {
@@ -114,9 +114,9 @@ public class UploadCallback extends AbstractC4993b<BaseSliceStatus> {
     }
 
     @Override // com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-    public BaseSliceStatus onResponse(C11922g0 c11922g0) throws C9721b, IOException {
+    public BaseSliceStatus onResponse(HttpResponseBuilder HttpResponseBuilder) throws C9721b, IOException {
         BaseSliceStatus baseSliceStatus = new BaseSliceStatus();
-        baseSliceStatus.setStatus(c11922g0.m71597u()).setBody(c11922g0.m71595s().m71637z()).setHeaders(c11922g0.m71601y().m71858k());
+        baseSliceStatus.setStatus(HttpResponseBuilder.m71597u()).setBody(HttpResponseBuilder.m71595s().m71637z()).setHeaders(HttpResponseBuilder.m71601y().m71858k());
         return baseSliceStatus;
     }
 }

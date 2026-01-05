@@ -48,8 +48,8 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.regex.Pattern;
 import okhttp3.C11912b0;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import p015ak.C0209d;
 import p015ak.C0213f;
 import p015ak.C0224k0;
@@ -94,10 +94,10 @@ public final class C9908c {
     public C11912b0 f48610g;
 
     /* renamed from: h */
-    public C11922g0 f48611h;
+    public HttpResponseBuilder f48611h;
 
     /* renamed from: i */
-    public C11918e0 f48612i;
+    public HttpRequestBuilder f48612i;
 
     /* renamed from: j */
     public C13108a f48613j;
@@ -1096,11 +1096,11 @@ public final class C9908c {
         stringBuffer.append("-");
         URL url = new URL(apkUpgradeInfo.getDownurl_());
         this.f48610g = m61516A().m71505b();
-        C11918e0 c11918e0M71575b = new C11918e0.a().m71587n(url).m71574a("Range", stringBuffer.toString()).m71575b();
-        this.f48612i = c11918e0M71575b;
-        C11922g0 c11922g0Execute = this.f48610g.m71495z(c11918e0M71575b).execute();
-        this.f48611h = c11922g0Execute;
-        int iM71597u = c11922g0Execute.m71597u();
+        HttpRequestBuilder HttpRequestBuilderM71575b = new HttpRequestBuilder.a().m71587n(url).addHeader("Range", stringBuffer.toString()).m71575b();
+        this.f48612i = HttpRequestBuilderM71575b;
+        HttpResponseBuilder HttpResponseBuilderExecute = this.f48610g.m71495z(HttpRequestBuilderM71575b).execute();
+        this.f48611h = HttpResponseBuilderExecute;
+        int iM71597u = HttpResponseBuilderExecute.m71597u();
         if (200 != iM71597u && 206 != iM71597u) {
             C13227f.m79492i1().m79572T0(apkUpgradeInfo.getVersion_(), "2", "down load by https fail : " + iM71597u);
             m61536V(6);
@@ -1337,11 +1337,11 @@ public final class C9908c {
         stringBuffer.append("-");
         URL url = new URL(apkUpgradeInfo.getDownurl_());
         this.f48610g = m61516A().m71505b();
-        C11918e0 c11918e0M71575b = new C11918e0.a().m71587n(url).m71574a("Range", stringBuffer.toString()).m71575b();
-        this.f48612i = c11918e0M71575b;
-        C11922g0 c11922g0Execute = this.f48610g.m71495z(c11918e0M71575b).execute();
-        this.f48611h = c11922g0Execute;
-        int iM71597u = c11922g0Execute.m71597u();
+        HttpRequestBuilder HttpRequestBuilderM71575b = new HttpRequestBuilder.a().m71587n(url).addHeader("Range", stringBuffer.toString()).m71575b();
+        this.f48612i = HttpRequestBuilderM71575b;
+        HttpResponseBuilder HttpResponseBuilderExecute = this.f48610g.m71495z(HttpRequestBuilderM71575b).execute();
+        this.f48611h = HttpResponseBuilderExecute;
+        int iM71597u = HttpResponseBuilderExecute.m71597u();
         if (200 != iM71597u && 206 != iM71597u) {
             C13227f.m79492i1().m79572T0(apkUpgradeInfo.getVersion_(), "2", "down load by https fail : " + iM71597u);
             m61536V(6);

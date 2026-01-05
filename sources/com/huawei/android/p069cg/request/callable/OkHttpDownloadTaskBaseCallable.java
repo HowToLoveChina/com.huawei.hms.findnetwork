@@ -20,7 +20,7 @@ import java.net.UnknownHostException;
 import java.util.HashMap;
 import javax.net.ssl.SSLException;
 import okhttp3.C11912b0;
-import okhttp3.C11922g0;
+import okhttp3.HttpResponseBuilder;
 import okhttp3.InterfaceC11919f;
 import p031b7.C1120a;
 import p031b7.C1122c;
@@ -144,13 +144,13 @@ public abstract class OkHttpDownloadTaskBaseCallable extends DownloadTaskBaseCal
         return length;
     }
 
-    public String getErrorMessage(C11922g0 c11922g0) {
-        if (c11922g0 == null) {
+    public String getErrorMessage(HttpResponseBuilder HttpResponseBuilder) {
+        if (HttpResponseBuilder == null) {
             return "";
         }
-        String strM71602z = c11922g0.m71602z();
+        String strM71602z = HttpResponseBuilder.m71602z();
         try {
-            return c11922g0.m71595s() != null ? c11922g0.m71595s().m71637z() : strM71602z;
+            return HttpResponseBuilder.m71595s() != null ? HttpResponseBuilder.m71595s().m71637z() : strM71602z;
         } catch (IOException e10) {
             C1120a.m6676e(TAG, "getErrorMessage: " + e10.getMessage());
             return strM71602z;

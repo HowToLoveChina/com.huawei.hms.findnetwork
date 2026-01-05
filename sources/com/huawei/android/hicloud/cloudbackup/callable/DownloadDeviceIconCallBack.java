@@ -4,7 +4,7 @@ import android.os.Message;
 import com.huawei.android.hicloud.cloudbackup.manager.DeviceIconManager;
 import com.huawei.hicloud.download.C4896a;
 import java.util.HashMap;
-import okhttp3.C11922g0;
+import okhttp3.HttpResponseBuilder;
 import p399jk.AbstractC10896a;
 import p626ry.C12652a;
 import p626ry.C12653b;
@@ -26,8 +26,8 @@ public class DownloadDeviceIconCallBack extends C4896a {
     }
 
     @Override // com.huawei.hicloud.download.C4896a, com.huawei.hicloud.okhttp.callback.AbstractC4975a
-    public Void onResponse(C11922g0 c11922g0) throws Throwable {
-        super.onResponse(c11922g0);
+    public Void onResponse(HttpResponseBuilder HttpResponseBuilder) throws Throwable {
+        super.onResponse(HttpResponseBuilder);
         AbstractC10896a.m65887i(TAG, "DownloadDeviceIconCallBack completed successfully.");
         if (C12653b.m76182b(this.terminalType) || C12652a.m76180b(this.deviceMap)) {
             return null;

@@ -10,7 +10,7 @@ import p208cq.C8941i;
 public abstract class TaskApiCall<ClientT extends AnyClient, ResultT> {
 
     /* renamed from: a */
-    private final String f23512a;
+    private final String m_uri;
 
     /* renamed from: b */
     private final String f23513b;
@@ -30,7 +30,7 @@ public abstract class TaskApiCall<ClientT extends AnyClient, ResultT> {
     @Deprecated
     public TaskApiCall(String str, String str2) {
         this.f23517f = 1;
-        this.f23512a = str;
+        this.m_uri = str;
         this.f23513b = str2;
         this.f23514c = null;
         this.f23515d = null;
@@ -64,16 +64,16 @@ public abstract class TaskApiCall<ClientT extends AnyClient, ResultT> {
     }
 
     public String getUri() {
-        return this.f23512a;
+        return this.m_uri;
     }
 
     public final void onResponse(ClientT clientt, ResponseErrorCode responseErrorCode, String str, C8941i<ResultT> c8941i) {
         AbstractC8933a abstractC8933a = this.f23516e;
         if (abstractC8933a != null && abstractC8933a.isCancellationRequested()) {
-            HMSLog.m36988i("TaskApiCall", "This Task has been canceled, uri:" + this.f23512a + ", transactionId:" + this.f23515d);
+            HMSLog.m36988i("TaskApiCall", "This Task has been canceled, uri:" + this.m_uri + ", transactionId:" + this.f23515d);
             return;
         }
-        HMSLog.m36988i("TaskApiCall", "doExecute, uri:" + this.f23512a + ", errorCode:" + responseErrorCode.getErrorCode() + ", transactionId:" + this.f23515d);
+        HMSLog.m36988i("TaskApiCall", "doExecute, uri:" + this.m_uri + ", errorCode:" + responseErrorCode.getErrorCode() + ", transactionId:" + this.f23515d);
         doExecute(clientt, responseErrorCode, str, c8941i);
     }
 
@@ -95,14 +95,14 @@ public abstract class TaskApiCall<ClientT extends AnyClient, ResultT> {
 
     public TaskApiCall(String str, String str2, String str3) {
         this.f23517f = 1;
-        this.f23512a = str;
+        this.m_uri = str;
         this.f23513b = str2;
         this.f23514c = null;
         this.f23515d = str3;
     }
 
     public TaskApiCall(String str, String str2, String str3, int i10) {
-        this.f23512a = str;
+        this.m_uri = str;
         this.f23513b = str2;
         this.f23514c = null;
         this.f23515d = str3;

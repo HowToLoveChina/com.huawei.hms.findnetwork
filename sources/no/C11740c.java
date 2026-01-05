@@ -11,8 +11,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.RandomAccessFile;
 import okhttp3.AbstractC11924h0;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import p514o9.C11839m;
 
 /* renamed from: no.c */
@@ -53,15 +53,15 @@ public class C11740c extends AbstractC4992a<Void> {
     }
 
     @Override // com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-    public void prepare(C11918e0.a aVar) {
+    public void prepare(HttpRequestBuilder.a aVar) {
         String str = C1443a.f6213a;
-        aVar.m71574a("version", str);
-        aVar.m71574a("ip", str);
+        aVar.addHeader("version", str);
+        aVar.addHeader("ip", str);
     }
 
     @Override // com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-    public Void onResponse(C11922g0 c11922g0) throws Throwable {
-        AbstractC11924h0 abstractC11924h0M71595s = c11922g0.m71595s();
+    public Void onResponse(HttpResponseBuilder HttpResponseBuilder) throws Throwable {
+        AbstractC11924h0 abstractC11924h0M71595s = HttpResponseBuilder.m71595s();
         long jMo71634u = abstractC11924h0M71595s.mo71634u();
         InputStream inputStreamM71632s = abstractC11924h0M71595s.m71632s();
         Closeable closeable = null;
@@ -84,7 +84,7 @@ public class C11740c extends AbstractC4992a<Void> {
                         if (i10 == -1) {
                             m70045a(inputStreamM71632s);
                             m70045a(randomAccessFile);
-                            m70045a(c11922g0);
+                            m70045a(HttpResponseBuilder);
                             m70046b(jMo71634u);
                             return null;
                         }
@@ -100,7 +100,7 @@ public class C11740c extends AbstractC4992a<Void> {
                     closeable = randomAccessFile;
                     m70045a(inputStreamM71632s);
                     m70045a(closeable);
-                    m70045a(c11922g0);
+                    m70045a(HttpResponseBuilder);
                     m70046b(jMo71634u);
                     throw th;
                 }

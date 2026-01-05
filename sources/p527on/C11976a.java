@@ -20,8 +20,8 @@ import java.util.concurrent.TimeUnit;
 import javax.net.ssl.SSLException;
 import mu.C11526c;
 import okhttp3.C11912b0;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import okhttp3.InterfaceC11921g;
 import p399jk.AbstractC10896a;
 import p429kk.C11060c;
@@ -58,11 +58,11 @@ public class C11976a {
         }
 
         @Override // com.huawei.hicloud.dnskpr.DnsKprUtil.InterfaceC4895e
-        public void run(C11918e0.a aVar, InterfaceC11921g interfaceC11921g) {
+        public void run(HttpRequestBuilder.a aVar, InterfaceC11921g interfaceC11921g) {
         }
 
         @Override // com.huawei.hicloud.dnskpr.DnsKprUtil.InterfaceC4895e
-        public C11922g0 run(C11918e0.a aVar, String str) throws IOException {
+        public HttpResponseBuilder run(HttpRequestBuilder.a aVar, String str) throws IOException {
             this.f55746a.add(str);
             return this.f55748c.execute(this.f55747b.m71495z(aVar.m71575b()));
         }
@@ -107,9 +107,9 @@ public class C11976a {
     }
 
     /* renamed from: c */
-    public static C11918e0.a m72082c(String str, AbstractC4975a abstractC4975a, C11060c c11060c) throws C9721b, IOException {
+    public static HttpRequestBuilder.a m72082c(String str, AbstractC4975a abstractC4975a, C11060c c11060c) throws C9721b, IOException {
         String strM68805b = C11526c.m68805b(str);
-        C11918e0.a aVar = new C11918e0.a();
+        HttpRequestBuilder.a aVar = new HttpRequestBuilder.a();
         if (c11060c != null) {
             c11060c.m66667w(strM68805b);
             try {

@@ -17,8 +17,8 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import mk.C11475a;
 import okhttp3.AbstractC11920f0;
-import okhttp3.C11910a0;
-import okhttp3.C11918e0;
+import okhttp3.MimeClass;
+import okhttp3.HttpRequestBuilder;
 import p015ak.C0209d;
 import p015ak.C0228m0;
 import p015ak.C0234s;
@@ -129,7 +129,7 @@ public class C4348f extends AbstractC4994a {
 
     @Override // com.huawei.hicloud.request.okhttp.callback.AbstractC4993b
     public AbstractC11920f0 create() {
-        return AbstractC11920f0.create(C11910a0.m71445d("application/json; charset=utf-8"), this.f19833b.getBytes(StandardCharsets.UTF_8));
+        return AbstractC11920f0.create(MimeClass.m71445d("application/json; charset=utf-8"), this.f19833b.getBytes(StandardCharsets.UTF_8));
     }
 
     /* renamed from: d */
@@ -153,12 +153,12 @@ public class C4348f extends AbstractC4994a {
     }
 
     /* renamed from: g */
-    public final void m26247g(C11918e0.a aVar, String str, String str2) {
+    public final void m26247g(HttpRequestBuilder.a aVar, String str, String str2) {
         if (aVar == null || str == null) {
             return;
         }
         try {
-            aVar.m71574a(str, str2);
+            aVar.addHeader(str, str2);
         } catch (Exception e10) {
             String str3 = "http builder set head exception:" + e10.toString();
             C13981a.m83988e("HttpConnectionHelper", str3);
@@ -181,7 +181,7 @@ public class C4348f extends AbstractC4994a {
     }
 
     @Override // com.huawei.hicloud.request.okhttp.request.AbstractC4994a, com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-    public void prepare(C11918e0.a aVar) {
+    public void prepare(HttpRequestBuilder.a aVar) {
         AccountInfo accountInfoM72766e = AbstractC12139d.m72766e(this.f19834c);
         String deviceID = TextUtils.isEmpty(this.f19837f) ? accountInfoM72766e.getDeviceID() : this.f19837f;
         if (TextUtils.isEmpty(deviceID) && C13452e.m80781L().m80842P0()) {

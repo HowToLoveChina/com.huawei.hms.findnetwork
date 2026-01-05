@@ -7,9 +7,9 @@ import fk.C9721b;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import okhttp3.AbstractC11920f0;
-import okhttp3.C11910a0;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.MimeClass;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import p514o9.C11829c;
 
 /* renamed from: com.huawei.android.hicloud.sync.protocol.b */
@@ -35,34 +35,34 @@ public abstract class AbstractC2923b extends AbstractC4994a {
 
     @Override // com.huawei.hicloud.request.okhttp.callback.AbstractC4993b
     public AbstractC11920f0 create() throws IOException {
-        return AbstractC11920f0.create(C11910a0.m71445d("application/json; charset=utf-8"), this.request.getBytes(StandardCharsets.UTF_8));
+        return AbstractC11920f0.create(MimeClass.m71445d("application/json; charset=utf-8"), this.request.getBytes(StandardCharsets.UTF_8));
     }
 
     public abstract void onReceiveLockToken(String str);
 
     @Override // com.huawei.hicloud.request.okhttp.request.AbstractC4994a, com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-    public void prepare(C11918e0.a aVar) throws C9721b, IOException {
+    public void prepare(HttpRequestBuilder.a aVar) throws C9721b, IOException {
         super.prepare(aVar);
-        aVar.m71574a("Connection", "close");
+        aVar.addHeader("Connection", "close");
         C11829c.m70559a(aVar);
         String strAddAuthHeader = addAuthHeader();
         if (!TextUtils.isEmpty(strAddAuthHeader)) {
-            aVar.m71574a(FeedbackWebConstants.AUTHORIZATION, strAddAuthHeader);
+            aVar.addHeader(FeedbackWebConstants.AUTHORIZATION, strAddAuthHeader);
         }
         int i10 = this.encryptVersion;
         if (i10 != 0) {
-            aVar.m71574a("encversion", String.valueOf(i10));
+            aVar.addHeader("encversion", String.valueOf(i10));
         }
         String strAddLockTokenToHeader = addLockTokenToHeader();
         if (TextUtils.isEmpty(strAddLockTokenToHeader)) {
             return;
         }
-        aVar.m71574a("Lock-Token", strAddLockTokenToHeader);
+        aVar.addHeader("Lock-Token", strAddLockTokenToHeader);
     }
 
     @Override // com.huawei.hicloud.request.okhttp.request.AbstractC4994a, com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-    public String onResponse(C11922g0 c11922g0) throws C9721b, IOException {
-        onReceiveLockToken(c11922g0.m71599w("Lock-Token"));
-        return super.onResponse(c11922g0);
+    public String onResponse(HttpResponseBuilder HttpResponseBuilder) throws C9721b, IOException {
+        onReceiveLockToken(HttpResponseBuilder.m71599w("Lock-Token"));
+        return super.onResponse(HttpResponseBuilder);
     }
 }

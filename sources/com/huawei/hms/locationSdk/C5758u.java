@@ -17,7 +17,7 @@ public class C5758u {
     /* renamed from: b */
     public static InterfaceC5709e0 m33172b(Activity activity, C5765w0 c5765w0) {
         Checker.assertNonNull(activity);
-        return new C5717g0(activity, c5765w0);
+        return new LocationClientImpl(activity, c5765w0);
     }
 
     /* renamed from: c */
@@ -41,7 +41,7 @@ public class C5758u {
     /* renamed from: b */
     public static InterfaceC5709e0 m33173b(Context context, C5765w0 c5765w0) {
         Checker.assertNonNull(context);
-        return new C5717g0(context, c5765w0);
+        return new LocationClientImpl(context, c5765w0);
     }
 
     /* renamed from: c */

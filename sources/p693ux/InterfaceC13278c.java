@@ -1,8 +1,8 @@
 package p693ux;
 
 import java.io.IOException;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import okhttp3.internal.connection.C11935i;
 import p022ay.InterfaceC1074x;
 import p022ay.InterfaceC1076z;
@@ -14,15 +14,15 @@ public interface InterfaceC13278c {
     void mo79701a() throws IOException;
 
     /* renamed from: b */
-    void mo79702b(C11918e0 c11918e0) throws IOException;
+    void mo79702b(HttpRequestBuilder HttpRequestBuilder) throws IOException;
 
     /* renamed from: c */
-    InterfaceC1076z mo79703c(C11922g0 c11922g0) throws IOException;
+    InterfaceC1076z mo79703c(HttpResponseBuilder HttpResponseBuilder) throws IOException;
 
     void cancel();
 
     /* renamed from: d */
-    C11922g0.a mo79704d(boolean z10) throws IOException;
+    HttpResponseBuilder.a mo79704d(boolean z10) throws IOException;
 
     /* renamed from: e */
     C11935i mo79705e();
@@ -31,8 +31,8 @@ public interface InterfaceC13278c {
     void mo79706f() throws IOException;
 
     /* renamed from: g */
-    long mo79707g(C11922g0 c11922g0) throws IOException;
+    long mo79707g(HttpResponseBuilder HttpResponseBuilder) throws IOException;
 
     /* renamed from: h */
-    InterfaceC1074x mo79708h(C11918e0 c11918e0, long j10) throws IOException;
+    InterfaceC1074x mo79708h(HttpRequestBuilder HttpRequestBuilder, long j10) throws IOException;
 }

@@ -13,9 +13,9 @@ import java.util.Locale;
 import java.util.UUID;
 import java.util.zip.GZIPOutputStream;
 import okhttp3.AbstractC11920f0;
-import okhttp3.C11910a0;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.MimeClass;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import org.json.JSONObject;
 import p015ak.C0209d;
 import p015ak.C0228m0;
@@ -38,37 +38,37 @@ public class C13838b extends AbstractC4976b<Void> {
     }
 
     /* renamed from: a */
-    public final void m82989a(C11918e0.a aVar, String str, String str2) {
+    public final void m82989a(HttpRequestBuilder.a aVar, String str, String str2) {
         if (!TextUtils.isEmpty(str)) {
-            aVar.m71574a("X-Model", str);
+            aVar.addHeader("X-Model", str);
             UBAAnalyze.m29991n0("X-Model", str);
         }
         if (!TextUtils.isEmpty(str2)) {
-            aVar.m71574a("X-AppVer", str2);
+            aVar.addHeader("X-AppVer", str2);
             UBAAnalyze.m29991n0("X-AppVer", str2);
         }
-        aVar.m71574a("x-hw-deviceUUID", C0209d.m1209S1(C0228m0.m1597b().m1599c()));
-        aVar.m71574a("x-hw-os-brand", C0209d.m1276l0());
+        aVar.addHeader("x-hw-deviceUUID", C0209d.m1209S1(C0228m0.m1597b().m1599c()));
+        aVar.addHeader("x-hw-os-brand", C0209d.m1276l0());
     }
 
     @Override // com.huawei.hicloud.okhttp.callback.AbstractC4976b
     public AbstractC11920f0 create() throws IOException {
-        C11910a0 c11910a0M71445d = C11910a0.m71445d("application/json; charset=utf-8");
+        MimeClass MimeClassM71445d = MimeClass.m71445d("application/json; charset=utf-8");
         byte[] bytes = this.f62065a.toString().getBytes(StandardCharsets.UTF_8);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
         gZIPOutputStream.write(bytes);
         gZIPOutputStream.close();
-        return AbstractC11920f0.create(c11910a0M71445d, byteArrayOutputStream.toByteArray());
+        return AbstractC11920f0.create(MimeClassM71445d, byteArrayOutputStream.toByteArray());
     }
 
     @Override // com.huawei.hicloud.okhttp.callback.AbstractC4975a
-    public Void onResponse(C11922g0 c11922g0) {
+    public Void onResponse(HttpResponseBuilder HttpResponseBuilder) {
         return null;
     }
 
     @Override // com.huawei.hicloud.okhttp.callback.AbstractC4975a
-    public void prepare(C11918e0.a aVar) {
+    public void prepare(HttpRequestBuilder.a aVar) {
         String string = UUID.randomUUID().toString();
         String strM1168F = C0209d.m1168F();
         String str = "com.huawei.hidisk/16.0.0.300 (Linux; HarmonyOS " + Build.VERSION.RELEASE + "; " + Build.MODEL + "; " + f62064b + ") HMS/2.6.3.306 (10055832)";
@@ -77,18 +77,18 @@ public class C13838b extends AbstractC4976b<Void> {
         String strM1315v = C0209d.m1315v();
         String language = Locale.getDefault().getLanguage();
         String country = Locale.getDefault().getCountry();
-        aVar.m71574a("X-ReqID", string).m71574a("X-AppID", "com.huawei.hidisk");
+        aVar.addHeader("X-ReqID", string).addHeader("X-AppID", "com.huawei.hidisk");
         UBAAnalyze.m29991n0("X-ReqID", string);
         m82989a(aVar, strM1168F, "16.0.0.300");
-        aVar.m71574a("User-Agent", str);
+        aVar.addHeader("User-Agent", str);
         if (!TextUtils.isEmpty(strSubstring)) {
-            aVar.m71574a("X-EmuiVer", strSubstring);
+            aVar.addHeader("X-EmuiVer", strSubstring);
         }
-        aVar.m71574a("X-RomVer", strM1315v);
-        aVar.m71574a("X-Lang", language);
-        aVar.m71574a("X-SerLocation", country);
-        aVar.m71574a("Content-Type", InterfaceC5483d.f25084j);
-        aVar.m71574a("Content-Encoding", Constants.GZIP);
+        aVar.addHeader("X-RomVer", strM1315v);
+        aVar.addHeader("X-Lang", language);
+        aVar.addHeader("X-SerLocation", country);
+        aVar.addHeader("Content-Type", InterfaceC5483d.f25084j);
+        aVar.addHeader("Content-Encoding", Constants.GZIP);
         UBAAnalyze.m29991n0("User-Agent", str);
         UBAAnalyze.m29991n0("X-RomVer", strM1315v);
         UBAAnalyze.m29991n0("X-Lang", language);

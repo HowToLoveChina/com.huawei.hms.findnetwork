@@ -2,7 +2,7 @@ package sx;
 
 import javax.net.ssl.SSLSocket;
 import okhttp3.C11911b;
-import okhttp3.C11922g0;
+import okhttp3.HttpResponseBuilder;
 import okhttp3.C11945l;
 import okhttp3.C11946m;
 import okhttp3.C11955v;
@@ -26,16 +26,16 @@ public abstract class AbstractC12871a {
     public abstract void mo71498c(C11946m c11946m, SSLSocket sSLSocket, boolean z10);
 
     /* renamed from: d */
-    public abstract int mo71499d(C11922g0.a aVar);
+    public abstract int mo71499d(HttpResponseBuilder.a aVar);
 
     /* renamed from: e */
     public abstract boolean mo71500e(C11911b c11911b, C11911b c11911b2);
 
     /* renamed from: f */
-    public abstract C11932f mo71501f(C11922g0 c11922g0);
+    public abstract C11932f mo71501f(HttpResponseBuilder HttpResponseBuilder);
 
     /* renamed from: g */
-    public abstract void mo71502g(C11922g0.a aVar, C11932f c11932f);
+    public abstract void mo71502g(HttpResponseBuilder.a aVar, C11932f c11932f);
 
     /* renamed from: h */
     public abstract C11937k mo71503h(C11945l c11945l);

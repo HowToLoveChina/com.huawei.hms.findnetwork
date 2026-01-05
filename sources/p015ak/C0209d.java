@@ -82,7 +82,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.CountDownLatch;
 import java.util.regex.Pattern;
-import okhttp3.C11918e0;
+import okhttp3.HttpRequestBuilder;
 import p015ak.C0224k0;
 import p035bk.C1248a;
 import p035bk.C1249b;
@@ -1117,8 +1117,8 @@ public class C0209d {
     }
 
     /* renamed from: a */
-    public static void m1231a(C11918e0.a aVar) {
-        aVar.m71574a("x-hw-device-category", m1170F1() ? "pad" : "phone");
+    public static void m1231a(HttpRequestBuilder.a aVar) {
+        aVar.addHeader("x-hw-device-category", m1170F1() ? "pad" : "phone");
     }
 
     /* renamed from: a0 */

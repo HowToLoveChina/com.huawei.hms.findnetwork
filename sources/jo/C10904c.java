@@ -6,7 +6,7 @@ import fk.C9721b;
 import gp.C10028c;
 import java.io.IOException;
 import mk.C11475a;
-import okhttp3.C11918e0;
+import okhttp3.HttpRequestBuilder;
 import p514o9.C11829c;
 import p709vj.C13452e;
 
@@ -18,24 +18,24 @@ public class C10904c extends C10902a {
     }
 
     @Override // jo.C10902a, com.huawei.hicloud.request.okhttp.request.AbstractC4994a, com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-    public void prepare(C11918e0.a aVar) throws C9721b, IOException {
+    public void prepare(HttpRequestBuilder.a aVar) throws C9721b, IOException {
         super.prepare(aVar);
         String strM80966s = C13452e.m80781L().m80966s();
         String strM80950o = C13452e.m80781L().m80950o();
         C9720a.m60653b(strM80966s, "deviceType is null");
         C9720a.m60653b(strM80950o, "deviceId is null");
         aVar.m71583j("x-hw-device-type");
-        aVar.m71574a("x-hw-device-type", strM80966s);
+        aVar.addHeader("x-hw-device-type", strM80966s);
         aVar.m71583j("x-hw-device-id");
-        aVar.m71574a("x-hw-device-id", strM80950o);
+        aVar.addHeader("x-hw-device-id", strM80950o);
         String strM70565c = C11829c.m70565c(strM80966s, strM80950o, "com.huawei.hidisk", C13452e.m80781L().m80931j0(), this.f51747a);
         String str = new String(C11475a.m68618a(strM70565c.getBytes("utf-8")), "utf-8");
         if (!C10028c.m62182c0().m62420y1()) {
             str = new String(C11475a.m68618a(strM70565c.getBytes("utf-8")), "utf-8");
             aVar.m71583j("encversion");
-            aVar.m71574a("encversion", "1");
+            aVar.addHeader("encversion", "1");
         }
         aVar.m71583j(FeedbackWebConstants.AUTHORIZATION);
-        aVar.m71574a(FeedbackWebConstants.AUTHORIZATION, str);
+        aVar.addHeader(FeedbackWebConstants.AUTHORIZATION, str);
     }
 }

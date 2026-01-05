@@ -8,7 +8,7 @@ import com.huawei.openalliance.p169ad.utils.C7765bl;
 import java.util.WeakHashMap;
 import okhttp3.AbstractC11953t;
 import okhttp3.C11912b0;
-import okhttp3.C11918e0;
+import okhttp3.HttpRequestBuilder;
 import okhttp3.InterfaceC11919f;
 import okhttp3.InterfaceC11944k;
 
@@ -17,12 +17,12 @@ import okhttp3.InterfaceC11944k;
 public class C7501d extends AbstractC11953t implements InterfaceC7506i {
 
     /* renamed from: a */
-    private WeakHashMap<C11918e0, HttpConnection> f34828a;
+    private WeakHashMap<HttpRequestBuilder, HttpConnection> f34828a;
 
     @Override // com.huawei.openalliance.p169ad.net.http.InterfaceC7506i
     /* renamed from: a */
-    public HttpConnection mo46052a(C11918e0 c11918e0) {
-        HttpConnection httpConnection = (C7765bl.m47802a(this.f34828a) || c11918e0 == null || !this.f34828a.containsKey(c11918e0)) ? null : this.f34828a.get(c11918e0);
+    public HttpConnection mo46052a(HttpRequestBuilder HttpRequestBuilder) {
+        HttpConnection httpConnection = (C7765bl.m47802a(this.f34828a) || HttpRequestBuilder == null || !this.f34828a.containsKey(HttpRequestBuilder)) ? null : this.f34828a.get(HttpRequestBuilder);
         return httpConnection == null ? new HttpConnection() : httpConnection;
     }
 
@@ -34,15 +34,15 @@ public class C7501d extends AbstractC11953t implements InterfaceC7506i {
         }
         HttpConnection httpConnection = new HttpConnection(interfaceC11944k);
         AbstractC7185ho.m43820b(C5928g3.f26831h, "address:" + AbstractC7806cz.m48174f(httpConnection.m39402a()));
-        C11918e0 c11918e0Request = interfaceC11919f.request();
-        if (c11918e0Request == null) {
+        HttpRequestBuilder HttpRequestBuilderRequest = interfaceC11919f.request();
+        if (HttpRequestBuilderRequest == null) {
             return;
         }
         if (this.f34828a == null) {
             this.f34828a = new WeakHashMap<>();
         }
         AbstractC7185ho.m43821b(C5928g3.f26831h, "size: %s", Integer.valueOf(this.f34828a.size()));
-        this.f34828a.put(c11918e0Request, httpConnection);
+        this.f34828a.put(HttpRequestBuilderRequest, httpConnection);
     }
 
     @Override // com.huawei.openalliance.p169ad.net.http.InterfaceC7506i

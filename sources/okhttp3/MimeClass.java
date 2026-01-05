@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 /* renamed from: okhttp3.a0 */
 /* loaded from: classes9.dex */
-public final class C11910a0 {
+public final class MimeClass {
 
     /* renamed from: e */
     public static final Pattern f55149e = Pattern.compile("([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)/([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)");
@@ -27,7 +27,7 @@ public final class C11910a0 {
     /* renamed from: d */
     public final String f55154d;
 
-    public C11910a0(String str, String str2, String str3, String str4) {
+    public MimeClass(String str, String str2, String str3, String str4) {
         this.f55151a = str;
         this.f55152b = str2;
         this.f55153c = str3;
@@ -35,7 +35,7 @@ public final class C11910a0 {
     }
 
     /* renamed from: c */
-    public static C11910a0 m71444c(String str) {
+    public static MimeClass m71444c(String str) {
         Matcher matcher = f55149e.matcher(str);
         if (!matcher.lookingAt()) {
             throw new IllegalArgumentException("No subtype found for: \"" + str + '\"');
@@ -65,11 +65,11 @@ public final class C11910a0 {
                 str2 = strGroup3;
             }
         }
-        return new C11910a0(str, lowerCase, lowerCase2, str2);
+        return new MimeClass(str, lowerCase, lowerCase2, str2);
     }
 
     /* renamed from: d */
-    public static C11910a0 m71445d(String str) {
+    public static MimeClass m71445d(String str) {
         try {
             return m71444c(str);
         } catch (IllegalArgumentException unused) {
@@ -93,7 +93,7 @@ public final class C11910a0 {
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof C11910a0) && ((C11910a0) obj).f55151a.equals(this.f55151a);
+        return (obj instanceof MimeClass) && ((MimeClass) obj).f55151a.equals(this.f55151a);
     }
 
     public int hashCode() {

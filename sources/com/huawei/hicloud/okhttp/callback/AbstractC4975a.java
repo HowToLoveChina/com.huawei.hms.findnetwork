@@ -2,8 +2,8 @@ package com.huawei.hicloud.okhttp.callback;
 
 import fk.C9721b;
 import java.io.IOException;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import okhttp3.InterfaceC11919f;
 import okhttp3.InterfaceC11921g;
 
@@ -30,7 +30,7 @@ public abstract class AbstractC4975a<T> {
         interfaceC11919f.mo71532e(interfaceC11921g);
     }
 
-    public C11922g0 execute(InterfaceC11919f interfaceC11919f) throws IOException {
+    public HttpResponseBuilder execute(InterfaceC11919f interfaceC11919f) throws IOException {
         this.call = interfaceC11919f;
         return interfaceC11919f.execute();
     }
@@ -43,7 +43,7 @@ public abstract class AbstractC4975a<T> {
         return this.method;
     }
 
-    public abstract T onResponse(C11922g0 c11922g0) throws C9721b, IOException;
+    public abstract T onResponse(HttpResponseBuilder HttpResponseBuilder) throws C9721b, IOException;
 
-    public abstract void prepare(C11918e0.a aVar) throws C9721b, IOException;
+    public abstract void prepare(HttpRequestBuilder.a aVar) throws C9721b, IOException;
 }

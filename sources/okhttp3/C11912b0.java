@@ -19,7 +19,7 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 import okhttp3.AbstractC11953t;
-import okhttp3.C11922g0;
+import okhttp3.HttpResponseBuilder;
 import okhttp3.C11945l;
 import okhttp3.C11955v;
 import okhttp3.internal.connection.C11932f;
@@ -151,7 +151,7 @@ public class C11912b0 implements Cloneable {
 
         @Override // sx.AbstractC12871a
         /* renamed from: d */
-        public int mo71499d(C11922g0.a aVar) {
+        public int mo71499d(HttpResponseBuilder.a aVar) {
             return aVar.f55308c;
         }
 
@@ -163,13 +163,13 @@ public class C11912b0 implements Cloneable {
 
         @Override // sx.AbstractC12871a
         /* renamed from: f */
-        public C11932f mo71501f(C11922g0 c11922g0) {
-            return c11922g0.f55304m;
+        public C11932f mo71501f(HttpResponseBuilder HttpResponseBuilder) {
+            return HttpResponseBuilder.f55304m;
         }
 
         @Override // sx.AbstractC12871a
         /* renamed from: g */
-        public void mo71502g(C11922g0.a aVar, C11932f c11932f) {
+        public void mo71502g(HttpResponseBuilder.a aVar, C11932f c11932f) {
             aVar.m71613k(c11932f);
         }
 
@@ -404,8 +404,8 @@ public class C11912b0 implements Cloneable {
     }
 
     /* renamed from: z */
-    public InterfaceC11919f m71495z(C11918e0 c11918e0) {
-        return C11916d0.m71529g(this, c11918e0, false);
+    public InterfaceC11919f m71495z(HttpRequestBuilder HttpRequestBuilder) {
+        return C11916d0.m71529g(this, HttpRequestBuilder, false);
     }
 
     public C11912b0(c cVar) throws NoSuchAlgorithmException, KeyStoreException {

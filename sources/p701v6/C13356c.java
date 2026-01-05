@@ -8,8 +8,8 @@ import com.huawei.openalliance.p169ad.constant.JsbMapKeyNames;
 import com.huawei.phoneservice.feedbackcommon.network.FeedbackWebConstants;
 import java.io.IOException;
 import okhttp3.C11912b0;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import okhttp3.InterfaceC11919f;
 import okhttp3.InterfaceC11921g;
 import p015ak.C0209d;
@@ -48,10 +48,10 @@ public class C13356c {
     public String f60211d = "";
 
     /* renamed from: f */
-    public C11918e0 f60213f = null;
+    public HttpRequestBuilder f60213f = null;
 
     /* renamed from: g */
-    public C11922g0 f60214g = null;
+    public HttpResponseBuilder f60214g = null;
 
     /* renamed from: h */
     public InterfaceC11919f f60215h = null;
@@ -68,11 +68,11 @@ public class C13356c {
         }
 
         @Override // com.huawei.hicloud.dnskpr.DnsKprUtil.InterfaceC4895e
-        public void run(C11918e0.a aVar, InterfaceC11921g interfaceC11921g) {
+        public void run(HttpRequestBuilder.a aVar, InterfaceC11921g interfaceC11921g) {
         }
 
         @Override // com.huawei.hicloud.dnskpr.DnsKprUtil.InterfaceC4895e
-        public C11922g0 run(C11918e0.a aVar, String str) throws IOException {
+        public HttpResponseBuilder run(HttpRequestBuilder.a aVar, String str) throws IOException {
             C13356c.this.f60213f = aVar.m71575b();
             return C13356c.this.f60212e.m71495z(aVar.m71575b()).execute();
         }
@@ -100,9 +100,9 @@ public class C13356c {
 
     /* renamed from: d */
     public void m80130d() {
-        C11922g0 c11922g0 = this.f60214g;
-        if (c11922g0 != null) {
-            c11922g0.close();
+        HttpResponseBuilder HttpResponseBuilder = this.f60214g;
+        if (HttpResponseBuilder != null) {
+            HttpResponseBuilder.close();
         }
     }
 
@@ -122,7 +122,7 @@ public class C13356c {
     }
 
     /* renamed from: h */
-    public boolean m80134h(C11918e0.a aVar) {
+    public boolean m80134h(HttpRequestBuilder.a aVar) {
         String strM80970t = C13452e.m80781L().m80970t();
         if (TextUtils.isEmpty(strM80970t)) {
             return false;
@@ -141,7 +141,7 @@ public class C13356c {
         } else {
             aVar.m71578e(FeedbackWebConstants.AUTHORIZATION, C1122c.m6773e(str));
         }
-        C11918e0.a aVarM71578e = aVar.m71578e("SiteId", "" + C13452e.m80781L().m80947n0()).m71578e(JsbMapKeyNames.H5_USER_ID, C13452e.m80781L().m80971t0());
+        HttpRequestBuilder.a aVarM71578e = aVar.m71578e("SiteId", "" + C13452e.m80781L().m80947n0()).m71578e(JsbMapKeyNames.H5_USER_ID, C13452e.m80781L().m80971t0());
         String str3 = C1443a.f6213a;
         aVarM71578e.m71578e("version", str3).m71578e("AuthType", C1122c.m6773e("com.huawei.hidisk")).m71578e("User-Agent", str2);
         aVar.m71578e("Cflg", "1");
@@ -192,7 +192,7 @@ public class C13356c {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public okhttp3.C11922g0 m80135i(java.lang.String r12) throws java.lang.Exception {
+    public okhttp3.HttpResponseBuilder m80135i(java.lang.String r12) throws java.lang.Exception {
         /*
             Method dump skipped, instructions count: 332
             To view this dump change 'Code comments level' option to 'DEBUG'

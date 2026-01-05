@@ -10,7 +10,7 @@ import javax.net.ssl.SSLSocketFactory;
 import okhttp3.AbstractC11953t;
 import okhttp3.C11911b;
 import okhttp3.C11912b0;
-import okhttp3.C11918e0;
+import okhttp3.HttpRequestBuilder;
 import okhttp3.C11923h;
 import okhttp3.C11958y;
 import okhttp3.InterfaceC11919f;
@@ -45,7 +45,7 @@ public final class C11941o {
     public Object f55458f;
 
     /* renamed from: g */
-    public C11918e0 f55459g;
+    public HttpRequestBuilder f55459g;
 
     /* renamed from: h */
     public C11933g f55460h;
@@ -260,7 +260,7 @@ public final class C11941o {
         return this.f55460h;
     }
 
-    public C11918e0 getRequest() {
+    public HttpRequestBuilder getRequest() {
         return this.f55459g;
     }
 
@@ -309,10 +309,10 @@ public final class C11941o {
         return maybeReleaseConnection(iOException, false);
     }
 
-    public void prepareToConnect(C11918e0 c11918e0) throws IOException {
-        C11918e0 c11918e02 = this.f55459g;
-        if (c11918e02 != null) {
-            if (C12875e.m77235F(c11918e02.m71573m(), c11918e0.m71573m()) && this.f55460h.m71704f()) {
+    public void prepareToConnect(HttpRequestBuilder HttpRequestBuilder) throws IOException {
+        HttpRequestBuilder HttpRequestBuilder2 = this.f55459g;
+        if (HttpRequestBuilder2 != null) {
+            if (C12875e.m77235F(HttpRequestBuilder2.m71573m(), HttpRequestBuilder.m71573m()) && this.f55460h.m71704f()) {
                 return;
             }
             if (this.f55462j != null) {
@@ -323,10 +323,10 @@ public final class C11941o {
                 this.f55460h = null;
             }
         }
-        this.f55459g = c11918e0;
-        C11933g c11933g = new C11933g(this, this.f55454b, createAddress(c11918e0.m71573m()), this.f55455c, this.f55456d, this.f55468p);
+        this.f55459g = HttpRequestBuilder;
+        C11933g c11933g = new C11933g(this, this.f55454b, createAddress(HttpRequestBuilder.m71573m()), this.f55455c, this.f55456d, this.f55468p);
         this.f55460h = c11933g;
-        c11933g.f55396b.m71458k(c11918e0.m71565e("host"));
+        c11933g.f55396b.m71458k(HttpRequestBuilder.m71565e("host"));
     }
 
     public Socket releaseConnectionNoEvents() {

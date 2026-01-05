@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.net.ProtocolException;
 import okhttp3.AbstractC11924h0;
 import okhttp3.AbstractC11953t;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import okhttp3.InterfaceC11919f;
 import p022ay.AbstractC1058h;
 import p022ay.AbstractC1059i;
@@ -228,11 +228,11 @@ public final class C11932f {
     }
 
     /* renamed from: d */
-    public InterfaceC1074x m71684d(C11918e0 c11918e0, boolean z10) throws IOException {
+    public InterfaceC1074x m71684d(HttpRequestBuilder HttpRequestBuilder, boolean z10) throws IOException {
         this.f55384f = z10;
-        long jContentLength = c11918e0.m71562b().contentLength();
+        long jContentLength = HttpRequestBuilder.m71562b().contentLength();
         this.f55381c.requestBodyStart(this.f55380b);
-        return new a(this.f55383e.mo79708h(c11918e0, jContentLength), jContentLength);
+        return new a(this.f55383e.mo79708h(HttpRequestBuilder, jContentLength), jContentLength);
     }
 
     /* renamed from: e */
@@ -279,12 +279,12 @@ public final class C11932f {
     }
 
     /* renamed from: k */
-    public AbstractC11924h0 m71691k(C11922g0 c11922g0) throws IOException {
+    public AbstractC11924h0 m71691k(HttpResponseBuilder HttpResponseBuilder) throws IOException {
         try {
             this.f55381c.responseBodyStart(this.f55380b);
-            String strM71599w = c11922g0.m71599w("Content-Type");
-            long jMo79707g = this.f55383e.mo79707g(c11922g0);
-            return new C13283h(strM71599w, jMo79707g, C1064n.m6403b(new b(this.f55383e.mo79703c(c11922g0), jMo79707g)));
+            String strM71599w = HttpResponseBuilder.m71599w("Content-Type");
+            long jMo79707g = this.f55383e.mo79707g(HttpResponseBuilder);
+            return new C13283h(strM71599w, jMo79707g, C1064n.m6403b(new b(this.f55383e.mo79703c(HttpResponseBuilder), jMo79707g)));
         } catch (IOException e10) {
             this.f55381c.responseFailed(this.f55380b, e10);
             m71695o(e10);
@@ -293,9 +293,9 @@ public final class C11932f {
     }
 
     /* renamed from: l */
-    public C11922g0.a m71692l(boolean z10) throws IOException {
+    public HttpResponseBuilder.a m71692l(boolean z10) throws IOException {
         try {
-            C11922g0.a aVarMo79704d = this.f55383e.mo79704d(z10);
+            HttpResponseBuilder.a aVarMo79704d = this.f55383e.mo79704d(z10);
             if (aVarMo79704d != null) {
                 AbstractC12871a.f58633a.mo71502g(aVarMo79704d, this);
             }
@@ -308,8 +308,8 @@ public final class C11932f {
     }
 
     /* renamed from: m */
-    public void m71693m(C11922g0 c11922g0) {
-        this.f55381c.responseHeadersEnd(this.f55380b, c11922g0);
+    public void m71693m(HttpResponseBuilder HttpResponseBuilder) {
+        this.f55381c.responseHeadersEnd(this.f55380b, HttpResponseBuilder);
     }
 
     /* renamed from: n */
@@ -324,11 +324,11 @@ public final class C11932f {
     }
 
     /* renamed from: p */
-    public void m71696p(C11918e0 c11918e0) throws IOException {
+    public void m71696p(HttpRequestBuilder HttpRequestBuilder) throws IOException {
         try {
             this.f55381c.requestHeadersStart(this.f55380b);
-            this.f55383e.mo79702b(c11918e0);
-            this.f55381c.requestHeadersEnd(this.f55380b, c11918e0);
+            this.f55383e.mo79702b(HttpRequestBuilder);
+            this.f55381c.requestHeadersEnd(this.f55380b, HttpRequestBuilder);
         } catch (IOException e10) {
             this.f55381c.requestFailed(this.f55380b, e10);
             m71695o(e10);

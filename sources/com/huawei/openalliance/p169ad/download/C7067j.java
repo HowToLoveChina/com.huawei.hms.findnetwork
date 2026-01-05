@@ -17,8 +17,8 @@ import java.util.concurrent.TimeUnit;
 import okhttp3.AbstractC11924h0;
 import okhttp3.C11912b0;
 import okhttp3.C11917e;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import okhttp3.C11945l;
 import okhttp3.EnumC11914c0;
 
@@ -39,10 +39,10 @@ public class C7067j extends AbstractC7060c {
     private static final byte[] f32546d = new byte[0];
 
     /* renamed from: e */
-    private C11922g0 f32547e;
+    private HttpResponseBuilder f32547e;
 
     /* renamed from: f */
-    private C11918e0 f32548f;
+    private HttpRequestBuilder f32548f;
 
     /* renamed from: g */
     private AbstractC11924h0 f32549g;
@@ -52,16 +52,16 @@ public class C7067j extends AbstractC7060c {
 
     public C7067j(Context context, String str, long j10) {
         this.f32550h = context;
-        C11918e0.a aVarM71586m = new C11918e0.a().m71586m(str);
+        HttpRequestBuilder.a aVarM71586m = new HttpRequestBuilder.a().m71586m(str);
         if (j10 > 0) {
             aVarM71586m.m71578e("Range", "bytes=" + j10 + "-");
         }
         aVarM71586m.m71578e(C5966j2.f27080v, "identity");
         aVarM71586m.m71576c(C11917e.f55246n);
-        C11918e0 c11918e0M71575b = aVarM71586m.m71575b();
-        this.f32548f = c11918e0M71575b;
-        if (m42625a(c11918e0M71575b, false)) {
-            m42625a(c11918e0M71575b, true);
+        HttpRequestBuilder HttpRequestBuilderM71575b = aVarM71586m.m71575b();
+        this.f32548f = HttpRequestBuilderM71575b;
+        if (m42625a(HttpRequestBuilderM71575b, false)) {
+            m42625a(HttpRequestBuilderM71575b, true);
         }
     }
 
@@ -78,9 +78,9 @@ public class C7067j extends AbstractC7060c {
     @Override // com.huawei.openalliance.p169ad.download.AbstractC7060c
     /* renamed from: b */
     public int mo42578b() throws IOException {
-        C11922g0 c11922g0 = this.f32547e;
-        if (c11922g0 != null) {
-            return c11922g0.m71597u();
+        HttpResponseBuilder HttpResponseBuilder = this.f32547e;
+        if (HttpResponseBuilder != null) {
+            return HttpResponseBuilder.m71597u();
         }
         throw new IOException("get response code error");
     }
@@ -97,11 +97,11 @@ public class C7067j extends AbstractC7060c {
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        C11922g0 c11922g0 = this.f32547e;
-        if (c11922g0 == null) {
+        HttpResponseBuilder HttpResponseBuilder = this.f32547e;
+        if (HttpResponseBuilder == null) {
             throw new IOException("close stream error");
         }
-        c11922g0.close();
+        HttpResponseBuilder.close();
     }
 
     @Override // com.huawei.openalliance.p169ad.download.AbstractC7060c
@@ -114,8 +114,8 @@ public class C7067j extends AbstractC7060c {
     @Override // com.huawei.openalliance.p169ad.download.AbstractC7060c
     /* renamed from: a */
     public String mo42577a(String str) {
-        C11922g0 c11922g0 = this.f32547e;
-        return c11922g0 == null ? "" : c11922g0.m71599w(str);
+        HttpResponseBuilder HttpResponseBuilder = this.f32547e;
+        return HttpResponseBuilder == null ? "" : HttpResponseBuilder.m71599w(str);
     }
 
     /* renamed from: a */
@@ -150,11 +150,11 @@ public class C7067j extends AbstractC7060c {
     }
 
     /* renamed from: a */
-    private boolean m42625a(C11918e0 c11918e0, boolean z10) {
+    private boolean m42625a(HttpRequestBuilder HttpRequestBuilder, boolean z10) {
         try {
-            C11922g0 c11922g0Execute = m42624a(this.f32550h, z10).m71495z(c11918e0).execute();
-            this.f32547e = c11922g0Execute;
-            z = 8 == C7729ac.m47431a(c11922g0Execute.m71597u());
+            HttpResponseBuilder HttpResponseBuilderExecute = m42624a(this.f32550h, z10).m71495z(HttpRequestBuilder).execute();
+            this.f32547e = HttpResponseBuilderExecute;
+            z = 8 == C7729ac.m47431a(HttpResponseBuilderExecute.m71597u());
             this.f32549g = this.f32547e.m71595s();
         } catch (IOException e10) {
             AbstractC7185ho.m43823c("OkHttpNetworkConnection", "http execute encounter IOException:" + e10.getClass().getSimpleName());

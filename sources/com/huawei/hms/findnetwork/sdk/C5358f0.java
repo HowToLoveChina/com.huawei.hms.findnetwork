@@ -9,7 +9,7 @@ import com.huawei.hms.findnetwork.comm.request.bean.QueryTagDerivedRequestBean;
 import com.huawei.hms.findnetwork.comm.request.bean.TagDerivedKey;
 import com.huawei.hms.findnetwork.comm.request.result.FindNetworkResult;
 import com.huawei.hms.findnetwork.comm.util.JsonUtils;
-import com.huawei.hms.findnetwork.sdk.C5379m0;
+import com.huawei.hms.findnetwork.sdk.QueryTagDerivedKeyApiCall;
 import com.huawei.hms.findnetwork.util.HmsFindSDKLog;
 import com.huawei.hms.support.api.client.Status;
 import p208cq.C8941i;
@@ -29,7 +29,7 @@ public class C5358f0 extends BaseTaskApiCall<HmsClient, QueryTagDerivedRequestBe
             apiException = new ApiException(new Status(-1, "body null"));
         } else {
             HmsFindSDKLog.m32127i("QueryDevicePublicKeyApiCall", "start to call query tag derived key");
-            FindNetworkResult<TagDerivedKey> findNetworkResult = (FindNetworkResult) JsonUtils.json2Object(str, new C5379m0.a().getType());
+            FindNetworkResult<TagDerivedKey> findNetworkResult = (FindNetworkResult) JsonUtils.json2Object(str, new QueryTagDerivedKeyApiCall.a().getType());
             if (findNetworkResult != null) {
                 HmsFindSDKLog.m32127i("QueryDevicePublicKeyApiCall", "success to call query tag derived key. fncResult=" + findNetworkResult.getRespCode());
                 if (findNetworkResult.getRespCode() == 0) {

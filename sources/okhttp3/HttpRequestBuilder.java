@@ -12,7 +12,7 @@ import sx.C12875e;
 
 /* renamed from: okhttp3.e0 */
 /* loaded from: classes9.dex */
-public final class C11918e0 {
+public final class HttpRequestBuilder {
 
     /* renamed from: a */
     public final C11958y f55269a;
@@ -38,7 +38,7 @@ public final class C11918e0 {
     /* renamed from: h */
     public final ArrayList<InetAddress> f55276h;
 
-    public C11918e0(a aVar) {
+    public HttpRequestBuilder(a aVar) {
         this.f55269a = aVar.f55277a;
         this.f55270b = aVar.f55278b;
         this.f55271c = aVar.f55279c.m71864d();
@@ -156,15 +156,15 @@ public final class C11918e0 {
         }
 
         /* renamed from: a */
-        public a m71574a(String str, String str2) {
+        public a addHeader(String str, String str2) {
             this.f55279c.m71861a(str, str2);
             return this;
         }
 
         /* renamed from: b */
-        public C11918e0 m71575b() {
+        public HttpRequestBuilder m71575b() {
             if (this.f55277a != null) {
-                return new C11918e0(this);
+                return new HttpRequestBuilder(this);
             }
             throw new IllegalStateException("url == null");
         }
@@ -278,23 +278,23 @@ public final class C11918e0 {
             return this;
         }
 
-        public a(C11918e0 c11918e0) {
+        public a(HttpRequestBuilder HttpRequestBuilder) {
             Map<Class<?>, Object> linkedHashMap;
             this.f55281e = Collections.emptyMap();
             this.f55282f = false;
             this.f55283g = new ArrayList<>();
-            this.f55277a = c11918e0.f55269a;
-            this.f55278b = c11918e0.f55270b;
-            this.f55280d = c11918e0.f55272d;
-            if (c11918e0.f55273e.isEmpty()) {
+            this.f55277a = HttpRequestBuilder.f55269a;
+            this.f55278b = HttpRequestBuilder.f55270b;
+            this.f55280d = HttpRequestBuilder.f55272d;
+            if (HttpRequestBuilder.f55273e.isEmpty()) {
                 linkedHashMap = Collections.emptyMap();
             } else {
-                linkedHashMap = new LinkedHashMap<>(c11918e0.f55273e);
+                linkedHashMap = new LinkedHashMap<>(HttpRequestBuilder.f55273e);
             }
             this.f55281e = linkedHashMap;
-            this.f55279c = c11918e0.f55271c.m71856g();
-            this.f55282f = c11918e0.f55275g;
-            this.f55283g = c11918e0.f55276h;
+            this.f55279c = HttpRequestBuilder.f55271c.m71856g();
+            this.f55282f = HttpRequestBuilder.f55275g;
+            this.f55283g = HttpRequestBuilder.f55276h;
         }
     }
 }

@@ -12,9 +12,9 @@ import java.io.IOException;
 import java.util.Map;
 import mk.C11475a;
 import okhttp3.AbstractC11920f0;
-import okhttp3.C11910a0;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.MimeClass;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import org.json.JSONException;
 import org.json.JSONObject;
 import p015ak.C0213f;
@@ -47,15 +47,15 @@ public class C13533a extends AbstractC4977a {
 
     @Override // com.huawei.hicloud.okhttp.callback.AbstractC4976b
     public AbstractC11920f0 create() throws IOException {
-        return AbstractC11920f0.create(C11910a0.m71445d("application/json; charset=utf-8"), this.f60898a.getBytes(Constants.UTF_8));
+        return AbstractC11920f0.create(MimeClass.m71445d("application/json; charset=utf-8"), this.f60898a.getBytes(Constants.UTF_8));
     }
 
     @Override // com.huawei.hicloud.okhttp.request.AbstractC4977a, com.huawei.hicloud.okhttp.callback.AbstractC4975a
-    public void prepare(C11918e0.a aVar) throws C9721b, IOException {
+    public void prepare(HttpRequestBuilder.a aVar) throws C9721b, IOException {
         String str;
         super.prepare(aVar);
-        aVar.m71574a("Connection", "close");
-        aVar.m71574a("Accept-Language", C0234s.m1627e());
+        aVar.addHeader("Connection", "close");
+        aVar.addHeader("Accept-Language", C0234s.m1627e());
         String strM80970t = C13452e.m80781L().m80970t();
         String strM80954p = C13452e.m80781L().m80954p();
         String strM80931j0 = C13452e.m80781L().m80931j0();
@@ -74,30 +74,30 @@ public class C13533a extends AbstractC4977a {
         String string = sb2.toString();
         if (C10028c.m62182c0().m62420y1()) {
             str = new String(C11475a.m68618a(string.getBytes("utf-8")), "utf-8");
-            aVar.m71574a("Cflg", "1");
+            aVar.addHeader("Cflg", "1");
         } else {
             str = new String(C11475a.m68618a((strM80970t + ":" + strM80954p + ":" + strM80931j0 + ":" + str2 + ":" + this.f60899b).getBytes("utf-8")), "utf-8");
         }
-        aVar.m71574a(FeedbackWebConstants.AUTHORIZATION, str);
-        aVar.m71574a("AuthType", C1122c.m6773e("com.huawei.hidisk"));
+        aVar.addHeader(FeedbackWebConstants.AUTHORIZATION, str);
+        aVar.addHeader("AuthType", C1122c.m6773e("com.huawei.hidisk"));
         Map<String, String> map = this.f60900c;
         if (map != null) {
             for (Map.Entry<String, String> entry : map.entrySet()) {
-                aVar.m71574a(entry.getKey(), entry.getValue());
+                aVar.addHeader(entry.getKey(), entry.getValue());
             }
         }
-        aVar.m71574a("x-hw-3rdapp-packagename", C13843a.m83054F(C0213f.m1377a()));
-        aVar.m71574a("x-hw-3rdapp-version", C1122c.m6833t0(C0213f.m1377a()));
+        aVar.addHeader("x-hw-3rdapp-packagename", C13843a.m83054F(C0213f.m1377a()));
+        aVar.addHeader("x-hw-3rdapp-version", C1122c.m6833t0(C0213f.m1377a()));
     }
 
     @Override // com.huawei.hicloud.okhttp.request.AbstractC4977a, com.huawei.hicloud.okhttp.callback.AbstractC4975a
-    public String onResponse(C11922g0 c11922g0) throws JSONException, C9721b, IOException {
-        String strM71637z = c11922g0.m71595s().m71637z();
+    public String onResponse(HttpResponseBuilder HttpResponseBuilder) throws JSONException, C9721b, IOException {
+        String strM71637z = HttpResponseBuilder.m71595s().m71637z();
         parseErrorByRsp(strM71637z);
         try {
             JSONObject jSONObject = new JSONObject(strM71637z);
             if (803 == jSONObject.getInt("code")) {
-                jSONObject.put("RetryAfterInHeader", c11922g0.m71599w(C6055q0.f27799f));
+                jSONObject.put("RetryAfterInHeader", HttpResponseBuilder.m71599w(C6055q0.f27799f));
                 return jSONObject.toString();
             }
         } catch (JSONException unused) {

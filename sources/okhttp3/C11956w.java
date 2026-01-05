@@ -38,9 +38,9 @@ public final class C11956w extends C11949p {
         }
 
         @Override // okhttp3.InterfaceC11921g
-        public void onResponse(InterfaceC11919f interfaceC11919f, C11922g0 c11922g0) throws IOException {
-            if (c11922g0 != null) {
-                c11922g0.close();
+        public void onResponse(InterfaceC11919f interfaceC11919f, HttpResponseBuilder HttpResponseBuilder) throws IOException {
+            if (HttpResponseBuilder != null) {
+                HttpResponseBuilder.close();
             }
         }
     }
@@ -284,8 +284,8 @@ public final class C11956w extends C11949p {
     }
 
     /* renamed from: s */
-    public final b m71872s(C11918e0 c11918e0) {
-        return m71871r(c11918e0.m71573m().m71904l(), c11918e0.m71573m().m71909w(), c11918e0.m71573m().m71896B());
+    public final b m71872s(HttpRequestBuilder HttpRequestBuilder) {
+        return m71871r(HttpRequestBuilder.m71573m().m71904l(), HttpRequestBuilder.m71573m().m71909w(), HttpRequestBuilder.m71573m().m71896B());
     }
 
     /* renamed from: t */

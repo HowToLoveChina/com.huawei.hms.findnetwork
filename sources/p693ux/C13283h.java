@@ -1,7 +1,7 @@
 package p693ux;
 
 import okhttp3.AbstractC11924h0;
-import okhttp3.C11910a0;
+import okhttp3.MimeClass;
 import p022ay.InterfaceC1056f;
 
 /* renamed from: ux.h */
@@ -31,10 +31,10 @@ public final class C13283h extends AbstractC11924h0 {
 
     @Override // okhttp3.AbstractC11924h0
     /* renamed from: v */
-    public C11910a0 mo71635v() {
+    public MimeClass mo71635v() {
         String str = this.f59998a;
         if (str != null) {
-            return C11910a0.m71445d(str);
+            return MimeClass.m71445d(str);
         }
         return null;
     }

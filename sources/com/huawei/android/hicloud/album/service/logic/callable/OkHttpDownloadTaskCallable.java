@@ -26,7 +26,7 @@ import java.io.OutputStream;
 import java.net.SocketTimeoutException;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-import okhttp3.C11922g0;
+import okhttp3.HttpResponseBuilder;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -210,11 +210,11 @@ public class OkHttpDownloadTaskCallable extends OkHttpDownloadTaskBaseCallable {
     /* JADX WARN: Type inference failed for: r9v3, types: [java.io.InputStream] */
     /* JADX WARN: Type inference failed for: r9v4 */
     /* JADX WARN: Type inference failed for: r9v9, types: [java.io.InputStream] */
-    public void parseSuccessResponse(C11922g0 c11922g0) throws Throwable {
+    public void parseSuccessResponse(HttpResponseBuilder HttpResponseBuilder) throws Throwable {
         InputStream inputStream;
         String strM6732R1;
-        int iM71597u = c11922g0.m71597u();
-        String strM71602z = c11922g0.m71602z();
+        int iM71597u = HttpResponseBuilder.m71597u();
+        String strM71602z = HttpResponseBuilder.m71602z();
         StringBuilder sb2 = new StringBuilder();
         sb2.append("onResponse ");
         sb2.append(this.fileInfoKey);
@@ -228,8 +228,8 @@ public class OkHttpDownloadTaskCallable extends OkHttpDownloadTaskBaseCallable {
         C1120a.m6675d(TAG, sb2.toString());
         if (iM71597u != 200 && iM71597u != 206) {
             C1120a.m6676e(TAG, "onResponse error code:" + iM71597u + ", domain:" + C13843a.m83101w(this.downloadURL) + ", retry:" + this.curRetryTimes + ", isReplaceDownload:" + this.isReplaceDownload);
-            String errorMessage = getErrorMessage(c11922g0);
-            c11922g0.close();
+            String errorMessage = getErrorMessage(HttpResponseBuilder);
+            HttpResponseBuilder.close();
             this.res.put("httpCode", Integer.valueOf(iM71597u));
             this.res.put("code", String.valueOf(iM71597u));
             this.res.put("DownloadFailReason", Integer.valueOf(iM71597u));
@@ -251,7 +251,7 @@ public class OkHttpDownloadTaskCallable extends OkHttpDownloadTaskBaseCallable {
             C0067e.m443e().m444a(this.fileInfo, this.thumbType, iM71597u);
             return;
         }
-        C1120a.m6675d(TAG, "currentHttpVersion:" + c11922g0.m71591C().toString());
+        C1120a.m6675d(TAG, "currentHttpVersion:" + HttpResponseBuilder.m71591C().toString());
         FileOutputStream fileOutputStreamM63447m = null;
         try {
             try {
@@ -268,8 +268,8 @@ public class OkHttpDownloadTaskCallable extends OkHttpDownloadTaskBaseCallable {
                     C1120a.m6676e(TAG, "SyncStrategy not allow, download canceled");
                     closeOutputStream(null);
                     closeInputStream(null);
-                    c11922g0.close();
-                    this.res.put(WiseOpenHianalyticsData.UNION_COSTTIME, String.valueOf(System.currentTimeMillis() - c11922g0.m71594F()));
+                    HttpResponseBuilder.close();
+                    this.res.put(WiseOpenHianalyticsData.UNION_COSTTIME, String.valueOf(System.currentTimeMillis() - HttpResponseBuilder.m71594F()));
                     this.res.put("size", Long.valueOf(this.writecount));
                     this.res.put(C2126b.ERROR_MESSAGE_INFO, strM71602z);
                     downloadResultHandle(this.res, this.fileInfo, this.thumbType, this.isShare, this.savePath);
@@ -285,8 +285,8 @@ public class OkHttpDownloadTaskCallable extends OkHttpDownloadTaskBaseCallable {
                     inputStream = M71632s;
                     closeOutputStream(fileOutputStreamM63447m);
                     closeInputStream(inputStream);
-                    c11922g0.close();
-                    this.res.put(WiseOpenHianalyticsData.UNION_COSTTIME, String.valueOf(System.currentTimeMillis() - c11922g0.m71594F()));
+                    HttpResponseBuilder.close();
+                    this.res.put(WiseOpenHianalyticsData.UNION_COSTTIME, String.valueOf(System.currentTimeMillis() - HttpResponseBuilder.m71594F()));
                     this.res.put("size", Long.valueOf(this.writecount));
                     this.res.put(C2126b.ERROR_MESSAGE_INFO, strM71602z);
                     downloadResultHandle(this.res, this.fileInfo, this.thumbType, this.isShare, this.savePath);
@@ -296,8 +296,8 @@ public class OkHttpDownloadTaskCallable extends OkHttpDownloadTaskBaseCallable {
                     M71632s = 0;
                     closeOutputStream(fileOutputStreamM63447m);
                     closeInputStream(M71632s);
-                    c11922g0.close();
-                    this.res.put(WiseOpenHianalyticsData.UNION_COSTTIME, String.valueOf(System.currentTimeMillis() - c11922g0.m71594F()));
+                    HttpResponseBuilder.close();
+                    this.res.put(WiseOpenHianalyticsData.UNION_COSTTIME, String.valueOf(System.currentTimeMillis() - HttpResponseBuilder.m71594F()));
                     this.res.put("size", Long.valueOf(this.writecount));
                     this.res.put(C2126b.ERROR_MESSAGE_INFO, strM71602z);
                     downloadResultHandle(this.res, this.fileInfo, this.thumbType, this.isShare, this.savePath);
@@ -305,9 +305,9 @@ public class OkHttpDownloadTaskCallable extends OkHttpDownloadTaskBaseCallable {
                     throw th;
                 }
             }
-            M71632s = c11922g0.m71595s().m71632s();
+            M71632s = HttpResponseBuilder.m71595s().m71632s();
             try {
-                long jMo71634u = c11922g0.m71595s().mo71634u();
+                long jMo71634u = HttpResponseBuilder.m71595s().mo71634u();
                 this.contentLength = jMo71634u;
                 deleteFile(jMo71634u);
                 strM6732R1 = C1122c.m6732R1(this.tempFilePath);
@@ -325,8 +325,8 @@ public class OkHttpDownloadTaskCallable extends OkHttpDownloadTaskBaseCallable {
                 this.res.put("code", "10");
                 closeOutputStream(null);
                 closeInputStream(M71632s);
-                c11922g0.close();
-                this.res.put(WiseOpenHianalyticsData.UNION_COSTTIME, String.valueOf(System.currentTimeMillis() - c11922g0.m71594F()));
+                HttpResponseBuilder.close();
+                this.res.put(WiseOpenHianalyticsData.UNION_COSTTIME, String.valueOf(System.currentTimeMillis() - HttpResponseBuilder.m71594F()));
                 this.res.put("size", Long.valueOf(this.writecount));
                 this.res.put(C2126b.ERROR_MESSAGE_INFO, "tempFilePath is null");
                 downloadResultHandle(this.res, this.fileInfo, this.thumbType, this.isShare, this.savePath);
@@ -343,8 +343,8 @@ public class OkHttpDownloadTaskCallable extends OkHttpDownloadTaskBaseCallable {
                 this.res.put("code", 2);
                 closeOutputStream(fileOutputStreamM63447m);
                 closeInputStream(M71632s);
-                c11922g0.close();
-                this.res.put(WiseOpenHianalyticsData.UNION_COSTTIME, String.valueOf(System.currentTimeMillis() - c11922g0.m71594F()));
+                HttpResponseBuilder.close();
+                this.res.put(WiseOpenHianalyticsData.UNION_COSTTIME, String.valueOf(System.currentTimeMillis() - HttpResponseBuilder.m71594F()));
                 this.res.put("size", Long.valueOf(this.writecount));
                 this.res.put(C2126b.ERROR_MESSAGE_INFO, "size is not valid");
                 downloadResultHandle(this.res, this.fileInfo, this.thumbType, this.isShare, this.savePath);
@@ -383,8 +383,8 @@ public class OkHttpDownloadTaskCallable extends OkHttpDownloadTaskBaseCallable {
                     inputStream = M71632s;
                     closeOutputStream(fileOutputStreamM63447m);
                     closeInputStream(inputStream);
-                    c11922g0.close();
-                    this.res.put(WiseOpenHianalyticsData.UNION_COSTTIME, String.valueOf(System.currentTimeMillis() - c11922g0.m71594F()));
+                    HttpResponseBuilder.close();
+                    this.res.put(WiseOpenHianalyticsData.UNION_COSTTIME, String.valueOf(System.currentTimeMillis() - HttpResponseBuilder.m71594F()));
                     this.res.put("size", Long.valueOf(this.writecount));
                     this.res.put(C2126b.ERROR_MESSAGE_INFO, strM71602z);
                     downloadResultHandle(this.res, this.fileInfo, this.thumbType, this.isShare, this.savePath);
@@ -394,8 +394,8 @@ public class OkHttpDownloadTaskCallable extends OkHttpDownloadTaskBaseCallable {
                     strM71602z = strM71602z;
                     closeOutputStream(fileOutputStreamM63447m);
                     closeInputStream(M71632s);
-                    c11922g0.close();
-                    this.res.put(WiseOpenHianalyticsData.UNION_COSTTIME, String.valueOf(System.currentTimeMillis() - c11922g0.m71594F()));
+                    HttpResponseBuilder.close();
+                    this.res.put(WiseOpenHianalyticsData.UNION_COSTTIME, String.valueOf(System.currentTimeMillis() - HttpResponseBuilder.m71594F()));
                     this.res.put("size", Long.valueOf(this.writecount));
                     this.res.put(C2126b.ERROR_MESSAGE_INFO, strM71602z);
                     downloadResultHandle(this.res, this.fileInfo, this.thumbType, this.isShare, this.savePath);
@@ -413,8 +413,8 @@ public class OkHttpDownloadTaskCallable extends OkHttpDownloadTaskBaseCallable {
             }
             closeOutputStream(fileOutputStreamM63447m);
             closeInputStream(inputStream);
-            c11922g0.close();
-            this.res.put(WiseOpenHianalyticsData.UNION_COSTTIME, String.valueOf(System.currentTimeMillis() - c11922g0.m71594F()));
+            HttpResponseBuilder.close();
+            this.res.put(WiseOpenHianalyticsData.UNION_COSTTIME, String.valueOf(System.currentTimeMillis() - HttpResponseBuilder.m71594F()));
             this.res.put("size", Long.valueOf(this.writecount));
             this.res.put(C2126b.ERROR_MESSAGE_INFO, strM71602z);
             downloadResultHandle(this.res, this.fileInfo, this.thumbType, this.isShare, this.savePath);

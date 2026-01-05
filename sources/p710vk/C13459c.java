@@ -17,9 +17,9 @@ import java.util.Arrays;
 import java.util.function.Predicate;
 import mk.C11475a;
 import okhttp3.AbstractC11920f0;
-import okhttp3.C11910a0;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.MimeClass;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import p015ak.C0209d;
 import p015ak.C0228m0;
 import p015ak.C0234s;
@@ -62,11 +62,11 @@ public class C13459c extends AbstractC4976b<String> {
 
     @Override // com.huawei.hicloud.okhttp.callback.AbstractC4976b
     public AbstractC11920f0 create() throws IOException {
-        return AbstractC11920f0.create(C11910a0.m71445d("application/json; charset=utf-8"), this.f60629c.getBytes(Constants.UTF_8));
+        return AbstractC11920f0.create(MimeClass.m71445d("application/json; charset=utf-8"), this.f60629c.getBytes(Constants.UTF_8));
     }
 
     @Override // com.huawei.hicloud.okhttp.callback.AbstractC4975a
-    public void prepare(C11918e0.a aVar) throws C9721b, IOException {
+    public void prepare(HttpRequestBuilder.a aVar) throws C9721b, IOException {
         String strM80971t0 = C13452e.m80781L().m80971t0();
         String strM80942m = C13452e.m80781L().m80942m();
         String strM80970t = C13452e.m80781L().m80970t();
@@ -75,21 +75,21 @@ public class C13459c extends AbstractC4976b<String> {
         C9720a.m60653b(strM80942m, "countryCode is null");
         C9720a.m60653b(strM80970t, "deviceType is null");
         C9720a.m60653b(strM80954p, "deviceId is null");
-        aVar.m71574a(JsbMapKeyNames.H5_USER_ID, strM80971t0);
-        aVar.m71574a("x-hw-country-code", strM80942m);
-        aVar.m71574a("x-hw-device-type", strM80970t);
-        aVar.m71574a("x-hw-device-id", strM80954p);
-        aVar.m71574a("x-hw-deviceUUID", C0209d.m1209S1(C0228m0.m1597b().m1599c()));
-        aVar.m71574a("x-hw-os-brand", C0209d.m1276l0());
+        aVar.addHeader(JsbMapKeyNames.H5_USER_ID, strM80971t0);
+        aVar.addHeader("x-hw-country-code", strM80942m);
+        aVar.addHeader("x-hw-device-type", strM80970t);
+        aVar.addHeader("x-hw-device-id", strM80954p);
+        aVar.addHeader("x-hw-deviceUUID", C0209d.m1209S1(C0228m0.m1597b().m1599c()));
+        aVar.addHeader("x-hw-os-brand", C0209d.m1276l0());
         String str = C1443a.f6213a;
-        aVar.m71574a("version", str);
-        aVar.m71574a("x-hw-terminal", Build.MODEL);
-        aVar.m71574a("x-hw-os", C0209d.m1315v());
-        aVar.m71574a("x-hw-trace-id", this.f60628b);
-        aVar.m71574a("x-hw-app-version", str);
-        aVar.m71574a("Accept-Language", C0234s.m1627e());
-        aVar.m71574a("x-hw-auth-version", "1");
-        aVar.m71574a(FeedbackWebConstants.AUTHORIZATION, new String(C11475a.m68618a((strM80970t + ":" + strM80954p + ":com.huawei.hidisk::" + Uri.encode(this.f60627a)).getBytes("utf-8")), "utf-8"));
+        aVar.addHeader("version", str);
+        aVar.addHeader("x-hw-terminal", Build.MODEL);
+        aVar.addHeader("x-hw-os", C0209d.m1315v());
+        aVar.addHeader("x-hw-trace-id", this.f60628b);
+        aVar.addHeader("x-hw-app-version", str);
+        aVar.addHeader("Accept-Language", C0234s.m1627e());
+        aVar.addHeader("x-hw-auth-version", "1");
+        aVar.addHeader(FeedbackWebConstants.AUTHORIZATION, new String(C11475a.m68618a((strM80970t + ":" + strM80954p + ":com.huawei.hidisk::" + Uri.encode(this.f60627a)).getBytes("utf-8")), "utf-8"));
         boolean zM60720O = C9733f.m60705z().m60720O("downloadOMConfigFileFlowControl");
         AbstractC10896a.m65887i("GetLatestConfigCallback", "GetLatestConfigCallback isGrayFlowControlOpen: " + zM60720O + " isDefaultFlowControl: " + C13191h.m79248a().m79251d() + "  configPoint: " + this.f60630d + "  isConfigFileExist: " + this.f60632f);
         if (zM60720O && this.f60632f) {
@@ -117,12 +117,12 @@ public class C13459c extends AbstractC4976b<String> {
                         long jM62409w0 = C10028c.m62182c0().m62409w0(this.f60630d[0].getKey());
                         long j10 = jM62409w0 % 1000;
                         if (j10 == 0) {
-                            aVar.m71574a("x-hw-tc-seconds", String.valueOf(0));
+                            aVar.addHeader("x-hw-tc-seconds", String.valueOf(0));
                         } else {
-                            aVar.m71574a("x-hw-tc-seconds", String.valueOf((SystemClock.elapsedRealtime() - jM62409w0) % 1000));
+                            aVar.addHeader("x-hw-tc-seconds", String.valueOf((SystemClock.elapsedRealtime() - jM62409w0) % 1000));
                         }
                         AbstractC10896a.m65887i("GetLatestConfigCallback", "x-hw-tc-seconds00000: " + j10 + " x-hw-tc-seconds: " + ((SystemClock.elapsedRealtime() - jM62409w0) % 1000) + "  x-hw-tc-times: " + C10028c.m62182c0().m62205E0(this.f60630d[0].getKey()));
-                        aVar.m71574a("x-hw-tc-times", String.valueOf(C10028c.m62182c0().m62205E0(this.f60630d[0].getKey())));
+                        aVar.addHeader("x-hw-tc-times", String.valueOf(C10028c.m62182c0().m62205E0(this.f60630d[0].getKey())));
                     }
                 }
             }
@@ -131,8 +131,8 @@ public class C13459c extends AbstractC4976b<String> {
     }
 
     @Override // com.huawei.hicloud.okhttp.callback.AbstractC4975a
-    public String onResponse(C11922g0 c11922g0) throws IOException {
-        return c11922g0.m71595s().m71637z();
+    public String onResponse(HttpResponseBuilder HttpResponseBuilder) throws IOException {
+        return HttpResponseBuilder.m71595s().m71637z();
     }
 
     public C13459c(String str, String str2, String str3, String str4, boolean z10) {

@@ -9,10 +9,10 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.io.OutputStream;
 import okhttp3.AbstractC11920f0;
-import okhttp3.C11910a0;
+import okhttp3.MimeClass;
 import okhttp3.C11912b0;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import okhttp3.InterfaceC11919f;
 import okhttp3.InterfaceC11921g;
 import p022ay.InterfaceC1055e;
@@ -32,7 +32,7 @@ public class C12375c extends AbstractC4622y {
     public C11912b0 f57185h;
 
     /* renamed from: i */
-    public C11918e0.a f57186i;
+    public HttpRequestBuilder.a f57186i;
 
     /* renamed from: j */
     public InterfaceC11919f f57187j;
@@ -57,12 +57,12 @@ public class C12375c extends AbstractC4622y {
         }
 
         @Override // okhttp3.AbstractC11920f0
-        public C11910a0 contentType() {
+        public MimeClass contentType() {
             String str = this.f57188a;
             if (str == null) {
                 str = "";
             }
-            return C11910a0.m71445d(str);
+            return MimeClass.m71445d(str);
         }
 
         @Override // okhttp3.AbstractC11920f0
@@ -86,11 +86,11 @@ public class C12375c extends AbstractC4622y {
         }
 
         @Override // com.huawei.hicloud.dnskpr.DnsKprUtil.InterfaceC4895e
-        public void run(C11918e0.a aVar, InterfaceC11921g interfaceC11921g) {
+        public void run(HttpRequestBuilder.a aVar, InterfaceC11921g interfaceC11921g) {
         }
 
         @Override // com.huawei.hicloud.dnskpr.DnsKprUtil.InterfaceC4895e
-        public C11922g0 run(C11918e0.a aVar, String str) throws IOException {
+        public HttpResponseBuilder run(HttpRequestBuilder.a aVar, String str) throws IOException {
             C12375c c12375c = C12375c.this;
             c12375c.f57187j = c12375c.f57185h.m71495z(aVar.m71575b());
             return C12375c.this.f57187j.execute();
@@ -100,7 +100,7 @@ public class C12375c extends AbstractC4622y {
     public C12375c(C11912b0 c11912b0, String str, String str2) {
         this.f57185h = c11912b0;
         this.f57184g = str;
-        C11918e0.a aVar = new C11918e0.a();
+        HttpRequestBuilder.a aVar = new HttpRequestBuilder.a();
         this.f57186i = aVar;
         aVar.m71586m(str2);
     }

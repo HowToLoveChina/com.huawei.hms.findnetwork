@@ -32,7 +32,7 @@ public class FusedLocationProviderClient {
     }
 
     public Task<Void> enableBackgroundLocation(int i10, Notification notification) {
-        return this.locationClient.mo33065a(i10, notification);
+        return this.locationClient.enableBackgroundLocation(i10, notification);
     }
 
     public Task<Void> flushLocations() {

@@ -10,8 +10,8 @@ import fk.C9721b;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import okhttp3.AbstractC11920f0;
-import okhttp3.C11910a0;
-import okhttp3.C11918e0;
+import okhttp3.MimeClass;
+import okhttp3.HttpRequestBuilder;
 import p015ak.C0209d;
 import p336he.C10156g;
 import p709vj.C13452e;
@@ -35,25 +35,25 @@ public class C11977a extends AbstractC4994a {
 
     @Override // com.huawei.hicloud.request.okhttp.callback.AbstractC4993b
     public AbstractC11920f0 create() throws IOException {
-        return AbstractC11920f0.create(C11910a0.m71445d("application/json; charset=utf-8"), this.f55749a.getBytes(StandardCharsets.UTF_8));
+        return AbstractC11920f0.create(MimeClass.m71445d("application/json; charset=utf-8"), this.f55749a.getBytes(StandardCharsets.UTF_8));
     }
 
     @Override // com.huawei.hicloud.request.okhttp.request.AbstractC4994a, com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-    public void prepare(C11918e0.a aVar) throws C9721b, IOException {
+    public void prepare(HttpRequestBuilder.a aVar) throws C9721b, IOException {
         String str = C1443a.f6213a;
-        aVar.m71574a("version", str);
-        aVar.m71574a("x-hw-app-id", "10055832");
-        aVar.m71574a("x-hw-app-version", str);
-        aVar.m71574a("x-hw-terminal", Build.MODEL);
-        aVar.m71574a("x-hw-os", C0209d.m1315v());
-        aVar.m71574a("x-hw-trace-id", this.traceID);
+        aVar.addHeader("version", str);
+        aVar.addHeader("x-hw-app-id", "10055832");
+        aVar.addHeader("x-hw-app-version", str);
+        aVar.addHeader("x-hw-terminal", Build.MODEL);
+        aVar.addHeader("x-hw-os", C0209d.m1315v());
+        aVar.addHeader("x-hw-trace-id", this.traceID);
         if (!TextUtils.isEmpty(this.f55750b)) {
-            aVar.m71574a(FeedbackWebConstants.AUTHORIZATION, "Bearer " + this.f55750b);
+            aVar.addHeader(FeedbackWebConstants.AUTHORIZATION, "Bearer " + this.f55750b);
         }
         String strM80971t0 = C13452e.m80781L().m80971t0();
         C9720a.m60653b(strM80971t0, "userId is null");
-        aVar.m71574a("unionID", strM80971t0);
-        aVar.m71574a("x-hw-os-brand", C0209d.m1276l0());
+        aVar.addHeader("unionID", strM80971t0);
+        aVar.addHeader("x-hw-os-brand", C0209d.m1276l0());
         C10156g.m63308e(aVar, "drive");
         C14306d.m85213n(aVar);
     }

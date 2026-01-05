@@ -15,7 +15,7 @@ import java.util.NoSuchElementException;
 import java.util.concurrent.CopyOnWriteArrayList;
 import okhttp3.AbstractC11953t;
 import okhttp3.C11911b;
-import okhttp3.C11918e0;
+import okhttp3.HttpRequestBuilder;
 import okhttp3.C11926i0;
 import okhttp3.C11958y;
 import okhttp3.InterfaceC11919f;
@@ -287,9 +287,9 @@ public final class C11940n {
     }
 
     /* renamed from: g */
-    public C11940n m71764g(C11918e0 c11918e0) {
-        this.f55443i = c11918e0.m71564d();
-        this.f55444j = c11918e0.m71561a();
+    public C11940n m71764g(HttpRequestBuilder HttpRequestBuilder) {
+        this.f55443i = HttpRequestBuilder.m71564d();
+        this.f55444j = HttpRequestBuilder.m71561a();
         if (this.f55443i && (this.f55439e.size() > 1 || (this.f55439e.size() == 1 && this.f55439e.get(0).type() != Proxy.Type.DIRECT))) {
             this.f55443i = false;
         }

@@ -8,8 +8,8 @@ import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.util.List;
 import okhttp3.AbstractC11953t;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import okhttp3.C11926i0;
 import okhttp3.C11954u;
 import okhttp3.EnumC11914c0;
@@ -265,8 +265,8 @@ public class C2277a extends AbstractC11953t {
     }
 
     @Override // okhttp3.AbstractC11953t
-    public void requestHeadersEnd(InterfaceC11919f interfaceC11919f, C11918e0 c11918e0) {
-        super.requestHeadersEnd(interfaceC11919f, c11918e0);
+    public void requestHeadersEnd(InterfaceC11919f interfaceC11919f, HttpRequestBuilder HttpRequestBuilder) {
+        super.requestHeadersEnd(interfaceC11919f, HttpRequestBuilder);
         try {
             Object objM71571k = interfaceC11919f.request().m71571k();
             if (objM71571k instanceof String) {
@@ -345,8 +345,8 @@ public class C2277a extends AbstractC11953t {
     }
 
     @Override // okhttp3.AbstractC11953t
-    public void responseHeadersEnd(InterfaceC11919f interfaceC11919f, C11922g0 c11922g0) {
-        super.responseHeadersEnd(interfaceC11919f, c11922g0);
+    public void responseHeadersEnd(InterfaceC11919f interfaceC11919f, HttpResponseBuilder HttpResponseBuilder) {
+        super.responseHeadersEnd(interfaceC11919f, HttpResponseBuilder);
         try {
             Object objM71571k = interfaceC11919f.request().m71571k();
             if (objM71571k instanceof String) {

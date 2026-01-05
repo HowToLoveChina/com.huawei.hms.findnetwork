@@ -104,15 +104,15 @@ import com.huawei.hms.findnetwork.sdk.C5366i;
 import com.huawei.hms.findnetwork.sdk.C5367i0;
 import com.huawei.hms.findnetwork.sdk.C5368i1;
 import com.huawei.hms.findnetwork.sdk.C5369j;
-import com.huawei.hms.findnetwork.sdk.C5370j0;
+import com.huawei.hms.findnetwork.sdk.QueryOfflineLocationApiCall;
 import com.huawei.hms.findnetwork.sdk.C5371j1;
 import com.huawei.hms.findnetwork.sdk.C5372k;
-import com.huawei.hms.findnetwork.sdk.C5373k0;
+import com.huawei.hms.findnetwork.sdk.QueryOfflineLocationBatchApiCall;
 import com.huawei.hms.findnetwork.sdk.C5375l;
 import com.huawei.hms.findnetwork.sdk.C5376l0;
 import com.huawei.hms.findnetwork.sdk.C5377l1;
 import com.huawei.hms.findnetwork.sdk.C5378m;
-import com.huawei.hms.findnetwork.sdk.C5379m0;
+import com.huawei.hms.findnetwork.sdk.QueryTagDerivedKeyApiCall;
 import com.huawei.hms.findnetwork.sdk.C5380m1;
 import com.huawei.hms.findnetwork.sdk.C5381n;
 import com.huawei.hms.findnetwork.sdk.C5384o;
@@ -531,7 +531,7 @@ public class FindNetworkEngine extends HuaweiApi<Api.ApiOptions> {
         HmsFindSDKLog.m32127i(TAG, "queryOfflineLocation fid: " + MaskUtil.maskSn(str));
         FidRequestBean fidRequestBean = new FidRequestBean();
         fidRequestBean.setFid(str);
-        return doWrite(new C5370j0(fidRequestBean));
+        return doWrite(new QueryOfflineLocationApiCall(fidRequestBean));
     }
 
     public Task<FindNetworkResult<List<PairedDeviceInfo>>> queryPairedDevices() throws FindNetworkException {
@@ -550,7 +550,7 @@ public class FindNetworkEngine extends HuaweiApi<Api.ApiOptions> {
         fillRequestBase(queryTagDerivedKeyBean);
         queryTagDerivedKeyBean.setDays(i10);
         queryTagDerivedKeyBean.setConnectTagSn(str);
-        return doWrite(new C5379m0(queryTagDerivedKeyBean));
+        return doWrite(new QueryTagDerivedKeyApiCall(queryTagDerivedKeyBean));
     }
 
     public Task<FindNetworkResult<String>> requestBindDevice(String str, String str2, String str3) throws FindNetworkException {
@@ -861,7 +861,7 @@ public class FindNetworkEngine extends HuaweiApi<Api.ApiOptions> {
         HmsFindSDKLog.m32127i(TAG, "queryOfflineLocation fids: " + JsonUtils.object2Json(arrayList));
         FidBatchRequestBean fidBatchRequestBean = new FidBatchRequestBean();
         fidBatchRequestBean.setFids(list);
-        doWrite(new C5373k0(fidBatchRequestBean, findNetworkCallback));
+        doWrite(new QueryOfflineLocationBatchApiCall(fidBatchRequestBean, findNetworkCallback));
     }
 
     public Task<FindNetworkResult> sendHeartBeat(String str, String str2, int[] iArr, boolean z10, String str3) throws FindNetworkException {

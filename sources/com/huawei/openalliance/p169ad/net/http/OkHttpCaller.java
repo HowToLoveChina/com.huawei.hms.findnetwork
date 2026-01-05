@@ -16,8 +16,8 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import okhttp3.C11912b0;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import okhttp3.C11945l;
 import okhttp3.EnumC11914c0;
 
@@ -131,14 +131,14 @@ class OkHttpCaller extends AbstractC7499b {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    private void m45972a(com.huawei.openalliance.p169ad.net.http.C7498a r4, okhttp3.C11918e0.a r5) {
+    private void m45972a(com.huawei.openalliance.p169ad.net.http.C7498a r4, okhttp3.HttpRequestBuilder.a r5) {
         /*
             r3 = this;
             boolean r0 = r4.f34803k
             if (r0 == 0) goto Lb
             java.lang.String r0 = "Content-Encoding"
             java.lang.String r1 = "gzip"
-            r5.m71574a(r0, r1)
+            r5.addHeader(r0, r1)
         Lb:
             boolean r3 = r3.m46045a(r4)
             java.lang.String r0 = "OkHttpCaller"
@@ -149,7 +149,7 @@ class OkHttpCaller extends AbstractC7499b {
             r5.m71583j(r1)
             java.lang.String r3 = "application/octet-stream"
         L1f:
-            r5.m71574a(r1, r3)
+            r5.addHeader(r1, r3)
             goto L33
         L23:
             java.lang.String r3 = r4.f34799g
@@ -165,7 +165,7 @@ class OkHttpCaller extends AbstractC7499b {
             int r3 = r3.length
             java.lang.String r3 = java.lang.String.valueOf(r3)
             java.lang.String r4 = "Content-Length"
-            r5.m71574a(r4, r3)
+            r5.addHeader(r4, r3)
         L41:
             return
         */
@@ -173,21 +173,21 @@ class OkHttpCaller extends AbstractC7499b {
     }
 
     /* renamed from: a */
-    private void m45973a(C11918e0.a aVar, C7498a c7498a) {
-        aVar.m71574a(C5966j2.f27080v, Constants.GZIP);
+    private void m45973a(HttpRequestBuilder.a aVar, C7498a c7498a) {
+        aVar.addHeader(C5966j2.f27080v, Constants.GZIP);
         if (m46045a(c7498a)) {
-            aVar.m71574a("hw-request-type", m46046b(c7498a));
+            aVar.addHeader("hw-request-type", m46046b(c7498a));
         }
         if (c7498a.f34800h == 1) {
             String strM48247k = AbstractC7807d.m48247k(this.f34826a);
             if (!TextUtils.isEmpty(strM48247k)) {
-                aVar.m71583j("User-Agent").m71574a("User-Agent", strM48247k);
+                aVar.m71583j("User-Agent").addHeader("User-Agent", strM48247k);
             }
         }
         C7500c c7500c = c7498a.f34798f;
         if (c7500c != null) {
             for (Map.Entry<String, String> entry : c7500c.m46049a().entrySet()) {
-                aVar.m71574a(entry.getKey(), entry.getValue());
+                aVar.addHeader(entry.getKey(), entry.getValue());
             }
         }
     }
@@ -198,7 +198,7 @@ class OkHttpCaller extends AbstractC7499b {
     }
 
     /* renamed from: a */
-    private boolean m45975a(C11922g0 c11922g0) {
-        return Constants.GZIP.equalsIgnoreCase(c11922g0.m71599w("Content-Encoding"));
+    private boolean m45975a(HttpResponseBuilder HttpResponseBuilder) {
+        return Constants.GZIP.equalsIgnoreCase(HttpResponseBuilder.m71599w("Content-Encoding"));
     }
 }

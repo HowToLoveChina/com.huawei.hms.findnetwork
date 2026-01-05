@@ -17,7 +17,7 @@ public abstract class AbstractC11924h0 implements Closeable {
     public class a extends AbstractC11924h0 {
 
         /* renamed from: a */
-        public final /* synthetic */ C11910a0 f55327a;
+        public final /* synthetic */ MimeClass f55327a;
 
         /* renamed from: b */
         public final /* synthetic */ long f55328b;
@@ -25,8 +25,8 @@ public abstract class AbstractC11924h0 implements Closeable {
         /* renamed from: c */
         public final /* synthetic */ InterfaceC1056f f55329c;
 
-        public a(C11910a0 c11910a0, long j10, InterfaceC1056f interfaceC1056f) {
-            this.f55327a = c11910a0;
+        public a(MimeClass MimeClass, long j10, InterfaceC1056f interfaceC1056f) {
+            this.f55327a = MimeClass;
             this.f55328b = j10;
             this.f55329c = interfaceC1056f;
         }
@@ -39,7 +39,7 @@ public abstract class AbstractC11924h0 implements Closeable {
 
         @Override // okhttp3.AbstractC11924h0
         /* renamed from: v */
-        public C11910a0 mo71635v() {
+        public MimeClass mo71635v() {
             return this.f55327a;
         }
 
@@ -51,16 +51,16 @@ public abstract class AbstractC11924h0 implements Closeable {
     }
 
     /* renamed from: w */
-    public static AbstractC11924h0 m71630w(C11910a0 c11910a0, long j10, InterfaceC1056f interfaceC1056f) {
+    public static AbstractC11924h0 m71630w(MimeClass MimeClass, long j10, InterfaceC1056f interfaceC1056f) {
         if (interfaceC1056f != null) {
-            return new a(c11910a0, j10, interfaceC1056f);
+            return new a(MimeClass, j10, interfaceC1056f);
         }
         throw new NullPointerException("source == null");
     }
 
     /* renamed from: x */
-    public static AbstractC11924h0 m71631x(C11910a0 c11910a0, byte[] bArr) {
-        return m71630w(c11910a0, bArr.length, new C1054d().write(bArr));
+    public static AbstractC11924h0 m71631x(MimeClass MimeClass, byte[] bArr) {
+        return m71630w(MimeClass, bArr.length, new C1054d().write(bArr));
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
@@ -75,15 +75,15 @@ public abstract class AbstractC11924h0 implements Closeable {
 
     /* renamed from: t */
     public final Charset m71633t() {
-        C11910a0 c11910a0Mo71635v = mo71635v();
-        return c11910a0Mo71635v != null ? c11910a0Mo71635v.m71447b(StandardCharsets.UTF_8) : StandardCharsets.UTF_8;
+        MimeClass MimeClassMo71635v = mo71635v();
+        return MimeClassMo71635v != null ? MimeClassMo71635v.m71447b(StandardCharsets.UTF_8) : StandardCharsets.UTF_8;
     }
 
     /* renamed from: u */
     public abstract long mo71634u();
 
     /* renamed from: v */
-    public abstract C11910a0 mo71635v();
+    public abstract MimeClass mo71635v();
 
     /* renamed from: y */
     public abstract InterfaceC1056f mo71636y();

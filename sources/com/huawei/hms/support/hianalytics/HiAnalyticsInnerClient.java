@@ -10,16 +10,16 @@ import java.util.Map;
 
 /* loaded from: classes8.dex */
 public class HiAnalyticsInnerClient extends HiAnalyticsBase {
-    public static void reportEntryClient(Context context, String str, String str2, String str3, String str4) {
+    public static void reportEntryClient(Context context, String str, String appid, String transactionId, String version) {
         Map<String, String> mapForBi = HiAnalyticsBase.getMapForBi(context, str);
-        mapForBi.put("appid", str2);
-        if (TextUtils.isEmpty(str3)) {
-            str3 = TransactionIdCreater.getId(str2, str);
+        mapForBi.put("appid", appid);
+        if (TextUtils.isEmpty(transactionId)) {
+            transactionId = TransactionIdCreater.getId(appid, str);
         }
-        mapForBi.put("transId", str3);
+        mapForBi.put("transId", transactionId);
         mapForBi.put(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION, HiAnalyticsConstant.Direction.REQUEST);
-        if (!TextUtils.isEmpty(str4)) {
-            mapForBi.put("version", HiAnalyticsUtil.versionCodeToName(str4));
+        if (!TextUtils.isEmpty(version)) {
+            mapForBi.put("version", HiAnalyticsUtil.versionCodeToName(version));
         }
         mapForBi.put(HiAnalyticsConstant.HaKey.BI_KEY_PHONETYPE, Util.getSystemProperties("ro.logsystem.usertype", ""));
         HiAnalyticsUtil.getInstance().onNewEvent(context, HiAnalyticsConstant.HMS_SDK_BASE_API_CALLED, mapForBi);

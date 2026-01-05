@@ -10,8 +10,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.RandomAccessFile;
 import java.util.Map;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import p514o9.C11839m;
 import p549p9.C12122a;
 
@@ -45,7 +45,7 @@ public class DownloadCallback extends AbstractC4992a<Void> {
     }
 
     @Override // com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-    public void prepare(C11918e0.a aVar) {
+    public void prepare(HttpRequestBuilder.a aVar) {
         C11839m.m70686d(TAG, "position = " + this.position + ", range =" + this.range);
         StringBuilder sb2 = new StringBuilder();
         sb2.append("bytes=");
@@ -61,10 +61,10 @@ public class DownloadCallback extends AbstractC4992a<Void> {
     }
 
     @Override // com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-    public Void onResponse(C11922g0 c11922g0) throws Throwable {
+    public Void onResponse(HttpResponseBuilder HttpResponseBuilder) throws Throwable {
         RandomAccessFile randomAccessFileM63448n;
         Throwable th2;
-        InputStream inputStreamM71632s = c11922g0.m71595s().m71632s();
+        InputStream inputStreamM71632s = HttpResponseBuilder.m71595s().m71632s();
         try {
             randomAccessFileM63448n = C10278a.m63448n(this.file, "rw");
         } catch (Throwable th3) {

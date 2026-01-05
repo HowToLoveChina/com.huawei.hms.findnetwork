@@ -11,8 +11,8 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import okhttp3.C11912b0;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import okhttp3.C11945l;
 import okhttp3.C11949p;
 import p015ak.C0213f;
@@ -233,7 +233,7 @@ public class C13468a {
         public void call() {
             long jCurrentTimeMillis = System.currentTimeMillis();
             String strM81111c = "";
-            C11922g0 c11922g0Execute = null;
+            HttpResponseBuilder HttpResponseBuilderExecute = null;
             try {
                 try {
                     AbstractC10896a.m65885d("Ping", "network check, target = " + this.f60662a);
@@ -241,7 +241,7 @@ public class C13468a {
                 } catch (IOException unused) {
                     AbstractC10896a.m65885d("Ping", "network unreachable, url = " + strM81111c + " startTime:" + String.valueOf(jCurrentTimeMillis) + " totalTime:" + String.valueOf(System.currentTimeMillis() - jCurrentTimeMillis));
                     this.f60663b.m81106d();
-                    if (c11922g0Execute != null) {
+                    if (HttpResponseBuilderExecute != null) {
                     }
                 }
                 if (strM81111c.isEmpty()) {
@@ -250,14 +250,14 @@ public class C13468a {
                 }
                 URL url = new URL(strM81111c);
                 this.f60663b.m81103a(this.f60662a);
-                c11922g0Execute = d.m81110a().m71495z(new C11918e0.a().m71587n(url).m71575b()).execute();
-                AbstractC10896a.m65885d("Ping", "network reachable, url = " + strM81111c + ", response code = " + c11922g0Execute.m71597u() + " startTime:" + String.valueOf(jCurrentTimeMillis) + " totalTime:" + String.valueOf(System.currentTimeMillis() - jCurrentTimeMillis));
+                HttpResponseBuilderExecute = d.m81110a().m71495z(new HttpRequestBuilder.a().m71587n(url).m71575b()).execute();
+                AbstractC10896a.m65885d("Ping", "network reachable, url = " + strM81111c + ", response code = " + HttpResponseBuilderExecute.m71597u() + " startTime:" + String.valueOf(jCurrentTimeMillis) + " totalTime:" + String.valueOf(System.currentTimeMillis() - jCurrentTimeMillis));
                 this.f60663b.m81105c();
-                c11922g0Execute.close();
+                HttpResponseBuilderExecute.close();
                 this.f60664c.countDown();
             } catch (Throwable th2) {
-                if (c11922g0Execute != null) {
-                    c11922g0Execute.close();
+                if (HttpResponseBuilderExecute != null) {
+                    HttpResponseBuilderExecute.close();
                 }
                 this.f60664c.countDown();
                 throw th2;

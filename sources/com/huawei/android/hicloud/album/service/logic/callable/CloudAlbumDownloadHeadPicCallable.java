@@ -17,7 +17,7 @@ import java.io.OutputStream;
 import java.util.List;
 import java.util.concurrent.Callable;
 import mk.C11476b;
-import okhttp3.C11922g0;
+import okhttp3.HttpResponseBuilder;
 import p012ab.C0086a;
 import p015ak.C0209d;
 import p015ak.C0213f;
@@ -81,7 +81,7 @@ public class CloudAlbumDownloadHeadPicCallable implements Callable<Object> {
         FileOutputStream fileOutputStream;
         InputStream inputStreamM71632s;
         Throwable th2;
-        C11922g0 c11922g0;
+        HttpResponseBuilder HttpResponseBuilder;
         if (!C1122c.m6797k(this.cachePath, true)) {
             C1120a.m6678w(TAG, "downloadUrl checkCachePath is invalid ");
             return;
@@ -92,9 +92,9 @@ public class CloudAlbumDownloadHeadPicCallable implements Callable<Object> {
         try {
             C13356c c13356c2 = new C13356c(str, 0L, 0L, this.traceId);
             try {
-                C11922g0 c11922g0M80135i = c13356c2.m80135i(null);
+                HttpResponseBuilder HttpResponseBuilderM80135i = c13356c2.m80135i(null);
                 try {
-                    inputStreamM71632s = c11922g0M80135i.m71595s().m71632s();
+                    inputStreamM71632s = HttpResponseBuilderM80135i.m71595s().m71632s();
                     try {
                         String str2 = this.cachePath + ".tmp_h";
                         C1122c.m6694F(str2);
@@ -119,36 +119,36 @@ public class CloudAlbumDownloadHeadPicCallable implements Callable<Object> {
                                 }
                             }
                         }
-                        hanfleFinally(c13356c2, fileOutputStreamM63447m, inputStreamM71632s, c11922g0M80135i);
+                        hanfleFinally(c13356c2, fileOutputStreamM63447m, inputStreamM71632s, HttpResponseBuilderM80135i);
                     } catch (Throwable th3) {
                         th2 = th3;
-                        c11922g0 = c11922g0M80135i;
+                        HttpResponseBuilder = HttpResponseBuilderM80135i;
                         fileOutputStream = fileOutputStreamM63447m;
                         c13356c = c13356c2;
-                        hanfleFinally(c13356c, fileOutputStream, inputStreamM71632s, c11922g0);
+                        hanfleFinally(c13356c, fileOutputStream, inputStreamM71632s, HttpResponseBuilder);
                         throw th2;
                     }
                 } catch (Throwable th4) {
                     inputStreamM71632s = null;
                     th2 = th4;
-                    c11922g0 = c11922g0M80135i;
+                    HttpResponseBuilder = HttpResponseBuilderM80135i;
                     fileOutputStream = null;
                 }
             } catch (Throwable th5) {
                 fileOutputStream = null;
                 inputStreamM71632s = null;
                 th2 = th5;
-                c11922g0 = null;
+                HttpResponseBuilder = null;
             }
         } catch (Throwable th6) {
             fileOutputStream = null;
             inputStreamM71632s = null;
             th2 = th6;
-            c11922g0 = null;
+            HttpResponseBuilder = null;
         }
     }
 
-    private void hanfleFinally(C13356c c13356c, OutputStream outputStream, InputStream inputStream, C11922g0 c11922g0) throws IOException {
+    private void hanfleFinally(C13356c c13356c, OutputStream outputStream, InputStream inputStream, HttpResponseBuilder HttpResponseBuilder) throws IOException {
         if (c13356c != null) {
             c13356c.m80129c();
         }
@@ -167,8 +167,8 @@ public class CloudAlbumDownloadHeadPicCallable implements Callable<Object> {
                 C1120a.m6676e(TAG, "downloadUrl inputStream close error,error message:" + e11.getMessage());
             }
         }
-        if (c11922g0 != null) {
-            c11922g0.close();
+        if (HttpResponseBuilder != null) {
+            HttpResponseBuilder.close();
         }
     }
 

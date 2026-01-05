@@ -11,8 +11,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import okhttp3.AbstractC11920f0;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import org.json.JSONObject;
 import p015ak.C0209d;
 import p292fn.C9733f;
@@ -34,7 +34,7 @@ public class C13839c extends C13838b {
     }
 
     @Override // p781xn.C13838b, com.huawei.hicloud.okhttp.callback.AbstractC4975a
-    public void prepare(C11918e0.a aVar) throws NoSuchMethodException, SecurityException, UnsupportedEncodingException {
+    public void prepare(HttpRequestBuilder.a aVar) throws NoSuchMethodException, SecurityException, UnsupportedEncodingException {
         String strM80971t0;
         String string;
         String str;
@@ -70,23 +70,23 @@ public class C13839c extends C13838b {
             str = null;
         }
         if (!TextUtils.isEmpty(strM80971t0)) {
-            aVar.m71574a("X-AccountID", strM80971t0);
+            aVar.addHeader("X-AccountID", strM80971t0);
             UBAAnalyze.m29991n0("X-AccountID", strM80971t0);
         }
         if (!TextUtils.isEmpty(strM1324x0)) {
-            aVar.m71574a("X-UDID", strM1324x0);
+            aVar.addHeader("X-UDID", strM1324x0);
             UBAAnalyze.m29991n0("X-UDID", strM1324x0);
         }
         if (string != null) {
-            aVar.m71574a(FeedbackWebConstants.AUTHORIZATION, Base64.encodeToString(string.getBytes(StandardCharsets.UTF_8), 2));
-            aVar.m71574a("x-hw-auth-version", str);
+            aVar.addHeader(FeedbackWebConstants.AUTHORIZATION, Base64.encodeToString(string.getBytes(StandardCharsets.UTF_8), 2));
+            aVar.addHeader("x-hw-auth-version", str);
         }
-        aVar.m71574a("x-hw-device-id", C0209d.m1209S1(C13452e.m80781L().m80954p()));
-        aVar.m71574a("x-hw-device-type", C0209d.m1209S1(C13452e.m80781L().m80970t()));
+        aVar.addHeader("x-hw-device-id", C0209d.m1209S1(C13452e.m80781L().m80954p()));
+        aVar.addHeader("x-hw-device-type", C0209d.m1209S1(C13452e.m80781L().m80970t()));
     }
 
     @Override // com.huawei.hicloud.okhttp.callback.AbstractC4975a
-    public Void onResponse(C11922g0 c11922g0) {
-        return super.onResponse(c11922g0);
+    public Void onResponse(HttpResponseBuilder HttpResponseBuilder) {
+        return super.onResponse(HttpResponseBuilder);
     }
 }

@@ -74,7 +74,7 @@ public abstract class AbstractC11953t {
     public void requestFailed(InterfaceC11919f interfaceC11919f, IOException iOException) {
     }
 
-    public void requestHeadersEnd(InterfaceC11919f interfaceC11919f, C11918e0 c11918e0) {
+    public void requestHeadersEnd(InterfaceC11919f interfaceC11919f, HttpRequestBuilder HttpRequestBuilder) {
     }
 
     public void requestHeadersStart(InterfaceC11919f interfaceC11919f) {
@@ -89,7 +89,7 @@ public abstract class AbstractC11953t {
     public void responseFailed(InterfaceC11919f interfaceC11919f, IOException iOException) {
     }
 
-    public void responseHeadersEnd(InterfaceC11919f interfaceC11919f, C11922g0 c11922g0) {
+    public void responseHeadersEnd(InterfaceC11919f interfaceC11919f, HttpResponseBuilder HttpResponseBuilder) {
     }
 
     public void responseHeadersStart(InterfaceC11919f interfaceC11919f) {

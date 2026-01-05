@@ -11,14 +11,14 @@ public class FindNetworkOfflineLocation extends PlainLocation {
 
     /* renamed from: sn */
     @SerializedName("sn")
-    private String f24749sn;
+    private String m_sn;
 
     public long getBroadcastTime() {
         return this.broadcastTime;
     }
 
     public String getSn() {
-        return this.f24749sn;
+        return this.m_sn;
     }
 
     public void setBroadcastTime(long j10) {
@@ -26,6 +26,6 @@ public class FindNetworkOfflineLocation extends PlainLocation {
     }
 
     public void setSn(String str) {
-        this.f24749sn = str;
+        this.m_sn = str;
     }
 }

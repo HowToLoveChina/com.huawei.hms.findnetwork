@@ -15,12 +15,12 @@ import p208cq.C8941i;
 
 /* renamed from: com.huawei.hms.findnetwork.sdk.k0 */
 /* loaded from: classes8.dex */
-public class C5373k0 extends BaseTaskApiCall<HmsClient, FidBatchRequestBean, Void> {
+public class QueryOfflineLocationBatchApiCall extends BaseTaskApiCall<HmsClient, FidBatchRequestBean, Void> {
 
     /* renamed from: a */
     public final FindNetworkCallback<List<OfflineLocationBean>> f24788a;
 
-    public C5373k0(FidBatchRequestBean fidBatchRequestBean, FindNetworkCallback<List<OfflineLocationBean>> findNetworkCallback) {
+    public QueryOfflineLocationBatchApiCall(FidBatchRequestBean fidBatchRequestBean, FindNetworkCallback<List<OfflineLocationBean>> findNetworkCallback) {
         super("findnetwork.wear_queryOfflineLocationBatch", fidBatchRequestBean);
         this.f24788a = findNetworkCallback;
     }

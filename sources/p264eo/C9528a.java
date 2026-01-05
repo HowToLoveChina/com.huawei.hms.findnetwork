@@ -15,8 +15,8 @@ import java.net.SocketException;
 import java.util.Enumeration;
 import mk.C11475a;
 import okhttp3.AbstractC11920f0;
-import okhttp3.C11910a0;
-import okhttp3.C11918e0;
+import okhttp3.MimeClass;
+import okhttp3.HttpRequestBuilder;
 import p015ak.C0234s;
 import p514o9.C11829c;
 import p514o9.C11839m;
@@ -78,41 +78,41 @@ public class C9528a extends AbstractC4994a {
 
     @Override // com.huawei.hicloud.request.okhttp.callback.AbstractC4993b
     public AbstractC11920f0 create() throws IOException {
-        return AbstractC11920f0.create(C11910a0.m71445d("application/json; charset=utf-8"), this.f47363a.getBytes(Constants.UTF_8));
+        return AbstractC11920f0.create(MimeClass.m71445d("application/json; charset=utf-8"), this.f47363a.getBytes(Constants.UTF_8));
     }
 
     @Override // com.huawei.hicloud.request.okhttp.request.AbstractC4994a, com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-    public void prepare(C11918e0.a aVar) throws C9721b, IOException {
+    public void prepare(HttpRequestBuilder.a aVar) throws C9721b, IOException {
         super.prepare(aVar);
-        aVar.m71574a("Device", Build.MODEL);
-        aVar.m71574a("Country", C13452e.m80781L().m80921h0());
-        aVar.m71574a("Lang", C0234s.m1631i());
-        aVar.m71574a("ClientVersion", C1443a.f6213a);
-        aVar.m71574a("Accept-Language", C0234s.m1631i());
-        aVar.m71574a("AuthType", C13843a.m83075a("com.huawei.hidisk"));
-        aVar.m71574a("SiteId", String.valueOf(C13452e.m80781L().m80947n0()));
+        aVar.addHeader("Device", Build.MODEL);
+        aVar.addHeader("Country", C13452e.m80781L().m80921h0());
+        aVar.addHeader("Lang", C0234s.m1631i());
+        aVar.addHeader("ClientVersion", C1443a.f6213a);
+        aVar.addHeader("Accept-Language", C0234s.m1631i());
+        aVar.addHeader("AuthType", C13843a.m83075a("com.huawei.hidisk"));
+        aVar.addHeader("SiteId", String.valueOf(C13452e.m80781L().m80947n0()));
         if (this.f47364b) {
-            aVar.m71574a("x-hw-source-agent", "H5");
+            aVar.addHeader("x-hw-source-agent", "H5");
         }
-        aVar.m71574a("x-hw-device-name", C11829c.f54755a);
-        aVar.m71574a("x-hw-userid", C13452e.m80781L().m80971t0());
-        aVar.m71574a("ClientIP", m59521a());
-        aVar.m71574a("x-hw-backup-version", "1");
-        aVar.m71574a("x-hw-user-svrplace", C13452e.m80781L().m80921h0());
-        aVar.m71574a("x-hw-device-category", C11842p.m70762R0() ? "pad" : "phone");
+        aVar.addHeader("x-hw-device-name", C11829c.f54755a);
+        aVar.addHeader("x-hw-userid", C13452e.m80781L().m80971t0());
+        aVar.addHeader("ClientIP", m59521a());
+        aVar.addHeader("x-hw-backup-version", "1");
+        aVar.addHeader("x-hw-user-svrplace", C13452e.m80781L().m80921h0());
+        aVar.addHeader("x-hw-device-category", C11842p.m70762R0() ? "pad" : "phone");
         C11839m.m70686d("AppMashupCallback", "pushContext " + this.f47367e);
         if (!TextUtils.isEmpty(this.f47367e)) {
-            aVar.m71574a("x-hw-context", this.f47367e);
+            aVar.addHeader("x-hw-context", this.f47367e);
         }
         String strM80970t = C13452e.m80781L().m80970t();
         String strM80954p = C13452e.m80781L().m80954p();
         String strM80931j0 = C13452e.m80781L().m80931j0();
         int i10 = this.f47366d;
         if (i10 == 1) {
-            aVar.m71574a("x-hw-auth-version", "1");
-            aVar.m71574a(FeedbackWebConstants.AUTHORIZATION, new String(C11475a.m68618a(C11829c.m70565c(strM80970t, strM80954p, "com.huawei.hidisk", strM80931j0, this.f47365c).getBytes("utf-8")), "utf-8"));
+            aVar.addHeader("x-hw-auth-version", "1");
+            aVar.addHeader(FeedbackWebConstants.AUTHORIZATION, new String(C11475a.m68618a(C11829c.m70565c(strM80970t, strM80954p, "com.huawei.hidisk", strM80931j0, this.f47365c).getBytes("utf-8")), "utf-8"));
         } else if (i10 == 2) {
-            aVar.m71574a(FeedbackWebConstants.AUTHORIZATION, "Bearer " + this.f47365c);
+            aVar.addHeader(FeedbackWebConstants.AUTHORIZATION, "Bearer " + this.f47365c);
         }
     }
 }

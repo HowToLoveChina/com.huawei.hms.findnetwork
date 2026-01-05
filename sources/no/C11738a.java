@@ -11,8 +11,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.RandomAccessFile;
 import java.util.Map;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import p015ak.C0209d;
 import p015ak.C0228m0;
 import p336he.C10160k;
@@ -48,30 +48,30 @@ public class C11738a extends AbstractC4992a<Void> {
     }
 
     @Override // com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-    public void prepare(C11918e0.a aVar) {
+    public void prepare(HttpRequestBuilder.a aVar) {
         aVar.m71578e("Range", "bytes=" + this.f54291c + "-");
         aVar.m71578e("x-hw-unique-trace-id", C10160k.m63341b("04015"));
         Map<String, String> map = this.f54292d;
         if (map != null) {
             for (Map.Entry<String, String> entry : map.entrySet()) {
-                aVar.m71574a(entry.getKey(), entry.getValue());
+                aVar.addHeader(entry.getKey(), entry.getValue());
             }
         }
         if (C10028c.m62182c0().m62420y1()) {
-            aVar.m71574a("x-hw-trace-id", this.f54293e);
-            aVar.m71574a("x-hw-country-code", C13452e.m80781L().m80942m());
-            aVar.m71574a("x-hw-device-type", C0209d.m1209S1(C13452e.m80781L().m80970t()));
-            aVar.m71574a("x-hw-device-id", C0209d.m1209S1(C13452e.m80781L().m80954p()));
-            aVar.m71574a("x-hw-deviceUUID", C0209d.m1209S1(C0228m0.m1597b().m1599c()));
-            aVar.m71574a("x-hw-os-brand", C0209d.m1276l0());
-            aVar.m71574a(JsbMapKeyNames.H5_USER_ID, C13452e.m80781L().m80971t0());
-            aVar.m71574a("User-Agent", "com.huawei.hidisk/16.0.0.300 (Linux; HarmonyOS " + Build.VERSION.RELEASE + "; " + Build.MODEL + "; " + C11829c.f54755a + ") HMS/2.6.3.306 (10055832)");
+            aVar.addHeader("x-hw-trace-id", this.f54293e);
+            aVar.addHeader("x-hw-country-code", C13452e.m80781L().m80942m());
+            aVar.addHeader("x-hw-device-type", C0209d.m1209S1(C13452e.m80781L().m80970t()));
+            aVar.addHeader("x-hw-device-id", C0209d.m1209S1(C13452e.m80781L().m80954p()));
+            aVar.addHeader("x-hw-deviceUUID", C0209d.m1209S1(C0228m0.m1597b().m1599c()));
+            aVar.addHeader("x-hw-os-brand", C0209d.m1276l0());
+            aVar.addHeader(JsbMapKeyNames.H5_USER_ID, C13452e.m80781L().m80971t0());
+            aVar.addHeader("User-Agent", "com.huawei.hidisk/16.0.0.300 (Linux; HarmonyOS " + Build.VERSION.RELEASE + "; " + Build.MODEL + "; " + C11829c.f54755a + ") HMS/2.6.3.306 (10055832)");
         }
     }
 
     @Override // com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-    public Void onResponse(C11922g0 c11922g0) throws Throwable {
-        InputStream inputStreamM71632s = c11922g0.m71595s().m71632s();
+    public Void onResponse(HttpResponseBuilder HttpResponseBuilder) throws Throwable {
+        InputStream inputStreamM71632s = HttpResponseBuilder.m71595s().m71632s();
         RandomAccessFile randomAccessFile = null;
         try {
             RandomAccessFile randomAccessFileM63449o = C10278a.m63449o(this.f54290b, "rw");

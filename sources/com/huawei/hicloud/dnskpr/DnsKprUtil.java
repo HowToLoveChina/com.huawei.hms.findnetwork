@@ -20,8 +20,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import okhttp3.InterfaceC11919f;
 import okhttp3.InterfaceC11921g;
 import p399jk.AbstractC10896a;
@@ -90,8 +90,8 @@ public class DnsKprUtil {
         }
 
         @Override // okhttp3.InterfaceC11921g
-        public void onResponse(InterfaceC11919f interfaceC11919f, C11922g0 c11922g0) throws IOException {
-            this.f22605a.onResponse(interfaceC11919f, c11922g0);
+        public void onResponse(InterfaceC11919f interfaceC11919f, HttpResponseBuilder HttpResponseBuilder) throws IOException {
+            this.f22605a.onResponse(interfaceC11919f, HttpResponseBuilder);
         }
     }
 
@@ -139,7 +139,7 @@ public class DnsKprUtil {
         public List<String> f22612e;
 
         /* renamed from: h */
-        public C11918e0.a f22615h;
+        public HttpRequestBuilder.a f22615h;
 
         /* renamed from: i */
         public InterfaceC4895e f22616i;
@@ -172,15 +172,15 @@ public class DnsKprUtil {
             }
 
             @Override // okhttp3.InterfaceC11921g
-            public void onResponse(InterfaceC11919f interfaceC11919f, C11922g0 c11922g0) throws IOException {
+            public void onResponse(InterfaceC11919f interfaceC11919f, HttpResponseBuilder HttpResponseBuilder) throws IOException {
                 if (!TextUtils.isEmpty(C4894d.this.f22610c)) {
                     DnsKprUtil.m29900i(C4894d.this.f22609b, C4894d.this.f22610c);
                 }
-                C4894d.this.f22617j.onResponse(interfaceC11919f, c11922g0);
+                C4894d.this.f22617j.onResponse(interfaceC11919f, HttpResponseBuilder);
             }
         }
 
-        public C4894d(String str, String str2, String str3, C11918e0.a aVar, InterfaceC4895e interfaceC4895e, InterfaceC11921g interfaceC11921g) {
+        public C4894d(String str, String str2, String str3, HttpRequestBuilder.a aVar, InterfaceC4895e interfaceC4895e, InterfaceC11921g interfaceC11921g) {
             this.f22608a = str;
             this.f22609b = str2;
             this.f22616i = interfaceC4895e;
@@ -217,9 +217,9 @@ public class DnsKprUtil {
 
     /* renamed from: com.huawei.hicloud.dnskpr.DnsKprUtil$e */
     public interface InterfaceC4895e {
-        C11922g0 run(C11918e0.a aVar, String str) throws IOException;
+        HttpResponseBuilder run(HttpRequestBuilder.a aVar, String str) throws IOException;
 
-        void run(C11918e0.a aVar, InterfaceC11921g interfaceC11921g);
+        void run(HttpRequestBuilder.a aVar, InterfaceC11921g interfaceC11921g);
     }
 
     /* renamed from: a */
@@ -294,7 +294,7 @@ public class DnsKprUtil {
     }
 
     /* renamed from: f */
-    public static C11918e0.a m29897f(String str, String str2, String str3, C11918e0.a aVar) {
+    public static HttpRequestBuilder.a m29897f(String str, String str2, String str3, HttpRequestBuilder.a aVar) {
         if (!TextUtils.isEmpty(str3)) {
             AbstractC10896a.m65887i("DnsKprUtil", "ipOkHttpBuild host:" + str2 + " ip:" + str3);
             aVar.m71586m(str.replace(str2, str3));
@@ -338,7 +338,7 @@ public class DnsKprUtil {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public static okhttp3.C11922g0 m29901j(java.lang.String r7, java.lang.String r8, java.lang.String r9, java.io.IOException r10, okhttp3.C11918e0.a r11, com.huawei.hicloud.dnskpr.DnsKprUtil.InterfaceC4895e r12) throws java.io.IOException {
+    public static okhttp3.HttpResponseBuilder m29901j(java.lang.String r7, java.lang.String r8, java.lang.String r9, java.io.IOException r10, okhttp3.HttpRequestBuilder.a r11, com.huawei.hicloud.dnskpr.DnsKprUtil.InterfaceC4895e r12) throws java.io.IOException {
         /*
             Method dump skipped, instructions count: 278
             To view this dump change 'Code comments level' option to 'DEBUG'
@@ -347,7 +347,7 @@ public class DnsKprUtil {
     }
 
     /* renamed from: k */
-    public static void m29902k(String str, String str2, String str3, C11918e0.a aVar, InterfaceC4895e interfaceC4895e, InterfaceC11921g interfaceC11921g) {
+    public static void m29902k(String str, String str2, String str3, HttpRequestBuilder.a aVar, InterfaceC4895e interfaceC4895e, InterfaceC11921g interfaceC11921g) {
         AbstractC10896a.m65885d("DnsKprUtil", "tryConnectByDNSKpr hostString:" + str2 + " errorCode:" + str3);
         String strM29895d = m29895d(str2);
         if (TextUtils.isEmpty(strM29895d)) {

@@ -18,9 +18,9 @@ import fk.C9721b;
 import java.io.IOException;
 import mk.C11475a;
 import okhttp3.AbstractC11920f0;
-import okhttp3.C11910a0;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.MimeClass;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import p015ak.C0209d;
 import p015ak.C0219i;
 import p015ak.C0228m0;
@@ -46,7 +46,7 @@ public class C13457a extends AbstractC4975a<String> {
     }
 
     @Override // com.huawei.hicloud.okhttp.callback.AbstractC4975a
-    public void prepare(C11918e0.a aVar) throws C9721b, JsonIOException, IOException {
+    public void prepare(HttpRequestBuilder.a aVar) throws C9721b, JsonIOException, IOException {
         String strM80931j0 = C13452e.m80781L().m80931j0();
         String strM80971t0 = C13452e.m80781L().m80971t0();
         String strM80942m = C13452e.m80781L().m80942m();
@@ -59,25 +59,25 @@ public class C13457a extends AbstractC4975a<String> {
         C9720a.m60653b(strM80942m, "countryCode is null");
         C9720a.m60653b(strM80970t, "deviceType is null");
         C9720a.m60653b(strM80954p, "deviceId is null");
-        aVar.m71574a(JsbMapKeyNames.H5_USER_ID, strM80971t0);
-        aVar.m71574a("x-hw-country-code", strM80942m);
-        aVar.m71574a("x-hw-device-type", strM80970t);
-        aVar.m71574a("x-hw-device-id", strM80954p);
-        aVar.m71574a("x-hw-deviceUUID", C0209d.m1209S1(C0228m0.m1597b().m1599c()));
-        aVar.m71574a("x-hw-os-brand", C0209d.m1276l0());
+        aVar.addHeader(JsbMapKeyNames.H5_USER_ID, strM80971t0);
+        aVar.addHeader("x-hw-country-code", strM80942m);
+        aVar.addHeader("x-hw-device-type", strM80970t);
+        aVar.addHeader("x-hw-device-id", strM80954p);
+        aVar.addHeader("x-hw-deviceUUID", C0209d.m1209S1(C0228m0.m1597b().m1599c()));
+        aVar.addHeader("x-hw-os-brand", C0209d.m1276l0());
         String str = C1443a.f6213a;
-        aVar.m71574a("version", str);
+        aVar.addHeader("version", str);
         String str2 = Build.MODEL;
-        aVar.m71574a("x-hw-terminal", str2);
-        aVar.m71574a("x-hw-os", C0209d.m1315v());
-        aVar.m71574a("x-hw-trace-id", this.f60625b);
-        aVar.m71574a("x-hw-app-version", str);
-        aVar.m71574a("Accept-Language", C0234s.m1627e());
-        aVar.m71574a("x-hw-auth-version", "1");
+        aVar.addHeader("x-hw-terminal", str2);
+        aVar.addHeader("x-hw-os", C0209d.m1315v());
+        aVar.addHeader("x-hw-trace-id", this.f60625b);
+        aVar.addHeader("x-hw-app-version", str);
+        aVar.addHeader("Accept-Language", C0234s.m1627e());
+        aVar.addHeader("x-hw-auth-version", "1");
         C14306d.m85213n(aVar);
-        aVar.m71574a(FeedbackWebConstants.AUTHORIZATION, new String(C11475a.m68618a((strM80970t + ":" + strM80954p + ":com.huawei.hidisk:" + strM80931j0 + ":" + Uri.encode(this.f60624a)).getBytes("utf-8")), "utf-8"));
-        aVar.m71574a("x-hw-account-brand-id", C14306d.m85201b());
-        C11910a0 c11910a0M71445d = C11910a0.m71445d("application/json; charset=utf-8");
+        aVar.addHeader(FeedbackWebConstants.AUTHORIZATION, new String(C11475a.m68618a((strM80970t + ":" + strM80954p + ":com.huawei.hidisk:" + strM80931j0 + ":" + Uri.encode(this.f60624a)).getBytes("utf-8")), "utf-8"));
+        aVar.addHeader("x-hw-account-brand-id", C14306d.m85201b());
+        MimeClass MimeClassM71445d = MimeClass.m71445d("application/json; charset=utf-8");
         FeatureSwitchFact featureSwitchFact = new FeatureSwitchFact("appVersion", str);
         FeatureSwitchFact featureSwitchFact2 = new FeatureSwitchFact("deviceCategory", C0209d.m1170F1() ? "pad" : "phone");
         FeatureSwitchFact featureSwitchFact3 = new FeatureSwitchFact("countryCode", strM80942m);
@@ -112,11 +112,11 @@ public class C13457a extends AbstractC4975a<String> {
         if (TextUtils.isEmpty(json)) {
             return;
         }
-        aVar.m71581h(AbstractC11920f0.create(c11910a0M71445d, json.getBytes(Constants.UTF_8)));
+        aVar.m71581h(AbstractC11920f0.create(MimeClassM71445d, json.getBytes(Constants.UTF_8)));
     }
 
     @Override // com.huawei.hicloud.okhttp.callback.AbstractC4975a
-    public String onResponse(C11922g0 c11922g0) throws IOException {
-        return c11922g0.m71595s().m71637z();
+    public String onResponse(HttpResponseBuilder HttpResponseBuilder) throws IOException {
+        return HttpResponseBuilder.m71595s().m71637z();
     }
 }

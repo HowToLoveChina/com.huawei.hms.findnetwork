@@ -50,7 +50,7 @@ import p531or.C11991a;
 
 /* renamed from: com.huawei.hms.locationSdk.g0 */
 /* loaded from: classes8.dex */
-public class C5717g0 extends HuaweiApi<C5765w0> implements InterfaceC5709e0 {
+public class LocationClientImpl extends HuaweiApi<C5765w0> implements InterfaceC5709e0 {
 
     /* renamed from: b */
     private static final C5713f0 f25513b = new C5713f0();
@@ -61,7 +61,7 @@ public class C5717g0 extends HuaweiApi<C5765w0> implements InterfaceC5709e0 {
     /* renamed from: a */
     private InterfaceC5761v f25515a;
 
-    public C5717g0(Activity activity, C5765w0 c5765w0) {
+    public LocationClientImpl(Activity activity, C5765w0 c5765w0) {
         super(activity, f25514c, c5765w0, (AbstractClientBuilder) f25513b);
         m33084c(activity);
     }
@@ -145,7 +145,7 @@ public class C5717g0 extends HuaweiApi<C5765w0> implements InterfaceC5709e0 {
         return 61403300;
     }
 
-    public C5717g0(Context context, C5765w0 c5765w0) {
+    public LocationClientImpl(Context context, C5765w0 c5765w0) {
         super(context, f25514c, c5765w0, f25513b);
         m33084c(context);
     }
@@ -158,7 +158,7 @@ public class C5717g0 extends HuaweiApi<C5765w0> implements InterfaceC5709e0 {
 
     @Override // com.huawei.hms.locationSdk.InterfaceC5709e0
     /* renamed from: a */
-    public Task<Void> mo33065a(int i10, Notification notification) throws ApiException {
+    public Task<Void> enableBackgroundLocation(int i10, Notification notification) throws ApiException {
         C8941i c8941i = new C8941i();
         if (C5773z.m33216a(getContext())) {
             e = new ApiException(new Status(LocationStatusCode.NOT_YET_SUPPORTED, LocationStatusCode.getStatusCodeString(LocationStatusCode.NOT_YET_SUPPORTED)));
@@ -199,7 +199,7 @@ public class C5717g0 extends HuaweiApi<C5765w0> implements InterfaceC5709e0 {
         try {
             HMSLocationLog.m36662i("LocationClientImpl", tid, "get last location begin. Version Code = 61403300");
             m33085e();
-            return doWrite(new C5728k("location.getLastLocation", JsonUtil.createJsonString(locationBaseRequest), locationBaseRequest.getTid(), ""));
+            return doWrite(new GetLastLocationTaskApiCall("location.getLastLocation", JsonUtil.createJsonString(locationBaseRequest), locationBaseRequest.getTid(), ""));
         } catch (ApiException e11) {
             e10 = e11;
             HMSLocationLog.m36660e("LocationClientImpl", tid, "get last location api exception:" + e10.getMessage());

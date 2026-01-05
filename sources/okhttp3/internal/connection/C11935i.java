@@ -23,8 +23,8 @@ import javax.net.ssl.SSLSocket;
 import okhttp3.AbstractC11953t;
 import okhttp3.C11911b;
 import okhttp3.C11912b0;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import okhttp3.C11923h;
 import okhttp3.C11926i0;
 import okhttp3.C11946m;
@@ -300,12 +300,12 @@ public final class C11935i extends C13657f.j implements InterfaceC11944k {
 
     /* renamed from: h */
     public final void m71716h(int i10, int i11, int i12, int i13, InterfaceC11919f interfaceC11919f, AbstractC11953t abstractC11953t) throws IOException {
-        C11918e0 c11918e0M71718j = m71718j();
-        C11958y c11958yM71573m = c11918e0M71718j.m71573m();
+        HttpRequestBuilder HttpRequestBuilderM71718j = m71718j();
+        C11958y c11958yM71573m = HttpRequestBuilderM71718j.m71573m();
         for (int i14 = 0; i14 < 21; i14++) {
             m71714f(i10, i11, i13, interfaceC11919f, abstractC11953t);
-            c11918e0M71718j = m71717i(i11, i12, c11918e0M71718j, c11958yM71573m);
-            if (c11918e0M71718j == null) {
+            HttpRequestBuilderM71718j = m71717i(i11, i12, HttpRequestBuilderM71718j, c11958yM71573m);
+            if (HttpRequestBuilderM71718j == null) {
                 return;
             }
             C12875e.m77251h(this.f55410d);
@@ -317,18 +317,18 @@ public final class C11935i extends C13657f.j implements InterfaceC11944k {
     }
 
     /* renamed from: i */
-    public final C11918e0 m71717i(int i10, int i11, C11918e0 c11918e0, C11958y c11958y) throws IOException {
+    public final HttpRequestBuilder m71717i(int i10, int i11, HttpRequestBuilder HttpRequestBuilder, C11958y c11958y) throws IOException {
         String str = "CONNECT " + C12875e.m77262s(c11958y, true) + " HTTP/1.1";
         while (true) {
             C13500a c13500a = new C13500a(null, null, this.f55415i, this.f55416j);
             TimeUnit timeUnit = TimeUnit.MILLISECONDS;
             this.f55415i.timeout().timeout(i10, timeUnit);
             this.f55416j.timeout().timeout(i11, timeUnit);
-            c13500a.m81204B(c11918e0.m71566f(), str);
+            c13500a.m81204B(HttpRequestBuilder.m71566f(), str);
             c13500a.mo79701a();
-            C11922g0 c11922g0M71605c = c13500a.mo79704d(false).m71620r(c11918e0).m71605c();
-            c13500a.m81203A(c11922g0M71605c);
-            int iM71597u = c11922g0M71605c.m71597u();
+            HttpResponseBuilder HttpResponseBuilderM71605c = c13500a.mo79704d(false).m71620r(HttpRequestBuilder).m71605c();
+            c13500a.m81203A(HttpResponseBuilderM71605c);
+            int iM71597u = HttpResponseBuilderM71605c.m71597u();
             if (iM71597u == 200) {
                 if (this.f55415i.mo6324L().mo6325M() && this.f55416j.mo6323K().mo6325M()) {
                     return null;
@@ -336,24 +336,24 @@ public final class C11935i extends C13657f.j implements InterfaceC11944k {
                 throw new IOException("TLS tunnel buffered too many bytes!");
             }
             if (iM71597u != 407) {
-                throw new IOException("Unexpected response code for CONNECT: " + c11922g0M71605c.m71597u());
+                throw new IOException("Unexpected response code for CONNECT: " + HttpResponseBuilderM71605c.m71597u());
             }
-            C11918e0 c11918e0Mo71524c = this.f55409c.m71638a().m71456i().mo71524c(this.f55409c, c11922g0M71605c);
-            if (c11918e0Mo71524c == null) {
+            HttpRequestBuilder HttpRequestBuilderMo71524c = this.f55409c.m71638a().m71456i().mo71524c(this.f55409c, HttpResponseBuilderM71605c);
+            if (HttpRequestBuilderMo71524c == null) {
                 throw new IOException("Failed to authenticate with proxy");
             }
-            if ("close".equalsIgnoreCase(c11922g0M71605c.m71599w("Connection"))) {
-                return c11918e0Mo71524c;
+            if ("close".equalsIgnoreCase(HttpResponseBuilderM71605c.m71599w("Connection"))) {
+                return HttpRequestBuilderMo71524c;
             }
-            c11918e0 = c11918e0Mo71524c;
+            HttpRequestBuilder = HttpRequestBuilderMo71524c;
         }
     }
 
     /* renamed from: j */
-    public final C11918e0 m71718j() throws IOException {
-        C11918e0 c11918e0M71575b = new C11918e0.a().m71588o(this.f55409c.m71638a().m71461n()).m71580g("CONNECT", null).m71578e(FeedbackWebConstants.HOST, C12875e.m77262s(this.f55409c.m71638a().m71461n(), true)).m71578e("Proxy-Connection", "Keep-Alive").m71578e("User-Agent", C12876f.m77270a()).m71575b();
-        C11918e0 c11918e0Mo71524c = this.f55409c.m71638a().m71456i().mo71524c(this.f55409c, new C11922g0.a().m71620r(c11918e0M71575b).m71617o(EnumC11914c0.HTTP_1_1).m71609g(ErrorCode.ERROR_CODE_NO_SDKVERSION).m71614l("Preemptive Authenticate").m71604b(C12875e.f58643d).m71621s(-1L).m71618p(-1L).m71611i("Proxy-Authenticate", "OkHttp-Preemptive").m71605c());
-        return c11918e0Mo71524c != null ? c11918e0Mo71524c : c11918e0M71575b;
+    public final HttpRequestBuilder m71718j() throws IOException {
+        HttpRequestBuilder HttpRequestBuilderM71575b = new HttpRequestBuilder.a().m71588o(this.f55409c.m71638a().m71461n()).m71580g("CONNECT", null).m71578e(FeedbackWebConstants.HOST, C12875e.m77262s(this.f55409c.m71638a().m71461n(), true)).m71578e("Proxy-Connection", "Keep-Alive").m71578e("User-Agent", C12876f.m77270a()).m71575b();
+        HttpRequestBuilder HttpRequestBuilderMo71524c = this.f55409c.m71638a().m71456i().mo71524c(this.f55409c, new HttpResponseBuilder.a().m71620r(HttpRequestBuilderM71575b).m71617o(EnumC11914c0.HTTP_1_1).m71609g(ErrorCode.ERROR_CODE_NO_SDKVERSION).m71614l("Preemptive Authenticate").m71604b(C12875e.f58643d).m71621s(-1L).m71618p(-1L).m71611i("Proxy-Authenticate", "OkHttp-Preemptive").m71605c());
+        return HttpRequestBuilderMo71524c != null ? HttpRequestBuilderMo71524c : HttpRequestBuilderM71575b;
     }
 
     /* renamed from: k */

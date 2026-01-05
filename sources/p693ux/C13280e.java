@@ -1,7 +1,7 @@
 package p693ux;
 
 import java.util.List;
-import okhttp3.C11922g0;
+import okhttp3.HttpResponseBuilder;
 import okhttp3.C11947n;
 import okhttp3.C11955v;
 import okhttp3.C11958y;
@@ -24,17 +24,17 @@ public final class C13280e {
     }
 
     /* renamed from: b */
-    public static long m79713b(C11922g0 c11922g0) {
-        return m79712a(c11922g0.m71601y());
+    public static long m79713b(HttpResponseBuilder HttpResponseBuilder) {
+        return m79712a(HttpResponseBuilder.m71601y());
     }
 
     /* renamed from: c */
-    public static boolean m79714c(C11922g0 c11922g0) {
-        if (c11922g0.m71593E().m71569i().equals("HEAD")) {
+    public static boolean m79714c(HttpResponseBuilder HttpResponseBuilder) {
+        if (HttpResponseBuilder.m71593E().m71569i().equals("HEAD")) {
             return false;
         }
-        int iM71597u = c11922g0.m71597u();
-        return (((iM71597u >= 100 && iM71597u < 200) || iM71597u == 204 || iM71597u == 304) && m79713b(c11922g0) == -1 && !"chunked".equalsIgnoreCase(c11922g0.m71599w("Transfer-Encoding"))) ? false : true;
+        int iM71597u = HttpResponseBuilder.m71597u();
+        return (((iM71597u >= 100 && iM71597u < 200) || iM71597u == 204 || iM71597u == 304) && m79713b(HttpResponseBuilder) == -1 && !"chunked".equalsIgnoreCase(HttpResponseBuilder.m71599w("Transfer-Encoding"))) ? false : true;
     }
 
     /* renamed from: d */

@@ -97,7 +97,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import java.util.regex.Pattern;
 import mu.C11526c;
 import no.C11739b;
-import okhttp3.C11918e0;
+import okhttp3.HttpRequestBuilder;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -1025,8 +1025,8 @@ public class C11829c {
     }
 
     /* renamed from: a */
-    public static void m70559a(C11918e0.a aVar) {
-        aVar.m71574a("x-hw-auth-version", "1");
+    public static void m70559a(HttpRequestBuilder.a aVar) {
+        aVar.addHeader("x-hw-auth-version", "1");
     }
 
     /* renamed from: a0 */

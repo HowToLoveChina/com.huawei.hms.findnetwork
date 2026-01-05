@@ -6,10 +6,10 @@ import okhttp3.internal.connection.C11932f;
 
 /* renamed from: okhttp3.g0 */
 /* loaded from: classes9.dex */
-public final class C11922g0 implements Closeable {
+public final class HttpResponseBuilder implements Closeable {
 
     /* renamed from: a */
-    public final C11918e0 f55292a;
+    public final HttpRequestBuilder f55292a;
 
     /* renamed from: b */
     public final EnumC11914c0 f55293b;
@@ -30,13 +30,13 @@ public final class C11922g0 implements Closeable {
     public final AbstractC11924h0 f55298g;
 
     /* renamed from: h */
-    public final C11922g0 f55299h;
+    public final HttpResponseBuilder f55299h;
 
     /* renamed from: i */
-    public final C11922g0 f55300i;
+    public final HttpResponseBuilder f55300i;
 
     /* renamed from: j */
-    public final C11922g0 f55301j;
+    public final HttpResponseBuilder f55301j;
 
     /* renamed from: k */
     public final long f55302k;
@@ -50,7 +50,7 @@ public final class C11922g0 implements Closeable {
     /* renamed from: n */
     public volatile C11917e f55305n;
 
-    public C11922g0(a aVar) {
+    public HttpResponseBuilder(a aVar) {
         this.f55292a = aVar.f55306a;
         this.f55293b = aVar.f55307b;
         this.f55294c = aVar.f55308c;
@@ -72,7 +72,7 @@ public final class C11922g0 implements Closeable {
     }
 
     /* renamed from: B */
-    public C11922g0 m71590B() {
+    public HttpResponseBuilder m71590B() {
         return this.f55301j;
     }
 
@@ -87,7 +87,7 @@ public final class C11922g0 implements Closeable {
     }
 
     /* renamed from: E */
-    public C11918e0 m71593E() {
+    public HttpRequestBuilder m71593E() {
         return this.f55292a;
     }
 
@@ -160,7 +160,7 @@ public final class C11922g0 implements Closeable {
     public static class a {
 
         /* renamed from: a */
-        public C11918e0 f55306a;
+        public HttpRequestBuilder f55306a;
 
         /* renamed from: b */
         public EnumC11914c0 f55307b;
@@ -181,13 +181,13 @@ public final class C11922g0 implements Closeable {
         public AbstractC11924h0 f55312g;
 
         /* renamed from: h */
-        public C11922g0 f55313h;
+        public HttpResponseBuilder f55313h;
 
         /* renamed from: i */
-        public C11922g0 f55314i;
+        public HttpResponseBuilder f55314i;
 
         /* renamed from: j */
-        public C11922g0 f55315j;
+        public HttpResponseBuilder f55315j;
 
         /* renamed from: k */
         public long f55316k;
@@ -216,7 +216,7 @@ public final class C11922g0 implements Closeable {
         }
 
         /* renamed from: c */
-        public C11922g0 m71605c() {
+        public HttpResponseBuilder m71605c() {
             if (this.f55306a == null) {
                 throw new IllegalStateException("request == null");
             }
@@ -225,7 +225,7 @@ public final class C11922g0 implements Closeable {
             }
             if (this.f55308c >= 0) {
                 if (this.f55309d != null) {
-                    return new C11922g0(this);
+                    return new HttpResponseBuilder(this);
                 }
                 throw new IllegalStateException("message == null");
             }
@@ -233,33 +233,33 @@ public final class C11922g0 implements Closeable {
         }
 
         /* renamed from: d */
-        public a m71606d(C11922g0 c11922g0) {
-            if (c11922g0 != null) {
-                m71608f("cacheResponse", c11922g0);
+        public a m71606d(HttpResponseBuilder HttpResponseBuilder) {
+            if (HttpResponseBuilder != null) {
+                m71608f("cacheResponse", HttpResponseBuilder);
             }
-            this.f55314i = c11922g0;
+            this.f55314i = HttpResponseBuilder;
             return this;
         }
 
         /* renamed from: e */
-        public final void m71607e(C11922g0 c11922g0) {
-            if (c11922g0.f55298g != null) {
+        public final void m71607e(HttpResponseBuilder HttpResponseBuilder) {
+            if (HttpResponseBuilder.f55298g != null) {
                 throw new IllegalArgumentException("priorResponse.body != null");
             }
         }
 
         /* renamed from: f */
-        public final void m71608f(String str, C11922g0 c11922g0) {
-            if (c11922g0.f55298g != null) {
+        public final void m71608f(String str, HttpResponseBuilder HttpResponseBuilder) {
+            if (HttpResponseBuilder.f55298g != null) {
                 throw new IllegalArgumentException(str + ".body != null");
             }
-            if (c11922g0.f55299h != null) {
+            if (HttpResponseBuilder.f55299h != null) {
                 throw new IllegalArgumentException(str + ".networkResponse != null");
             }
-            if (c11922g0.f55300i != null) {
+            if (HttpResponseBuilder.f55300i != null) {
                 throw new IllegalArgumentException(str + ".cacheResponse != null");
             }
-            if (c11922g0.f55301j == null) {
+            if (HttpResponseBuilder.f55301j == null) {
                 return;
             }
             throw new IllegalArgumentException(str + ".priorResponse != null");
@@ -301,20 +301,20 @@ public final class C11922g0 implements Closeable {
         }
 
         /* renamed from: m */
-        public a m71615m(C11922g0 c11922g0) {
-            if (c11922g0 != null) {
-                m71608f("networkResponse", c11922g0);
+        public a m71615m(HttpResponseBuilder HttpResponseBuilder) {
+            if (HttpResponseBuilder != null) {
+                m71608f("networkResponse", HttpResponseBuilder);
             }
-            this.f55313h = c11922g0;
+            this.f55313h = HttpResponseBuilder;
             return this;
         }
 
         /* renamed from: n */
-        public a m71616n(C11922g0 c11922g0) {
-            if (c11922g0 != null) {
-                m71607e(c11922g0);
+        public a m71616n(HttpResponseBuilder HttpResponseBuilder) {
+            if (HttpResponseBuilder != null) {
+                m71607e(HttpResponseBuilder);
             }
-            this.f55315j = c11922g0;
+            this.f55315j = HttpResponseBuilder;
             return this;
         }
 
@@ -337,8 +337,8 @@ public final class C11922g0 implements Closeable {
         }
 
         /* renamed from: r */
-        public a m71620r(C11918e0 c11918e0) {
-            this.f55306a = c11918e0;
+        public a m71620r(HttpRequestBuilder HttpRequestBuilder) {
+            this.f55306a = HttpRequestBuilder;
             return this;
         }
 
@@ -348,21 +348,21 @@ public final class C11922g0 implements Closeable {
             return this;
         }
 
-        public a(C11922g0 c11922g0) {
+        public a(HttpResponseBuilder HttpResponseBuilder) {
             this.f55308c = -1;
-            this.f55306a = c11922g0.f55292a;
-            this.f55307b = c11922g0.f55293b;
-            this.f55308c = c11922g0.f55294c;
-            this.f55309d = c11922g0.f55295d;
-            this.f55310e = c11922g0.f55296e;
-            this.f55311f = c11922g0.f55297f.m71856g();
-            this.f55312g = c11922g0.f55298g;
-            this.f55313h = c11922g0.f55299h;
-            this.f55314i = c11922g0.f55300i;
-            this.f55315j = c11922g0.f55301j;
-            this.f55316k = c11922g0.f55302k;
-            this.f55317l = c11922g0.f55303l;
-            this.f55318m = c11922g0.f55304m;
+            this.f55306a = HttpResponseBuilder.f55292a;
+            this.f55307b = HttpResponseBuilder.f55293b;
+            this.f55308c = HttpResponseBuilder.f55294c;
+            this.f55309d = HttpResponseBuilder.f55295d;
+            this.f55310e = HttpResponseBuilder.f55296e;
+            this.f55311f = HttpResponseBuilder.f55297f.m71856g();
+            this.f55312g = HttpResponseBuilder.f55298g;
+            this.f55313h = HttpResponseBuilder.f55299h;
+            this.f55314i = HttpResponseBuilder.f55300i;
+            this.f55315j = HttpResponseBuilder.f55301j;
+            this.f55316k = HttpResponseBuilder.f55302k;
+            this.f55317l = HttpResponseBuilder.f55303l;
+            this.f55318m = HttpResponseBuilder.f55304m;
         }
     }
 }

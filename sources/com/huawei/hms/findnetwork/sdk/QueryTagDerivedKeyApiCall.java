@@ -16,13 +16,13 @@ import p208cq.C8941i;
 
 /* renamed from: com.huawei.hms.findnetwork.sdk.m0 */
 /* loaded from: classes8.dex */
-public class C5379m0 extends BaseTaskApiCall<HmsClient, QueryTagDerivedKeyBean, FindNetworkResult<TagDerivedKey>> {
+public class QueryTagDerivedKeyApiCall extends BaseTaskApiCall<HmsClient, QueryTagDerivedKeyBean, FindNetworkResult<TagDerivedKey>> {
 
     /* renamed from: com.huawei.hms.findnetwork.sdk.m0$a */
     public static class a extends TypeToken<FindNetworkResult<TagDerivedKey>> {
     }
 
-    public C5379m0(QueryTagDerivedKeyBean queryTagDerivedKeyBean) {
+    public QueryTagDerivedKeyApiCall(QueryTagDerivedKeyBean queryTagDerivedKeyBean) {
         super("findnetwork.query_tag_derived_Key", queryTagDerivedKeyBean);
     }
 

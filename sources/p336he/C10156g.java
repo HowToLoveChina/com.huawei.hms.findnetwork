@@ -3,8 +3,8 @@ package p336he;
 import android.text.TextUtils;
 import com.huawei.cloud.base.http.C4604g;
 import com.huawei.cloud.base.http.C4609l;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import p015ak.C0215g;
 import p292fn.C9733f;
 import p514o9.C11839m;
@@ -51,7 +51,7 @@ public class C10156g {
     }
 
     /* renamed from: e */
-    public static void m63308e(C11918e0.a aVar, String str) {
+    public static void m63308e(HttpRequestBuilder.a aVar, String str) {
         if (!C9733f.m60705z().m60726U() || aVar == null) {
             return;
         }
@@ -59,7 +59,7 @@ public class C10156g {
         if (TextUtils.isEmpty(strM63304a)) {
             return;
         }
-        aVar.m71574a("x-hw-cookie", strM63304a);
+        aVar.addHeader("x-hw-cookie", strM63304a);
     }
 
     /* renamed from: f */
@@ -79,10 +79,10 @@ public class C10156g {
     }
 
     /* renamed from: h */
-    public static void m63311h(C11922g0 c11922g0) {
-        if (!C9733f.m60705z().m60726U() || c11922g0 == null) {
+    public static void m63311h(HttpResponseBuilder HttpResponseBuilder) {
+        if (!C9733f.m60705z().m60726U() || HttpResponseBuilder == null) {
             return;
         }
-        C0215g.m1384f().m1393j(c11922g0.m71599w("x-hw-cookie"));
+        C0215g.m1384f().m1393j(HttpResponseBuilder.m71599w("x-hw-cookie"));
     }
 }

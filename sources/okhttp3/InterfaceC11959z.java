@@ -15,14 +15,14 @@ public interface InterfaceC11959z {
         int mo71933b();
 
         /* renamed from: c */
-        C11922g0 mo71934c(C11918e0 c11918e0) throws IOException;
+        HttpResponseBuilder mo71934c(HttpRequestBuilder HttpRequestBuilder) throws IOException;
 
         /* renamed from: d */
         int mo71935d();
 
-        C11918e0 request();
+        HttpRequestBuilder request();
     }
 
     /* renamed from: a */
-    C11922g0 mo71677a(a aVar) throws IOException;
+    HttpResponseBuilder mo71677a(a aVar) throws IOException;
 }

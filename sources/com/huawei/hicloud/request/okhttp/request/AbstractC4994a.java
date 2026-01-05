@@ -8,8 +8,8 @@ import com.huawei.openalliance.p169ad.constant.JsbMapKeyNames;
 import fk.C9720a;
 import fk.C9721b;
 import java.io.IOException;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import org.json.JSONObject;
 import p015ak.C0209d;
 import p015ak.C0228m0;
@@ -55,13 +55,13 @@ public abstract class AbstractC4994a extends AbstractC4993b<String> {
     }
 
     @Override // com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-    public void prepare(C11918e0.a aVar) throws C9721b, IOException {
+    public void prepare(HttpRequestBuilder.a aVar) throws C9721b, IOException {
         String str = C1443a.f6213a;
-        aVar.m71574a("version", str);
-        aVar.m71574a("x-hw-app-version", str);
-        aVar.m71574a("x-hw-terminal", Build.MODEL);
-        aVar.m71574a("x-hw-os", C0209d.m1315v());
-        aVar.m71574a("x-hw-trace-id", this.traceID);
+        aVar.addHeader("version", str);
+        aVar.addHeader("x-hw-app-version", str);
+        aVar.addHeader("x-hw-terminal", Build.MODEL);
+        aVar.addHeader("x-hw-os", C0209d.m1315v());
+        aVar.addHeader("x-hw-trace-id", this.traceID);
         String strM80971t0 = C13452e.m80781L().m80971t0();
         String strM80942m = C13452e.m80781L().m80942m();
         String strM80970t = C13452e.m80781L().m80970t();
@@ -70,19 +70,19 @@ public abstract class AbstractC4994a extends AbstractC4993b<String> {
         C9720a.m60653b(strM80942m, "countryCode is null");
         C9720a.m60653b(strM80970t, "deviceType is null");
         C9720a.m60653b(strM80954p, "deviceId is null");
-        aVar.m71574a(JsbMapKeyNames.H5_USER_ID, strM80971t0);
-        aVar.m71574a("x-hw-country-code", strM80942m);
-        aVar.m71574a("x-hw-device-type", strM80970t);
-        aVar.m71574a("x-hw-device-id", strM80954p);
-        aVar.m71574a("x-hw-deviceUUID", C0209d.m1209S1(C0228m0.m1597b().m1599c()));
-        aVar.m71574a("x-hw-os-brand", C0209d.m1276l0());
+        aVar.addHeader(JsbMapKeyNames.H5_USER_ID, strM80971t0);
+        aVar.addHeader("x-hw-country-code", strM80942m);
+        aVar.addHeader("x-hw-device-type", strM80970t);
+        aVar.addHeader("x-hw-device-id", strM80954p);
+        aVar.addHeader("x-hw-deviceUUID", C0209d.m1209S1(C0228m0.m1597b().m1599c()));
+        aVar.addHeader("x-hw-os-brand", C0209d.m1276l0());
         C14306d.m85213n(aVar);
     }
 
     @Override // com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-    public String onResponse(C11922g0 c11922g0) throws C9721b, IOException, NumberFormatException {
-        String strM71637z = c11922g0.m71595s().m71637z();
-        String strM71599w = c11922g0.m71599w("NSP_STATUS");
+    public String onResponse(HttpResponseBuilder HttpResponseBuilder) throws C9721b, IOException, NumberFormatException {
+        String strM71637z = HttpResponseBuilder.m71595s().m71637z();
+        String strM71599w = HttpResponseBuilder.m71599w("NSP_STATUS");
         if (strM71599w == null || strM71599w.isEmpty()) {
             parseErrorByRsp(strM71637z);
             return strM71637z;

@@ -8,8 +8,8 @@ import gp.C10028c;
 import java.io.IOException;
 import mk.C11475a;
 import okhttp3.AbstractC11920f0;
-import okhttp3.C11910a0;
-import okhttp3.C11918e0;
+import okhttp3.MimeClass;
+import okhttp3.HttpRequestBuilder;
 import p015ak.C0209d;
 import p015ak.C0234s;
 import p514o9.C11829c;
@@ -67,18 +67,18 @@ public class C10902a extends AbstractC4994a {
 
     @Override // com.huawei.hicloud.request.okhttp.callback.AbstractC4993b
     public AbstractC11920f0 create() throws IOException {
-        return AbstractC11920f0.create(C11910a0.m71445d("application/json; charset=utf-8"), this.f51752f.getBytes(Constants.UTF_8));
+        return AbstractC11920f0.create(MimeClass.m71445d("application/json; charset=utf-8"), this.f51752f.getBytes(Constants.UTF_8));
     }
 
     @Override // com.huawei.hicloud.request.okhttp.request.AbstractC4994a, com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-    public void prepare(C11918e0.a aVar) throws C9721b, IOException {
+    public void prepare(HttpRequestBuilder.a aVar) throws C9721b, IOException {
         super.prepare(aVar);
-        aVar.m71574a("x-hw-client-capacity", "1");
-        aVar.m71574a("x-hw-user-svrplace", C13452e.m80781L().m80921h0());
-        aVar.m71574a("Accept-Language", C0234s.m1627e());
-        aVar.m71574a("x-hw-backup-version", "1");
+        aVar.addHeader("x-hw-client-capacity", "1");
+        aVar.addHeader("x-hw-user-svrplace", C13452e.m80781L().m80921h0());
+        aVar.addHeader("Accept-Language", C0234s.m1627e());
+        aVar.addHeader("x-hw-backup-version", "1");
         if (m65923a()) {
-            aVar.m71574a("x-hw-refurbishment", String.valueOf(true));
+            aVar.addHeader("x-hw-refurbishment", String.valueOf(true));
         }
         C11829c.m70559a(aVar);
         if (!this.f51751e) {
@@ -90,9 +90,9 @@ public class C10902a extends AbstractC4994a {
         String str = new String(C11475a.m68618a(strM70565c.getBytes("utf-8")), "utf-8");
         if (!C10028c.m62182c0().m62420y1()) {
             str = new String(C11475a.m68618a(strM70565c.getBytes("utf-8")), "utf-8");
-            aVar.m71574a("encversion", "1");
+            aVar.addHeader("encversion", "1");
         }
-        aVar.m71574a(FeedbackWebConstants.AUTHORIZATION, str);
+        aVar.addHeader(FeedbackWebConstants.AUTHORIZATION, str);
         C0209d.m1231a(aVar);
     }
 }

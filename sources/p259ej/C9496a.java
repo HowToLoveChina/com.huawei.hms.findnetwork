@@ -12,8 +12,8 @@ import fk.C9721b;
 import java.io.IOException;
 import java.util.Map;
 import okhttp3.AbstractC11920f0;
-import okhttp3.C11910a0;
-import okhttp3.C11918e0;
+import okhttp3.MimeClass;
+import okhttp3.HttpRequestBuilder;
 import org.json.JSONException;
 import org.json.JSONObject;
 import p015ak.C0209d;
@@ -53,27 +53,27 @@ public class C9496a extends AbstractC4994a {
 
     @Override // com.huawei.hicloud.request.okhttp.callback.AbstractC4993b
     public AbstractC11920f0 create() throws IOException {
-        return AbstractC11920f0.create(C11910a0.m71445d("application/json; charset=utf-8"), this.f47307a.getBytes(Constants.UTF_8));
+        return AbstractC11920f0.create(MimeClass.m71445d("application/json; charset=utf-8"), this.f47307a.getBytes(Constants.UTF_8));
     }
 
     @Override // com.huawei.hicloud.request.okhttp.request.AbstractC4994a, com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-    public void prepare(C11918e0.a aVar) throws C9721b, IOException {
+    public void prepare(HttpRequestBuilder.a aVar) throws C9721b, IOException {
         super.prepare(aVar);
-        aVar.m71574a(CommonConstant.ReqAccessTokenParam.LANGUAGE_LABEL, C0234s.m1631i());
-        aVar.m71574a("Accept-Language", C0234s.m1631i());
-        aVar.m71574a("ClientVersion", C1443a.f6213a);
-        aVar.m71574a("Device", Build.MODEL);
-        aVar.m71574a("AuthType", C13843a.m83075a("com.huawei.hidisk"));
-        aVar.m71574a(FeedbackWebConstants.AUTHORIZATION, C13843a.m83077b(C13452e.m80781L().m80970t() + ":" + C13452e.m80781L().m80954p() + ":" + C13452e.m80781L().m80931j0() + ":0:" + this.f47308b, Constants.UTF_8));
-        aVar.m71574a("TokenType", "2");
-        aVar.m71574a("Country", C13452e.m80781L().m80921h0());
+        aVar.addHeader(CommonConstant.ReqAccessTokenParam.LANGUAGE_LABEL, C0234s.m1631i());
+        aVar.addHeader("Accept-Language", C0234s.m1631i());
+        aVar.addHeader("ClientVersion", C1443a.f6213a);
+        aVar.addHeader("Device", Build.MODEL);
+        aVar.addHeader("AuthType", C13843a.m83075a("com.huawei.hidisk"));
+        aVar.addHeader(FeedbackWebConstants.AUTHORIZATION, C13843a.m83077b(C13452e.m80781L().m80970t() + ":" + C13452e.m80781L().m80954p() + ":" + C13452e.m80781L().m80931j0() + ":0:" + this.f47308b, Constants.UTF_8));
+        aVar.addHeader("TokenType", "2");
+        aVar.addHeader("Country", C13452e.m80781L().m80921h0());
         if (this.f47311e != null) {
             C1442a.m8288d("BusinessCallback", "prepare omExpandHeader is :" + this.f47311e);
             try {
                 Map map = (Map) new Gson().fromJson(this.f47311e, Map.class);
                 if (map != null) {
                     for (Map.Entry entry : map.entrySet()) {
-                        aVar.m71574a(entry.getKey().toString(), new JSONObject(entry.getValue().toString()).toString());
+                        aVar.addHeader(entry.getKey().toString(), new JSONObject(entry.getValue().toString()).toString());
                     }
                 }
             } catch (JsonSyntaxException | JSONException e10) {
@@ -81,13 +81,13 @@ public class C9496a extends AbstractC4994a {
             }
         }
         if (this.f47309c) {
-            aVar.m71574a("x-hw-source-agent", "H5");
-            aVar.m71574a("x-hw-cmd", this.f47310d);
+            aVar.addHeader("x-hw-source-agent", "H5");
+            aVar.addHeader("x-hw-cmd", this.f47310d);
         }
-        aVar.m71574a("x-hw-framework-type", "0");
+        aVar.addHeader("x-hw-framework-type", "0");
         if (this.f47310d.equals("queryO2OActivity")) {
-            aVar.m71574a("x-hw-network", C0209d.m1228Z(C0209d.m1225Y(C0213f.m1377a())));
-            aVar.m71574a("x-hw-app-package-name", "com.huawei.hidisk");
+            aVar.addHeader("x-hw-network", C0209d.m1228Z(C0209d.m1225Y(C0213f.m1377a())));
+            aVar.addHeader("x-hw-app-package-name", "com.huawei.hidisk");
         }
     }
 }

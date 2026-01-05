@@ -22,7 +22,7 @@ public interface InterfaceC5709e0 {
     Task<LocationAvailability> mo33064a();
 
     /* renamed from: a */
-    Task<Void> mo33065a(int i10, Notification notification);
+    Task<Void> enableBackgroundLocation(int i10, Notification notification);
 
     /* renamed from: a */
     Task<Void> mo33066a(PendingIntent pendingIntent);

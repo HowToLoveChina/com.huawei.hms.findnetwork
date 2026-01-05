@@ -7,14 +7,14 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import okhttp3.C11922g0;
+import okhttp3.HttpResponseBuilder;
 
 /* renamed from: qm.d */
 /* loaded from: classes6.dex */
 public class C12376d extends AbstractC4623z {
 
     /* renamed from: a */
-    public final C11922g0 f57192a;
+    public final HttpResponseBuilder f57192a;
 
     /* renamed from: b */
     public final int f57193b;
@@ -28,16 +28,16 @@ public class C12376d extends AbstractC4623z {
     /* renamed from: e */
     public final ArrayList<String> f57196e;
 
-    public C12376d(C11922g0 c11922g0) throws IOException {
+    public C12376d(HttpResponseBuilder HttpResponseBuilder) throws IOException {
         ArrayList<String> arrayList = new ArrayList<>();
         this.f57195d = arrayList;
         ArrayList<String> arrayList2 = new ArrayList<>();
         this.f57196e = arrayList2;
-        this.f57192a = c11922g0;
-        int iM71597u = c11922g0.m71597u();
+        this.f57192a = HttpResponseBuilder;
+        int iM71597u = HttpResponseBuilder.m71597u();
         this.f57193b = iM71597u == -1 ? 0 : iM71597u;
-        this.f57194c = c11922g0.m71602z();
-        for (Map.Entry<String, List<String>> entry : c11922g0.m71601y().m71858k().entrySet()) {
+        this.f57194c = HttpResponseBuilder.m71602z();
+        for (Map.Entry<String, List<String>> entry : HttpResponseBuilder.m71601y().m71858k().entrySet()) {
             String key = entry.getKey();
             if (key != null) {
                 for (String str : entry.getValue()) {
@@ -53,9 +53,9 @@ public class C12376d extends AbstractC4623z {
     @Override // com.huawei.cloud.base.http.AbstractC4623z
     /* renamed from: a */
     public void mo28352a() {
-        C11922g0 c11922g0 = this.f57192a;
-        if (c11922g0 != null) {
-            c11922g0.close();
+        HttpResponseBuilder HttpResponseBuilder = this.f57192a;
+        if (HttpResponseBuilder != null) {
+            HttpResponseBuilder.close();
         }
     }
 

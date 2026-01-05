@@ -15,7 +15,7 @@ import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.function.Consumer;
-import okhttp3.C11918e0;
+import okhttp3.HttpRequestBuilder;
 import p020ap.C1010e;
 import p514o9.C11839m;
 import p581qk.AbstractC12367d;
@@ -83,7 +83,7 @@ public class C10475b {
         }
 
         @Override // com.huawei.hicloud.download.C4896a, com.huawei.hicloud.okhttp.callback.AbstractC4975a
-        public void prepare(C11918e0.a aVar) throws UnsupportedEncodingException {
+        public void prepare(HttpRequestBuilder.a aVar) throws UnsupportedEncodingException {
             String strEncode;
             try {
                 strEncode = URLEncoder.encode(C13195l.m79272J().m79344y("PhoneFinder", ""), Constants.UTF_8);
@@ -91,7 +91,7 @@ public class C10475b {
                 C11839m.m70687e("RequestPetalMapSnapshotTask", "MapSnapshotCallback Exception");
                 strEncode = null;
             }
-            aVar.m71574a("authType", "0").m71574a("authValue", strEncode).m71574a(HwPayConstant.KEY_SITE_ID, String.valueOf(C13452e.m80781L().m80947n0()));
+            aVar.addHeader("authType", "0").addHeader("authValue", strEncode).addHeader(HwPayConstant.KEY_SITE_ID, String.valueOf(C13452e.m80781L().m80947n0()));
             super.prepare(aVar);
         }
 
@@ -107,7 +107,7 @@ public class C10475b {
             Code decompiled incorrectly, please refer to instructions dump.
             To view partially-correct code enable 'Show inconsistent code' option in preferences
         */
-        public java.lang.Void onResponse(okhttp3.C11922g0 r10) throws java.lang.Throwable {
+        public java.lang.Void onResponse(okhttp3.HttpResponseBuilder r10) throws java.lang.Throwable {
             /*
                 r9 = this;
                 java.lang.String r0 = "RequestPetalMapSnapshotTask"

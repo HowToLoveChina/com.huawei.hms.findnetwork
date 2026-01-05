@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
-import okhttp3.C11918e0;
+import okhttp3.HttpRequestBuilder;
 import p015ak.C0209d;
 import p015ak.C0213f;
 import p399jk.AbstractC10896a;
@@ -299,24 +299,24 @@ public class C14306d {
     }
 
     /* renamed from: n */
-    public static void m85213n(C11918e0.a aVar) {
+    public static void m85213n(HttpRequestBuilder.a aVar) {
         String strM1160D = C0209d.m1160D();
         if (!TextUtils.isEmpty(strM1160D)) {
-            aVar.m71574a("x-hw-device-brand", strM1160D);
+            aVar.addHeader("x-hw-device-brand", strM1160D);
         }
         String strM1164E = C0209d.m1164E();
         if (!TextUtils.isEmpty(strM1164E)) {
-            aVar.m71574a("x-hw-device-manufacturer", strM1164E);
+            aVar.addHeader("x-hw-device-manufacturer", strM1164E);
         }
         String strM85201b = m85201b();
         if (!TextUtils.isEmpty(strM85201b)) {
-            aVar.m71574a("x-hw-account-brand-id", strM85201b);
+            aVar.addHeader("x-hw-account-brand-id", strM85201b);
         }
         String strM1156C = C0209d.m1156C();
         if (TextUtils.isEmpty(strM1156C)) {
             return;
         }
-        aVar.m71574a("x-hw-app-brand-id", strM1156C);
+        aVar.addHeader("x-hw-app-brand-id", strM1156C);
     }
 
     /* renamed from: o */

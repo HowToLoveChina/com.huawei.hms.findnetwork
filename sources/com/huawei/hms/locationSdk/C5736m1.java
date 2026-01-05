@@ -264,12 +264,12 @@ public class C5736m1 extends AbstractC5696b<C5750r0, Void> {
             if ((responseErrorCode.getErrorCode() < 10000 || responseErrorCode.getErrorCode() > 20000 || responseErrorCode.getErrorCode() == 10102) && C5773z.m33216a(c5750r0.getContext())) {
                 C5773z.m33214a(true);
                 this.f25548f = true;
-                final C5717g0 c5717g0 = new C5717g0(c5750r0.getContext(), (C5765w0) null);
+                final LocationClientImpl LocationClientImpl = new LocationClientImpl(c5750r0.getContext(), (C5765w0) null);
                 c8941i.m56656b().continueWithTask(new InterfaceC8934b() { // from class: com.huawei.hms.locationSdk.b2
                     @Override // p208cq.InterfaceC8934b
                     /* renamed from: a */
                     public final Object mo33041a(Task task) {
-                        return C5736m1.m33129a(c5717g0, this, task);
+                        return C5736m1.m33129a(LocationClientImpl, this, task);
                     }
                 });
                 c8941i.m56658d(null);
@@ -297,8 +297,8 @@ public class C5736m1 extends AbstractC5696b<C5750r0, Void> {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: b */
-    public static /* synthetic */ Task m33132b(C5717g0 c5717g0, TaskApiCall taskApiCall, Task task) throws Exception {
-        return c5717g0.doWrite(taskApiCall);
+    public static /* synthetic */ Task m33132b(LocationClientImpl LocationClientImpl, TaskApiCall taskApiCall, Task task) throws Exception {
+        return LocationClientImpl.doWrite(taskApiCall);
     }
 
     /* renamed from: a */
@@ -335,12 +335,12 @@ public class C5736m1 extends AbstractC5696b<C5750r0, Void> {
                 C5768x0.m33197b().mo33194c(this.f25546d);
                 C5773z.m33214a(true);
                 this.f25548f = true;
-                final C5717g0 c5717g0 = new C5717g0(C11991a.m72145a(), (C5765w0) null);
+                final LocationClientImpl LocationClientImpl = new LocationClientImpl(C11991a.m72145a(), (C5765w0) null);
                 ((AbstractC5696b) this).f25486c.m56656b().continueWithTask(new InterfaceC8934b() { // from class: com.huawei.hms.locationSdk.z1
                     @Override // p208cq.InterfaceC8934b
                     /* renamed from: a */
                     public final Object mo33041a(Task task) {
-                        return C5736m1.m33132b(c5717g0, this, task);
+                        return C5736m1.m33132b(LocationClientImpl, this, task);
                     }
                 });
                 ((AbstractC5696b) this).f25486c.m56658d(null);
@@ -353,8 +353,8 @@ public class C5736m1 extends AbstractC5696b<C5750r0, Void> {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: a */
-    public static /* synthetic */ Task m33129a(C5717g0 c5717g0, TaskApiCall taskApiCall, Task task) throws Exception {
-        return c5717g0.doWrite(taskApiCall);
+    public static /* synthetic */ Task m33129a(LocationClientImpl LocationClientImpl, TaskApiCall taskApiCall, Task task) throws Exception {
+        return LocationClientImpl.doWrite(taskApiCall);
     }
 
     /* renamed from: a */

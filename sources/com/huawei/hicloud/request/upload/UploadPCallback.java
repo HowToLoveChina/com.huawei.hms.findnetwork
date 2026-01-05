@@ -14,8 +14,8 @@ import java.net.URLEncoder;
 import java.util.Map;
 import java.util.UUID;
 import okhttp3.AbstractC11920f0;
-import okhttp3.C11910a0;
-import okhttp3.C11918e0;
+import okhttp3.MimeClass;
+import okhttp3.HttpRequestBuilder;
 import p022ay.InterfaceC1055e;
 import p336he.C10160k;
 import p514o9.C11829c;
@@ -75,8 +75,8 @@ public class UploadPCallback extends AbstractC4994a {
             }
 
             @Override // okhttp3.AbstractC11920f0
-            public C11910a0 contentType() {
-                return C11910a0.m71445d("multipart/form-data; boundary=" + UploadPCallback.BOUNDARY);
+            public MimeClass contentType() {
+                return MimeClass.m71445d("multipart/form-data; boundary=" + UploadPCallback.BOUNDARY);
             }
 
             @Override // okhttp3.AbstractC11920f0
@@ -137,9 +137,9 @@ public class UploadPCallback extends AbstractC4994a {
     }
 
     @Override // com.huawei.hicloud.request.okhttp.request.AbstractC4994a, com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-    public void prepare(C11918e0.a aVar) throws C9721b, IOException {
+    public void prepare(HttpRequestBuilder.a aVar) throws C9721b, IOException {
         super.prepare(aVar);
-        aVar.m71574a("User-Agent", "com.huawei.hidisk/16.0.0.300 (Linux; HarmonyOS " + Build.VERSION.RELEASE + "; " + Build.MODEL + "; " + C11829c.f54755a + ") HMS/2.6.3.306 (10055832)");
+        aVar.addHeader("User-Agent", "com.huawei.hidisk/16.0.0.300 (Linux; HarmonyOS " + Build.VERSION.RELEASE + "; " + Build.MODEL + "; " + C11829c.f54755a + ") HMS/2.6.3.306 (10055832)");
         aVar.m71578e("x-hw-unique-trace-id", C10160k.m63341b("04015"));
         if (this.item == null) {
             throw new C9721b(SNSCode.Status.HW_ACCOUNT_FAILED, "doOutput item is null.");

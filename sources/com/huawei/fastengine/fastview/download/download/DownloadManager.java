@@ -25,8 +25,8 @@ import java.security.cert.CertificateException;
 import java.util.concurrent.TimeUnit;
 import javax.net.ssl.HttpsURLConnection;
 import okhttp3.C11912b0;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import okhttp3.InterfaceC11919f;
 import okhttp3.InterfaceC11921g;
 import p373iu.C10616d;
@@ -289,28 +289,28 @@ public class DownloadManager {
         /* JADX WARN: Type inference failed for: r13v7 */
         /* JADX WARN: Type inference failed for: r13v8, types: [java.io.Closeable] */
         @Override // okhttp3.InterfaceC11921g
-        public void onResponse(InterfaceC11919f interfaceC11919f, C11922g0 c11922g0) throws Throwable {
+        public void onResponse(InterfaceC11919f interfaceC11919f, HttpResponseBuilder HttpResponseBuilder) throws Throwable {
             FileOutputStream fileOutputStream;
             File file;
             FileOutputStream fileOutputStream2;
             byte[] bArr;
-            if (c11922g0 == 0 || c11922g0.m71595s() == null) {
+            if (HttpResponseBuilder == 0 || HttpResponseBuilder.m71595s() == null) {
                 FastViewLogUtils.m28724e(DownloadManager.TAG, " onResponse empty ");
                 downloadListener.failure(1);
                 return;
             }
-            FastViewLogUtils.m28726i(DownloadManager.TAG, " response.code() " + c11922g0.m71597u());
+            FastViewLogUtils.m28726i(DownloadManager.TAG, " response.code() " + HttpResponseBuilder.m71597u());
             int size = downloadRequest.getSize();
             if (size == -1) {
                 try {
-                    size = (int) c11922g0.m71595s().mo71634u();
+                    size = (int) HttpResponseBuilder.m71595s().mo71634u();
                 } catch (NumberFormatException unused) {
                     FastViewLogUtils.m28724e(DownloadManager.TAG, "get download content-length failure.");
                     downloadListener.failure(1);
                     return;
                 }
             }
-            if (c11922g0.m71597u() == 404) {
+            if (HttpResponseBuilder.m71597u() == 404) {
                 downloadListener.failure(1);
                 return;
             }
@@ -320,20 +320,20 @@ public class DownloadManager {
             fileOutputStream3 = null;
             try {
                 try {
-                    c11922g0 = c11922g0.m71595s().m71632s();
+                    HttpResponseBuilder = HttpResponseBuilder.m71595s().m71632s();
                     try {
                         file = new File(context.getFilesDir(), System.currentTimeMillis() + ".apk");
                         fileOutputStream2 = new FileOutputStream(file);
                         try {
                             bArr = new byte[2048];
-                            int i10 = c11922g0.read(bArr);
+                            int i10 = HttpResponseBuilder.read(bArr);
                             FastViewLogUtils.m28724e(DownloadManager.TAG, "isDownload" + DownloadManager.this.isDownload);
                             int i11 = 0;
                             int i12 = 0;
                             while (i10 != -1 && DownloadManager.this.isDownload) {
                                 i11++;
                                 fileOutputStream2.write(bArr, 0, i10);
-                                i10 = c11922g0.read(bArr);
+                                i10 = HttpResponseBuilder.read(bArr);
                                 i12 += i10;
                                 if (i11 % 200 == 0 || i12 == size) {
                                     downloadListener.progress(i12, size);
@@ -345,31 +345,31 @@ public class DownloadManager {
                             downloadListener.failure(1);
                             fileOutputStream = fileOutputStream4;
                             fileOutputStream3 = fileOutputStream4;
-                            c11922g0 = c11922g0;
-                            IoUtils.closeStream(c11922g0);
+                            HttpResponseBuilder = HttpResponseBuilder;
+                            IoUtils.closeStream(HttpResponseBuilder);
                             IoUtils.closeStream(fileOutputStream);
                             return;
                         } catch (Throwable th2) {
                             th = th2;
                             fileOutputStream3 = fileOutputStream2;
-                            IoUtils.closeStream(c11922g0);
+                            IoUtils.closeStream(HttpResponseBuilder);
                             IoUtils.closeStream(fileOutputStream3);
                             throw th;
                         }
                     } catch (IOException unused3) {
                     }
                 } catch (IOException unused4) {
-                    c11922g0 = 0;
+                    HttpResponseBuilder = 0;
                 } catch (Throwable th3) {
                     th = th3;
-                    c11922g0 = 0;
+                    HttpResponseBuilder = 0;
                 }
                 if (!DownloadManager.this.isDownload) {
                     FastViewLogUtils.m28724e(DownloadManager.TAG, "!isDownload" + DownloadManager.this.isDownload);
                     DownloadManager.deleteFile(file);
                     downloadListener.failure(4);
                     DownloadManager.this.isDownload = true;
-                    IoUtils.closeStream(c11922g0);
+                    IoUtils.closeStream(HttpResponseBuilder);
                     IoUtils.closeStream(fileOutputStream2);
                     return;
                 }
@@ -379,21 +379,21 @@ public class DownloadManager {
                     downloadListener.success(file);
                     fileOutputStream3 = bArr;
                     fileOutputStream = fileOutputStream2;
-                    c11922g0 = c11922g0;
-                    IoUtils.closeStream(c11922g0);
+                    HttpResponseBuilder = HttpResponseBuilder;
+                    IoUtils.closeStream(HttpResponseBuilder);
                     IoUtils.closeStream(fileOutputStream);
                     return;
                 }
                 if (DownloadManager.this.checkRpkValid(file, downloadRequest.getHash())) {
                     DownloadManager.this.setFileReadable(file);
                     downloadListener.success(file);
-                    IoUtils.closeStream(c11922g0);
+                    IoUtils.closeStream(HttpResponseBuilder);
                     IoUtils.closeStream(fileOutputStream2);
                     return;
                 }
                 DownloadManager.deleteFile(file);
                 downloadListener.failure(2);
-                IoUtils.closeStream(c11922g0);
+                IoUtils.closeStream(HttpResponseBuilder);
                 IoUtils.closeStream(fileOutputStream2);
             } catch (Throwable th4) {
                 th = th4;
@@ -680,9 +680,9 @@ public class DownloadManager {
             C11912b0.c cVar = new C11912b0.c();
             TimeUnit timeUnit = TimeUnit.SECONDS;
             C11912b0.c cVarM71521r = cVar.m71507d(10L, timeUnit).m71519p(10L, timeUnit).m71522s(10L, timeUnit).m71514k(true).m71521r(getSSLFactory(context), getTrustManager(context));
-            C11918e0 c11918e0M71575b = new C11918e0.a().m71586m(downloadRequest.getUrl()).m71575b();
+            HttpRequestBuilder HttpRequestBuilderM71575b = new HttpRequestBuilder.a().m71586m(downloadRequest.getUrl()).m71575b();
             cVarM71521r.m71515l(C10616d.f51032h);
-            cVarM71521r.m71505b().m71495z(c11918e0M71575b).mo71532e(new InterfaceC11921g() { // from class: com.huawei.fastengine.fastview.download.download.DownloadManager.2
+            cVarM71521r.m71505b().m71495z(HttpRequestBuilderM71575b).mo71532e(new InterfaceC11921g() { // from class: com.huawei.fastengine.fastview.download.download.DownloadManager.2
                 final /* synthetic */ Context val$context;
                 final /* synthetic */ DownloadListener val$listener;
                 final /* synthetic */ DownloadRequest val$request;
@@ -711,28 +711,28 @@ public class DownloadManager {
                 /* JADX WARN: Type inference failed for: r13v7 */
                 /* JADX WARN: Type inference failed for: r13v8, types: [java.io.Closeable] */
                 @Override // okhttp3.InterfaceC11921g
-                public void onResponse(InterfaceC11919f interfaceC11919f, C11922g0 c11922g0) throws Throwable {
+                public void onResponse(InterfaceC11919f interfaceC11919f, HttpResponseBuilder HttpResponseBuilder) throws Throwable {
                     FileOutputStream fileOutputStream;
                     File file;
                     FileOutputStream fileOutputStream2;
                     byte[] bArr;
-                    if (c11922g0 == 0 || c11922g0.m71595s() == null) {
+                    if (HttpResponseBuilder == 0 || HttpResponseBuilder.m71595s() == null) {
                         FastViewLogUtils.m28724e(DownloadManager.TAG, " onResponse empty ");
                         downloadListener.failure(1);
                         return;
                     }
-                    FastViewLogUtils.m28726i(DownloadManager.TAG, " response.code() " + c11922g0.m71597u());
+                    FastViewLogUtils.m28726i(DownloadManager.TAG, " response.code() " + HttpResponseBuilder.m71597u());
                     int size = downloadRequest.getSize();
                     if (size == -1) {
                         try {
-                            size = (int) c11922g0.m71595s().mo71634u();
+                            size = (int) HttpResponseBuilder.m71595s().mo71634u();
                         } catch (NumberFormatException unused) {
                             FastViewLogUtils.m28724e(DownloadManager.TAG, "get download content-length failure.");
                             downloadListener.failure(1);
                             return;
                         }
                     }
-                    if (c11922g0.m71597u() == 404) {
+                    if (HttpResponseBuilder.m71597u() == 404) {
                         downloadListener.failure(1);
                         return;
                     }
@@ -742,20 +742,20 @@ public class DownloadManager {
                     fileOutputStream3 = null;
                     try {
                         try {
-                            c11922g0 = c11922g0.m71595s().m71632s();
+                            HttpResponseBuilder = HttpResponseBuilder.m71595s().m71632s();
                             try {
                                 file = new File(context.getFilesDir(), System.currentTimeMillis() + ".apk");
                                 fileOutputStream2 = new FileOutputStream(file);
                                 try {
                                     bArr = new byte[2048];
-                                    int i10 = c11922g0.read(bArr);
+                                    int i10 = HttpResponseBuilder.read(bArr);
                                     FastViewLogUtils.m28724e(DownloadManager.TAG, "isDownload" + DownloadManager.this.isDownload);
                                     int i11 = 0;
                                     int i12 = 0;
                                     while (i10 != -1 && DownloadManager.this.isDownload) {
                                         i11++;
                                         fileOutputStream2.write(bArr, 0, i10);
-                                        i10 = c11922g0.read(bArr);
+                                        i10 = HttpResponseBuilder.read(bArr);
                                         i12 += i10;
                                         if (i11 % 200 == 0 || i12 == size) {
                                             downloadListener.progress(i12, size);
@@ -767,31 +767,31 @@ public class DownloadManager {
                                     downloadListener.failure(1);
                                     fileOutputStream = fileOutputStream4;
                                     fileOutputStream3 = fileOutputStream4;
-                                    c11922g0 = c11922g0;
-                                    IoUtils.closeStream(c11922g0);
+                                    HttpResponseBuilder = HttpResponseBuilder;
+                                    IoUtils.closeStream(HttpResponseBuilder);
                                     IoUtils.closeStream(fileOutputStream);
                                     return;
                                 } catch (Throwable th2) {
                                     th = th2;
                                     fileOutputStream3 = fileOutputStream2;
-                                    IoUtils.closeStream(c11922g0);
+                                    IoUtils.closeStream(HttpResponseBuilder);
                                     IoUtils.closeStream(fileOutputStream3);
                                     throw th;
                                 }
                             } catch (IOException unused3) {
                             }
                         } catch (IOException unused4) {
-                            c11922g0 = 0;
+                            HttpResponseBuilder = 0;
                         } catch (Throwable th3) {
                             th = th3;
-                            c11922g0 = 0;
+                            HttpResponseBuilder = 0;
                         }
                         if (!DownloadManager.this.isDownload) {
                             FastViewLogUtils.m28724e(DownloadManager.TAG, "!isDownload" + DownloadManager.this.isDownload);
                             DownloadManager.deleteFile(file);
                             downloadListener.failure(4);
                             DownloadManager.this.isDownload = true;
-                            IoUtils.closeStream(c11922g0);
+                            IoUtils.closeStream(HttpResponseBuilder);
                             IoUtils.closeStream(fileOutputStream2);
                             return;
                         }
@@ -801,21 +801,21 @@ public class DownloadManager {
                             downloadListener.success(file);
                             fileOutputStream3 = bArr;
                             fileOutputStream = fileOutputStream2;
-                            c11922g0 = c11922g0;
-                            IoUtils.closeStream(c11922g0);
+                            HttpResponseBuilder = HttpResponseBuilder;
+                            IoUtils.closeStream(HttpResponseBuilder);
                             IoUtils.closeStream(fileOutputStream);
                             return;
                         }
                         if (DownloadManager.this.checkRpkValid(file, downloadRequest.getHash())) {
                             DownloadManager.this.setFileReadable(file);
                             downloadListener.success(file);
-                            IoUtils.closeStream(c11922g0);
+                            IoUtils.closeStream(HttpResponseBuilder);
                             IoUtils.closeStream(fileOutputStream2);
                             return;
                         }
                         DownloadManager.deleteFile(file);
                         downloadListener.failure(2);
-                        IoUtils.closeStream(c11922g0);
+                        IoUtils.closeStream(HttpResponseBuilder);
                         IoUtils.closeStream(fileOutputStream2);
                     } catch (Throwable th4) {
                         th = th4;

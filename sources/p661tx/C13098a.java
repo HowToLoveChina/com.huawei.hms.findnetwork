@@ -1,8 +1,8 @@
 package p661tx;
 
 import java.io.IOException;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import okhttp3.C11955v;
 import okhttp3.EnumC11914c0;
 import okhttp3.InterfaceC11959z;
@@ -48,31 +48,31 @@ public final class C13098a implements InterfaceC11959z {
     }
 
     /* renamed from: e */
-    public static C11922g0 m78854e(C11922g0 c11922g0) {
-        return (c11922g0 == null || c11922g0.m71595s() == null) ? c11922g0 : c11922g0.m71589A().m71604b(null).m71605c();
+    public static HttpResponseBuilder m78854e(HttpResponseBuilder HttpResponseBuilder) {
+        return (HttpResponseBuilder == null || HttpResponseBuilder.m71595s() == null) ? HttpResponseBuilder : HttpResponseBuilder.m71589A().m71604b(null).m71605c();
     }
 
     @Override // okhttp3.InterfaceC11959z
     /* renamed from: a */
-    public C11922g0 mo71677a(InterfaceC11959z.a aVar) throws IOException {
+    public HttpResponseBuilder mo71677a(InterfaceC11959z.a aVar) throws IOException {
         C13099b c13099bM78859c = new C13099b.a(System.currentTimeMillis(), aVar.request(), null).m78859c();
-        C11918e0 c11918e0 = c13099bM78859c.f59489a;
-        C11922g0 c11922g0 = c13099bM78859c.f59490b;
-        if (c11918e0 == null && c11922g0 == null) {
-            return new C11922g0.a().m71620r(aVar.request()).m71617o(EnumC11914c0.HTTP_1_1).m71609g(504).m71614l("Unsatisfiable Request (only-if-cached)").m71604b(C12875e.f58643d).m71621s(-1L).m71618p(System.currentTimeMillis()).m71605c();
+        HttpRequestBuilder HttpRequestBuilder = c13099bM78859c.f59489a;
+        HttpResponseBuilder HttpResponseBuilder = c13099bM78859c.f59490b;
+        if (HttpRequestBuilder == null && HttpResponseBuilder == null) {
+            return new HttpResponseBuilder.a().m71620r(aVar.request()).m71617o(EnumC11914c0.HTTP_1_1).m71609g(504).m71614l("Unsatisfiable Request (only-if-cached)").m71604b(C12875e.f58643d).m71621s(-1L).m71618p(System.currentTimeMillis()).m71605c();
         }
-        if (c11918e0 == null) {
-            return c11922g0.m71589A().m71606d(m78854e(c11922g0)).m71605c();
+        if (HttpRequestBuilder == null) {
+            return HttpResponseBuilder.m71589A().m71606d(m78854e(HttpResponseBuilder)).m71605c();
         }
-        C11922g0 c11922g0Mo71934c = aVar.mo71934c(c11918e0);
-        if (c11922g0 != null) {
-            if (c11922g0Mo71934c.m71597u() == 304) {
-                c11922g0.m71589A().m71612j(m78851b(c11922g0.m71601y(), c11922g0Mo71934c.m71601y())).m71621s(c11922g0Mo71934c.m71594F()).m71618p(c11922g0Mo71934c.m71592D()).m71606d(m78854e(c11922g0)).m71615m(m78854e(c11922g0Mo71934c)).m71605c();
-                c11922g0Mo71934c.m71595s().close();
+        HttpResponseBuilder HttpResponseBuilderMo71934c = aVar.mo71934c(HttpRequestBuilder);
+        if (HttpResponseBuilder != null) {
+            if (HttpResponseBuilderMo71934c.m71597u() == 304) {
+                HttpResponseBuilder.m71589A().m71612j(m78851b(HttpResponseBuilder.m71601y(), HttpResponseBuilderMo71934c.m71601y())).m71621s(HttpResponseBuilderMo71934c.m71594F()).m71618p(HttpResponseBuilderMo71934c.m71592D()).m71606d(m78854e(HttpResponseBuilder)).m71615m(m78854e(HttpResponseBuilderMo71934c)).m71605c();
+                HttpResponseBuilderMo71934c.m71595s().close();
                 throw null;
             }
-            C12875e.m77250g(c11922g0.m71595s());
+            C12875e.m77250g(HttpResponseBuilder.m71595s());
         }
-        return c11922g0Mo71934c.m71589A().m71606d(m78854e(c11922g0)).m71615m(m78854e(c11922g0Mo71934c)).m71605c();
+        return HttpResponseBuilderMo71934c.m71589A().m71606d(m78854e(HttpResponseBuilder)).m71615m(m78854e(HttpResponseBuilderMo71934c)).m71605c();
     }
 }

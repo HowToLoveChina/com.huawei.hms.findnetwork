@@ -14,8 +14,8 @@ import p208cq.C8941i;
 
 /* renamed from: com.huawei.hms.locationSdk.k */
 /* loaded from: classes8.dex */
-public class C5728k extends AbstractC5696b<C5750r0, Location> {
-    public C5728k(String str, String str2, String str3, String str4) {
+public class GetLastLocationTaskApiCall extends AbstractC5696b<C5750r0, Location> {
+    public GetLastLocationTaskApiCall(String str, String str2, String str3, String str4) {
         super(str, str2, str3, str4);
     }
 

@@ -2,8 +2,8 @@ package p781xn;
 
 import java.io.IOException;
 import okhttp3.AbstractC11920f0;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import org.json.JSONObject;
 import p015ak.C0209d;
 import p015ak.C0228m0;
@@ -24,15 +24,15 @@ public class C13837a extends C13838b {
     }
 
     @Override // p781xn.C13838b, com.huawei.hicloud.okhttp.callback.AbstractC4975a
-    public void prepare(C11918e0.a aVar) {
+    public void prepare(HttpRequestBuilder.a aVar) {
         super.prepare(aVar);
-        aVar.m71574a("x-hw-device-id", C0209d.m1209S1(C0228m0.m1597b().m1599c()));
-        aVar.m71574a("x-hw-device-type", C0209d.m1209S1("6"));
+        aVar.addHeader("x-hw-device-id", C0209d.m1209S1(C0228m0.m1597b().m1599c()));
+        aVar.addHeader("x-hw-device-type", C0209d.m1209S1("6"));
     }
 
     @Override // com.huawei.hicloud.okhttp.callback.AbstractC4975a
-    public Void onResponse(C11922g0 c11922g0) {
+    public Void onResponse(HttpResponseBuilder HttpResponseBuilder) {
         AbstractC10896a.m65885d("UBAAnalyzeAnonymousCallback", "UBAAnalyzeAnonymousCallback--onResponse");
-        return super.onResponse(c11922g0);
+        return super.onResponse(HttpResponseBuilder);
     }
 }

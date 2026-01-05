@@ -4,8 +4,8 @@ import com.huawei.hms.network.embedded.C6069r1;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import okhttp3.C11917e;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import okhttp3.C11955v;
 import p693ux.C13279d;
 import p693ux.C13280e;
@@ -16,10 +16,10 @@ import sx.AbstractC12871a;
 public final class C13099b {
 
     /* renamed from: a */
-    public final C11918e0 f59489a;
+    public final HttpRequestBuilder f59489a;
 
     /* renamed from: b */
-    public final C11922g0 f59490b;
+    public final HttpResponseBuilder f59490b;
 
     /* renamed from: tx.b$a */
     public static class a {
@@ -28,10 +28,10 @@ public final class C13099b {
         public final long f59491a;
 
         /* renamed from: b */
-        public final C11918e0 f59492b;
+        public final HttpRequestBuilder f59492b;
 
         /* renamed from: c */
-        public final C11922g0 f59493c;
+        public final HttpResponseBuilder f59493c;
 
         /* renamed from: d */
         public Date f59494d;
@@ -60,15 +60,15 @@ public final class C13099b {
         /* renamed from: l */
         public int f59502l;
 
-        public a(long j10, C11918e0 c11918e0, C11922g0 c11922g0) {
+        public a(long j10, HttpRequestBuilder HttpRequestBuilder, HttpResponseBuilder HttpResponseBuilder) {
             this.f59502l = -1;
             this.f59491a = j10;
-            this.f59492b = c11918e0;
-            this.f59493c = c11922g0;
-            if (c11922g0 != null) {
-                this.f59499i = c11922g0.m71594F();
-                this.f59500j = c11922g0.m71592D();
-                C11955v c11955vM71601y = c11922g0.m71601y();
+            this.f59492b = HttpRequestBuilder;
+            this.f59493c = HttpResponseBuilder;
+            if (HttpResponseBuilder != null) {
+                this.f59499i = HttpResponseBuilder.m71594F();
+                this.f59500j = HttpResponseBuilder.m71592D();
+                C11955v c11955vM71601y = HttpResponseBuilder.m71601y();
                 int iM71857j = c11955vM71601y.m71857j();
                 for (int i10 = 0; i10 < iM71857j; i10++) {
                     String strM71854e = c11955vM71601y.m71854e(i10);
@@ -91,8 +91,8 @@ public final class C13099b {
         }
 
         /* renamed from: e */
-        public static boolean m78856e(C11918e0 c11918e0) {
-            return (c11918e0.m71565e(C6069r1.b.f27986o) == null && c11918e0.m71565e(C6069r1.b.f27985n) == null) ? false : true;
+        public static boolean m78856e(HttpRequestBuilder HttpRequestBuilder) {
+            return (HttpRequestBuilder.m71565e(C6069r1.b.f27986o) == null && HttpRequestBuilder.m71565e(C6069r1.b.f27985n) == null) ? false : true;
         }
 
         /* renamed from: a */
@@ -162,7 +162,7 @@ public final class C13099b {
                 if (!c11917eM71596t.m71554h()) {
                     long j10 = millis2 + jM78857a;
                     if (j10 < millis + jM78858b) {
-                        C11922g0.a aVarM71589A = this.f59493c.m71589A();
+                        HttpResponseBuilder.a aVarM71589A = this.f59493c.m71589A();
                         if (j10 >= jM78858b) {
                             aVarM71589A.m71603a("Warning", "110 HttpURLConnection \"Response is stale\"");
                         }
@@ -199,9 +199,9 @@ public final class C13099b {
         }
     }
 
-    public C13099b(C11918e0 c11918e0, C11922g0 c11922g0) {
-        this.f59489a = c11918e0;
-        this.f59490b = c11922g0;
+    public C13099b(HttpRequestBuilder HttpRequestBuilder, HttpResponseBuilder HttpResponseBuilder) {
+        this.f59489a = HttpRequestBuilder;
+        this.f59490b = HttpResponseBuilder;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:31:0x0056, code lost:
@@ -213,7 +213,7 @@ public final class C13099b {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public static boolean m78855a(okhttp3.C11922g0 r3, okhttp3.C11918e0 r4) {
+    public static boolean m78855a(okhttp3.HttpResponseBuilder r3, okhttp3.HttpRequestBuilder r4) {
         /*
             int r0 = r3.m71597u()
             r1 = 200(0xc8, float:2.8E-43)

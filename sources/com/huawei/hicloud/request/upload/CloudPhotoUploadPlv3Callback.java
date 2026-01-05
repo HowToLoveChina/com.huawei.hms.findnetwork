@@ -10,8 +10,8 @@ import java.io.InterruptedIOException;
 import java.io.RandomAccessFile;
 import java.util.Map;
 import okhttp3.AbstractC11920f0;
-import okhttp3.C11910a0;
-import okhttp3.C11918e0;
+import okhttp3.MimeClass;
+import okhttp3.HttpRequestBuilder;
 import p022ay.InterfaceC1055e;
 import p336he.C10160k;
 import p514o9.C11839m;
@@ -34,8 +34,8 @@ public class CloudPhotoUploadPlv3Callback extends UploadCallback {
             }
 
             @Override // okhttp3.AbstractC11920f0
-            public C11910a0 contentType() {
-                return C11910a0.m71445d(FileBinary.HEAD_VALUE_CONTENT_TYPE_OCTET_STREAM);
+            public MimeClass contentType() {
+                return MimeClass.m71445d(FileBinary.HEAD_VALUE_CONTENT_TYPE_OCTET_STREAM);
             }
 
             @Override // okhttp3.AbstractC11920f0
@@ -89,7 +89,7 @@ public class CloudPhotoUploadPlv3Callback extends UploadCallback {
     }
 
     @Override // com.huawei.hicloud.request.upload.UploadCallback, com.huawei.hicloud.request.okhttp.request.AbstractC4994a, com.huawei.hicloud.request.okhttp.callback.AbstractC4992a
-    public void prepare(C11918e0.a aVar) {
+    public void prepare(HttpRequestBuilder.a aVar) {
         Map<String, String> map = this.headers;
         if (map != null) {
             for (Map.Entry<String, String> entry : map.entrySet()) {

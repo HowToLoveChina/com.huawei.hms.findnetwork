@@ -16,8 +16,8 @@ import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import okhttp3.AbstractC11920f0;
 import okhttp3.C11912b0;
-import okhttp3.C11918e0;
-import okhttp3.C11922g0;
+import okhttp3.HttpRequestBuilder;
+import okhttp3.HttpResponseBuilder;
 import okhttp3.C11926i0;
 import okhttp3.C11958y;
 import okhttp3.InterfaceC11959z;
@@ -41,54 +41,54 @@ public final class C13285j implements InterfaceC11959z {
 
     @Override // okhttp3.InterfaceC11959z
     /* renamed from: a */
-    public C11922g0 mo71677a(InterfaceC11959z.a aVar) throws IOException {
+    public HttpResponseBuilder mo71677a(InterfaceC11959z.a aVar) throws IOException {
         C11932f c11932fMo71501f;
-        C11918e0 c11918e0M79730b;
-        C11918e0 c11918e0Request = aVar.request();
+        HttpRequestBuilder HttpRequestBuilderM79730b;
+        HttpRequestBuilder HttpRequestBuilderRequest = aVar.request();
         C13282g c13282g = (C13282g) aVar;
         C11941o c11941oM79726g = c13282g.m79726g();
         StringBuffer stringBuffer = new StringBuffer("{");
         int i10 = 0;
-        C11922g0 c11922g0 = null;
+        HttpResponseBuilder HttpResponseBuilder = null;
         while (true) {
-            c11941oM79726g.prepareToConnect(c11918e0Request);
+            c11941oM79726g.prepareToConnect(HttpRequestBuilderRequest);
             if (c11941oM79726g.isCanceled()) {
                 throw new IOException("Canceled");
             }
             try {
                 try {
-                    C11922g0 c11922g0M79725f = c13282g.m79725f(c11918e0Request, c11941oM79726g, null);
-                    if (c11922g0 != null) {
-                        c11922g0M79725f = c11922g0M79725f.m71589A().m71616n(c11922g0.m71589A().m71604b(null).m71605c()).m71605c();
+                    HttpResponseBuilder HttpResponseBuilderM79725f = c13282g.m79725f(HttpRequestBuilderRequest, c11941oM79726g, null);
+                    if (HttpResponseBuilder != null) {
+                        HttpResponseBuilderM79725f = HttpResponseBuilderM79725f.m71589A().m71616n(HttpResponseBuilder.m71589A().m71604b(null).m71605c()).m71605c();
                     }
-                    c11922g0 = c11922g0M79725f;
-                    c11932fMo71501f = AbstractC12871a.f58633a.mo71501f(c11922g0);
-                    c11918e0M79730b = m79730b(c11922g0, c11932fMo71501f != null ? c11932fMo71501f.m71683c().mo71709a() : null);
+                    HttpResponseBuilder = HttpResponseBuilderM79725f;
+                    c11932fMo71501f = AbstractC12871a.f58633a.mo71501f(HttpResponseBuilder);
+                    HttpRequestBuilderM79730b = m79730b(HttpResponseBuilder, c11932fMo71501f != null ? c11932fMo71501f.m71683c().mo71709a() : null);
                 } catch (IOException e10) {
-                    if (!m79732d(e10, c11941oM79726g, true ^ (e10 instanceof C13652a), c11918e0Request)) {
+                    if (!m79732d(e10, c11941oM79726g, true ^ (e10 instanceof C13652a), HttpRequestBuilderRequest)) {
                         throw e10;
                     }
                 } catch (C11939m e11) {
-                    if (!m79732d(e11.m71757d(), c11941oM79726g, false, c11918e0Request)) {
+                    if (!m79732d(e11.m71757d(), c11941oM79726g, false, HttpRequestBuilderRequest)) {
                         throw e11.m71756c();
                     }
                 }
-                if (c11918e0M79730b == null) {
+                if (HttpRequestBuilderM79730b == null) {
                     if (c11932fMo71501f != null && c11932fMo71501f.m71688h()) {
                         c11941oM79726g.timeoutEarlyExit();
                     }
                     if (stringBuffer.length() <= 1) {
-                        return c11922g0;
+                        return HttpResponseBuilder;
                     }
                     StringBuffer stringBufferDelete = stringBuffer.delete(stringBuffer.length() - 2, stringBuffer.length());
                     stringBufferDelete.append("}");
-                    return c11922g0.m71589A().m71603a(C6096t2.f28331c0, stringBufferDelete.toString()).m71605c();
+                    return HttpResponseBuilder.m71589A().m71603a(C6096t2.f28331c0, stringBufferDelete.toString()).m71605c();
                 }
-                AbstractC11920f0 abstractC11920f0M71562b = c11918e0M79730b.m71562b();
+                AbstractC11920f0 abstractC11920f0M71562b = HttpRequestBuilderM79730b.m71562b();
                 if (abstractC11920f0M71562b != null && abstractC11920f0M71562b.isOneShot()) {
-                    return c11922g0;
+                    return HttpResponseBuilder;
                 }
-                C12875e.m77250g(c11922g0.m71595s());
+                C12875e.m77250g(HttpResponseBuilder.m71595s());
                 if (c11941oM79726g.hasExchange()) {
                     c11932fMo71501f.m71685e();
                 }
@@ -96,13 +96,13 @@ public final class C13285j implements InterfaceC11959z {
                 if (i10 > 20) {
                     throw new ProtocolException("Too many follow-up requests: " + i10);
                 }
-                if (c11922g0.m71597u() >= 300 && c11922g0.m71597u() < 400) {
-                    stringBuffer.append(c11918e0M79730b.m71573m().m71904l());
+                if (HttpResponseBuilder.m71597u() >= 300 && HttpResponseBuilder.m71597u() < 400) {
+                    stringBuffer.append(HttpRequestBuilderM79730b.m71573m().m71904l());
                     stringBuffer.append("=");
-                    stringBuffer.append(c11922g0.m71597u());
+                    stringBuffer.append(HttpResponseBuilder.m71597u());
                     stringBuffer.append(", ");
                 }
-                c11918e0Request = c11918e0M79730b;
+                HttpRequestBuilderRequest = HttpRequestBuilderM79730b;
             } finally {
                 c11941oM79726g.exchangeDoneDueToException();
             }
@@ -110,31 +110,31 @@ public final class C13285j implements InterfaceC11959z {
     }
 
     /* renamed from: b */
-    public final C11918e0 m79730b(C11922g0 c11922g0, C11926i0 c11926i0) throws IOException {
+    public final HttpRequestBuilder m79730b(HttpResponseBuilder HttpResponseBuilder, C11926i0 c11926i0) throws IOException {
         String strM71599w;
         C11958y c11958yM71895A;
-        if (c11922g0 == null) {
+        if (HttpResponseBuilder == null) {
             throw new IllegalStateException();
         }
-        int iM71597u = c11922g0.m71597u();
-        String strM71569i = c11922g0.m71593E().m71569i();
+        int iM71597u = HttpResponseBuilder.m71597u();
+        String strM71569i = HttpResponseBuilder.m71593E().m71569i();
         if (iM71597u == 307 || iM71597u == 308) {
             if (!strM71569i.equals("GET") && !strM71569i.equals("HEAD")) {
                 return null;
             }
         } else {
             if (iM71597u == 401) {
-                return this.f60001a.m71474c().mo71524c(c11926i0, c11922g0);
+                return this.f60001a.m71474c().mo71524c(c11926i0, HttpResponseBuilder);
             }
             if (iM71597u == 503) {
-                if ((c11922g0.m71590B() == null || c11922g0.m71590B().m71597u() != 503) && m79734f(c11922g0, Integer.MAX_VALUE) == 0) {
-                    return c11922g0.m71593E();
+                if ((HttpResponseBuilder.m71590B() == null || HttpResponseBuilder.m71590B().m71597u() != 503) && m79734f(HttpResponseBuilder, Integer.MAX_VALUE) == 0) {
+                    return HttpResponseBuilder.m71593E();
                 }
                 return null;
             }
             if (iM71597u == 407) {
                 if ((c11926i0 != null ? c11926i0.m71639b() : this.f60001a.m71465D()).type() == Proxy.Type.HTTP) {
-                    return this.f60001a.m71466E().mo71524c(c11926i0, c11922g0);
+                    return this.f60001a.m71466E().mo71524c(c11926i0, HttpResponseBuilder);
                 }
                 throw new ProtocolException("Received HTTP_PROXY_AUTH (407) code while not using proxy");
             }
@@ -142,12 +142,12 @@ public final class C13285j implements InterfaceC11959z {
                 if (!this.f60001a.m71469H()) {
                     return null;
                 }
-                AbstractC11920f0 abstractC11920f0M71562b = c11922g0.m71593E().m71562b();
+                AbstractC11920f0 abstractC11920f0M71562b = HttpResponseBuilder.m71593E().m71562b();
                 if (abstractC11920f0M71562b != null && abstractC11920f0M71562b.isOneShot()) {
                     return null;
                 }
-                if ((c11922g0.m71590B() == null || c11922g0.m71590B().m71597u() != 408) && m79734f(c11922g0, 0) <= 0) {
-                    return c11922g0.m71593E();
+                if ((HttpResponseBuilder.m71590B() == null || HttpResponseBuilder.m71590B().m71597u() != 408) && m79734f(HttpResponseBuilder, 0) <= 0) {
+                    return HttpResponseBuilder.m71593E();
                 }
                 return null;
             }
@@ -161,19 +161,19 @@ public final class C13285j implements InterfaceC11959z {
                     return null;
             }
         }
-        if (!this.f60001a.m71485p() || (strM71599w = c11922g0.m71599w(ActivityRecognitionConstants.LOCATION_MODULE)) == null || (c11958yM71895A = c11922g0.m71593E().m71573m().m71895A(strM71599w)) == null) {
+        if (!this.f60001a.m71485p() || (strM71599w = HttpResponseBuilder.m71599w(ActivityRecognitionConstants.LOCATION_MODULE)) == null || (c11958yM71895A = HttpResponseBuilder.m71593E().m71573m().m71895A(strM71599w)) == null) {
             return null;
         }
-        if (!c11958yM71895A.m71896B().equals(c11922g0.m71593E().m71573m().m71896B()) && !this.f60001a.m71486q()) {
+        if (!c11958yM71895A.m71896B().equals(HttpResponseBuilder.m71593E().m71573m().m71896B()) && !this.f60001a.m71486q()) {
             return null;
         }
-        C11918e0.a aVarM71570j = c11922g0.m71593E().m71570j();
+        HttpRequestBuilder.a aVarM71570j = HttpResponseBuilder.m71593E().m71570j();
         if (C13281f.m79720a(strM71569i)) {
             boolean zM79722c = C13281f.m79722c(strM71569i);
             if (C13281f.m79721b(strM71569i)) {
                 aVarM71570j.m71580g("GET", null);
             } else {
-                aVarM71570j.m71580g(strM71569i, zM79722c ? c11922g0.m71593E().m71562b() : null);
+                aVarM71570j.m71580g(strM71569i, zM79722c ? HttpResponseBuilder.m71593E().m71562b() : null);
             }
             if (!zM79722c) {
                 aVarM71570j.m71583j("Transfer-Encoding");
@@ -181,7 +181,7 @@ public final class C13285j implements InterfaceC11959z {
                 aVarM71570j.m71583j("Content-Type");
             }
         }
-        if (!C12875e.m77235F(c11922g0.m71593E().m71573m(), c11958yM71895A)) {
+        if (!C12875e.m77235F(HttpResponseBuilder.m71593E().m71573m(), c11958yM71895A)) {
             aVarM71570j.m71583j(FeedbackWebConstants.AUTHORIZATION);
         }
         return aVarM71570j.m71588o(c11958yM71895A).m71575b();
@@ -196,25 +196,25 @@ public final class C13285j implements InterfaceC11959z {
     }
 
     /* renamed from: d */
-    public final boolean m79732d(IOException iOException, C11941o c11941o, boolean z10, C11918e0 c11918e0) {
+    public final boolean m79732d(IOException iOException, C11941o c11941o, boolean z10, HttpRequestBuilder HttpRequestBuilder) {
         if (c11941o.getExchangeFinder() != null && c11941o.getSelection() != null) {
             c11941o.getSelection().m71774h();
         }
         if (this.f60001a.m71469H()) {
-            return !(z10 && m79733e(iOException, c11918e0)) && m79731c(iOException, z10) && c11941o.canRetry();
+            return !(z10 && m79733e(iOException, HttpRequestBuilder)) && m79731c(iOException, z10) && c11941o.canRetry();
         }
         return false;
     }
 
     /* renamed from: e */
-    public final boolean m79733e(IOException iOException, C11918e0 c11918e0) {
-        AbstractC11920f0 abstractC11920f0M71562b = c11918e0.m71562b();
+    public final boolean m79733e(IOException iOException, HttpRequestBuilder HttpRequestBuilder) {
+        AbstractC11920f0 abstractC11920f0M71562b = HttpRequestBuilder.m71562b();
         return (abstractC11920f0M71562b != null && abstractC11920f0M71562b.isOneShot()) || (iOException instanceof FileNotFoundException);
     }
 
     /* renamed from: f */
-    public final int m79734f(C11922g0 c11922g0, int i10) {
-        String strM71599w = c11922g0.m71599w(C6055q0.f27799f);
+    public final int m79734f(HttpResponseBuilder HttpResponseBuilder, int i10) {
+        String strM71599w = HttpResponseBuilder.m71599w(C6055q0.f27799f);
         if (strM71599w == null) {
             return i10;
         }
