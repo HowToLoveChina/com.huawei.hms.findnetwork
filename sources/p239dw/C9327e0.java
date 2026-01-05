@@ -25,7 +25,7 @@ public class C9327e0 extends AbstractC9328f {
     public Credential mo58666a(String str) throws Exception_C14389c {
         try {
             if (Integer.parseInt(new JSONObject(str).getString("expire")) == 0) {
-                return this.f46708g.genCredentialFromString(str);
+                return this.m_credential.genCredentialFromString(str);
             }
             throw new Exception_C14389c(1017L, "unenable expire.");
         } catch (NumberFormatException e10) {
@@ -67,7 +67,7 @@ public class C9327e0 extends AbstractC9328f {
         String string = sbM58651a.toString();
         C1029b.m6231b("HuksHandler", string, new Object[0]);
         if (AbstractC9328f.m58671g(errorBodyFromString.getErrorCode())) {
-            C8957b.m56706e("ucs_ec_huks_sp_key_t", 0, this.f46703b);
+            C8957b.m56706e("ucs_ec_huks_sp_key_t", 0, this.m_context);
             C1029b.m6234e("HuksHandler", "turn off huks EC CertificateChain", new Object[0]);
         }
         throw new Exception_C14389c(ConstantsAPI.AppSupportContentFlag.MMAPP_SUPPORT_XLS, string);
@@ -76,7 +76,7 @@ public class C9327e0 extends AbstractC9328f {
     @Override // p239dw.AbstractC9328f
     /* renamed from: e */
     public void mo58669e() throws Exception_C14389c {
-        Context context = this.f46703b;
+        Context context = this.m_context;
         if (!C9326e.m58664b() || C8957b.m56703b("ucs_ec_huks_sp_key_t", -1, context) == 0) {
             throw C9344n.m58700a("HuksHandler", "keyStoreCertificateChain is off. not support huks EC.", new Object[0], 1026L, "keyStoreCertificateChain is off. not support huks EC.");
         }
@@ -134,7 +134,7 @@ public class C9327e0 extends AbstractC9328f {
             r3.f46722k = r2
             r3.f46721j = r0
             r3.f46724m = r1
-            android.content.Context r0 = r8.f46703b
+            android.content.Context r0 = r8.m_context
             java.util.List r0 = com.huawei.wisesecurity.ucs.credential.nativelib.UcsLib.getPkgNameCertFP(r0)
             java.lang.String r1 = "huks"
             r3.f46723l = r1
@@ -150,7 +150,7 @@ public class C9327e0 extends AbstractC9328f {
             java.lang.Object r0 = r0.get(r5)
             java.lang.String r0 = (java.lang.String) r0
             r3.f46719h = r0
-            android.content.Context r8 = r8.f46703b
+            android.content.Context r8 = r8.m_context
             com.huawei.wisesecurity.ucs.credential.entity.EcKeyPair r8 = p239dw.C9357y.m58721a(r8)
             byte[] r0 = r8.getPublicKey()
             java.lang.String r0 = cw.C8958c.m56711c(r0, r6)

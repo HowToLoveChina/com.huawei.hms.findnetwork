@@ -1,7 +1,7 @@
 package com.baidu.location;
 
 import com.baidu.location.p065a.C1534f;
-import com.baidu.p061a.p062a.p063a.C1516a;
+import com.baidu.p061a.p062a.p063a.Base64Lib;
 import com.huawei.openalliance.p169ad.constant.Constants;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -39,7 +39,7 @@ public class Jni {
     /* renamed from: a */
     private static String m8674a(byte[] bArr) {
         try {
-            return C1516a.m8624a(bArr, Constants.UTF_8);
+            return Base64Lib.Base64Encode(bArr, Constants.UTF_8);
         } catch (UnsupportedEncodingException unused) {
             return "";
         }

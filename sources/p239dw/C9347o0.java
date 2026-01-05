@@ -32,7 +32,7 @@ public class C9347o0 extends AbstractC9328f {
     public Credential mo58666a(String str) throws Exception_C14389c {
         try {
             if (Integer.parseInt(new JSONObject(str).getString("expire")) == 0) {
-                return this.f46708g.genCredentialFromString(str);
+                return this.m_credential.genCredentialFromString(str);
             }
             throw new Exception_C14389c(1017L, "unenable expire.");
         } catch (NumberFormatException e10) {
@@ -72,7 +72,7 @@ public class C9347o0 extends AbstractC9328f {
         String string = sbM58651a.toString();
         C1029b.m6231b("KeyStoreHandler", string, new Object[0]);
         if (AbstractC9328f.m58671g(errorBodyFromString.getErrorCode())) {
-            C9326e.m58665c(this.f46703b);
+            C9326e.m58665c(this.m_context);
             C1029b.m6234e("KeyStoreHandler", "turn off android keystore CertificateChain", new Object[0]);
         }
         throw new Exception_C14389c(ConstantsAPI.AppSupportContentFlag.MMAPP_SUPPORT_XLS, string);
@@ -81,7 +81,7 @@ public class C9347o0 extends AbstractC9328f {
     @Override // p239dw.AbstractC9328f
     /* renamed from: e */
     public void mo58669e() throws Exception_C14389c {
-        Context context = this.f46703b;
+        Context context = this.m_context;
         if (!C9326e.m58664b() || C8957b.m56703b("ucs_keystore_sp_key_t", -1, context) == 0) {
             throw C9344n.m58700a("KeyStoreHandler", "keyStoreCertificateChain is off. not support keyStore RSA.", new Object[0], 1022L, "keyStoreCertificateChain is off. not support keyStore RSA.");
         }
@@ -99,11 +99,11 @@ public class C9347o0 extends AbstractC9328f {
         c9321b0.m58654b("ucs_alias_rootKey");
         Certificate[] certificateArrM58656d = c9321b0.m58656d("ucs_alias_rootKey");
         if (C9322c.m58657a(certificateArrM58656d)) {
-            C9326e.m58665c(this.f46703b);
+            C9326e.m58665c(this.m_context);
             throw new Exception_C14389c(2001L, "android keystore RSA no support software attestation root.");
         }
         String string = new C9349q("PS256", certificateArrM58656d, "AndroidKS").toString();
-        List<String> pkgNameCertFP = UcsLib.getPkgNameCertFP(this.f46703b);
+        List<String> pkgNameCertFP = UcsLib.getPkgNameCertFP(this.m_context);
         String str = this.f46706e;
         String str2 = this.f46705d;
         String str3 = pkgNameCertFP.get(0);

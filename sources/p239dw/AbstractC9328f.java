@@ -14,10 +14,10 @@ import p857zv.Exception_C14389c;
 public abstract class AbstractC9328f {
 
     /* renamed from: a */
-    public NetworkCapability f46702a;
+    public NetworkCapability m_capability;
 
     /* renamed from: b */
-    public Context f46703b;
+    public Context m_context;
 
     /* renamed from: c */
     public String f46704c;
@@ -32,12 +32,12 @@ public abstract class AbstractC9328f {
     public String f46707f;
 
     /* renamed from: g */
-    public CredentialClient f46708g;
+    public CredentialClient m_credential;
 
     public AbstractC9328f(CredentialClient credentialClient, Context context, NetworkCapability networkCapability) {
-        this.f46708g = credentialClient;
-        this.f46703b = context;
-        this.f46702a = networkCapability;
+        this.m_credential = credentialClient;
+        this.m_context = context;
+        this.m_capability = networkCapability;
     }
 
     /* renamed from: g */
@@ -56,7 +56,7 @@ public abstract class AbstractC9328f {
             this.f46705d = str2;
             this.f46706e = str3;
             this.f46707f = str4;
-            NetworkResponse networkResponsePost = this.f46702a.post(new NetworkRequest(str, C9355w.m58716b(str2, str3, str4), C9355w.m58715a(mo58670f())));
+            NetworkResponse networkResponsePost = this.m_capability.post(new NetworkRequest(str, C9355w.m58716b(str2, str3, str4), C9355w.m58715a(mo58670f())));
             int code = networkResponsePost.getCode();
             if ((code < 200 || code >= 300) && code != 400 && code != 403 && code != 500) {
                 throw new Exception_C14389c(1013L, "tsms req error, return " + networkResponsePost.getCode());

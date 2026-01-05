@@ -38,7 +38,7 @@ public class C9330g extends AbstractC9328f {
         try {
             int i10 = Integer.parseInt(new JSONObject(str).getString("expire"));
             if (i10 == 0) {
-                return this.f46708g.genCredentialFromString(str);
+                return this.m_credential.genCredentialFromString(str);
             }
             if (i10 != 1) {
                 if (i10 != 2) {
@@ -105,8 +105,8 @@ public class C9330g extends AbstractC9328f {
     @Override // p239dw.AbstractC9328f
     /* renamed from: f */
     public String mo58670f() throws Exception_C14389c {
-        int iM56703b = C8957b.m56703b("Local-C1-Version", -1, this.f46703b);
+        int iM56703b = C8957b.m56703b("Local-C1-Version", -1, this.m_context);
         C1029b.m6230a("KidHandler", "c1 version is " + iM56703b + ", so version is " + ((int) UcsLib.ucsGetSoVersion()), new Object[0]);
-        return new String(UcsLib.genReqJws(this.f46703b, this.f46705d, this.f46706e, 0, iM56703b), StandardCharsets.UTF_8);
+        return new String(UcsLib.genReqJws(this.m_context, this.f46705d, this.f46706e, 0, iM56703b), StandardCharsets.UTF_8);
     }
 }

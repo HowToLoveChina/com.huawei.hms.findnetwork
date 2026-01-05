@@ -74,7 +74,7 @@ public class C9334i {
     public final void m58680c() throws Exception_C14389c {
         this.f46727a.put(0, new C9330g(this.f46728b, this.f46729c, this.f46730d, this.f46731e));
         this.f46727a.put(1, new C9347o0(this.f46728b, this.f46729c, this.f46730d));
-        this.f46727a.put(2, new C9345n0(this.f46728b, this.f46729c, this.f46730d));
+        this.f46727a.put(2, new UcsECKeyStoreHandler(this.f46728b, this.f46729c, this.f46730d));
         this.f46727a.put(3, new C9327e0(this.f46728b, this.f46729c, this.f46730d));
     }
 }
